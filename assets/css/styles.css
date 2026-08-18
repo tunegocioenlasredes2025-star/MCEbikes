@@ -129,13 +129,10 @@ strong{color:var(--tiza);font-weight:600}
 .hdr.solid{background:rgba(20,22,26,.94);backdrop-filter:blur(12px);border-bottom-color:var(--linea)}
 .hdr__in{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut);
   display:flex;align-items:center;justify-content:space-between;gap:20px}
-/* Lockup horizontal: el emblema y el nombre en una sola linea.
-   El cliente pidio expresamente evitar "MC" arriba y "e-bikes" abajo. */
-.brand{display:flex;align-items:center;gap:11px;flex:none}
-.brand svg{height:30px;width:auto;color:var(--hueso)}
-.brand .tx{display:flex;align-items:center;line-height:1}
-.brand .tx b{font-family:var(--d);font-weight:900;font-size:19px;letter-spacing:-.005em;
-  word-spacing:.18em;white-space:nowrap}
+/* El logo oficial ya es un lockup horizontal completo: emblema, barra y
+   nombre en una sola pieza. No lleva texto HTML al lado. */
+.brand{display:flex;align-items:center;flex:none}
+.brand svg{height:34px;width:auto;color:var(--hueso)}
 
 .nav{display:flex;align-items:center;gap:2px}
 .nav a{font-family:var(--t);font-size:14.5px;font-weight:500;padding:9px 13px;border-radius:var(--r);

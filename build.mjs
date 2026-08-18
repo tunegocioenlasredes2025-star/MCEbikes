@@ -39,11 +39,11 @@ const ico = (p, w = 1.6) => `<svg viewBox="0 0 24 24" fill="none" stroke="curren
 const waIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.01zm-7.01 15.24h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.24 8.24c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.98-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>`;
 
 /* ---------- Logo ----------
-   Emblema aprobado por el cliente (ago-2026): ruta abierta con el ciclista.
-   PENDIENTE: reemplazar por el archivo definitivo que pasa el cliente.
-   El SVG hereda currentColor, asi que toma el color del contexto. */
-const EMBLEMA = `<path d="M120.5 115.6 L122 115.3 L123.4 114.9 L124.9 114.5 L126.3 114 L127.8 113.6 L129.5 113.9 L131.4 114.5 L133.3 115.1 L135.3 115.7 L137.2 116.3 L139.2 116.8 L141.3 117.3 L143.3 117.8 L145.4 118.2 L147.5 118.6 L149.7 119 L149.7 119 L148.5 120.9 L147.3 122.7 L146.1 124.5 L144.9 126.4 L143.7 128.2 L142.4 130 L141.1 131.7 L139.8 133.5 L138.5 135.3 L137.2 137 L135.7 138.3 L133.9 138.9 L132.2 139.4 L130.4 139.9 L128.7 140.4 L127 140.8 Z" fill="currentColor"/><path d="M234.8 44.3 L232.1 45.8 L229.5 47.4 L226.8 49 L224.4 51 L222.4 53.6 L220.4 56.2 L218.4 58.8 L216.4 61.5 L214.5 64.2 L212.6 66.9 L210.7 69.7 L208.9 72.5 L207.1 75.3 L205.4 78.2 L203.7 81.1 L202 84 L202 84 L205.1 82.6 L208.1 81.4 L211.2 80.1 L214.2 79 L217.2 77.9 L220.2 76.9 L223.2 75.9 L226.2 75.1 L229.2 74.2 L232.1 73.5 L235 72.8 L237.9 72.2 L240.5 71.1 L242.8 69.7 L245.1 68.3 L247.4 67 Z" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="butt" stroke-linejoin="round"><path d="M132.3 125.8C83.6 141.4 42 127.5 42 84C42 20 132 20 202 84C272 148 362 148 362 84C362 29 295.4 21.3 232.3 60.9"/></g><g transform="translate(68,75.75) scale(0.5)"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="62" r="16" stroke-width="7"/><circle cx="98" cy="62" r="16" stroke-width="7"/><g stroke-width="7"><path d="M22 62 L38 34 L84 30"/><path d="M38 34 L58 62 L22 62"/><path d="M84 30 L98 62"/><path d="M76 24 H92"/><path d="M32 28 H46"/></g><g stroke-width="10"><path d="M44 28 L64 16"/><path d="M64 16 L84 28"/><path d="M44 28 L56 44 L58 60"/></g></g><circle cx="70" cy="7" r="9" fill="currentColor"/></g>`;
-const LOGO = (h = 26) => `<svg height="${h}" viewBox="12 12 378 144" fill="none" aria-hidden="true">${EMBLEMA}</svg>`;
+   Lockup horizontal del logo OFICIAL (Opcion 4, elegida por el cliente el
+   18-ago-2026): la ruta abierta con el ciclista + M(rayo)C E-BIKES.
+   Va en contornos, asi que no depende de tener la tipografia instalada.
+   La ruta hereda currentColor; el rayo queda siempre en ambar. */
+const LOGO = (h = 30) => `<svg height="${h}" viewBox="0 0 761 121" fill="none" aria-hidden="true"><g transform="scale(0.72)"><path d="M120.5 115.6 L122 115.3 L123.4 114.9 L124.9 114.5 L126.3 114 L127.8 113.6 L129.5 113.9 L131.4 114.5 L133.3 115.1 L135.3 115.7 L137.2 116.3 L139.2 116.8 L141.3 117.3 L143.3 117.8 L145.4 118.2 L147.5 118.6 L149.7 119 L149.7 119 L148.5 120.9 L147.3 122.7 L146.1 124.5 L144.9 126.4 L143.7 128.2 L142.4 130 L141.1 131.7 L139.8 133.5 L138.5 135.3 L137.2 137 L135.7 138.3 L133.9 138.9 L132.2 139.4 L130.4 139.9 L128.7 140.4 L127 140.8 Z" fill="currentColor"/><path d="M234.8 44.3 L232.1 45.8 L229.5 47.4 L226.8 49 L224.4 51 L222.4 53.6 L220.4 56.2 L218.4 58.8 L216.4 61.5 L214.5 64.2 L212.6 66.9 L210.7 69.7 L208.9 72.5 L207.1 75.3 L205.4 78.2 L203.7 81.1 L202 84 L202 84 L205.1 82.6 L208.1 81.4 L211.2 80.1 L214.2 79 L217.2 77.9 L220.2 76.9 L223.2 75.9 L226.2 75.1 L229.2 74.2 L232.1 73.5 L235 72.8 L237.9 72.2 L240.5 71.1 L242.8 69.7 L245.1 68.3 L247.4 67 Z" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="butt" stroke-linejoin="round"><path d="M132.3 125.8C83.6 141.4 42 127.5 42 84C42 20 132 20 202 84C272 148 362 148 362 84C362 29 295.4 21.3 232.3 60.9"/></g><g transform="translate(68,75.75) scale(0.5)"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="62" r="16" stroke-width="7"/><circle cx="98" cy="62" r="16" stroke-width="7"/><g stroke-width="7"><path d="M22 62 L38 34 L84 30"/><path d="M38 34 L58 62 L22 62"/><path d="M84 30 L98 62"/><path d="M76 24 H92"/><path d="M32 28 H46"/></g><g stroke-width="10"><path d="M44 28 L64 16"/><path d="M64 16 L84 28"/><path d="M44 28 L56 44 L58 60"/></g></g><circle cx="70" cy="7" r="9" fill="currentColor"/></g></g><rect x="307.3" y="24.6" width="3.2" height="71.8" fill="currentColor" opacity=".4"/><g fill="currentColor"><g transform="translate(338.520,87.78) scale(0.078000,-0.078000)"><path d="M76 0V700H156L447 221H395L686 700H766V0H651V498L677 491L461 136H381L165 491L191 498V0Z"/></g></g><g transform="translate(407.32,24.05) scale(1.1578)"><path d="M20 0 L0 38 h13 l-8 26 l21 -39 h-13 z" fill="#FFB300"/></g><g fill="currentColor"><g transform="translate(440.539,87.78) scale(0.078000,-0.078000)"><path d="M394 -10Q318 -10 253.5 17.5Q189 45 141.0 94.5Q93 144 67.0 209.5Q41 275 41 350Q41 425 67.0 490.5Q93 556 141.0 605.0Q189 654 253.5 682.0Q318 710 394 710Q479 710 541.0 682.0Q603 654 651 606L573 528Q542 562 497.5 581.0Q453 600 394 600Q342 600 299.0 582.0Q256 564 224.5 530.5Q193 497 176.0 451.0Q159 405 159 350Q159 295 176.0 249.0Q193 203 224.5 169.5Q256 136 299.0 118.0Q342 100 394 100Q458 100 502.5 119.5Q547 139 578 173L656 95Q608 46 543.0 18.0Q478 -10 394 -10Z"/></g></g><g fill="currentColor"><g transform="translate(517.213,87.78) scale(0.056160,-0.056160)"><path d="M76 0V700H191V0ZM155 0V105H547V0ZM155 307V408H513V307ZM155 595V700H542V595Z"/></g><g transform="translate(554.560,87.78) scale(0.056160,-0.056160)"><path d="M61 203V307H400V203Z"/></g><g transform="translate(584.661,87.78) scale(0.056160,-0.056160)"><path d="M155 0V100H356Q409 100 438.0 133.0Q467 166 467 209Q467 238 454.0 263.0Q441 288 416.0 303.0Q391 318 356 318H155V418H339Q384 418 411.0 441.0Q438 464 438 509Q438 554 411.0 577.0Q384 600 339 600H155V700H342Q413 700 460.0 674.0Q507 648 530.0 607.0Q553 566 553 519Q553 464 522.5 422.0Q492 380 433 354L442 390Q508 363 545.0 314.0Q582 265 582 199Q582 145 555.5 100.0Q529 55 477.5 27.5Q426 0 351 0ZM76 0V700H191V0Z"/></g><g transform="translate(623.805,87.78) scale(0.056160,-0.056160)"><path d="M76 0V700H191V0Z"/></g><g transform="translate(643.012,87.78) scale(0.056160,-0.056160)"><path d="M499 0 175 365 492 700H639L289 336V399L649 0ZM76 0V700H191V0Z"/></g><g transform="translate(684.963,87.78) scale(0.056160,-0.056160)"><path d="M76 0V700H191V0ZM155 0V105H547V0ZM155 307V408H513V307ZM155 595V700H542V595Z"/></g><g transform="translate(722.309,87.78) scale(0.056160,-0.056160)"><path d="M271 -10Q188 -10 130.0 20.0Q72 50 26 108L104 186Q133 144 173.0 120.5Q213 97 275 97Q333 97 367.5 121.0Q402 145 402 187Q402 222 384.0 244.0Q366 266 336.5 280.5Q307 295 271.5 306.5Q236 318 200.5 332.5Q165 347 135.5 369.0Q106 391 88.0 426.0Q70 461 70 515Q70 577 100.5 620.5Q131 664 183.0 687.0Q235 710 299 710Q368 710 422.5 683.0Q477 656 511 614L433 536Q403 570 370.5 586.5Q338 603 296 603Q244 603 214.5 582.0Q185 561 185 523Q185 491 203.0 471.5Q221 452 250.5 438.5Q280 425 315.5 413.0Q351 401 386.5 386.0Q422 371 451.5 347.5Q481 324 499.0 287.0Q517 250 517 194Q517 100 450.5 45.0Q384 -10 271 -10Z"/></g></g></svg>`;
 
 /* Tagline oficial (anexo del Manual de Marca v1.0) */
 const TAGLINE = "Tu mundo se mueve con vos";
@@ -56,47 +56,47 @@ const P = [
   {
     slug: "v20-pro", name: "SW V20 Pro", ord: 1,
     cat: "urbana destacada",
-    tagline: "La urbana que hace todo",
-    lead: "El equilibrio justo entre potencia, autonomía y precio. Es la que más vendemos y la que recomendamos si es tu primera e-bike.",
-    price: 1890000, old: null, badge: "Más vendida",
+    tagline: "La más elegida",
+    lead: "Tu punto de partida perfecto: potencia real para moverte todos los días, con la autonomía justa para recorrer tu territorio sin pensar en la batería.",
+    price: 1890000, old: null, badge: "Más elegida",
     motor: "1000W", bat: "48V / 15,6Ah", aut: "50 a 65 km", vel: "32 km/h",
     autNum: 65, carga: "150 kg", recarga: "4 a 6 horas", peso: "40 kg aprox.",
     img: "v20-negra", gal: ["v20-negra", "v20-azul", "v20-rosa", "v20-perfil"],
-    uso: "Ciudad, trayectos de hasta 25 km por día",
+    uso: "Recorridos cortos, ir y venir del pueblo o del casco, hasta 25 km por día",
     destacado: true,
     extras: ["Panel digital a color", "Arranque por NFC", "Alarma integrada", "Frenos a disco adelante y atrás", "Llantas fat Kenda 20\"", "Amortiguación delantera"],
   },
   {
     slug: "v29-pro", name: "SW V29 Pro", ord: 2,
     cat: "larga-distancia destacada",
-    tagline: "Doble batería, el doble de recorrido",
-    lead: "Dos baterías intercambiables para los que hacen muchos kilómetros por día. Si trabajás arriba de la bici, es esta.",
+    tagline: "Doble batería, doble territorio",
+    lead: "Cuando un solo tanque se te queda corto. Con doble batería y hasta 110 km de autonomía, tu MC te acompaña en las jornadas más largas, sin volver a cargar en el camino.",
     price: 2340000, old: null, badge: "Doble batería",
     motor: "1000W", bat: "48V / 15,6Ah ×2", aut: "hasta 110 km", vel: "32 km/h",
     autNum: 110, carga: "150 kg", recarga: "4 a 6 horas", peso: "45 kg aprox.",
     img: "v29-negra", gal: ["v29-negra", "v29-lateral", "v29-detalle", "v20-perfil"],
-    uso: "Delivery, trabajo y distancias largas",
+    uso: "Recorrer el campo de punta a punta, todo el día",
     destacado: true,
     extras: ["Dos baterías intercambiables", "Panel digital", "Arranque por NFC", "Portaequipaje reforzado", "Frenos a disco", "Amortiguación delantera"],
   },
   {
     slug: "v40", name: "SW V40", ord: 3,
     cat: "urbana",
-    tagline: "Más batería, más aguante",
-    lead: "Batería de mayor capacidad y equipamiento completo de luces. Ideal si hacés recorridos medios y querés no pensar en la carga.",
+    tagline: "Uso mixto",
+    lead: "Para el que se mueve todos los días entre el pueblo y el campo, y necesita una MC que rinda parejo en los dos terrenos.",
     price: 2150000, old: null, badge: null,
     motor: "1000W", bat: "48V / 18,2Ah", aut: "hasta 75 km", vel: "32 km/h",
     autNum: 75, carga: "150 kg", recarga: "5 a 6 horas", peso: "47,7 kg",
     img: "v40-negra", gal: ["v40-negra", "v40-camo", "v8-negra", "v8-frente"],
-    uso: "Uso mixto ciudad y ruta corta",
+    uso: "Uso mixto entre el pueblo y el campo",
     destacado: false,
     extras: ["Batería de 18,2Ah", "Señalización LED completa", "Panel digital", "Arranque por NFC", "Frenos a disco", "Llantas fat Kenda"],
   },
   {
     slug: "s20-pro", name: "SW S20 Pro", ord: 4,
     cat: "potencia",
-    tagline: "1800W: la más potente",
-    lead: "El tope de gama en potencia. Para quien busca la mayor respuesta en aceleración y subidas exigentes.",
+    tagline: "La más potente",
+    lead: "Para el que quiere sentir toda la fuerza: 1800W de potencia para subidas exigentes y cargas pesadas, sin perder un km/h de rendimiento.",
     price: 2590000, old: null, badge: "Más potente",
     motor: "1800W", bat: "48V / 16,2Ah", aut: "hasta 75 km", vel: "32 km/h",
     autNum: 75, carga: "138 kg", recarga: "5 a 6 horas", peso: "45 kg aprox.",
@@ -152,8 +152,7 @@ function header(active) {
 <header class="hdr">
   <div class="hdr__in">
     <a href="index.html" class="brand" aria-label="MC Ebikes — Inicio">
-      ${LOGO(30)}
-      <span class="tx"><b>MC E-BIKES</b></span>
+      ${LOGO(34)}
     </a>
     <nav class="nav" aria-label="Principal">
       ${links.map(([k, t, h]) => `<a href="${h}"${on(k)}>${t}</a>`).join("\n      ")}
@@ -186,8 +185,9 @@ function footer() {
   <div class="wrap">
     <div class="ftr__t">
       <div class="ftr__b">
-        <a href="index.html" class="brand" style="color:var(--tiza)">${LOGO(28)}<span class="tx"><b>MC</b><span>EBIKES</span></span></a>
-        <p>Movilidad eléctrica urbana en zona oeste. Fat e-bikes de 1000W para moverte sin patente, sin nafta y sin trámites.</p>
+        <a href="index.html" class="brand" style="color:var(--tiza)">${LOGO(32)}</a>
+        <p>Territorio propio para la nueva generación del campo argentino. Fat e-bikes de 1000W para que actives tu libertad, con potencia real y autonomía real.</p>
+        <p class="tagline" style="font-size:17px;margin-top:16px">${TAGLINE}</p>
         <div class="soc">
           <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
           <a href="${WA_TXT("Hola MC Ebikes")}" target="_blank" rel="noopener" aria-label="WhatsApp">${waIcon}</a>
@@ -259,7 +259,7 @@ const pcard = (p) => `
   </div>
 </article>`;
 
-const ctaBlock = (t = "¿Lo mejor? Probala antes de comprarla.", s = "Vení al local, manejala y decidí con la bici abajo tuyo. Sin compromiso.") => `
+const ctaBlock = (t = "Lo mejor: la probás antes de tenerla", s = "Vení a Castelar, manejala y sentí tu nuevo territorio abajo tuyo. Con total confianza.") => `
 <section class="sec sec--tight">
   <div class="wrap">
     <div class="cta rv">
@@ -282,26 +282,78 @@ const faqItem = (q, a) => `
   </div>`;
 
 const FAQS = [
-  ["¿Necesito registro, patente o seguro?", "No. Al no superar los 32 km/h y tener pedales asistidos, legalmente es una bicicleta eléctrica: no requiere licencia, patentamiento ni seguro obligatorio. Sí recomendamos casco y circular por la derecha."],
-  ["¿Cuánto dura la batería?", "Una carga rinde entre 50 y 110 km según el modelo, tu peso, el viento y si usás más o menos el acelerador. La batería de litio soporta entre 800 y 1000 ciclos de carga completos, o sea unos 3 a 5 años de uso diario antes de perder capacidad."],
-  ["¿Cuánto sale cargarla?", "Muy poco: una carga completa consume alrededor de 0,8 kWh, unos $180 según la tarifa actual. Hacer 60 km te cuesta menos que un viaje en colectivo."],
-  ["¿Qué garantía tienen?", "12 meses de garantía en cuadro y motor, y 6 meses en batería, igual que el estándar del mercado. Lo importante: el service lo hacemos nosotros acá en Castelar, no tenés que mandarla a otra provincia."],
-  ["¿Se puede usar bajo la lluvia?", "Sí, tienen protección contra salpicaduras y podés andar con lluvia normal. Lo que no hay que hacer es sumergirla, lavarla con hidrolavadora ni dejarla a la intemperie todo el tiempo."],
-  ["¿Consigo repuestos?", "Sí. Trabajamos con stock de los repuestos de mayor rotación (cámaras, cubiertas, pastillas, luces, cargadores) y pedimos el resto a nuestro proveedor. Es una de las razones por las que conviene comprarla acá y no por internet."],
-  ["¿Puedo pagar en cuotas?", "Sí, hasta 12 cuotas sin interés con tarjeta de crédito. También aceptamos transferencia y efectivo, que tienen descuento."],
-  ["¿Hacen envíos?", "Sí, entregamos sin cargo en zona oeste y coordinamos envío al resto del país. De todos modos, si podés acercarte a probarla, siempre es mejor: vas a comprar con mucha más seguridad."],
+  ["¿Qué necesito para manejarla?", "Es legalmente una bicicleta eléctrica: al no superar los 32 km/h y tener pedales asistidos, tenés total libertad para moverte, sin licencia, sin patentamiento y sin seguro obligatorio. Sí te recomendamos usar casco y circular por la derecha."],
+  ["¿Cuánto dura la batería?", "Una carga te rinde entre 50 y 110 km según el modelo, tu peso, el viento y cuánto uses el acelerador. La batería de litio soporta entre 800 y 1000 ciclos de carga completos: entre 3 y 5 años de uso diario con toda su capacidad."],
+  ["¿Cuánto sale cargarla?", "Muy poco: una carga completa consume alrededor de 0,8 kWh, unos $180 según la tarifa actual. Recorrer 60 km te sale menos que un viaje corto en remis."],
+  ["¿Qué garantía tiene?", "12 meses de garantía en cuadro y motor, y 6 meses en batería, el estándar del mercado. Con factura y sin letra chica: el service lo hacemos nosotros, acá en Castelar."],
+  ["¿Se puede usar bajo la lluvia?", "Sí: tiene protección contra salpicaduras y podés andar con lluvia normal. Para que te dure más, evitá sumergirla, lavarla con hidrolavadora o dejarla a la intemperie todo el tiempo."],
+  ["¿Consigo repuestos?", "Sí. Tenemos stock de los repuestos de mayor rotación (cámaras, cubiertas, pastillas, luces, cargadores) y pedimos el resto a nuestro proveedor. Es una de las razones para comprarla acá y no por internet."],
+  ["¿Cuánto tiempo tarda en cargarse la batería?", "Entre 4 y 6 horas para una carga completa, según el modelo. Podés revisar el detalle exacto de tu modelo en el comparador."],
+  ["¿Puedo pagarla en cuotas?", "Sí, hasta 12 cuotas sin interés con tarjeta de crédito. También podés pagar por transferencia o efectivo, con descuento."],
+  ["¿Hacen envíos?", "Sí: entregamos sin cargo en zona oeste y coordinamos envío a todo el país, incluido el interior productivo. De todas formas, si podés acercarte a probarla, siempre es mejor: vas a comprar con mucha más seguridad."],
 ];
 
 /* =====================================================================
    HOME
    ===================================================================== */
+/* =====================================================================
+   DATOS ESTRUCTURADOS — segun el paquete SEO/GEO/AEO de Mariana.
+   Se generan desde las constantes de arriba en vez de pegar literales,
+   para que no queden placeholders "COMPLETAR" publicados y para que
+   cambien solos cuando lleguen el WhatsApp y la direccion reales.
+   ===================================================================== */
+const negocioLD = {
+  "@type": "SportingGoodsStore", "@id": SITE + "/#negocio", name: "MC Ebikes",
+  alternateName: "MC Ebikes Castelar",
+  description: "Fat e-bikes de 1000W a 1800W con hasta 110 km de autonomía. Venta, test ride sin cargo, garantía real y service con taller propio en Castelar, Buenos Aires.",
+  url: SITE + "/", image: SITE + "/assets/img/og.jpg",
+  telephone: "+" + WA, email: MAIL, priceRange: "$$",
+  address: { "@type": "PostalAddress", addressLocality: "Castelar", addressRegion: "Buenos Aires", addressCountry: "AR" },
+  geo: { "@type": "GeoCoordinates", latitude: -34.6547, longitude: -58.6469 },
+  openingHoursSpecification: [
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], opens: "10:00", closes: "19:00" },
+    { "@type": "OpeningHoursSpecification", dayOfWeek: ["Saturday"], opens: "10:00", closes: "14:00" },
+  ],
+  areaServed: [...["Castelar", "Morón", "Ituzaingó", "Haedo", "Ramos Mejía"].map((c) => ({ "@type": "City", name: c })),
+    { "@type": "Country", name: "Argentina" }],
+};
+
+/* Breadcrumbs de las paginas internas */
+const crumbLD = (name, slug) => JSON.stringify({
+  "@context": "https://schema.org", "@type": "BreadcrumbList",
+  itemListElement: [
+    { "@type": "ListItem", position: 1, name: "Inicio", item: SITE + "/" },
+    { "@type": "ListItem", position: 2, name, item: `${SITE}/${slug}.html` },
+  ],
+});
+
+/* Un Product por modelo, con la ficha tecnica y la oferta */
+const productoLD = (p) => ({
+  "@type": "Product", "@id": `${SITE}/${p.slug}.html#producto`,
+  name: `MC Ebikes ${p.name}`, brand: { "@type": "Brand", name: "MC Ebikes" },
+  description: `${p.tagline}. Fat e-bike de ${p.motor} con autonomía de ${p.aut} y velocidad máxima de ${p.vel}.`,
+  image: `${SITE}/assets/img/${p.img}.webp`,
+  sku: "MC-" + p.slug.toUpperCase().replace(/-/g, ""),
+  additionalProperty: [
+    { "@type": "PropertyValue", name: "Potencia del motor", value: p.motor },
+    { "@type": "PropertyValue", name: "Batería", value: p.bat },
+    { "@type": "PropertyValue", name: "Autonomía", value: p.aut },
+    { "@type": "PropertyValue", name: "Velocidad máxima", value: p.vel },
+    { "@type": "PropertyValue", name: "Carga máxima soportada", value: p.carga },
+    { "@type": "PropertyValue", name: "Tiempo de recarga", value: p.recarga },
+  ],
+  offers: {
+    "@type": "Offer", url: `${SITE}/${p.slug}.html`, priceCurrency: "ARS",
+    price: String(p.price), availability: "https://schema.org/InStock",
+    itemCondition: "https://schema.org/NewCondition",
+    seller: { "@id": SITE + "/#negocio" },
+  },
+});
+
 const destacados = P.filter((p) => p.destacado);
 const homeLD = JSON.stringify({
-  "@context": "https://schema.org", "@type": "Store", name: "MC Ebikes",
-  description: "Fat e-bikes de 1000W en zona oeste del Gran Buenos Aires. Test ride, service propio y garantía.",
-  url: SITE + "/", telephone: "+" + WA, email: MAIL, priceRange: "$$",
-  address: { "@type": "PostalAddress", addressLocality: "Castelar", addressRegion: "Buenos Aires", addressCountry: "AR" },
-  areaServed: "Zona Oeste del Gran Buenos Aires",
+  "@context": "https://schema.org",
+  "@graph": [negocioLD, { "@type": "WebSite", name: "MC Ebikes", url: SITE + "/", inLanguage: "es-AR" }],
 }, null, 1);
 
 const home = `
@@ -310,15 +362,15 @@ const home = `
   <div class="wrap">
     <span class="kick">Para el campo argentino</span>
     <h1 class="h1" style="margin-top:16px">TU TERRITORIO.<br>TU MOTOR.<br><em>TU MOMENTO.</em></h1>
-    <p class="hero__sub">Fat e-bikes de 1000W con hasta 110 km de autonomía. El primer vehículo propio, con potencia real desde el primer día.</p>
+    <p class="hero__sub">Fat e-bikes de 1000W con hasta 110 km de autonomía. Vení, probala y decidí con la potencia real abajo tuyo.</p>
     <div class="hero__cta">
-      <a class="btn btn--p btn--lg" href="test-ride.html">Reservar test ride ${ico(I.arrow, 2.2)}</a>
+      <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi prueba ${ico(I.arrow, 2.2)}</a>
       <a class="btn btn--g btn--lg" href="productos.html">Ver modelos</a>
     </div>
     <div class="hero__specs">
       <div><b>1000W</b><span>Potencia</span></div>
-      <div><b>110 km</b><span>Autonomía máx.</span></div>
-      <div><b>32 km/h</b><span>Velocidad</span></div>
+      <div><b>110 km</b><span>Hasta, de autonomía</span></div>
+      <div><b>32 km/h</b><span>De velocidad</span></div>
       <div><b>12</b><span>Cuotas sin interés</span></div>
     </div>
   </div>
@@ -327,15 +379,15 @@ const home = `
 <section class="sec">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kick">Un vehículo de verdad</span>
-      <h2 class="h2">Potencia de moto,<br>tranquilidad de e-bike</h2>
-      <p>Cargás en un enchufe común de la casa o el galpón y hacés hasta 110 km de campo, camino de tierra y pueblo. La potencia de una moto, con la velocidad limitada que le da tranquilidad a la familia.</p>
+      <span class="kick">Presentación</span>
+      <h2 class="h2">La potencia de una moto,<br>con la libertad de <em>arrancar hoy mismo</em></h2>
+      <p>Cargás la batería en tu casa, en el galpón o en la oficina del campo, y salís a recorrer hasta 110 km. Toda la fuerza que necesitás para moverte solo por tu territorio, con la potencia de una moto y la libertad de subirte hoy mismo.</p>
     </div>
     <div class="feat">
-      <article class="rv"><div class="ic">${ico(I.bolt)}</div><h3>1000W de potencia</h3><p>Arranca en subida, en tierra floja y con carga. Motor con torque real para el terreno del campo, no un asistente tímido.</p></article>
-      <article class="rv d1"><div class="ic">${ico(I.bat)}</div><h3>Hasta 110 km</h3><p>Batería de litio extraíble: la cargás en un enchufe común de la casa o el galpón, por menos de $200.</p></article>
-      <article class="rv d2"><div class="ic">${ico(I.shield)}</div><h3>Lista desde el primer día</h3><p>La retirás y salís andando por el campo, la chacra o el predio. Velocidad limitada, con control real desde los padres.</p></article>
-      <article class="rv d3"><div class="ic">${ico(I.wrench)}</div><h3>Service propio</h3><p>Si algo falla, lo resolvemos nosotros: taller propio, repuestos en stock y una cara visible del otro lado.</p></article>
+      <article class="rv"><div class="ic">${ico(I.bolt)}</div><h3>1000W de potencia real</h3><p>Arranca fuerte en subida y con carga, sin que tengas que pedalear un metro. Motor con torque real, hecho para trabajar y para explorar.</p></article>
+      <article class="rv d1"><div class="ic">${ico(I.bat)}</div><h3>Hasta 110 km de autonomía</h3><p>Batería de litio extraíble que cargás en un enchufe común, en tu casa o en el galpón, por menos de $200 la carga completa.</p></article>
+      <article class="rv d2"><div class="ic">${ico(I.shield)}</div><h3>Salís a andar hoy mismo</h3><p>Te la llevás y arrancás a recorrer tu propio territorio en el momento. Es legalmente una bicicleta eléctrica: tenés total libertad para moverte desde el primer día.</p></article>
+      <article class="rv d3"><div class="ic">${ico(I.wrench)}</div><h3>Service con cara visible</h3><p>Si tu MC necesita algo, la resolvemos nosotros mismos, con taller propio y stock de los repuestos que más se usan. Sabés quién te vendió y dónde encontrarlo.</p></article>
     </div>
   </div>
 </section>
@@ -344,8 +396,8 @@ const home = `
   <div class="wrap">
     <div class="sec-head rv">
       <span class="kick">Modelos</span>
-      <h2 class="h2">Elegí la tuya</h2>
-      <p>Todas comparten motor de 1000W o más, frenos a disco y llantas fat. Cambian la autonomía, la potencia y el equipamiento.</p>
+      <h2 class="h2">Cuatro máquinas,<br>un mismo <em>territorio</em> por conquistar</h2>
+      <p>Todas fat, todas con motor de 1000W o más, frenos a disco y arranque por NFC. Cambian la autonomía, la potencia y el equipamiento: vos elegís según cuánto territorio querés recorrer.</p>
     </div>
     <div class="grid-p">
       ${destacados.map(pcard).join("\n")}
@@ -360,8 +412,8 @@ const home = `
       <img src="assets/img/v20-lateral.webp" alt="" loading="lazy">
       <div>
         <span class="kick">Test ride sin cargo</span>
-        <h2 class="h2" style="margin-top:14px">Nadie compra<br>lo que no <em>probó</em></h2>
-        <p>Es una compra grande. Por eso podés venir, subirte y manejarla por la cuadra antes de decidir nada. Sin compromiso y sin que te vendan humo.</p>
+        <h2 class="h2" style="margin-top:14px">Vos mismo sentís la potencia,<br>antes de <em>decidir</em></h2>
+        <p>Es una decisión importante para toda la familia. Por eso te invitamos a venir a nuestro local en Castelar, subirte y manejarla vos mismo antes de resolver nada. Y si estás lejos, coordinamos una demo cuando estemos en tu zona, o te acompañamos igual con envío a todo el país y garantía real por escrito.</p>
         <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi test ride</a>
       </div>
     </div>
@@ -372,7 +424,7 @@ const home = `
   <div class="wrap">
     <div class="sec-head sec-head--c rv">
       <span class="kick kick--plain">¿Cuál me conviene?</span>
-      <h2 class="h2">Decinos cómo la vas a usar</h2>
+      <h2 class="h2">Contanos cómo vas a recorrer tu territorio</h2>
       <p>En 5 segundos te decimos qué modelo tiene sentido para vos.</p>
     </div>
     <div class="quiz rv">
@@ -398,8 +450,8 @@ const home = `
     <div class="split">
       <div class="rv">
         <span class="kick">Cuentas claras</span>
-        <h2 class="h2" style="margin:14px 0 14px">¿Cuánto te ahorrás<br>por mes?</h2>
-        <p style="margin-bottom:20px">Poné cuántos kilómetros hacés por día y con qué te movés hoy. La cuenta incluye lo que gastás en luz para cargarla.</p>
+        <h2 class="h2" style="margin:14px 0 14px">Descubrí cuánto <em>ganás</em><br>cada mes</h2>
+        <p style="margin-bottom:20px">Poné cuántos kilómetros recorrés por día y con qué te movés hoy. La cuenta incluye lo que gastás en luz para cargar tu MC.</p>
         <div class="calc" id="calc">
           <div class="calc__in">
             <div class="field">
@@ -430,7 +482,7 @@ const home = `
 
 <section class="sec" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head rv"><span class="kick">Preguntas frecuentes</span><h2 class="h2">Lo que todos preguntan</h2></div>
+    <div class="sec-head rv"><span class="kick">Preguntas frecuentes</span><h2 class="h2">Todo lo que querés saber,<br>antes de decidir</h2></div>
     <div class="faq rv">
       ${FAQS.slice(0, 4).map(([q, a]) => faqItem(q, a)).join("")}
     </div>
@@ -458,7 +510,7 @@ const catalogo = `
     <nav class="crumbs" aria-label="Ruta"><a href="index.html">Inicio</a> / <span aria-current="page">Modelos</span></nav>
     <span class="kick">${P.length} modelos disponibles</span>
     <h1 class="h1" style="font-size:clamp(38px,7vw,68px);margin-top:14px">Elegí tu <em>territorio</em></h1>
-    <p>Todas fat, todas con frenos a disco y arranque por NFC. Elegí por autonomía, potencia o precio.</p>
+    <p>Cuatro fat e-bikes, todas con frenos a disco y arranque por NFC. Elegí por autonomía, potencia o precio.</p>
   </div>
 </section>
 
@@ -509,10 +561,19 @@ const catalogo = `
 </section>
 ${ctaBlock()}`;
 
+const catalogoLD = JSON.stringify({
+  "@context": "https://schema.org",
+  "@graph": [
+    JSON.parse(crumbLD("Modelos", "productos")),
+    { "@type": "ItemList", itemListElement: P.map((p, i) => ({ "@type": "ListItem", position: i + 1, item: { "@id": `${SITE}/${p.slug}.html#producto` } })) },
+    ...P.map(productoLD),
+  ],
+}, null, 1);
+
 writeFileSync(new URL("./productos.html", import.meta.url), page({
-  slug: "productos", active: "productos",
-  title: "Modelos de Fat E-Bikes | MC Ebikes Castelar",
-  desc: "Comparar todos los modelos de bicicletas eléctricas fat de MC Ebikes: motor, autonomía, velocidad y precio. Test ride sin cargo en Castelar.",
+  slug: "productos", active: "productos", ld: catalogoLD,
+  title: "Modelos de Fat E-Bikes 1000W | MC Ebikes",
+  desc: "Comparación de las 4 fat e-bikes MC: SW V20 Pro, V29 Pro, V40 y S20 Pro. Potencia de hasta 1800W y autonomía de hasta 110 km. Precios y cuotas sin interés.",
   main: catalogo,
 }));
 console.log("✓ productos.html");
@@ -522,10 +583,8 @@ console.log("✓ productos.html");
    ===================================================================== */
 for (const p of P) {
   const ld = JSON.stringify({
-    "@context": "https://schema.org", "@type": "Product", name: p.name,
-    description: p.lead, image: `${SITE}/assets/img/${p.img}.webp`,
-    brand: { "@type": "Brand", name: "MC Ebikes" }, category: "Bicicleta eléctrica",
-    offers: { "@type": "Offer", priceCurrency: "ARS", price: p.price, availability: "https://schema.org/InStock", url: `${SITE}/${p.slug}.html` },
+    "@context": "https://schema.org",
+    "@graph": [JSON.parse(crumbLD(p.name, p.slug)), productoLD(p)],
   }, null, 1);
 
   const otros = P.filter((x) => x.slug !== p.slug).slice(0, 3);
@@ -622,7 +681,7 @@ for (const p of P) {
     <div class="grid-p">${otros.map(pcard).join("\n")}</div>
   </div>
 </section>
-${ctaBlock(`¿Te quedaste con la ${p.name}?`, "Vení a probarla antes de decidir. El test ride no tiene cargo ni compromiso.")}`;
+${ctaBlock(`¿Te quedaste con la ${p.name}?`, "Vení a Castelar, subite y manejala vos mismo antes de resolver nada. Sin costo y sin compromiso.")}`;
 
   writeFileSync(new URL(`./${p.slug}.html`, import.meta.url), page({
     slug: p.slug, active: "productos",
@@ -643,8 +702,8 @@ const testride = `
   <div class="wrap">
     <nav class="crumbs"><a href="index.html">Inicio</a> / <span aria-current="page">Test ride</span></nav>
     <span class="kick">Sin cargo · Sin compromiso</span>
-    <h1 class="h1" style="font-size:clamp(38px,7vw,66px);margin-top:14px">Probala <em>antes</em><br>de comprarla</h1>
-    <p>Coordinás día y horario, venís al local y la manejás vos. Recién ahí decidís.</p>
+    <h1 class="h1" style="font-size:clamp(38px,7vw,66px);margin-top:14px">Subite <em>antes</em><br>de decidir</h1>
+    <p>Es una decisión importante para toda la familia. Por eso te invitamos a venir a Castelar, subirte a la MC que más te interesa y manejarla vos mismo antes de resolver nada. Sin costo y sin ningún compromiso. Y si vivís lejos, coordinamos una demo cuando estemos en tu zona o te acompañamos con envío a todo el país.</p>
   </div>
 </section>
 
@@ -653,7 +712,7 @@ const testride = `
     <div class="split" style="align-items:start">
       <div class="rv">
         <form class="form" id="f-test" novalidate>
-          <h2 class="h3" style="margin-bottom:6px">Reservá tu test ride</h2>
+          <h2 class="h3" style="margin-bottom:6px">Reservá mi test ride</h2>
           <p style="font-size:14px;margin-bottom:20px">Completás, y se abre WhatsApp con el mensaje listo para enviar.</p>
           <div class="form__g">
             <div class="field full"><label for="t-n">Tu nombre *</label><input id="t-n" name="nombre" required placeholder="Nombre y apellido"></div>
@@ -673,11 +732,11 @@ const testride = `
       </div>
       <div class="rv d1">
         <span class="kick">Cómo funciona</span>
-        <h2 class="h2" style="margin:14px 0 22px">Simple y sin vueltas</h2>
+        <h2 class="h2" style="margin:14px 0 22px">Así de simple</h2>
         <div class="feat" style="grid-template-columns:1fr">
-          <article><div class="ic">${ico(I.user)}</div><h3>1 · Reservás</h3><p>Nos decís qué modelo te interesa y cuándo podés venir. Te confirmamos por WhatsApp.</p></article>
-          <article><div class="ic">${ico(I.bike)}</div><h3>2 · La manejás</h3><p>Te la damos con casco y la probás por la zona. Sin apuro y sin nadie encima tuyo vendiéndote.</p></article>
-          <article><div class="ic">${ico(I.check)}</div><h3>3 · Decidís</h3><p>Si te gustó, te la llevás ese mismo día. Si no, no pasa nada: para eso está la prueba.</p></article>
+          <article><div class="ic">${ico(I.user)}</div><h3>1 · Elegís el modelo</h3><p>Nos decís qué MC querés probar y por qué la estás mirando.</p></article>
+          <article><div class="ic">${ico(I.bike)}</div><h3>2 · Reservás día y horario</h3><p>Coordinamos por WhatsApp el día y la hora que te queden más cómodos.</p></article>
+          <article><div class="ic">${ico(I.check)}</div><h3>3 · Venís, te subís y la manejás</h3><p>Te la damos con casco y la probás sin apuro. Recién ahí decidís, con la MC abajo tuyo y con calma.</p></article>
         </div>
         <div class="info-cards" style="margin-top:20px">
           <div class="info-c"><span class="ic">${ico(I.pin)}</span><span><span class="k">Dónde</span><span class="v sm">${DIR}</span></span></div>
@@ -688,9 +747,9 @@ const testride = `
   </div>
 </section>`;
 writeFileSync(new URL("./test-ride.html", import.meta.url), page({
-  slug: "test-ride", active: "",
-  title: "Reservá tu Test Ride sin cargo | MC Ebikes Castelar",
-  desc: "Probá la bici eléctrica antes de comprarla. Reservá día y horario para tu test ride sin cargo ni compromiso en Castelar, zona oeste.",
+  slug: "test-ride", active: "", ld: crumbLD("Test ride", "test-ride"),
+  title: "Reservá tu Test Ride Gratis | MC Ebikes",
+  desc: "Probá tu fat e-bike antes de decidir. Test ride sin cargo y sin compromiso en nuestro local de Castelar. Reservá tu turno en minutos.",
   main: testride,
 }));
 console.log("✓ test-ride.html");
@@ -704,17 +763,17 @@ const servicio = `
     <nav class="crumbs"><a href="index.html">Inicio</a> / <span aria-current="page">Service</span></nav>
     <span class="kick">Postventa</span>
     <h1 class="h1" style="font-size:clamp(38px,7vw,66px);margin-top:14px">Te respondemos<br><em>después</em> de venderte</h1>
-    <p>La diferencia entre comprar acá y comprar por internet no se nota el día que la comprás. Se nota el día que algo falla.</p>
+    <p>La diferencia entre comprarnos a nosotros y comprar por internet no se nota el día que la comprás. Se nota el día que algo necesita ajuste, y ahí es donde estamos.</p>
   </div>
 </section>
 
 <section class="sec">
   <div class="wrap">
     <div class="feat">
-      <article class="rv"><div class="ic">${ico(I.shield)}</div><h3>Garantía real</h3><p>12 meses en cuadro y motor, 6 meses en batería. Con factura y sin letra chica.</p></article>
-      <article class="rv d1"><div class="ic">${ico(I.wrench)}</div><h3>Taller propio</h3><p>El service lo hacemos nosotros en Castelar. No la mandás a otra provincia ni esperás semanas.</p></article>
-      <article class="rv d2"><div class="ic">${ico(I.box)}</div><h3>Repuestos</h3><p>Stock de lo que más se usa: cubiertas, cámaras, pastillas, luces y cargadores.</p></article>
-      <article class="rv d3"><div class="ic">${ico(I.user)}</div><h3>Cara visible</h3><p>Sabés quién te vendió y dónde encontrarlo. No es un vendedor anónimo de internet.</p></article>
+      <article class="rv"><div class="ic">${ico(I.shield)}</div><h3>Garantía real, sin letra chica</h3><p>12 meses de garantía en cuadro y motor, 6 meses en batería. Con factura, siempre.</p></article>
+      <article class="rv d1"><div class="ic">${ico(I.wrench)}</div><h3>Taller propio en Castelar</h3><p>El service lo hacemos nosotros. No la mandás a otra provincia ni esperás semanas por una pieza: tenemos el conocimiento técnico y el taller acá mismo.</p></article>
+      <article class="rv d2"><div class="ic">${ico(I.box)}</div><h3>Repuestos a mano</h3><p>Tenemos stock de lo que más se usa: cubiertas, cámaras, pastillas, luces y cargadores. Lo que no tenemos, lo pedimos a nuestro proveedor.</p></article>
+      <article class="rv d3"><div class="ic">${ico(I.user)}</div><h3>Sabés a quién le comprás</h3><p>Conocés quién te vendió tu MC y dónde encontrarlo. Nada de vendedor anónimo de internet ni de esperar una respuesta que no llega.</p></article>
     </div>
   </div>
 </section>
@@ -724,11 +783,11 @@ const servicio = `
     <div class="split">
       <div class="rv">
         <span class="kick">Mantenimiento</span>
-        <h2 class="h2" style="margin:14px 0 18px">Cuidados básicos</h2>
-        <p style="margin-bottom:18px">Una e-bike bien cuidada dura años. No hace falta mucho:</p>
+        <h2 class="h2" style="margin:14px 0 18px">Una MC bien cuidada dura años</h2>
+        <p style="margin-bottom:18px">No hace falta mucho para que tu MC te acompañe temporada tras temporada. Estos son los cuidados que marcan la diferencia:</p>
         <ul class="ticks">
-          <li>${ico(I.check, 2)}<span><strong>Cargala antes de que llegue a cero.</strong> La batería de litio sufre más si la vaciás del todo seguido.</span></li>
-          <li>${ico(I.check, 2)}<span><strong>Si no la vas a usar por semanas,</strong> dejala cargada a la mitad y en un lugar seco.</span></li>
+          <li>${ico(I.check, 2)}<span><strong>Cargala antes de que llegue a cero:</strong> la batería de litio rinde más si evitás vaciarla del todo seguido.</span></li>
+          <li>${ico(I.check, 2)}<span><strong>Si no la vas a usar por varias semanas,</strong> dejala cargada a la mitad y en un lugar seco.</span></li>
           <li>${ico(I.check, 2)}<span><strong>Revisá la presión de las cubiertas</strong> cada 15 días: es lo que más afecta la autonomía.</span></li>
           <li>${ico(I.check, 2)}<span><strong>Limpiala con trapo húmedo,</strong> nunca con hidrolavadora ni manguera a presión.</span></li>
           <li>${ico(I.check, 2)}<span><strong>Traela al primer service</strong> a los 300 km: ajustamos frenos, radios y transmisión sin cargo.</span></li>
@@ -749,9 +808,9 @@ const servicio = `
 </section>
 ${ctaBlock("¿Necesitás service o un repuesto?", "Escribinos y te decimos si lo tenemos en stock y cuánto tarda.")}`;
 writeFileSync(new URL("./servicio.html", import.meta.url), page({
-  slug: "servicio", active: "servicio",
-  title: "Service, Garantía y Repuestos | MC Ebikes Castelar",
-  desc: "Taller propio en Castelar: garantía de 12 meses, service de bicicletas eléctricas, repuestos en stock y soporte real después de la compra.",
+  slug: "servicio", active: "servicio", ld: crumbLD("Service y garantía", "servicio"),
+  title: "Service y Garantía | MC Ebikes Castelar",
+  desc: "12 meses de garantía en cuadro y motor, 6 meses en batería. Taller propio en Castelar, repuestos en stock y service con cara visible.",
   main: servicio,
 }));
 console.log("✓ servicio.html");
@@ -765,7 +824,7 @@ const nosotros = `
     <nav class="crumbs"><a href="index.html">Inicio</a> / <span aria-current="page">Nosotros</span></nav>
     <span class="kick">Quiénes somos</span>
     <h1 class="h1" style="font-size:clamp(38px,7vw,66px);margin-top:14px">Movilidad eléctrica<br>con <em>cara visible</em></h1>
-    <p>Somos un local de zona oeste dedicado a la movilidad eléctrica urbana. Elegimos pocos modelos, los probamos y los bancamos.</p>
+    <p>Elegimos pocos modelos, los probamos y los bancamos. MC Ebikes nace para darle a cada chico y chica del campo argentino su primer territorio propio: la libertad de moverse solo, con potencia real, mucho antes de lo que la ley te permite subirte a una moto.</p>
   </div>
 </section>
 
@@ -774,10 +833,10 @@ const nosotros = `
     <div class="split">
       <div class="rv prose">
         <h2 class="h2">Por qué existimos</h2>
-        <p>Hoy casi todas las bicis eléctricas se venden por internet: elegís una foto, pagás más de un millón y medio de pesos y esperás que llegue bien. No la probaste, no sabés si te queda cómoda, y si falla la batería no sabés a quién reclamarle.</p>
-        <p>MC Ebikes nace de ahí. <strong>Queríamos un lugar donde la puedas probar, donde te expliquen de verdad cuál te conviene y donde sepas quién te va a atender si algo pasa.</strong></p>
+        <p>Hoy casi todas las e-bikes se venden por internet: elegís una foto, pagás una plata importante y esperás que llegue bien. No la probaste, no sabés si te queda cómoda, y si algo falla no sabés a quién reclamarle. Menos todavía si vivís lejos, en el campo, y esa distancia con el vendedor pesa el doble.</p>
+        <p>MC Ebikes nace de ahí. <strong>Queríamos un lugar con cara visible: donde te expliquen de verdad cuál MC te conviene, donde sepas quién te va a atender si algo pasa, y donde tu MC llegue con la misma seriedad que un vehículo de trabajo, no como un juguete de catálogo.</strong></p>
         <h3>Cómo elegimos lo que vendemos</h3>
-        <p>No traemos catálogos infinitos. Trabajamos pocos modelos, todos fat, todos con motor de 1000W o más, frenos a disco y batería de litio con arranque NFC. Los tenemos en el local, los usamos y sabemos cómo se comportan en las calles del oeste.</p>
+        <p>No traemos catálogos infinitos. Trabajamos pocos modelos, todos fat, todos con motor de 1000W o más, frenos a disco y batería de litio con arranque por NFC. Los tenemos en el local, los usamos y sabemos cómo se comportan en el terreno real.</p>
       </div>
       <div class="split__m rv d1"><img src="assets/img/v8-negra.webp" alt="Local MC Ebikes" loading="lazy" width="1200" height="800"></div>
     </div>
@@ -786,12 +845,12 @@ const nosotros = `
 
 <section class="sec" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head rv"><span class="kick">En qué creemos</span><h2 class="h2">Nuestra forma de trabajar</h2></div>
+    <div class="sec-head rv"><span class="kick">En qué creemos</span><h2 class="h2">En qué creemos</h2></div>
     <div class="feat">
       <article class="rv"><div class="ic">${ico(I.bike)}</div><h3>Probar antes</h3><p>Nadie debería gastar esta plata sin subirse primero. El test ride es gratis y sin compromiso, siempre.</p></article>
-      <article class="rv d1"><div class="ic">${ico(I.check)}</div><h3>Datos reales</h3><p>Te decimos la autonomía real con tu peso y tus subidas, no el número de laboratorio del fabricante.</p></article>
+      <article class="rv d1"><div class="ic">${ico(I.check)}</div><h3>Datos reales</h3><p>Te decimos la autonomía real con tu peso y tu terreno, no el número de laboratorio del fabricante.</p></article>
       <article class="rv d2"><div class="ic">${ico(I.wrench)}</div><h3>Bancar lo vendido</h3><p>Vendemos lo que podemos reparar. Si no tenemos cómo darte service, no lo traemos.</p></article>
-      <article class="rv d3"><div class="ic">${ico(I.user)}</div><h3>Sin verso</h3><p>Si una e-bike no te sirve para lo que necesitás, te lo decimos. Preferimos no vender antes que vender mal.</p></article>
+      <article class="rv d3"><div class="ic">${ico(I.user)}</div><h3>Sin verso</h3><p>Si una MC no te sirve para lo que necesitás, te lo decimos. Preferimos no vender antes que vender mal.</p></article>
     </div>
   </div>
 </section>
@@ -801,9 +860,9 @@ const nosotros = `
     <div class="band rv">
       <img src="assets/img/v40-camo.webp" alt="" loading="lazy">
       <div>
-        <span class="kick">Zona oeste</span>
+        <span class="kick">Dónde estamos</span>
         <h2 class="h2" style="margin-top:14px">Estamos en <em>Castelar</em></h2>
-        <p>Atendemos Castelar, Morón, Ituzaingó, Haedo, Ramos Mejía y alrededores. Entrega sin cargo en la zona.</p>
+        <p>Atendemos con local propio en Castelar, Morón, Ituzaingó, Haedo, Ramos Mejía y alrededores, con entrega sin cargo en la zona. Y coordinamos envío a todo el país para que tu MC llegue hasta el campo, con la misma garantía real y el mismo respaldo.</p>
         <a class="btn btn--p btn--lg" href="contacto.html">Cómo llegar</a>
       </div>
     </div>
@@ -811,9 +870,9 @@ const nosotros = `
 </section>
 ${ctaBlock()}`;
 writeFileSync(new URL("./nosotros.html", import.meta.url), page({
-  slug: "nosotros", active: "nosotros",
-  title: "Nosotros | MC Ebikes, movilidad eléctrica en zona oeste",
-  desc: "Somos un local de Castelar especializado en fat e-bikes. Pocos modelos elegidos, test ride sin cargo, service propio y asesoramiento honesto.",
+  slug: "nosotros", active: "nosotros", ld: crumbLD("Nosotros", "nosotros"),
+  title: "Quiénes Somos | MC Ebikes",
+  desc: "MC Ebikes nace para darle a cada chico y chica del campo argentino su primer vehículo propio. Local en Castelar, cara visible y envío a todo el país.",
   main: nosotros,
 }));
 console.log("✓ nosotros.html");
@@ -822,9 +881,12 @@ console.log("✓ nosotros.html");
    FAQ
    ===================================================================== */
 const faqLD = JSON.stringify({
-  "@context": "https://schema.org", "@type": "FAQPage",
-  mainEntity: FAQS.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })),
-});
+  "@context": "https://schema.org",
+  "@graph": [
+    JSON.parse(crumbLD("Preguntas frecuentes", "faq")),
+    { "@type": "FAQPage", mainEntity: FAQS.map(([q, a]) => ({ "@type": "Question", name: q, acceptedAnswer: { "@type": "Answer", text: a } })) },
+  ],
+}, null, 1);
 const faqPage = `
 <section class="phero">
   <div class="wrap">
@@ -842,8 +904,8 @@ const faqPage = `
 ${ctaBlock("¿Te quedó una duda?", "Escribinos por WhatsApp y te respondemos en el día.")}`;
 writeFileSync(new URL("./faq.html", import.meta.url), page({
   slug: "faq", active: "faq", ld: faqLD,
-  title: "Preguntas Frecuentes sobre Bicicletas Eléctricas | MC Ebikes",
-  desc: "¿Necesito patente? ¿Cuánto dura la batería? ¿Qué garantía tiene? Respuestas claras sobre bicicletas eléctricas fat en Argentina.",
+  title: "Preguntas Frecuentes sobre Fat E-Bikes | MC Ebikes",
+  desc: "Todo sobre patente, batería, garantía, envíos y cuotas de las fat e-bikes MC. Respuestas directas a las dudas más comunes antes de comprar.",
   main: faqPage,
 }));
 console.log("✓ faq.html");
@@ -897,8 +959,9 @@ const contacto = `
 </section>`;
 writeFileSync(new URL("./contacto.html", import.meta.url), page({
   slug: "contacto", active: "contacto",
-  title: "Contacto | MC Ebikes Castelar, Zona Oeste",
-  desc: `Contactá a MC Ebikes en Castelar. WhatsApp, email y local. ${HORARIO}. Atendemos Morón, Ituzaingó, Haedo y alrededores.`,
+  ld: JSON.stringify({ "@context": "https://schema.org", "@graph": [negocioLD, JSON.parse(crumbLD("Contacto", "contacto"))] }, null, 1),
+  title: "Contacto | MC Ebikes Castelar",
+  desc: "Escribinos por WhatsApp, mandanos un mail o vení al local en Castelar. Lunes a viernes de 10 a 19 h, sábados de 10 a 14 h.",
   main: contacto,
 }));
 console.log("✓ contacto.html");
