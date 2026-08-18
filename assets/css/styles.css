@@ -1,29 +1,51 @@
 /* =====================================================================
    MC EBIKES — Sistema de e-commerce
-   Asfalto + Ámbar Señal · Teko + Barlow
+   Paleta y tipografias segun Manual de Marca v1.0 (Mariana, ago-2026)
+   Negro Carbon + Naranja Tierra · Archivo + Inter + Big Shoulders
    ===================================================================== */
 
 :root{
-  --asfalto:#0E0F11;
-  --grafito:#15181B;
-  --grafito-2:#1D2226;
-  --grafito-3:#272D32;
-  --ambar:#FFB300;
-  --ambar-hi:#FFC634;
-  --ambar-lo:#D99700;
-  --tiza:#F4F4F1;
-  --cemento:#8A8F94;
-  --cemento-2:#5C6266;
-  --linea:#262C31;
-  --linea-2:#333A40;
-  --ok:#35C759;
-  --warn:#FF9F0A;
-  --err:#FF453A;
+  /* ---- Paleta del Manual de Marca v1.0 (cap. 7) ---- */
+  --carbon:#14161A;      /* base, fondo dominante         */
+  --hueso:#F5F3EF;       /* base clara, texto principal    */
+  --naranja:#D9622B;     /* acento: CTA y datos clave      */
+  --monte:#2F3A2A;       /* secundario, contexto rural     */
+  --piedra:#8A8680;      /* texto secundario y divisorias  */
+
+  /* Superficies derivadas del Negro Carbon */
+  --carbon-1:#1A1D22;
+  --carbon-2:#22262C;
+  --carbon-3:#2C3138;
+  --linea:#262A30;
+  --linea-2:#343941;
+  --naranja-hi:#E8763F;
+  --naranja-lo:#B84E1E;
+  --piedra-2:#5F5C57;
+
+  /* ---- Alias del sistema anterior -> apuntan a la paleta nueva ----
+     Se conservan para no reescribir 700 lineas de reglas; la unica
+     fuente de verdad son los cinco colores de arriba. */
+  --asfalto:var(--carbon);
+  --grafito:var(--carbon-1);
+  --grafito-2:var(--carbon-2);
+  --grafito-3:var(--carbon-3);
+  --ambar:var(--naranja);
+  --ambar-hi:var(--naranja-hi);
+  --ambar-lo:var(--naranja-lo);
+  --tiza:var(--hueso);
+  --cemento:var(--piedra);
+  --cemento-2:var(--piedra-2);
+
+  --ok:#4E8C3F;
+  --warn:#D9622B;
+  --err:#C0392B;
   --wa:#25D366;
 
-  --d:"Teko",Impact,sans-serif;
-  --t:"Barlow",system-ui,sans-serif;
-  --c:"Barlow Condensed",system-ui,sans-serif;
+  /* ---- Tipografias del manual (cap. 8) ---- */
+  --d:"Archivo",system-ui,sans-serif;                       /* titulares  */
+  --t:"Inter",system-ui,sans-serif;                          /* cuerpo     */
+  --c:"Archivo",system-ui,sans-serif;                        /* UI, labels */
+  --n:"Big Shoulders Display",Impact,sans-serif;             /* datos     */
 
   --nav-h:66px;
   --wrap:1240px;
@@ -104,14 +126,16 @@ strong{color:var(--tiza);font-weight:600}
   display:flex;align-items:center;transition:background .3s,border-color .3s;
   border-bottom:1px solid transparent;
 }
-.hdr.solid{background:rgba(14,15,17,.94);backdrop-filter:blur(12px);border-bottom-color:var(--linea)}
+.hdr.solid{background:rgba(20,22,26,.94);backdrop-filter:blur(12px);border-bottom-color:var(--linea)}
 .hdr__in{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut);
   display:flex;align-items:center;justify-content:space-between;gap:20px}
-.brand{display:flex;align-items:center;gap:9px;flex:none}
-.brand svg{height:26px;width:auto}
-.brand .tx{display:flex;flex-direction:column;line-height:1}
-.brand .tx b{font-family:var(--d);font-weight:600;font-size:22px;letter-spacing:.02em}
-.brand .tx span{font-family:var(--c);font-weight:600;font-size:8px;letter-spacing:.4em;color:var(--cemento);text-indent:.4em}
+/* Lockup horizontal: el emblema y el nombre en una sola linea.
+   El cliente pidio expresamente evitar "MC" arriba y "e-bikes" abajo. */
+.brand{display:flex;align-items:center;gap:11px;flex:none}
+.brand svg{height:30px;width:auto;color:var(--hueso)}
+.brand .tx{display:flex;align-items:center;line-height:1}
+.brand .tx b{font-family:var(--d);font-weight:900;font-size:19px;letter-spacing:-.005em;
+  word-spacing:.18em;white-space:nowrap}
 
 .nav{display:flex;align-items:center;gap:2px}
 .nav a{font-family:var(--t);font-size:14.5px;font-weight:500;padding:9px 13px;border-radius:var(--r);
@@ -142,8 +166,8 @@ body.menu .mnav{transform:none;visibility:visible}
 .hero__bg{position:absolute;inset:0;z-index:-2}
 .hero__bg img{width:100%;height:100%;object-fit:cover;object-position:center 55%}
 .hero__bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(14,15,17,.72) 0%,rgba(14,15,17,.3) 34%,rgba(14,15,17,.85) 82%,var(--asfalto) 100%)}
-.hero h1{color:#fff;max-width:13ch}
+  background:linear-gradient(180deg,rgba(20,22,26,.72) 0%,rgba(20,22,26,.3) 34%,rgba(20,22,26,.85) 82%,var(--asfalto) 100%)}
+.hero h1{color:#fff;max-width:15ch}
 .hero h1 em{font-style:normal;color:var(--ambar)}
 .hero__sub{font-size:clamp(16px,2vw,19px);color:rgba(244,244,241,.86);max-width:48ch;margin-top:18px}
 .hero__cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:30px}
@@ -174,7 +198,7 @@ body.menu .mnav{transform:none;visibility:visible}
 .tag{position:absolute;top:10px;left:10px;font-family:var(--c);font-weight:700;font-size:11px;
   letter-spacing:.13em;text-transform:uppercase;padding:5px 10px;border-radius:var(--r);z-index:2}
 .tag--a{background:var(--ambar);color:#141414}
-.tag--d{background:rgba(14,15,17,.86);color:var(--tiza);border:1px solid var(--linea-2)}
+.tag--d{background:rgba(20,22,26,.86);color:var(--tiza);border:1px solid var(--linea-2)}
 .pc__b{padding:18px 18px 20px;display:flex;flex-direction:column;flex:1}
 .pc__cat{font-family:var(--c);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--cemento-2)}
 .pc h3{font-size:27px;margin:5px 0 12px}
@@ -264,7 +288,7 @@ select.sel{background:var(--grafito);border:1.5px solid var(--linea-2);color:var
   padding:clamp(30px,5vw,60px);display:flex;align-items:center;min-height:280px}
 .band img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
 .band::after{content:"";position:absolute;inset:0;z-index:-1;
-  background:linear-gradient(90deg,rgba(14,15,17,.96),rgba(14,15,17,.72) 48%,rgba(14,15,17,.2))}
+  background:linear-gradient(90deg,rgba(20,22,26,.96),rgba(20,22,26,.72) 48%,rgba(20,22,26,.2))}
 .band h2{max-width:15ch}
 .band h2 em{font-style:normal;color:var(--ambar)}
 .band p{margin:14px 0 22px;max-width:44ch}
@@ -418,3 +442,57 @@ html:not(.js) .rv{opacity:1;transform:none}
   .keyspecs{grid-template-columns:repeat(2,1fr)}
   .band{min-height:230px}
 }
+
+
+/* =====================================================================
+   MANUAL DE MARCA v1.0 — reglas tipograficas (cap. 8.1)
+   ===================================================================== */
+
+/* Titulares: Archivo Black, unico peso admitido en titulos */
+h1,h2,h3,h4{font-weight:900;letter-spacing:-.015em}
+
+/* Datos numericos (W, km, km/h, $) en la condensada tecnica, para que
+   se lean como specs y no como texto corrido */
+.price,.price--old,.hero__specs div b,.keyspecs b,
+.calc__out div b,.pd__price .amount{
+  font-family:var(--n);font-weight:700;letter-spacing:.01em;
+}
+/* .cuotas y .count son frases con un numero adentro, no datos destacados:
+   en la condensada se leen apretadas. Van en la tipografia de UI. */
+.cuotas,.count{font-family:var(--c);letter-spacing:0}
+
+/* Etiquetas y UI: Archivo, nunca Black */
+.kick,.tag,.pc__cat,.pd__cat,.chip,.filters__lbl,.crumbs,
+.field label,.stock,.ftr__bot,.nav a,.btn{font-weight:600}
+
+/* Cuerpo: interlineado minimo 130% sobre fondo oscuro (regla 8.1) */
+p,li,.lead,.prose{line-height:1.6}
+
+/* Contraste de los CTA: sobre Naranja Tierra el texto va en Negro Carbon
+   (4.94:1) y no en Blanco Hueso (3.31:1, por debajo de AA) */
+.btn--pri{background:var(--naranja);color:var(--carbon)}
+.btn--pri:hover{background:var(--naranja-hi);color:var(--carbon)}
+
+/* Verde Monte: solo fondo de seccion de contexto rural, nunca texto
+   (1.52:1 sobre Carbon). Como fondo con Hueso encima da 10.77:1 */
+.sec--rural{background:var(--monte)}
+.sec--rural,.sec--rural h2,.sec--rural h3{color:var(--hueso)}
+
+/* Tagline oficial (anexo del manual) */
+.tagline{
+  font-family:var(--d);font-weight:900;text-transform:uppercase;
+  color:var(--naranja);letter-spacing:.02em;line-height:1.1;
+}
+.tagline--claro{color:var(--carbon)}
+
+/* El H1 del hero baja un escalon: "TU TERRITORIO." es mas ancho que el
+   titular anterior y a 8vw se partia en cuatro lineas en desktop. */
+.hero .h1{font-size:clamp(38px,6.4vw,74px)}
+.hero .h1 br+*,.hero .h1{text-wrap:balance}
+
+/* Archivo es mas ancha que la condensada que habia antes en las etiquetas:
+   sin esto "VEL. MAX / 32 KM/H" se parte en tres lineas en la tarjeta. */
+.pc__sp{gap:13px}
+.pc__sp div{font-size:9.5px;letter-spacing:.07em;white-space:nowrap}
+.pc__sp b{font-size:17px;white-space:nowrap}
+.keyspecs span{letter-spacing:.07em}

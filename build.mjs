@@ -38,11 +38,15 @@ const I = {
 const ico = (p, w = 1.6) => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="${w}" stroke-linecap="round" stroke-linejoin="round">${p}</svg>`;
 const waIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.01zm-7.01 15.24h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.24 8.24c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.98-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg>`;
 
-/* ---------- Logo ---------- */
-const LOGO = (h = 26) => `<svg height="${h}" viewBox="0 0 140 62" fill="none" aria-hidden="true">
-  <path d="M0 62V0h14l17 26L48 0h14v62H48V24L36 42H26L14 24v38z" fill="currentColor"/>
-  <g transform="translate(72,0)"><path d="M48 8A27 27 0 1 0 48 54" fill="none" stroke="#FFB300" stroke-width="13" stroke-dasharray="6.4 3.7"/></g>
-</svg>`;
+/* ---------- Logo ----------
+   Emblema aprobado por el cliente (ago-2026): ruta abierta con el ciclista.
+   PENDIENTE: reemplazar por el archivo definitivo que pasa el cliente.
+   El SVG hereda currentColor, asi que toma el color del contexto. */
+const EMBLEMA = `<path d="M120.5 115.6 L122 115.3 L123.4 114.9 L124.9 114.5 L126.3 114 L127.8 113.6 L129.5 113.9 L131.4 114.5 L133.3 115.1 L135.3 115.7 L137.2 116.3 L139.2 116.8 L141.3 117.3 L143.3 117.8 L145.4 118.2 L147.5 118.6 L149.7 119 L149.7 119 L148.5 120.9 L147.3 122.7 L146.1 124.5 L144.9 126.4 L143.7 128.2 L142.4 130 L141.1 131.7 L139.8 133.5 L138.5 135.3 L137.2 137 L135.7 138.3 L133.9 138.9 L132.2 139.4 L130.4 139.9 L128.7 140.4 L127 140.8 Z" fill="currentColor"/><path d="M234.8 44.3 L232.1 45.8 L229.5 47.4 L226.8 49 L224.4 51 L222.4 53.6 L220.4 56.2 L218.4 58.8 L216.4 61.5 L214.5 64.2 L212.6 66.9 L210.7 69.7 L208.9 72.5 L207.1 75.3 L205.4 78.2 L203.7 81.1 L202 84 L202 84 L205.1 82.6 L208.1 81.4 L211.2 80.1 L214.2 79 L217.2 77.9 L220.2 76.9 L223.2 75.9 L226.2 75.1 L229.2 74.2 L232.1 73.5 L235 72.8 L237.9 72.2 L240.5 71.1 L242.8 69.7 L245.1 68.3 L247.4 67 Z" fill="currentColor"/><g fill="none" stroke="currentColor" stroke-width="26" stroke-linecap="butt" stroke-linejoin="round"><path d="M132.3 125.8C83.6 141.4 42 127.5 42 84C42 20 132 20 202 84C272 148 362 148 362 84C362 29 295.4 21.3 232.3 60.9"/></g><g transform="translate(68,75.75) scale(0.5)"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"><circle cx="22" cy="62" r="16" stroke-width="7"/><circle cx="98" cy="62" r="16" stroke-width="7"/><g stroke-width="7"><path d="M22 62 L38 34 L84 30"/><path d="M38 34 L58 62 L22 62"/><path d="M84 30 L98 62"/><path d="M76 24 H92"/><path d="M32 28 H46"/></g><g stroke-width="10"><path d="M44 28 L64 16"/><path d="M64 16 L84 28"/><path d="M44 28 L56 44 L58 60"/></g></g><circle cx="70" cy="7" r="9" fill="currentColor"/></g>`;
+const LOGO = (h = 26) => `<svg height="${h}" viewBox="12 12 378 144" fill="none" aria-hidden="true">${EMBLEMA}</svg>`;
+
+/* Tagline oficial (anexo del Manual de Marca v1.0) */
+const TAGLINE = "Tu mundo se mueve con vos";
 
 /* =====================================================================
    PRODUCTOS — datos reales de las fichas del proveedor
@@ -115,7 +119,7 @@ function head({ title, desc, slug, ld = "", preload = "" }) {
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <title>${title}</title>
 <meta name="description" content="${desc}">
-<meta name="theme-color" content="#0E0F11">
+<meta name="theme-color" content="#14161A">
 <link rel="canonical" href="${url}">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
@@ -129,8 +133,9 @@ function head({ title, desc, slug, ld = "", preload = "" }) {
 <link rel="icon" href="assets/img/favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="assets/img/icon-180.png">
 <link rel="manifest" href="site.webmanifest">
-<link rel="preload" href="assets/fonts/Teko-600.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="assets/fonts/Barlow-400.woff2" as="font" type="font/woff2" crossorigin>${preload}
+<link rel="preload" href="assets/fonts/Archivo-var.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="assets/fonts/BigShoulders-var.woff2" as="font" type="font/woff2" crossorigin>${preload}
 <link rel="stylesheet" href="assets/css/fonts.css?v=${V}">
 <link rel="stylesheet" href="assets/css/styles.css?v=${V}">
 ${ld ? `<script type="application/ld+json">\n${ld}\n</script>` : ""}
@@ -147,8 +152,8 @@ function header(active) {
 <header class="hdr">
   <div class="hdr__in">
     <a href="index.html" class="brand" aria-label="MC Ebikes — Inicio">
-      ${LOGO(24)}
-      <span class="tx"><b>MC</b><span>EBIKES</span></span>
+      ${LOGO(30)}
+      <span class="tx"><b>MC E-BIKES</b></span>
     </a>
     <nav class="nav" aria-label="Principal">
       ${links.map(([k, t, h]) => `<a href="${h}"${on(k)}>${t}</a>`).join("\n      ")}
@@ -303,9 +308,9 @@ const home = `
 <section class="hero">
   <div class="hero__bg"><img src="assets/img/v40-camo.webp" alt="Fat e-bike MC Ebikes" fetchpriority="high" width="1200" height="700"></div>
   <div class="wrap">
-    <span class="kick">Castelar · Zona Oeste</span>
-    <h1 class="h1" style="margin-top:16px">SIN PATENTE.<br>SIN NAFTA.<br><em>SIN EXCUSAS.</em></h1>
-    <p class="hero__sub">Fat e-bikes de 1000W con hasta 110 km de autonomía. Vení, probala y decidí con la bici abajo tuyo.</p>
+    <span class="kick">Para el campo argentino</span>
+    <h1 class="h1" style="margin-top:16px">TU TERRITORIO.<br>TU MOTOR.<br><em>TU MOMENTO.</em></h1>
+    <p class="hero__sub">Fat e-bikes de 1000W con hasta 110 km de autonomía. El primer vehículo propio, con potencia real desde el primer día.</p>
     <div class="hero__cta">
       <a class="btn btn--p btn--lg" href="test-ride.html">Reservar test ride ${ico(I.arrow, 2.2)}</a>
       <a class="btn btn--g btn--lg" href="productos.html">Ver modelos</a>
@@ -322,15 +327,15 @@ const home = `
 <section class="sec">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kick">No es una bici</span>
-      <h2 class="h2">La libertad de una moto,<br>sin nada de lo que la complica</h2>
-      <p>Sin patente, sin seguro obligatorio, sin registro y sin cargar nafta. Cargás en un enchufe común y hacés hasta 110 km. Todo lo bueno de moverte en moto, nada del trámite.</p>
+      <span class="kick">Un vehículo de verdad</span>
+      <h2 class="h2">Potencia de moto,<br>tranquilidad de e-bike</h2>
+      <p>Cargás en un enchufe común de la casa o el galpón y hacés hasta 110 km de campo, camino de tierra y pueblo. La potencia de una moto, con la velocidad limitada que le da tranquilidad a la familia.</p>
     </div>
     <div class="feat">
-      <article class="rv"><div class="ic">${ico(I.bolt)}</div><h3>1000W de potencia</h3><p>Arranca en subida y con carga sin que tengas que pedalear. Motor con torque real, no un asistente tímido.</p></article>
-      <article class="rv d1"><div class="ic">${ico(I.bat)}</div><h3>Hasta 110 km</h3><p>Batería de litio extraíble: la cargás en casa o en la oficina, en un enchufe común, por menos de $200.</p></article>
-      <article class="rv d2"><div class="ic">${ico(I.shield)}</div><h3>Sin trámites</h3><p>No necesitás licencia, patente ni seguro obligatorio. La comprás hoy y salís andando.</p></article>
-      <article class="rv d3"><div class="ic">${ico(I.wrench)}</div><h3>Service acá</h3><p>Si algo falla, lo resolvemos nosotros en Castelar. No la mandás a otra provincia ni esperás semanas.</p></article>
+      <article class="rv"><div class="ic">${ico(I.bolt)}</div><h3>1000W de potencia</h3><p>Arranca en subida, en tierra floja y con carga. Motor con torque real para el terreno del campo, no un asistente tímido.</p></article>
+      <article class="rv d1"><div class="ic">${ico(I.bat)}</div><h3>Hasta 110 km</h3><p>Batería de litio extraíble: la cargás en un enchufe común de la casa o el galpón, por menos de $200.</p></article>
+      <article class="rv d2"><div class="ic">${ico(I.shield)}</div><h3>Lista desde el primer día</h3><p>La retirás y salís andando por el campo, la chacra o el predio. Velocidad limitada, con control real desde los padres.</p></article>
+      <article class="rv d3"><div class="ic">${ico(I.wrench)}</div><h3>Service propio</h3><p>Si algo falla, lo resolvemos nosotros: taller propio, repuestos en stock y una cara visible del otro lado.</p></article>
     </div>
   </div>
 </section>
@@ -436,8 +441,8 @@ ${ctaBlock()}`;
 
 writeFileSync(new URL("./index.html", import.meta.url), page({
   slug: "index", active: "index",
-  title: "MC Ebikes | Fat E-Bikes 1000W en Castelar, Zona Oeste",
-  desc: "Bicicletas eléctricas fat de 1000W con hasta 110 km de autonomía. Sin patente ni nafta. Test ride sin cargo, service propio y 12 cuotas sin interés en Castelar.",
+  title: "MC Ebikes | Fat E-Bikes 1000W para el Campo Argentino",
+  desc: "Fat e-bikes de 1000W con hasta 110 km de autonomía. Tu primer vehículo propio, sin patente ni límite de edad. Test ride sin cargo y envío a todo el país.",
   ld: homeLD,
   preload: `\n<link rel="preload" as="image" href="assets/img/v40-camo.webp" fetchpriority="high">`,
   main: home,
@@ -452,7 +457,7 @@ const catalogo = `
   <div class="wrap">
     <nav class="crumbs" aria-label="Ruta"><a href="index.html">Inicio</a> / <span aria-current="page">Modelos</span></nav>
     <span class="kick">${P.length} modelos disponibles</span>
-    <h1 class="h1" style="font-size:clamp(38px,7vw,68px);margin-top:14px">Nuestros <em>modelos</em></h1>
+    <h1 class="h1" style="font-size:clamp(38px,7vw,68px);margin-top:14px">Elegí tu <em>territorio</em></h1>
     <p>Todas fat, todas con frenos a disco y arranque por NFC. Elegí por autonomía, potencia o precio.</p>
   </div>
 </section>
@@ -921,7 +926,7 @@ console.log("✓ 404.html");
 writeFileSync(new URL("./site.webmanifest", import.meta.url), JSON.stringify({
   name: "MC Ebikes", short_name: "MC Ebikes",
   description: "Fat e-bikes de 1000W en zona oeste.",
-  start_url: "/", display: "standalone", background_color: "#0E0F11", theme_color: "#0E0F11",
+  start_url: "/", display: "standalone", background_color: "#14161A", theme_color: "#14161A",
   icons: [{ src: "assets/img/icon-192.png", sizes: "192x192", type: "image/png" },
   { src: "assets/img/icon-512.png", sizes: "512x512", type: "image/png" }],
 }, null, 2));

@@ -4,8 +4,8 @@
   "description": "Fat e-bikes de 1000W en zona oeste.",
   "start_url": "/",
   "display": "standalone",
-  "background_color": "#0E0F11",
-  "theme_color": "#0E0F11",
+  "background_color": "#14161A",
+  "theme_color": "#14161A",
   "icons": [
     {
       "src": "assets/img/icon-192.png",
