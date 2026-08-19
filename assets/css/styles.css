@@ -477,10 +477,19 @@ p,li,.lead,.prose{line-height:1.6}
 .btn--pri{background:var(--naranja);color:var(--carbon)}
 .btn--pri:hover{background:var(--naranja-hi);color:var(--carbon)}
 
-/* Verde Monte: solo fondo de seccion de contexto rural, nunca texto
-   (1.52:1 sobre Carbon). Como fondo con Hueso encima da 10.77:1 */
+/* Verde Monte: fondo de seccion de contexto rural e iconografia, nunca
+   texto (1.52:1 sobre Carbon). Como fondo con Hueso encima da 10.77:1;
+   el Naranja encima da 3.26:1, suficiente solo para textos grandes. */
 .sec--rural{background:var(--monte)}
 .sec--rural,.sec--rural h2,.sec--rural h3{color:var(--hueso)}
+.sec--rural p{color:rgba(245,243,239,.78)}
+.sec--rural article{background:rgba(20,22,26,.22);border-color:rgba(245,243,239,.14)}
+.sec--rural .ic{background:rgba(245,243,239,.12);color:var(--hueso)}
+.sec--rural .kick{color:var(--hueso)}
+.sec--rural .kick::before{background:var(--hueso)}
+
+/* Iconografia de las features en Verde Monte */
+.feat .ic{background:var(--monte);color:var(--hueso)}
 
 /* Tagline oficial (anexo del manual) */
 .tagline{

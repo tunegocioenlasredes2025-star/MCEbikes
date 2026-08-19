@@ -110,24 +110,26 @@
   /* Calculadora de ahorro */
   var calc = doc.querySelector("#calc");
   if (calc) {
-    var km = calc.querySelector("#km"), medio = calc.querySelector("#medio");
+    var km = calc.querySelector("#km");
     var oAhorro = calc.querySelector("#o-ahorro"), oCargas = calc.querySelector("#o-cargas"), oAnual = calc.querySelector("#o-anual");
-    // costos por km estimados (AR$)
-    var COSTO = { auto: 320, colectivo: 95, moto: 130 };
+    // costo de combustible por km de un vehiculo de referencia (AR$).
+    // Antes se elegia entre auto, colectivo y moto; el selector se saco para
+    // que la marca deje de compararse con una moto.
+    var COSTO_REF = 75;
     var COSTO_CARGA = 180;   // AR$ por carga completa
     var KM_CARGA = 60;       // km por carga
     function run() {
       var d = Math.max(0, +km.value || 0);
       var mes = d * 22;                       // días hábiles
-      var gasto = mes * (COSTO[medio.value] || 0);
+      var gasto = mes * COSTO_REF;
       var cargas = mes / KM_CARGA;
       var costoLuz = cargas * COSTO_CARGA;
       var ahorro = Math.max(0, gasto - costoLuz);
       oAhorro.textContent = "$" + Math.round(ahorro).toLocaleString("es-AR");
-      oCargas.textContent = cargas.toFixed(1);
+      oCargas.textContent = Math.round(cargas);
       oAnual.textContent = "$" + Math.round(ahorro * 12).toLocaleString("es-AR");
     }
-    [km, medio].forEach(function (el) { if (el) { el.addEventListener("input", run); el.addEventListener("change", run); } });
+    [km].forEach(function (el) { if (el) { el.addEventListener("input", run); el.addEventListener("change", run); } });
     run();
   }
 

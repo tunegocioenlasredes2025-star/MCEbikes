@@ -189,7 +189,7 @@ function footer() {
     <div class="ftr__t">
       <div class="ftr__b">
         <a href="index.html" class="brand" style="color:var(--tiza)">${LOGO(54)}</a>
-        <p>Territorio propio para la nueva generación del campo argentino. Fat e-bikes de 1000W para que actives tu libertad, con potencia real y autonomía real.</p>
+        <p>Independencia real para la nueva generación del campo argentino. Fat e-bikes de 1000W para que actives tu movilidad, con potencia real y autonomía real.</p>
         <p class="tagline" style="font-size:17px;margin-top:16px">${TAGLINE}</p>
         <div class="soc">
           <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
@@ -262,7 +262,7 @@ const pcard = (p) => `
   </div>
 </article>`;
 
-const ctaBlock = (t = "Lo mejor: la probás antes de tenerla", s = "Vení a Castelar, manejala y sentí tu nuevo territorio abajo tuyo. Con total confianza.") => `
+const ctaBlock = (t = "Lo mejor: la probás antes de tenerla", s = "Vení a Castelar, manejala y sentí el motor respondiendo abajo tuyo. Con total confianza.") => `
 <section class="sec sec--tight">
   <div class="wrap">
     <div class="cta rv">
@@ -454,29 +454,21 @@ const home = `
       <div class="rv">
         <span class="kick">Cuentas claras</span>
         <h2 class="h2" style="margin:14px 0 14px">Descubrí cuánto <em>ganás</em><br>cada mes</h2>
-        <p style="margin-bottom:20px">Poné cuántos kilómetros recorrés por día y con qué te movés hoy. La cuenta incluye lo que gastás en luz para cargar tu MC.</p>
+        <p style="margin-bottom:20px">Poné cuántos kilómetros recorrés por día. La cuenta incluye lo que gastás en luz para cargar tu MC.</p>
         <div class="calc" id="calc">
           <div class="calc__in">
             <div class="field">
               <label for="km">Kilómetros por día</label>
               <input type="number" id="km" value="14" min="0" max="200" inputmode="numeric">
             </div>
-            <div class="field">
-              <label for="medio">Hoy te movés en</label>
-              <select id="medio" class="sel">
-                <option value="auto">Auto</option>
-                <option value="colectivo" selected>Colectivo / SUBE</option>
-                <option value="moto">Moto</option>
-              </select>
-            </div>
           </div>
           <div class="calc__out">
-            <div><b id="o-ahorro">$0</b><span>Ahorro por mes</span></div>
+            <div><b id="o-ahorro">$0</b><span>Ganás por mes</span></div>
             <div><b id="o-cargas">0</b><span>Cargas por mes</span></div>
-            <div><b id="o-anual">$0</b><span>Ahorro por año</span></div>
+            <div><b id="o-anual">$0</b><span>Ganás por año</span></div>
           </div>
         </div>
-        <p style="font-size:13px;margin-top:12px;color:var(--cemento-2)">Estimación sobre 22 días hábiles. Valores de referencia, pueden variar.</p>
+        <p style="font-size:13px;margin-top:12px;color:var(--cemento-2)">Estimación sobre 22 días hábiles, comparada con el costo de combustible de un vehículo de referencia. Valores estimados, pueden variar.</p>
       </div>
       <div class="split__m rv d1"><img src="assets/img/v29-lateral.webp" alt="MC Ebikes en la calle" loading="lazy" width="1200" height="800"></div>
     </div>
@@ -827,7 +819,7 @@ const nosotros = `
     <nav class="crumbs"><a href="index.html">Inicio</a> / <span aria-current="page">Nosotros</span></nav>
     <span class="kick">Quiénes somos</span>
     <h1 class="h1" style="font-size:clamp(38px,7vw,66px);margin-top:14px">Movilidad eléctrica<br>con <em>cara visible</em></h1>
-    <p>Elegimos pocos modelos, los probamos y los bancamos. MC Ebikes nace para darle a cada chico y chica del campo argentino su primer territorio propio: la libertad de moverse solo, con potencia real, mucho antes de lo que la ley te permite subirte a una moto.</p>
+    <p>Elegimos pocos modelos, los probamos y los bancamos. MC Ebikes nace para darle a cada chico y chica del campo argentino su primer vehículo propio: la autonomía de recorrer todo el terreno por sus propios medios, con la potencia necesaria para el ritmo diario.</p>
   </div>
 </section>
 
@@ -846,9 +838,9 @@ const nosotros = `
   </div>
 </section>
 
-<section class="sec" style="padding-top:0">
+<section class="sec sec--rural">
   <div class="wrap">
-    <div class="sec-head rv"><span class="kick">En qué creemos</span><h2 class="h2">En qué creemos</h2></div>
+    <div class="sec-head rv"><span class="kick">Cómo trabajamos</span><h2 class="h2">En qué creemos</h2></div>
     <div class="feat">
       <article class="rv"><div class="ic">${ico(I.bike)}</div><h3>Probar antes</h3><p>Nadie debería gastar esta plata sin subirse primero. El test ride es gratis y sin compromiso, siempre.</p></article>
       <article class="rv d1"><div class="ic">${ico(I.check)}</div><h3>Datos reales</h3><p>Te decimos la autonomía real con tu peso y tu terreno, no el número de laboratorio del fabricante.</p></article>
