@@ -383,8 +383,8 @@ const home = `
   <div class="wrap">
     <div class="sec-head rv">
       <span class="kick">Presentación</span>
-      <h2 class="h2">La potencia de una moto,<br>con la libertad de <em>arrancar hoy mismo</em></h2>
-      <p>Cargás la batería en tu casa, en el galpón o en la oficina del campo, y salís a recorrer hasta 110 km. Toda la fuerza que necesitás para moverte solo por tu territorio, con la potencia de una moto y la libertad de subirte hoy mismo.</p>
+      <h2 class="h2">Toda la fuerza que pide el campo,<br>con la velocidad <em>bajo control</em></h2>
+      <p>Cargás la batería en tu casa, en el galpón o en la oficina del campo, y salís a recorrer hasta 110 km. El motor tiene torque de sobra para la tierra, las subidas y la carga, y la velocidad se mantiene en 32 km/h: autonomía real para moverse solo, con el control que la familia necesita.</p>
     </div>
     <div class="feat">
       <article class="rv"><div class="ic">${ico(I.bolt)}</div><h3>1000W de potencia real</h3><p>Arranca fuerte en subida y con carga, sin que tengas que pedalear un metro. Motor con torque real, hecho para trabajar y para explorar.</p></article>
