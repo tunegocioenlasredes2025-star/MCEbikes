@@ -126,7 +126,10 @@ strong{color:var(--tiza);font-weight:600}
   display:flex;align-items:center;transition:background .3s,border-color .3s;
   border-bottom:1px solid transparent;
 }
-.hdr.solid{background:rgba(20,22,26,.94);backdrop-filter:blur(12px);border-bottom-color:var(--linea)}
+/* al scrollear el header se opaca, pero sigue claro: el logo del cliente
+   es gris carbon y sobre fondo oscuro desaparece */
+.hdr.solid{background:rgba(245,243,239,.96);backdrop-filter:blur(12px);
+  border-bottom-color:rgba(20,22,26,.14)}
 .hdr__in{width:100%;max-width:var(--wrap);margin-inline:auto;padding-inline:var(--gut);
   display:flex;align-items:center;justify-content:space-between;gap:20px}
 /* El logo oficial ya es un lockup horizontal completo: emblema, barra y
@@ -509,7 +512,7 @@ p,li,.lead,.prose{line-height:1.6}
    el Negro Carbon como fondo dominante.
    ===================================================================== */
 .hdr{background:var(--hueso);border-bottom:1px solid rgba(20,22,26,.10)}
-.hdr.is-stuck,.hdr.scrolled{background:var(--hueso)}
+.hdr.solid{background:rgba(245,243,239,.96)}
 .nav a{color:var(--carbon)}
 .nav a:hover{background:rgba(20,22,26,.06)}
 .nav a.on{color:var(--naranja-lo)}
