@@ -501,3 +501,27 @@ p,li,.lead,.prose{line-height:1.6}
 /* Logo del cliente en el hero */
 .hero__logo{width:clamp(190px,26vw,300px);height:auto;margin-bottom:22px}
 @media (max-width:600px){.hero__logo{width:190px;margin-bottom:16px}}
+
+/* =====================================================================
+   BARRA SUPERIOR EN CLARO
+   El logo del cliente es gris carbon #2B3035 y solo se lee sobre fondo
+   claro, asi que la barra va en Blanco Hueso. El resto del sitio mantiene
+   el Negro Carbon como fondo dominante.
+   ===================================================================== */
+.hdr{background:var(--hueso);border-bottom:1px solid rgba(20,22,26,.10)}
+.hdr.is-stuck,.hdr.scrolled{background:var(--hueso)}
+.nav a{color:var(--carbon)}
+.nav a:hover{background:rgba(20,22,26,.06)}
+.nav a.on{color:var(--naranja-lo)}
+.burger i{background:var(--carbon)}
+.hdr .btn--p{background:var(--carbon);color:var(--hueso)}
+.hdr .btn--p:hover{background:var(--naranja);color:var(--carbon)}
+.brand img{height:48px;width:auto}
+@media (max-width:600px){.brand img{height:40px}}
+
+/* El footer es oscuro y el logo del cliente es gris: va sobre una placa
+   clara, del mismo modo que la barra superior. */
+.ftr .brand{background:var(--hueso);padding:10px 16px;border-radius:var(--r-lg);
+  display:inline-flex;margin-bottom:18px}
+.ftr .brand img{height:44px}
+@media (max-width:600px){.ftr .brand img{height:38px}}

@@ -43,11 +43,10 @@ const waIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
    18-ago-2026): la ruta abierta con el ciclista + M(rayo)C E-BIKES.
    Va en contornos, asi que no depende de tener la tipografia instalada.
    La ruta hereda currentColor; el rayo queda siempre en ambar. */
-/* Logo oficial provisto por el cliente (LOGO MC EBIKES 3.png).
-   Viene en gris carbon #2B3035, que sobre el fondo Negro Carbon del sitio
-   queda ilegible, asi que se genero la variante clara reemplazando ese gris
-   por Blanco Hueso y dejando el amarillo intacto. */
-const LOGO = (h = 48) => `<img src="assets/img/logo-horizontal-claro.webp?v=${V}" alt="MC E-Bikes" height="${h}" width="${Math.round(h * 3)}" style="height:${h}px;width:auto;display:block">`;
+/* Logo oficial del cliente, tal cual el archivo (LOGO MC EBIKES 3.png).
+   Esta en gris carbon #2B3035, que solo se lee sobre fondo claro: por eso
+   la barra superior va en Blanco Hueso y no en Negro Carbon. */
+const LOGO = (h = 48) => `<img src="assets/img/logo-horizontal.webp?v=${V}" alt="MC E-Bikes" height="${h}" width="${Math.round(h * 3)}" style="height:${h}px;width:auto;display:block">`;
 
 /* Tagline oficial (anexo del Manual de Marca v1.0) */
 const TAGLINE = "Tu mundo se mueve con vos";
@@ -364,7 +363,6 @@ const home = `
 <section class="hero">
   <div class="hero__bg"><img src="assets/img/v40-camo.webp" alt="Fat e-bike MC Ebikes" fetchpriority="high" width="1200" height="700"></div>
   <div class="wrap">
-    <img class="hero__logo" src="assets/img/logo-vertical-claro.webp?v=${V}" alt="MC E-Bikes" width="900" height="675" fetchpriority="high">
     <span class="kick">Para el campo argentino</span>
     <h1 class="h1" style="margin-top:16px">TU TERRITORIO.<br>TU MOTOR.<br><em>TU MOMENTO.</em></h1>
     <p class="hero__sub">Fat e-bikes de 1000W con hasta 110 km de autonomía. Vení, probala y decidí con la potencia real abajo tuyo.</p>
