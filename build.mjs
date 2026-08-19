@@ -448,7 +448,7 @@ const home = `
   </div>
 </section>
 
-<section class="sec" style="padding-top:0">
+<section class="sec sec--rural" style="padding-top:0">
   <div class="wrap">
     <div class="split">
       <div class="rv">
@@ -702,7 +702,7 @@ const testride = `
   </div>
 </section>
 
-<section class="sec">
+<section class="sec sec--rural">
   <div class="wrap">
     <div class="split" style="align-items:start">
       <div class="rv">
@@ -773,7 +773,7 @@ const servicio = `
   </div>
 </section>
 
-<section class="sec" style="padding-top:0">
+<section class="sec sec--rural" style="padding-top:0">
   <div class="wrap">
     <div class="split">
       <div class="rv">

@@ -537,3 +537,14 @@ p,li,.lead,.prose{line-height:1.6}
   display:inline-flex;margin-bottom:18px}
 .ftr .brand img{height:44px}
 @media (max-width:600px){.ftr .brand img{height:38px}}
+
+/* Verde Monte: piezas internas que tambien tienen que adaptarse cuando la
+   seccion cambia de fondo */
+.sec--rural .calc{background:rgba(20,22,26,.26);border-color:rgba(245,243,239,.16)}
+.sec--rural .calc__out b{color:var(--hueso)}
+.sec--rural .calc__out span,.sec--rural .field label{color:rgba(245,243,239,.72)}
+.sec--rural input,.sec--rural .sel{background:rgba(20,22,26,.34);
+  border-color:rgba(245,243,239,.20);color:var(--hueso)}
+.sec--rural .ticks span,.sec--rural li{color:rgba(245,243,239,.82)}
+.sec--rural strong{color:var(--hueso)}
+.sec--rural .btn--g{border-color:rgba(245,243,239,.34);color:var(--hueso)}
