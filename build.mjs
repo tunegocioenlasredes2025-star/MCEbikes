@@ -416,7 +416,7 @@ const home = `
       <div>
         <span class="kick">Test ride sin cargo</span>
         <h2 class="h2" style="margin-top:14px">Vos mismo sentís la potencia,<br>antes de <em>decidir</em></h2>
-        <p>Es una decisión importante para toda la familia. Por eso te invitamos a venir a nuestro local en Castelar, subirte y manejarla vos mismo antes de resolver nada. Y si estás lejos, coordinamos una demo cuando estemos en tu zona, o te acompañamos igual con envío a todo el país y garantía real por escrito.</p>
+        <p>Sumar movilidad propia es un paso importante para toda la familia. Por eso te invitamos a venir a nuestro local en Castelar, subirte y manejarla vos mismo antes de resolver nada. Y si estás lejos, coordinamos una demostración cuando estemos en tu zona, o te acompañamos igual con envío a todo el país y garantía real por escrito.</p>
         <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi test ride</a>
       </div>
     </div>
