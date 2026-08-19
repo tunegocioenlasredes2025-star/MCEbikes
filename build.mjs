@@ -384,7 +384,7 @@ const home = `
     <div class="sec-head rv">
       <span class="kick">Presentación</span>
       <h2 class="h2">Autonomía real<br>para seguir <em>tu ritmo</em></h2>
-      <p>La autonomía que necesitás para tu día a día, con 110 kilómetros por carga completa. Un vehículo serio diseñado para seguir tu ritmo, optimizado para trayectos intensos en caminos exigentes y jornadas completas de actividad.</p>
+      <p>La autonomía que necesitás para tu día a día, con hasta 110 kilómetros por carga completa. Un vehículo serio diseñado para seguir tu ritmo, optimizado para trayectos intensos en caminos exigentes y jornadas completas de actividad.</p>
     </div>
     <div class="feat">
       <article class="rv"><div class="ic">${ico(I.bolt)}</div><h3>1000W de potencia real</h3><p>Arranca fuerte en subida y con carga, sin que tengas que pedalear un metro. Motor con torque real, hecho para trabajar y para explorar.</p></article>
