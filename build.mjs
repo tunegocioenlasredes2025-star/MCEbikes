@@ -399,8 +399,8 @@ const home = `
   <div class="wrap">
     <div class="sec-head rv">
       <span class="kick">Modelos</span>
-      <h2 class="h2">Cuatro máquinas,<br>un mismo <em>territorio</em> por conquistar</h2>
-      <p>Todas fat, todas con motor de 1000W o más, frenos a disco y arranque por NFC. Cambian la autonomía, la potencia y el equipamiento: vos elegís según cuánto territorio querés recorrer.</p>
+      <h2 class="h2">Cuatro máquinas,<br>potencia y batería <em>a tu medida</em>.</h2>
+      <p>Misma base robusta en toda la línea: cubiertas fat, motor desde 1000W en adelante, frenos a disco y arranque por NFC. Te fijás cuántos kilómetros querés recorrer por salida y te llevás el modelo justo para eso.</p>
     </div>
     <div class="grid-p">
       ${destacados.map(pcard).join("\n")}
