@@ -133,6 +133,10 @@ strong{color:var(--tiza);font-weight:600}
    nombre en una sola pieza. No lleva texto HTML al lado. */
 .brand{display:flex;align-items:center;flex:none}
 .brand svg{height:34px;width:auto;color:var(--hueso)}
+/* El lockup del cliente lleva el nombre en dos lineas y chico dentro del
+   propio archivo: por debajo de 48px el "E-BIKES" deja de leerse. */
+.brand img{height:48px;width:auto}
+@media (max-width:600px){.brand img{height:40px}}
 
 .nav{display:flex;align-items:center;gap:2px}
 .nav a{font-family:var(--t);font-size:14.5px;font-weight:500;padding:9px 13px;border-radius:var(--r);
@@ -493,3 +497,7 @@ p,li,.lead,.prose{line-height:1.6}
 .pc__sp div{font-size:9.5px;letter-spacing:.07em;white-space:nowrap}
 .pc__sp b{font-size:17px;white-space:nowrap}
 .keyspecs span{letter-spacing:.07em}
+
+/* Logo del cliente en el hero */
+.hero__logo{width:clamp(190px,26vw,300px);height:auto;margin-bottom:22px}
+@media (max-width:600px){.hero__logo{width:190px;margin-bottom:16px}}
