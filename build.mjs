@@ -383,8 +383,8 @@ const home = `
   <div class="wrap">
     <div class="sec-head rv">
       <span class="kick">Presentación</span>
-      <h2 class="h2">Toda la fuerza que pide el campo,<br>con la velocidad <em>bajo control</em></h2>
-      <p>Cargás la batería en tu casa, en el galpón o en la oficina del campo, y salís a recorrer hasta 110 km. El motor tiene torque de sobra para la tierra, las subidas y la carga, y la velocidad se mantiene en 32 km/h: autonomía real para moverse solo, con el control que la familia necesita.</p>
+      <h2 class="h2">Autonomía real<br>para seguir <em>tu ritmo</em></h2>
+      <p>La autonomía que necesitás para tu día a día, con 110 kilómetros por carga completa. Un vehículo serio diseñado para seguir tu ritmo, optimizado para trayectos intensos en caminos exigentes y jornadas completas de actividad.</p>
     </div>
     <div class="feat">
       <article class="rv"><div class="ic">${ico(I.bolt)}</div><h3>1000W de potencia real</h3><p>Arranca fuerte en subida y con carga, sin que tengas que pedalear un metro. Motor con torque real, hecho para trabajar y para explorar.</p></article>
