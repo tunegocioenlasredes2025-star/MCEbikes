@@ -77,7 +77,7 @@ const P = [
     price: 2340000, old: null, badge: "Doble batería",
     motor: "1000W", bat: "48V / 15,6Ah ×2", aut: "hasta 110 km", vel: "32 km/h",
     autNum: 110, carga: "150 kg", recarga: "4 a 6 horas", peso: "45 kg aprox.",
-    img: "v29-negra", gal: ["v29-negra", "v29-lateral", "v29-detalle", "v20-perfil"],
+    img: "v29-negra", gal: ["v29-negra", "v29-lateral", "v29-detalle"],
     uso: "Recorrer el campo de punta a punta, todo el día",
     destacado: true,
     extras: ["Dos baterías intercambiables", "Panel digital", "Arranque por NFC", "Portaequipaje reforzado", "Frenos a disco", "Amortiguación delantera"],
