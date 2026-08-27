@@ -548,3 +548,27 @@ p,li,.lead,.prose{line-height:1.6}
 .sec--rural .ticks span,.sec--rural li{color:rgba(245,243,239,.82)}
 .sec--rural strong{color:var(--hueso)}
 .sec--rural .btn--g{border-color:rgba(245,243,239,.34);color:var(--hueso)}
+
+/* =====================================================================
+   BLOQUES EN BLANCO HUESO
+   La estrategia de marca pide alternar Carbon y Hueso en vez de un unico
+   bloque oscuro parejo, con una proporcion aproximada de 55% Carbon y
+   22% Hueso. El Hueso funciona como pausa editorial: comparador, FAQ y
+   guias. Contraste Carbon sobre Hueso: 16.34:1.
+   ===================================================================== */
+.sec--claro{background:var(--hueso);color:var(--carbon)}
+.sec--claro h2,.sec--claro h3,.sec--claro h4,.sec--claro strong,
+.sec--claro .faq__q{color:var(--carbon)}
+.sec--claro p,.sec--claro li,.sec--claro .faq__a{color:#4A4844}
+.sec--claro .kick{color:var(--naranja-lo)}
+.sec--claro .kick::before{background:var(--naranja-lo)}
+.sec--claro article,.sec--claro .faq__i,.sec--claro .cmp{
+  background:#FFF;border-color:rgba(20,22,26,.12)}
+.sec--claro .cmp thead th{background:var(--carbon);color:var(--hueso)}
+.sec--claro .cmp td{border-color:rgba(20,22,26,.10);color:var(--carbon)}
+.sec--claro .cmp td.hl{color:var(--naranja-lo);font-weight:700}
+.sec--claro .cmp td:first-child{color:#4A4844}
+.sec--claro .btn--g{border-color:rgba(20,22,26,.28);color:var(--carbon)}
+.sec--claro .btn--g:hover{background:rgba(20,22,26,.06)}
+.sec--claro .faq__q{border-color:rgba(20,22,26,.12)}
+.sec--claro .ic{background:var(--monte);color:var(--hueso)}

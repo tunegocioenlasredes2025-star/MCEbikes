@@ -190,7 +190,6 @@ function footer() {
       <div class="ftr__b">
         <a href="index.html" class="brand" style="color:var(--tiza)">${LOGO(54)}</a>
         <p>Independencia real para la nueva generación del campo argentino. Fat e-bikes de 1000W para que actives tu movilidad, con potencia real y autonomía real.</p>
-        <p class="tagline" style="font-size:17px;margin-top:16px">${TAGLINE}</p>
         <div class="soc">
           <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
           <a href="${WA_TXT("Hola MC Ebikes")}" target="_blank" rel="noopener" aria-label="WhatsApp">${waIcon}</a>
@@ -262,7 +261,7 @@ const pcard = (p) => `
   </div>
 </article>`;
 
-const ctaBlock = (t = "Lo mejor: la probás antes de tenerla", s = "Vení a Castelar, manejala y sentí el motor respondiendo abajo tuyo. Con total confianza.") => `
+const ctaBlock = (t = "Vení, probala y decidí con información", s = "Te esperamos en Castelar para que la manejes vos mismo y hagas todas las preguntas antes de resolver nada.") => `
 <section class="sec sec--tight">
   <div class="wrap">
     <div class="cta rv">
@@ -363,8 +362,8 @@ const home = `
 <section class="hero">
   <div class="hero__bg"><img src="assets/img/v40-camo.webp" alt="Fat e-bike MC Ebikes" fetchpriority="high" width="1200" height="700"></div>
   <div class="wrap">
-    <span class="kick">Para el campo argentino</span>
-    <h1 class="h1" style="margin-top:16px">TU TERRITORIO.<br>TU MOTOR.<br><em>TU MOMENTO.</em></h1>
+    <span class="kick">Campo, pueblo y periferia bonaerense</span>
+    <h1 class="h1" style="margin-top:16px">TU MUNDO<br>SE MUEVE<br><em>CON VOS.</em></h1>
     <p class="hero__sub">Fat e-bikes de 1000W con hasta 110 km de autonomía. Vení, probala y decidí con la potencia real abajo tuyo.</p>
     <div class="hero__cta">
       <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi prueba ${ico(I.arrow, 2.2)}</a>
@@ -382,7 +381,7 @@ const home = `
 <section class="sec">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kick">Presentación</span>
+      <span class="kick">Tu primer vehículo propio</span>
       <h2 class="h2">Autonomía real<br>para seguir <em>tu ritmo</em></h2>
       <p>La autonomía que necesitás para tu día a día, con hasta 110 kilómetros por carga completa. Un vehículo serio diseñado para seguir tu ritmo, optimizado para trayectos intensos en caminos exigentes y jornadas completas de actividad.</p>
     </div>
@@ -475,7 +474,7 @@ const home = `
   </div>
 </section>
 
-<section class="sec" style="padding-top:0">
+<section class="sec sec--claro" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv"><span class="kick">Preguntas frecuentes</span><h2 class="h2">Todo lo que querés saber,<br>antes de decidir</h2></div>
     <div class="faq rv">
@@ -533,7 +532,7 @@ const catalogo = `
   </div>
 </section>
 
-<section class="sec" style="padding-top:0">
+<section class="sec sec--claro" style="padding-top:0">
   <div class="wrap">
     <div class="sec-head rv"><span class="kick">Comparador</span><h2 class="h2">Todas, lado a lado</h2></div>
     <div class="cmp rv">
@@ -891,7 +890,7 @@ const faqPage = `
     <p>Las dudas reales que nos llegan todos los días. Si te queda alguna, escribinos.</p>
   </div>
 </section>
-<section class="sec">
+<section class="sec sec--claro">
   <div class="wrap">
     <div class="faq rv">${FAQS.map(([q, a]) => faqItem(q, a)).join("")}</div>
   </div>
