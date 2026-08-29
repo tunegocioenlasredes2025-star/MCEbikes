@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es-AR"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Propuesta 3 · Documental · MC E-Bikes</title>
+<style>
+@font-face{font-family:'Archivo';font-weight:100 900;font-display:swap;
+  src:url('../assets/fonts/Archivo-var.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-weight:400;font-display:swap;
+  src:url('../assets/fonts/Inter-400.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-weight:600;font-display:swap;
+  src:url('../assets/fonts/Inter-600.woff2') format('woff2')}
+@font-face{font-family:'Big Shoulders Display';font-weight:100 900;font-display:swap;
+  src:url('../assets/fonts/BigShoulders-var.woff2') format('woff2')}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+  font-size:16px;line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:900;line-height:.98;
+  letter-spacing:-.02em}
+.dato{font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:700}
+.wrap{width:100%;max-width:1240px;margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
+.sello{position:fixed;left:14px;bottom:14px;z-index:99;background:#14161A;color:#F5F3EF;
+  font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  padding:9px 15px;border-radius:2px;opacity:.92}
+.volver{position:fixed;right:14px;bottom:14px;z-index:99;background:#D9622B;color:#14161A;
+  font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  padding:9px 15px;border-radius:2px}
+.nota{background:#14161A;color:#8A8680;font-size:12.5px;padding:18px 0;text-align:center;
+  font-family:'Archivo';letter-spacing:.04em}
+
+body{background:#2F3A2A;color:#F5F3EF}
+.top{padding-block:22px}
+.top .wrap{display:flex;justify-content:space-between;align-items:center}
+.top img{height:42px}
+.top nav{display:flex;gap:26px;font-size:13px;color:rgba(245,243,239,.72)}
+.hero{position:relative;padding-block:clamp(40px,6vw,74px)}
+.hero .marco{position:relative;overflow:hidden;border-radius:2px}
+.hero .marco img{width:100%;aspect-ratio:16/8.4;object-fit:cover;filter:saturate(.72) contrast(1.06)}
+.hero .marco::after{content:"";position:absolute;inset:0;
+  background:linear-gradient(180deg,transparent 45%,rgba(20,22,26,.86) 100%)}
+.hero .txt{position:absolute;left:clamp(26px,4vw,54px);right:clamp(26px,4vw,54px);
+  bottom:clamp(26px,4vw,50px);z-index:2}
+.hero h1{font-size:clamp(34px,5.6vw,76px);max-width:15ch}
+.pie{display:flex;justify-content:space-between;gap:20px;margin-top:22px;
+  padding-top:20px;border-top:1px solid rgba(245,243,239,.22);flex-wrap:wrap}
+.pie p{max-width:46ch;color:rgba(245,243,239,.8)}
+.epi{font-family:'Archivo';font-weight:600;font-size:11px;letter-spacing:.2em;
+  text-transform:uppercase;color:#D9622B;margin-bottom:16px;display:block}
+.rel{padding-block:clamp(52px,7vw,96px);background:#14161A}
+.rel .wrap{display:grid;grid-template-columns:.85fr 1.15fr;gap:clamp(30px,5vw,74px)}
+.rel h2{font-size:clamp(30px,4.2vw,54px)}
+.rel .col p{color:rgba(245,243,239,.76);margin-bottom:16px}
+.rel .col p:first-of-type{font-size:19px;color:#F5F3EF}
+.mod{background:#14161A;padding-bottom:clamp(52px,7vw,96px)}
+.mod .wrap>div{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:rgba(245,243,239,.14)}
+.m{background:#14161A;padding:26px 22px}
+.m img{aspect-ratio:1/.72;object-fit:cover;width:100%;margin-bottom:18px;filter:saturate(.8)}
+.m h3{font-size:20px;margin-bottom:6px}
+.m span{font-size:12.5px;color:#8A8680}
+.m b{display:block;margin-top:14px;font-size:25px;color:#D9622B}
+.cita{padding-block:clamp(56px,8vw,110px);text-align:center}
+.cita blockquote{font-family:'Archivo';font-weight:900;font-size:clamp(26px,3.8vw,50px);
+  line-height:1.1;max-width:20ch;margin-inline:auto}
+.cita cite{display:block;margin-top:24px;font-style:normal;font-size:13px;
+  letter-spacing:.14em;text-transform:uppercase;color:rgba(245,243,239,.62)}
+.btn{display:inline-block;margin-top:32px;border:1.5px solid #F5F3EF;color:#F5F3EF;
+  font-family:'Archivo';font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+  padding:16px 34px}
+@media(max-width:900px){.mod .wrap>div{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.rel .wrap{grid-template-columns:1fr}.top nav{display:none}}
+@media(max-width:520px){.mod .wrap>div{grid-template-columns:1fr}}
+</style>
+</head><body>
+
+<header class="top"><div class="wrap">
+  <img src="../assets/img/MC-E-Bikes-horizontal-blanco.svg" alt="MC E-Bikes">
+  <nav><span>Modelos</span><span>Recorridos</span><span>Service</span><span>Nosotros</span></nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div class="marco">
+    <img src="../assets/img/v40-camo.webp" alt="">
+    <div class="txt">
+      <span class="epi">Provincia de Buenos Aires</span>
+      <h1>Tu mundo se mueve con vos</h1>
+    </div>
+  </div>
+  <div class="pie">
+    <p>Fat e-bikes de alta potencia para el campo, el pueblo y los caminos de tierra.
+    Elegidas por recorrido, probadas antes de comprar y respaldadas por un taller propio.</p>
+    <p style="color:#8A8680;font-size:14px;max-width:22ch">Castelar, Buenos Aires<br>Envíos a todo el país</p>
+  </div>
+</div></section>
+
+<section class="rel"><div class="wrap">
+  <div><span class="epi">01 · El planteo</span><h2>La distancia no se mide en watts</h2></div>
+  <div class="col">
+    <p>Se mide en cuántas veces por día tenés que ir del casco al galpón, del galpón al pueblo y del pueblo a casa.</p>
+    <p>Por eso no empezamos preguntando cuánta potencia querés. Empezamos preguntando por dónde te movés,
+    cuánto peso llevás y dónde vas a cargar la batería. Con eso sí se puede recomendar algo con sentido.</p>
+    <p>Y después te la damos para que la manejes vos, en Castelar, antes de que decidas nada.</p>
+  </div>
+</div></section>
+
+<section class="mod"><div class="wrap"><div>
+  <article class="m"><img src="../assets/img/v20-negra.webp" alt="">
+    <h3>SW V20 Pro</h3><span>Entre casa y pueblo</span><b class="dato">50-65 km</b></article>
+  <article class="m"><img src="../assets/img/v29-negra.webp" alt="">
+    <h3>SW V29 Pro</h3><span>Jornadas largas</span><b class="dato">hasta 110 km</b></article>
+  <article class="m"><img src="../assets/img/v40-negra.webp" alt="">
+    <h3>SW V40</h3><span>Campo y caminos</span><b class="dato">hasta 75 km</b></article>
+  <article class="m"><img src="../assets/img/s20-blanca.webp" alt="">
+    <h3>SW S20 Pro</h3><span>Pendientes y carga</span><b class="dato">1800W</b></article>
+</div></div></section>
+
+<section class="cita"><div class="wrap">
+  <blockquote>Vení, probala y decidí con información</blockquote>
+  <cite>Test ride sin cargo · Castelar</cite><br>
+  <a class="btn" href="#">Reservar mi test ride</a>
+</div></section>
+
+<div class="nota">Propuesta 3 de 5 &middot; Documental &middot; referencia: registro de campo
+&middot; las fotos son provisorias, van reemplazadas por produccion propia en el campo</div>
+<a class="sello" href="index.html">3 / 5 &nbsp;·&nbsp; Documental</a>
+<a class="volver" href="index.html">Ver las 5</a>
+</body></html>

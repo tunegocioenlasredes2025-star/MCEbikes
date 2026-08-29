@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es-AR"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Propuesta 4 · Bloques de color · MC E-Bikes</title>
+<style>
+@font-face{font-family:'Archivo';font-weight:100 900;font-display:swap;
+  src:url('../assets/fonts/Archivo-var.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-weight:400;font-display:swap;
+  src:url('../assets/fonts/Inter-400.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-weight:600;font-display:swap;
+  src:url('../assets/fonts/Inter-600.woff2') format('woff2')}
+@font-face{font-family:'Big Shoulders Display';font-weight:100 900;font-display:swap;
+  src:url('../assets/fonts/BigShoulders-var.woff2') format('woff2')}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+ul{list-style:none}
+body{font-family:'Inter',system-ui,sans-serif;-webkit-font-smoothing:antialiased;
+  font-size:16px;line-height:1.6;overflow-x:hidden}
+h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:900;line-height:.98;
+  letter-spacing:-.02em}
+.dato{font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:700}
+.wrap{width:100%;max-width:1240px;margin-inline:auto;padding-inline:clamp(20px,5vw,48px)}
+.sello{position:fixed;left:14px;bottom:14px;z-index:99;background:#14161A;color:#F5F3EF;
+  font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:.16em;text-transform:uppercase;
+  padding:9px 15px;border-radius:2px;opacity:.92}
+.volver{position:fixed;right:14px;bottom:14px;z-index:99;background:#D9622B;color:#14161A;
+  font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+  padding:9px 15px;border-radius:2px}
+.nota{background:#14161A;color:#8A8680;font-size:12.5px;padding:18px 0;text-align:center;
+  font-family:'Archivo';letter-spacing:.04em}
+
+body{background:#F5F3EF;color:#14161A}
+.top{background:#14161A;color:#F5F3EF}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;padding-block:16px}
+.top img{height:42px}
+.top nav{display:flex;gap:24px;font-family:'Archivo';font-weight:600;font-size:13px;
+  letter-spacing:.06em;text-transform:uppercase}
+.hero{background:#D9622B;color:#14161A;position:relative;overflow:hidden}
+.hero .wrap{display:grid;grid-template-columns:1.05fr 1fr;gap:30px;align-items:center;
+  padding-block:clamp(46px,6vw,86px)}
+.hero h1{font-size:clamp(44px,7vw,104px);text-transform:uppercase;letter-spacing:-.035em}
+.hero p{font-size:19px;margin-top:20px;max-width:38ch}
+.hero img{position:relative;z-index:2;filter:drop-shadow(0 26px 46px rgba(20,22,26,.34))}
+.hero::before{content:"";position:absolute;right:-14%;top:-30%;width:64%;height:170%;
+  background:#14161A;transform:rotate(13deg);z-index:0}
+.bt{display:inline-block;margin-top:28px;background:#14161A;color:#F5F3EF;
+  font-family:'Archivo';font-weight:700;font-size:13px;letter-spacing:.12em;text-transform:uppercase;
+  padding:17px 34px}
+.tira{background:#14161A;color:#F5F3EF;padding-block:26px;overflow:hidden}
+.tira .wrap{display:flex;gap:44px;justify-content:space-between;flex-wrap:wrap}
+.tira b{font-size:32px;color:#D9622B;margin-right:9px}
+.tira span{font-family:'Archivo';font-weight:600;font-size:12px;letter-spacing:.13em;
+  text-transform:uppercase}
+.blo{padding-block:clamp(52px,7vw,96px)}
+.blo:nth-of-type(even){background:#2F3A2A;color:#F5F3EF}
+.blo .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,5vw,72px);align-items:center}
+.blo h2{font-size:clamp(34px,5vw,68px);text-transform:uppercase}
+.blo p{font-size:17px;margin-top:18px;opacity:.82}
+.blo:nth-of-type(odd) img{transform:rotate(-3deg)}
+.mods{background:#14161A;color:#F5F3EF;padding-block:clamp(52px,7vw,92px)}
+.mods h2{font-size:clamp(30px,4.4vw,58px);text-transform:uppercase;margin-bottom:34px}
+.mods .g{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.k{background:#F5F3EF;color:#14161A;padding:20px;border-radius:3px}
+.k img{aspect-ratio:1/.76;object-fit:cover;width:100%;margin-bottom:14px}
+.k h3{font-size:19px}
+.k span{font-size:12px;color:#2F3A2A;font-weight:600}
+.k b{display:block;margin-top:10px;font-size:23px;color:#D9622B}
+.fin{background:#D9622B;color:#14161A;padding-block:clamp(54px,7vw,100px);text-align:center}
+.fin h2{font-size:clamp(32px,5.4vw,74px);text-transform:uppercase}
+@media(max-width:900px){.mods .g{grid-template-columns:1fr 1fr}}
+@media(max-width:760px){.hero .wrap,.blo .wrap{grid-template-columns:1fr}
+  .hero::before{display:none}.top nav{display:none}}
+@media(max-width:520px){.mods .g{grid-template-columns:1fr}}
+</style>
+</head><body>
+
+<header class="top"><div class="wrap">
+  <img src="../assets/img/MC-E-Bikes-horizontal-blanco.svg" alt="MC E-Bikes">
+  <nav><span>Modelos</span><span>Test ride</span><span>Service</span><span>Contacto</span></nav>
+</div></header>
+
+<section class="hero"><div class="wrap">
+  <div>
+    <h1>Tu mundo se mueve con vos</h1>
+    <p>Fat e-bikes de alta potencia para el campo, el pueblo y todo lo que hay en el medio.</p>
+    <a class="bt" href="#">Elegí tu recorrido</a>
+  </div>
+  <img src="../assets/img/v29-lateral.webp" alt="">
+</div></section>
+
+<div class="tira"><div class="wrap">
+  <span><b class="dato">1000W</b>Potencia</span>
+  <span><b class="dato">110 km</b>Hasta, de autonomía</span>
+  <span><b class="dato">32 km/h</b>De velocidad</span>
+  <span><b class="dato">12</b>Cuotas sin interés</span>
+</div></div>
+
+<section class="blo"><div class="wrap">
+  <div><h2>Arranca<br>donde otras<br>se plantan</h2>
+  <p>Motor con torque real para la tierra, las subidas y la carga. Sin pedalear un metro si no querés.</p></div>
+  <img src="../assets/img/v20-lateral.webp" alt="">
+</div></section>
+
+<section class="blo"><div class="wrap">
+  <img src="../assets/img/v29-detalle.webp" alt="">
+  <div><h2>Cargala<br>en cualquier<br>enchufe</h2>
+  <p>Batería de litio extraíble. La cargás en la casa o en el galpón por menos de $200 la carga completa.</p></div>
+</div></section>
+
+<section class="mods"><div class="wrap">
+  <h2>Cuatro máquinas,<br>cuatro recorridos</h2>
+  <div class="g">
+    <article class="k"><img src="../assets/img/v20-negra.webp" alt=""><span>Entre casa y pueblo</span>
+      <h3>SW V20 Pro</h3><b class="dato">$1.890.000</b></article>
+    <article class="k"><img src="../assets/img/v29-negra.webp" alt=""><span>Jornadas largas</span>
+      <h3>SW V29 Pro</h3><b class="dato">$2.340.000</b></article>
+    <article class="k"><img src="../assets/img/v40-negra.webp" alt=""><span>Campo y caminos</span>
+      <h3>SW V40</h3><b class="dato">$2.150.000</b></article>
+    <article class="k"><img src="../assets/img/s20-blanca.webp" alt=""><span>Pendientes y carga</span>
+      <h3>SW S20 Pro</h3><b class="dato">$2.590.000</b></article>
+  </div>
+</div></section>
+
+<section class="fin"><div class="wrap">
+  <h2>Vení, probala<br>y decidí con información</h2>
+  <a class="bt" href="#">Reservar mi test ride</a>
+</div></section>
+
+<div class="nota">Propuesta 4 de 5 &middot; Bloques de color &middot; referencia: Moustache
+&middot; las fotos son provisorias, van reemplazadas por produccion propia en el campo</div>
+<a class="sello" href="index.html">4 / 5 &nbsp;·&nbsp; Bloques de color</a>
+<a class="volver" href="index.html">Ver las 5</a>
+</body></html>

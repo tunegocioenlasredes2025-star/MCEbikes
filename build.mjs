@@ -1108,6 +1108,6 @@ writeFileSync(new URL("./sitemap.xml", import.meta.url),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
   urls.map(([u, p]) => `  <url><loc>${SITE}/${u}</loc><lastmod>${today}</lastmod><priority>${p}</priority></url>`).join("\n") +
   `\n</urlset>`);
-writeFileSync(new URL("./robots.txt", import.meta.url), `User-agent: *\nAllow: /\n\nSitemap: ${SITE}/sitemap.xml\n`);
+writeFileSync(new URL("./robots.txt", import.meta.url), `User-agent: *\nAllow: /\nDisallow: /propuestas/\n\nSitemap: ${SITE}/sitemap.xml\n`);
 console.log("✓ sitemap.xml + robots.txt + manifest");
 console.log("\nBuild completo — " + (7 + P.length) + " páginas");
