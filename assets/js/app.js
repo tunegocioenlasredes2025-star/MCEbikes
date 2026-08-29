@@ -4,6 +4,51 @@
   var doc = document, body = doc.body;
   var reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
   var WA = doc.documentElement.dataset.wa || "";
+  var win = window;
+
+  /* =====================================================================
+     MEDICION
+     La auditoria pedia poder saber si el trafico genera conversaciones o
+     solo visitas. Cada evento se empuja al dataLayer, que es el formato que
+     leen tanto Google Analytics como Tag Manager: el dia que carguen la
+     cuenta, el historial de eventos ya esta instrumentado y no hay que
+     tocar nada aca. Sin cuenta configurada no se carga ningun script de
+     terceros ni se deja ninguna cookie.
+     ===================================================================== */
+  win.dataLayer = win.dataLayer || [];
+  function track(evento, datos) {
+    var d = datos || {};
+    d.event = evento;
+    d.pagina = doc.body.dataset.pagina || location.pathname;
+    win.dataLayer.push(d);
+    if (typeof win.gtag === "function") win.gtag("event", evento, d);
+  }
+
+  /* Ficha de producto vista */
+  var fichaModelo = doc.body.dataset.modelo;
+  if (fichaModelo) track("ver_modelo", { modelo: fichaModelo });
+
+  /* Cualquier salida a WhatsApp, con el lugar desde donde se hizo clic */
+  doc.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+    if (!a) return;
+    var origen = a.classList.contains("fab") ? "boton flotante"
+      : a.closest(".ftr") ? "pie"
+      : a.closest(".hdr") ? "barra"
+      : a.closest(".cta") ? "cierre"
+      : "cuerpo";
+    track("whatsapp", { origen: origen, modelo: fichaModelo || "" });
+  });
+
+  /* Comparador y filtros del catalogo */
+  doc.querySelectorAll(".chip[data-f]").forEach(function (c) {
+    c.addEventListener("click", function () { track("filtrar_catalogo", { filtro: c.dataset.f }); });
+  });
+  var selOrden = doc.querySelector("[data-sort]");
+  if (selOrden) selOrden.addEventListener("change", function () {
+    track("ordenar_catalogo", { orden: selOrden.value });
+  });
+
 
   /* Header */
   var hdr = doc.querySelector(".hdr");
@@ -103,6 +148,7 @@
       quizRes.innerHTML = '<b>' + b.dataset.rec + '</b><p>' + b.dataset.why +
         '</p><a class="btn btn--p btn--sm" style="margin-top:14px" href="' + b.dataset.url + '">Ver ficha completa</a>';
       quizRes.classList.add("on");
+      track("elegir_recorrido", { recorrido: b.querySelector("b").textContent, recomendado: b.dataset.rec });
       quizRes.scrollIntoView({ behavior: reduced ? "auto" : "smooth", block: "nearest" });
     });
   });
@@ -129,7 +175,11 @@
       oCargas.textContent = Math.round(cargas);
       oAnual.textContent = "$" + Math.round(ahorro * 12).toLocaleString("es-AR");
     }
-    [km].forEach(function (el) { if (el) { el.addEventListener("input", run); el.addEventListener("change", run); } });
+    var calcUsada = false;
+    [km].forEach(function (el) { if (el) {
+      el.addEventListener("input", function () { run(); if (!calcUsada) { calcUsada = true; track("usar_calculadora"); } });
+      el.addEventListener("change", run);
+    } });
     run();
   }
 
@@ -151,6 +201,7 @@
       e.preventDefault();
       if (!f.checkValidity()) { f.reportValidity(); return; }
       var g = function (n) { var el = f.elements[n]; return el ? el.value.trim() : ""; };
+      track("formulario_enviado", { formulario: sel.replace("#f-", ""), modelo: g("modelo") || fichaModelo || "" });
       var url = "https://wa.me/" + WA + "?text=" + encodeURIComponent(build(g, f));
       open(url, "_blank");
       var ok = f.querySelector(".ok"); if (ok) ok.classList.add("on");

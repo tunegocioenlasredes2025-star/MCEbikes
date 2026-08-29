@@ -14,6 +14,12 @@ const SITE = "https://mc-ebikes.vercel.app";
 const WA = "5491112345678";
 const WA_TXT = (m) => `https://wa.me/${WA}?text=${encodeURIComponent(m)}`;
 const MAIL = "hola@mcebikes.com.ar";
+/* Medida de analitica. Vacio = no se carga ningun script de terceros ni se
+   deja ninguna cookie. Al pegar aca el ID de Google Analytics (G-XXXXXXX) o
+   el de Tag Manager (GTM-XXXXXX) se activa en las catorce paginas y los
+   eventos que ya estan instrumentados en app.js empiezan a reportar. */
+const GA4 = "";
+const GTM = "";
 const DIR = "Castelar, Buenos Aires";
 const HORARIO = "Lun a Vie 10 a 19 h · Sáb 10 a 14 h";
 const money = (n) => "$" + n.toLocaleString("es-AR");
@@ -145,18 +151,21 @@ function head({ title, desc, slug, ld = "", preload = "" }) {
 <link rel="preload" href="assets/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/BigShoulders-var.woff2" as="font" type="font/woff2" crossorigin>${preload}
 <link rel="stylesheet" href="assets/css/fonts.css?v=${V}">
-<link rel="stylesheet" href="assets/css/styles.css?v=${V}">
+<link rel="stylesheet" href="assets/css/styles.css?v=${V}">${GA4 ? `
+<script async src="https://www.googletagmanager.com/gtag/js?id=${GA4}"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','${GA4}')</script>` : ""}${GTM ? `
+<script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],j=d.createElement(s);j.async=true;j.src='https://www.googletagmanager.com/gtm.js?id='+i;f.parentNode.insertBefore(j,f)})(window,document,'script','dataLayer','${GTM}')</script>` : ""}
 ${ld ? `<script type="application/ld+json">\n${ld}\n</script>` : ""}
 </head>`;
 }
 
 /* ---------- HEADER ---------- */
-function header(active) {
+function header(active, modelo) {
   const on = (k) => (active === k ? ' class="on"' : "");
   const links = [["index", "Inicio", "index.html"], ["productos", "Modelos", "productos.html"],
   ["servicio", "Service", "servicio.html"], ["nosotros", "Nosotros", "nosotros.html"],
   ["faq", "Preguntas", "faq.html"], ["contacto", "Contacto", "contacto.html"]];
-  return `<body>
+  return `<body data-pagina="${active || "otra"}"${modelo ? ` data-modelo="${modelo}"` : ""}>
 <header class="hdr">
   <div class="hdr__in">
     <a href="index.html" class="brand" aria-label="MC Ebikes — Inicio">
@@ -226,6 +235,11 @@ function footer() {
     </div>
     <div class="ftr__bot">
       <span>© <span data-year>2026</span> MC EBIKES</span>
+      <nav class="ftr__legal" aria-label="Políticas">
+        <a href="privacidad.html">Privacidad</a>
+        <a href="terminos.html">Términos</a>
+        <a href="envios.html">Envíos y devoluciones</a>
+      </nav>
       <span>Precios y disponibilidad sujetos a cambio sin previo aviso.</span>
     </div>
   </div>
@@ -236,8 +250,8 @@ function footer() {
 </html>`;
 }
 
-const page = ({ slug, title, desc, active, ld, preload, main }) =>
-  head({ title, desc, slug, ld, preload }) + header(active) + main + footer();
+const page = ({ slug, title, desc, active, ld, preload, main, modelo }) =>
+  head({ title, desc, slug, ld, preload }) + header(active, modelo) + main + footer();
 
 /* ---------- Bloques ---------- */
 const pcard = (p) => `
@@ -686,7 +700,7 @@ for (const p of P) {
 ${ctaBlock(`¿Te quedaste con la ${p.name}?`, "Vení a Castelar, subite y manejala vos mismo antes de resolver nada. Sin costo y sin compromiso.")}`;
 
   writeFileSync(new URL(`./${p.slug}.html`, import.meta.url), page({
-    slug: p.slug, active: "productos",
+    slug: p.slug, active: "productos", modelo: p.name,
     title: `${p.name} — Fat E-Bike ${p.motor} | MC Ebikes`,
     desc: `${p.name}: motor ${p.motor}, batería ${p.bat}, ${p.aut} de autonomía y 12 cuotas sin interés. Test ride sin cargo en Castelar.`,
     ld,
@@ -968,6 +982,95 @@ writeFileSync(new URL("./contacto.html", import.meta.url), page({
 }));
 console.log("✓ contacto.html");
 
+/* =====================================================================
+   PAGINAS DE POLITICAS
+   Redactadas con lo que es verdad hoy y con lo que fija la Ley 24.240.
+   Donde falta una condicion comercial que el cliente todavia no definio,
+   se remite a consultarla en vez de inventar un plazo o un costo.
+   ===================================================================== */
+const legalPage = (kick, h1, cuerpo) => `
+<section class="phero">
+  <div class="wrap">
+    <nav class="crumbs"><a href="index.html">Inicio</a> / <span aria-current="page">${kick}</span></nav>
+    <span class="kick">${kick}</span>
+    <h1 class="h1" style="font-size:clamp(32px,5.2vw,52px);margin-top:14px">${h1}</h1>
+  </div>
+</section>
+<section class="sec sec--claro">
+  <div class="wrap">
+    <div class="legal rv">${cuerpo}</div>
+  </div>
+</section>`;
+
+const POLITICAS = [
+  ["privacidad", "Privacidad", "Política de privacidad",
+   "Qué datos recibimos cuando usás el sitio de MC Ebikes, para qué los usamos y cómo pedir que los borremos.", `
+    <p class="lead">Esta página explica qué datos recibimos cuando usás el sitio de MC Ebikes, para qué los usamos y cómo pedir que los borremos. Está redactada siguiendo la Ley 25.326 de Protección de Datos Personales.</p>
+    <h2>Qué datos recibimos</h2>
+    <p>El sitio no tiene registro de usuarios ni carrito de compras. Los formularios de contacto y de test ride <strong>no envían la información a un servidor nuestro</strong>: arman un mensaje con lo que escribiste y abren WhatsApp para que vos decidas si lo mandás. Hasta que tocás enviar, esos datos no salen de tu teléfono o tu computadora.</p>
+    <p>Cuando nos escribís, recibimos lo que hayas incluido en el mensaje: tu nombre, tu teléfono, el modelo que te interesa y cualquier dato que agregues. También quedan guardadas las conversaciones de WhatsApp y los correos que nos mandes.</p>
+    <h2>Para qué los usamos</h2>
+    <ul class="ticks">
+      <li><span>Responder tu consulta y asesorarte sobre qué modelo te conviene.</span></li>
+      <li><span>Coordinar un test ride, un service o una entrega.</span></li>
+      <li><span>Cumplir con las obligaciones de facturación y garantía cuando hay una venta.</span></li>
+    </ul>
+    <p>No vendemos ni cedemos tus datos a terceros con fines publicitarios.</p>
+    <h2>Cookies y medición</h2>
+    <p>El sitio no usa cookies de publicidad ni de seguimiento entre sitios. Si más adelante incorporamos una herramienta de medición, vamos a actualizar esta página y a pedirte el consentimiento que corresponda antes de activarla.</p>
+    <h2>Menores de edad</h2>
+    <p>Si la persona que va a usar la bicicleta es menor de edad, pedimos que la consulta, la prueba y la compra las gestione una madre, un padre o un adulto responsable. No solicitamos datos de menores a través del sitio.</p>
+    <h2>Tus derechos</h2>
+    <p>Podés pedirnos en cualquier momento acceder a los datos que tengamos tuyos, corregirlos o eliminarlos, escribiéndonos a <a href="mailto:${MAIL}">${MAIL}</a>. La Agencia de Acceso a la Información Pública es el organismo de control de la Ley 25.326 y recibe las denuncias por incumplimiento.</p>
+    <h2>Cambios en esta política</h2>
+    <p>Si la modificamos, publicamos la versión nueva en esta misma página.</p>`],
+
+  ["terminos", "Términos", "Términos y condiciones",
+   "Las reglas de uso del sitio de MC Ebikes y las condiciones generales de precios, especificaciones y garantía.", `
+    <p class="lead">Estas condiciones se aplican al uso del sitio de MC Ebikes y a las operaciones que se inicien a través de él. Al usar el sitio, las aceptás.</p>
+    <h2>Qué es este sitio</h2>
+    <p>Este sitio es informativo y de contacto. <strong>No es una tienda online:</strong> no se puede comprar ni pagar desde acá. Las consultas se continúan por WhatsApp, por correo o en el local de Castelar, y toda operación se cierra por esas vías con su documentación correspondiente.</p>
+    <h2>Precios y disponibilidad</h2>
+    <p>Los precios publicados son de referencia, están expresados en pesos argentinos e incluyen impuestos. Pueden cambiar sin aviso previo y no constituyen una oferta cerrada: el precio y la disponibilidad se confirman al momento de la consulta. Las cuotas dependen de la tarjeta y de las promociones vigentes de cada banco.</p>
+    <h2>Especificaciones técnicas</h2>
+    <p>Las especificaciones que publicamos provienen de la información del fabricante. Los valores de autonomía son estimaciones bajo condiciones favorables: el rendimiento real varía según el peso de la persona, la carga, el terreno, el viento, la presión de las cubiertas, la temperatura y cuánto uses el acelerador. Antes de comprar te recomendamos consultarnos por tu recorrido concreto y probar la bicicleta.</p>
+    <h2>Uso del vehículo</h2>
+    <p>La clasificación de cada modelo y las condiciones para circular dependen de sus características técnicas y de la normativa de cada jurisdicción, que puede fijar requisitos propios. Consultanos por el modelo que te interesa y verificá las reglas vigentes en tu municipio y tu provincia antes de circular por la vía pública. Recomendamos siempre el uso de casco.</p>
+    <h2>Garantía</h2>
+    <p>Las bicicletas cuentan con la garantía legal que establece la Ley 24.240 y con la garantía comercial detallada en el certificado que se entrega con la compra. Cubre defectos de fabricación. No cubre el desgaste natural, los daños por golpes, el uso indebido, las modificaciones ni la falta de mantenimiento.</p>
+    <h2>Propiedad intelectual</h2>
+    <p>Los textos, las imágenes, el logo y el diseño de este sitio pertenecen a MC Ebikes o a quienes nos autorizaron a usarlos. No pueden reproducirse sin permiso.</p>
+    <h2>Contacto</h2>
+    <p>Ante cualquier duda sobre estas condiciones, escribinos a <a href="mailto:${MAIL}">${MAIL}</a>.</p>`],
+
+  ["envios", "Envíos y devoluciones", "Envíos, cambios y devoluciones",
+   "Cómo entregamos tu MC, qué pasa si te arrepentís dentro de los 10 días y cómo procede la garantía.", `
+    <p class="lead">Acá explicamos cómo llega tu MC y qué derechos tenés si querés devolverla o si aparece una falla.</p>
+    <h2>Entregas</h2>
+    <p>Entregamos en el local de Castelar, donde también podés retirarla y hacer la revisión inicial con nosotros. Coordinamos envíos a otras localidades: el costo y el plazo dependen del destino, así que te los confirmamos antes de cerrar la operación.</p>
+    <p>Te recomendamos revisar la bicicleta al recibirla, delante de quien la entrega, y dejar asentado en el momento cualquier daño de transporte.</p>
+    <h2>Derecho de arrepentimiento</h2>
+    <p>Si la compra se hizo a distancia, es decir por WhatsApp, teléfono o correo y sin haber pasado por el local, la Ley 24.240 te da <strong>diez días corridos desde la entrega para arrepentirte</strong>, sin necesidad de explicar por qué. La bicicleta tiene que estar sin uso y en las mismas condiciones en que la recibiste, con su embalaje y sus accesorios. El costo de la devolución corre por nuestra cuenta.</p>
+    <p>Para ejercerlo, escribinos a <a href="mailto:${MAIL}">${MAIL}</a> o por WhatsApp dentro de ese plazo.</p>
+    <h2>Si aparece una falla</h2>
+    <p>Si la bicicleta tiene un defecto cubierto por la garantía, la reparamos en nuestro taller de Castelar. Escribinos contándonos qué pasa, con fotos o un video si se puede, y coordinamos la revisión. Si la reparación no resuelve el problema, la Ley 24.240 te habilita a pedir el cambio del producto, la devolución del dinero o una quita proporcional del precio.</p>
+    <h2>Cambios por otro modelo</h2>
+    <p>Si después de la entrega te das cuenta de que otro modelo te sirve más, consultanos. Los cambios se evalúan caso por caso según el estado de la bicicleta y el tiempo transcurrido. Por eso insistimos tanto con el test ride: probarla antes es la mejor forma de no tener que cambiarla después.</p>
+    <h2>Repuestos y service</h2>
+    <p>Tenemos stock de los repuestos de mayor rotación y pedimos el resto a nuestro proveedor. Los plazos dependen de la pieza; te los confirmamos al momento de la consulta.</p>`],
+];
+
+for (const [slug, kick, h1, desc, cuerpo] of POLITICAS) {
+  writeFileSync(new URL(`./${slug}.html`, import.meta.url), page({
+    slug, active: "",
+    title: `${h1} | MC Ebikes`,
+    desc,
+    ld: crumbLD(h1, slug),
+    main: legalPage(kick, h1, cuerpo),
+  }));
+  console.log(`✓ ${slug}.html`);
+}
+
 /* ---------- 404 ---------- */
 writeFileSync(new URL("./404.html", import.meta.url), page({
   slug: "404", active: "",
@@ -997,7 +1100,9 @@ writeFileSync(new URL("./site.webmanifest", import.meta.url), JSON.stringify({
 }, null, 2));
 
 const urls = [["", "1.0"], ["productos.html", "0.9"], ["test-ride.html", "0.9"], ["servicio.html", "0.8"],
-["nosotros.html", "0.7"], ["faq.html", "0.7"], ["contacto.html", "0.8"], ...P.map((p) => [`${p.slug}.html`, "0.9"])];
+["nosotros.html", "0.7"], ["faq.html", "0.7"], ["contacto.html", "0.8"],
+["privacidad.html", "0.3"], ["terminos.html", "0.3"], ["envios.html", "0.5"],
+...P.map((p) => [`${p.slug}.html`, "0.9"])];
 const today = new Date().toISOString().slice(0, 10);
 writeFileSync(new URL("./sitemap.xml", import.meta.url),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +
