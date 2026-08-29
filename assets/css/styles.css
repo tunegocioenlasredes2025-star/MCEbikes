@@ -572,3 +572,14 @@ p,li,.lead,.prose{line-height:1.6}
 .sec--claro .btn--g:hover{background:rgba(20,22,26,.06)}
 .sec--claro .faq__q{border-color:rgba(20,22,26,.12)}
 .sec--claro .ic{background:var(--monte);color:var(--hueso)}
+
+/* El selector pasó de 4 a 5 recorridos: con títulos de distinto largo las
+   tarjetas quedaban desalineadas entre sí. */
+.quiz{grid-template-columns:repeat(5,1fr)}
+.quiz button{display:flex;flex-direction:column;align-items:flex-start}
+.quiz button b{min-height:3.3em;display:flex;align-items:flex-end}
+.quiz button svg{margin-bottom:14px}
+@media (max-width:1080px){.quiz{grid-template-columns:repeat(3,1fr)}
+  .quiz button b{min-height:0}}
+@media (max-width:700px){.quiz{grid-template-columns:1fr 1fr}}
+@media (max-width:460px){.quiz{grid-template-columns:1fr}}

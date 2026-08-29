@@ -426,21 +426,24 @@ const home = `
   <div class="wrap">
     <div class="sec-head sec-head--c rv">
       <span class="kick kick--plain">¿Cuál me conviene?</span>
-      <h2 class="h2">Contanos cómo vas a recorrer tu territorio</h2>
+      <h2 class="h2">No empieces por la bicicleta.<br>Empezá por tu <em>recorrido</em>.</h2>
       <p>En 5 segundos te decimos qué modelo tiene sentido para vos.</p>
     </div>
     <div class="quiz rv">
-      <button data-rec="SW V20 Pro" data-why="Para trayectos urbanos de hasta 25 km diarios es la más equilibrada: 1000W, 65 km de autonomía y el mejor precio de la línea." data-url="v20-pro.html">
-        ${ico(I.city)}<b>Ciudad</b><span>Voy al trabajo, hago mandados, trayectos cortos</span>
+      <button data-rec="SW V20 Pro" data-why="Para recorridos cotidianos de ida y vuelta, la V20 Pro es la más equilibrada de la línea: 1000W y 50 a 65 km de autonomía publicada. Antes de decidir conviene medir tu recorrido real y dejar un margen." data-url="v20-pro.html">
+        ${ico(I.city)}<b>Entre casa y pueblo</b><span>Ir y venir del pueblo, la escuela, el club o los mandados</span>
       </button>
-      <button data-rec="SW V29 Pro" data-why="Doble batería intercambiable y hasta 110 km. Si estás todo el día arriba de la bici, es la única que no te deja a pie." data-url="v29-pro.html">
-        ${ico(I.box)}<b>Trabajo</b><span>Delivery, reparto, muchas horas por día</span>
+      <button data-rec="SW V40" data-why="Para terreno exigente y movimiento dentro del campo, la V40 tiene batería de 18,2Ah y señalización LED completa. En tierra, barro o arena la autonomía real baja: conviene probarla en tu terreno antes de decidir." data-url="v40.html">
+        ${ico(I.bike)}<b>Campo y caminos de tierra</b><span>Terreno exigente y movimiento dentro de la propiedad</span>
       </button>
-      <button data-rec="SW V40" data-why="Batería de 18,2Ah y señalización LED completa. Buen punto medio para recorridos largos sin llegar al tope de gama." data-url="v40.html">
-        ${ico(I.bike)}<b>Paseo largo</b><span>Salidas de fin de semana, recorridos de 40 km o más</span>
+      <button data-rec="SW V29 Pro" data-why="Para jornadas largas, la V29 Pro suma doble batería y la mayor autonomía publicada de la línea. Es la que más margen te deja por salida, pero también la más pesada: mirá dónde la vas a guardar y cargar." data-url="v29-pro.html">
+        ${ico(I.box)}<b>Jornadas largas</b><span>Salís temprano y volvés tarde, todo el día arriba</span>
       </button>
-      <button data-rec="SW S20 Pro" data-why="1800W: es la que más empuja. Si tenés subidas exigentes o querés la respuesta más fuerte en el acelerador, es esta." data-url="s20-pro.html">
-        ${ico(I.bolt)}<b>Potencia</b><span>Quiero la más fuerte, subidas y carga</span>
+      <button data-rec="SW S20 Pro" data-why="Es la de mayor potencia publicada de la línea, pensada para subidas y carga. La potencia y la carga máxima están en revisión con el fabricante, así que conviene consultarnos antes de decidir por este modelo." data-url="s20-pro.html">
+        ${ico(I.bolt)}<b>Pendientes y carga</b><span>Subidas exigentes o llevar peso encima</span>
+      </button>
+      <button data-rec="Te ayudamos a elegir" data-why="No hace falta que sepas el modelo. Contanos cuántos kilómetros hacés, por qué camino, cuánto peso llevás y dónde la vas a cargar, y te decimos cuál tiene sentido para vos y cuál no. Lo mejor es venir a Castelar y probarla." data-url="test-ride.html">
+        ${ico(I.user)}<b>Todavía no sé</b><span>Prefiero que me asesoren y probarla antes de elegir</span>
       </button>
     </div>
     <div class="quiz-res"></div>
