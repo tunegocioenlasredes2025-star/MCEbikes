@@ -4,7 +4,12 @@
    ===================================================================== */
 import { writeFileSync } from "node:fs";
 
-const SITE = "https://mcebikes.com.ar";
+/* Direccion oficial del sitio. Hoy es la de Vercel, que es donde vive de
+   verdad: si el sitio declara un dominio que todavia no existe, Google lee
+   una contradiccion y no consolida las paginas. Cuando el dominio propio
+   este activo se cambia esta linea y se rehace el build; canonical, Open
+   Graph, sitemap y robots se actualizan solos. */
+const SITE = "https://mc-ebikes.vercel.app";
 /* TODO: reemplazar por el WhatsApp real de MC Ebikes */
 const WA = "5491112345678";
 const WA_TXT = (m) => `https://wa.me/${WA}?text=${encodeURIComponent(m)}`;

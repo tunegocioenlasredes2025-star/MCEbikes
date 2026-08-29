@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://mcebikes.com.ar/sitemap.xml
+Sitemap: https://mc-ebikes.vercel.app/sitemap.xml
