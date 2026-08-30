@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es-AR"><head>
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>MC E-Bikes · propuesta elegida, refinada</title>
+<style>
+@font-face{font-family:'Archivo';font-weight:100 900;font-display:swap;
+  src:url('/assets/fonts/Archivo-var.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-weight:400;font-display:swap;
+  src:url('/assets/fonts/Inter-400.woff2') format('woff2')}
+@font-face{font-family:'Inter';font-weight:600;font-display:swap;
+  src:url('/assets/fonts/Inter-600.woff2') format('woff2')}
+@font-face{font-family:'Big Shoulders Display';font-weight:100 900;font-display:swap;
+  src:url('/assets/fonts/BigShoulders-var.woff2') format('woff2')}
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+img{display:block;max-width:100%;height:auto}
+a{color:inherit;text-decoration:none}
+body{background:#14161A;color:#F5F3EF;font-family:'Inter',system-ui,sans-serif;
+  font-size:16px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:900;line-height:.96;
+  letter-spacing:-.025em}
+.dato{font-family:'Big Shoulders Display',Impact,sans-serif;font-weight:700;letter-spacing:.01em}
+.wrap{width:100%;max-width:1280px;margin-inline:auto;padding-inline:clamp(20px,5vw,52px)}
+
+/* linea de ruta terracota: el gesto que se repite en toda la pagina */
+.ruta{display:flex;align-items:center;gap:14px;font-family:'Archivo';font-weight:700;
+  font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:#D9622B}
+.ruta::before{content:"";width:clamp(28px,4vw,58px);height:2px;background:#D9622B;flex:none}
+
+/* ── barra ── */
+.top{position:absolute;top:0;left:0;right:0;z-index:5;padding-block:24px}
+.top .wrap{display:flex;justify-content:space-between;align-items:center;gap:20px}
+.top img{height:42px;width:auto}
+.top nav{display:flex;gap:clamp(16px,2.2vw,32px);font-family:'Archivo';font-weight:600;
+  font-size:12.5px;letter-spacing:.1em;text-transform:uppercase}
+.top a.cta{border:1.5px solid rgba(245,243,239,.5);padding:11px 20px;font-family:'Archivo';
+  font-weight:700;font-size:12px;letter-spacing:.1em;text-transform:uppercase;transition:.25s}
+.top a.cta:hover{background:#F5F3EF;color:#14161A;border-color:#F5F3EF}
+
+/* ── hero ── */
+.hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;
+  padding-bottom:clamp(38px,6vw,80px);overflow:hidden}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
+  linear-gradient(180deg,rgba(20,22,26,.66) 0%,rgba(20,22,26,.12) 34%,
+  rgba(20,22,26,.74) 66%,rgba(20,22,26,.97) 100%)}
+.hero h1{font-size:clamp(52px,9.6vw,128px);text-transform:uppercase;max-width:9ch;
+  margin-top:18px}
+/* el naranja del kicker se pierde contra el pasto dorado del camino:
+   en el hero va en Hueso y solo la linea queda terracota */
+.hero .ruta{color:#F5F3EF}
+.hero .ruta,.hero p{text-shadow:0 2px 16px rgba(20,22,26,.8)}
+.hero p{font-size:clamp(16.5px,2vw,20px);max-width:42ch;margin-top:24px;color:rgba(245,243,239,.86)}
+.hero .acts{display:flex;gap:12px;margin-top:32px;flex-wrap:wrap}
+.btn{display:inline-block;background:#D9622B;color:#14161A;font-family:'Archivo';font-weight:700;
+  font-size:13px;letter-spacing:.12em;text-transform:uppercase;padding:17px 34px;transition:.25s}
+.btn:hover{background:#E8763F}
+.btn--l{background:transparent;color:#F5F3EF;border:1.5px solid rgba(245,243,239,.45)}
+.btn--l:hover{background:#F5F3EF;color:#14161A}
+.vert{position:absolute;top:50%;right:clamp(18px,3.4vw,40px);transform:translateY(-50%) rotate(90deg);
+  transform-origin:right center;font-family:'Archivo';font-weight:700;font-size:10.5px;
+  letter-spacing:.42em;text-transform:uppercase;color:rgba(245,243,239,.46)}
+
+/* ── franja de datos ── */
+.franja{border-block:1px solid rgba(245,243,239,.15)}
+.franja .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-block:32px}
+.franja b{display:block;font-size:clamp(32px,4.2vw,56px);color:#D9622B;line-height:1}
+.franja span{font-family:'Archivo';font-weight:600;font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:#8A8680;margin-top:6px;display:block}
+
+/* ── capitulos ── */
+.cap{padding-block:clamp(66px,9vw,132px)}
+.cap .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(32px,5.4vw,86px);align-items:center}
+.cap h2{font-size:clamp(34px,5.2vw,74px);text-transform:uppercase;margin-top:18px}
+.cap p{color:rgba(245,243,239,.74);font-size:17px;margin-top:20px}
+.cap--inv .wrap>div{order:2}
+.marco{position:relative;overflow:hidden}
+.marco img{width:100%;aspect-ratio:4/3.1;object-fit:cover}
+.marco figcaption{position:absolute;left:0;bottom:0;background:#14161A;color:#8A8680;
+  font-family:'Archivo';font-weight:600;font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;padding:9px 15px}
+
+/* ── recorridos ── */
+.rec{background:#F5F3EF;color:#14161A;padding-block:clamp(62px,8vw,116px)}
+.rec h2{font-size:clamp(32px,4.8vw,66px);max-width:16ch;margin-top:18px}
+.rec>.wrap>p{color:#4A4844;margin-top:14px;max-width:52ch}
+.rec .g{display:grid;grid-template-columns:repeat(5,1fr);gap:1px;margin-top:44px;
+  background:rgba(20,22,26,.14)}
+.r{background:#F5F3EF;padding:26px 20px 30px;transition:.25s;display:flex;flex-direction:column}
+.r:hover{background:#fff}
+.r i{font-family:'Archivo';font-weight:900;font-size:11px;letter-spacing:.18em;color:#D9622B;
+  font-style:normal}
+.r h3{font-size:19px;margin:14px 0 8px;min-height:2.6em;display:flex;align-items:flex-end}
+.r span{font-size:14px;color:#4A4844}
+
+/* ── modelos ── */
+.mod{padding-block:clamp(62px,8vw,120px)}
+.mod .g{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:40px}
+.m{position:relative;aspect-ratio:1/.78;overflow:hidden;background:#1b1f25;display:block}
+.m img{width:100%;height:100%;object-fit:cover;opacity:.6;transition:.55s}
+.m:hover img{opacity:.86;transform:scale(1.035)}
+.m .t{position:absolute;left:clamp(20px,2.6vw,34px);right:clamp(20px,2.6vw,34px);
+  bottom:clamp(20px,2.4vw,30px)}
+.m h3{font-size:clamp(23px,2.7vw,36px);text-transform:uppercase}
+.m .uso{font-family:'Archivo';font-weight:600;font-size:11.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:#D9622B}
+.m .pr{font-size:clamp(21px,2.2vw,28px);margin-top:8px;color:rgba(245,243,239,.9)}
+
+/* ── territorio ── */
+.terr{background:#2F3A2A;padding-block:clamp(62px,8vw,116px)}
+.terr .wrap{display:grid;grid-template-columns:1.08fr 1fr;gap:clamp(30px,5vw,76px);align-items:center}
+.terr h2{font-size:clamp(32px,4.6vw,64px);text-transform:uppercase;margin-top:18px}
+.terr p{color:rgba(245,243,239,.78);margin-top:18px}
+.terr .mini{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:26px}
+.terr .mini img{aspect-ratio:1/.74;object-fit:cover;width:100%}
+
+/* ── cierre ── */
+.fin{padding-block:clamp(70px,9vw,128px);text-align:center;
+  border-top:1px solid rgba(245,243,239,.15)}
+.fin h2{font-size:clamp(32px,5.6vw,84px);text-transform:uppercase}
+.fin .ruta{justify-content:center;margin-bottom:22px}
+.fin .acts{display:flex;gap:12px;justify-content:center;margin-top:30px;flex-wrap:wrap}
+
+.nota{background:#0f1114;color:#8A8680;font-size:12.5px;padding:20px 0;text-align:center;
+  font-family:'Archivo';letter-spacing:.03em}
+.sello{position:fixed;left:14px;bottom:14px;z-index:99;background:#D9622B;color:#14161A;
+  font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;padding:9px 15px}
+.volver{position:fixed;right:14px;bottom:14px;z-index:99;background:#F5F3EF;color:#14161A;
+  font-family:'Archivo';font-weight:700;font-size:11px;letter-spacing:.14em;
+  text-transform:uppercase;padding:9px 15px}
+
+@media(max-width:1000px){.rec .g{grid-template-columns:repeat(3,1fr)}
+  .r h3{min-height:0}}
+@media(max-width:860px){.cap .wrap,.terr .wrap{grid-template-columns:1fr}
+  .cap--inv .wrap>div{order:0}.top nav,.vert{display:none}
+  .franja .wrap{grid-template-columns:1fr 1fr;gap:26px}}
+@media(max-width:620px){.rec .g,.mod .g{grid-template-columns:1fr}}
+</style></head><body>
+
+<header class="top"><div class="wrap">
+  <img src="/assets/img/MC-E-Bikes-horizontal-blanco.svg" alt="MC E-Bikes">
+  <nav><span>Modelos</span><span>Recorridos</span><span>Service</span><span>Guías</span><span>Nosotros</span></nav>
+  <a class="cta" href="#">Reservar test ride</a>
+</div></header>
+
+<section class="hero">
+  <img src="/assets/escenas/ciclista-campo.webp" alt="Sombra de un ciclista sobre un camino de tierra al atardecer" fetchpriority="high">
+  <span class="vert">Campo · Pueblo · Periferia bonaerense</span>
+  <div class="wrap">
+    <span class="ruta">Provincia de Buenos Aires</span>
+    <h1>Tu mundo se mueve con vos</h1>
+    <p>Fat e-bikes de alta potencia para moverte entre el campo, el pueblo
+    y los lugares que sentís tuyos.</p>
+    <div class="acts">
+      <a class="btn" href="#">Conocé los modelos</a>
+      <a class="btn btn--l" href="#">Reservar test ride</a>
+    </div>
+  </div>
+</section>
+
+<section class="franja"><div class="wrap">
+  <div><b class="dato">1000W</b><span>Potencia</span></div>
+  <div><b class="dato">110 km</b><span>Hasta, de autonomía</span></div>
+  <div><b class="dato">32 km/h</b><span>De velocidad</span></div>
+  <div><b class="dato">12</b><span>Cuotas sin interés</span></div>
+</div></section>
+
+<section class="cap"><div class="wrap">
+  <div>
+    <span class="ruta">01 / 05 &nbsp;·&nbsp; Tu primer vehículo propio</span>
+    <h2>Autonomía real<br>para seguir tu ritmo</h2>
+    <p>La autonomía que necesitás para tu día a día, con hasta 110 kilómetros por carga
+    completa. Un vehículo serio diseñado para seguir tu ritmo, optimizado para trayectos
+    intensos en caminos exigentes y jornadas completas de actividad.</p>
+  </div>
+  <figure class="marco">
+    <img src="/assets/escenas/camino-nube.webp" alt="Camino de tierra en el campo bonaerense" loading="lazy">
+    <figcaption>Camino de tierra · provincia de Buenos Aires</figcaption>
+  </figure>
+</div></section>
+
+<section class="rec"><div class="wrap">
+  <span class="ruta">02 / 05 &nbsp;·&nbsp; ¿Cuál me conviene?</span>
+  <h2>No empieces por la bicicleta. Empezá por tu recorrido.</h2>
+  <p>Contanos cuántos kilómetros hacés, por qué camino y cuánto peso llevás.
+  Te decimos cuál tiene sentido para vos, y también cuál no.</p>
+  <div class="g">
+    <article class="r"><i>01</i><h3>Entre casa y pueblo</h3><span>Ir y venir del pueblo, la escuela, el club o los mandados</span></article>
+    <article class="r"><i>02</i><h3>Campo y caminos de tierra</h3><span>Terreno exigente y movimiento dentro de la propiedad</span></article>
+    <article class="r"><i>03</i><h3>Jornadas largas</h3><span>Salís temprano y volvés tarde, todo el día arriba</span></article>
+    <article class="r"><i>04</i><h3>Pendientes y carga</h3><span>Subidas exigentes o llevar peso encima</span></article>
+    <article class="r"><i>05</i><h3>Todavía no sé</h3><span>Prefiero que me asesoren y probarla antes de elegir</span></article>
+  </div>
+</div></section>
+
+<section class="mod"><div class="wrap">
+  <span class="ruta">03 / 05 &nbsp;·&nbsp; Modelos</span>
+  <h2 style="font-size:clamp(34px,5.2vw,74px);text-transform:uppercase;margin-top:18px">
+    Cuatro máquinas,<br>potencia y batería a tu medida</h2>
+  <div class="g">
+    <a class="m" href="#"><img src="/assets/img/v20-negra.webp" alt="" loading="lazy"><div class="t"><span class="uso">Entre casa y pueblo</span><h3>SW V20 Pro</h3><div class="pr dato">$1.890.000</div></div></a>
+    <a class="m" href="#"><img src="/assets/img/v29-negra.webp" alt="" loading="lazy"><div class="t"><span class="uso">Jornadas largas</span><h3>SW V29 Pro</h3><div class="pr dato">$2.340.000</div></div></a>
+    <a class="m" href="#"><img src="/assets/img/v40-negra.webp" alt="" loading="lazy"><div class="t"><span class="uso">Campo y caminos de tierra</span><h3>SW V40</h3><div class="pr dato">$2.150.000</div></div></a>
+    <a class="m" href="#"><img src="/assets/img/s20-blanca.webp" alt="" loading="lazy"><div class="t"><span class="uso">Pendientes y carga</span><h3>SW S20 Pro</h3><div class="pr dato">$2.590.000</div></div></a>
+  </div>
+</div></section>
+
+<section class="terr"><div class="wrap">
+  <div>
+    <span class="ruta">04 / 05 &nbsp;·&nbsp; Territorio</span>
+    <h2>El campo<br>no es un paisaje.<br>Es tu recorrido.</h2>
+    <p>De la casa al galpón, del galpón al pueblo y del pueblo a casa. Tantas veces
+    por día como haga falta. Por eso no vendemos la más potente: vendemos la que
+    llega y vuelve.</p>
+    <div class="mini">
+      <img src="/assets/escenas/molino.webp" alt="Molino de campo" loading="lazy">
+      <img src="/assets/escenas/alambrado.webp" alt="Campo cosechado y alambrado al atardecer" loading="lazy">
+    </div>
+  </div>
+  <figure class="marco">
+    <img src="/assets/escenas/galpon.webp" alt="Galpón de ladrillo en Uribelarrea, provincia de Buenos Aires" loading="lazy">
+    <figcaption>Uribelarrea · provincia de Buenos Aires</figcaption>
+  </figure>
+</div></section>
+
+<section class="cap cap--inv"><div class="wrap">
+  <div>
+    <span class="ruta">05 / 05 &nbsp;·&nbsp; Test ride sin cargo</span>
+    <h2>Vos mismo sentís la potencia, antes de decidir</h2>
+    <p>Sumar movilidad propia es un paso importante para toda la familia. Por eso te
+    invitamos a venir a nuestro local en Castelar, subirte y manejarla vos mismo antes
+    de resolver nada. Y si estás lejos, coordinamos una demostración cuando estemos en
+    tu zona.</p>
+  </div>
+  <figure class="marco">
+    <img src="/assets/escenas/dos-chicos.webp" alt="Dos chicos con una bicicleta en un camino de campo" loading="lazy">
+    <figcaption>Test ride · Castelar</figcaption>
+  </figure>
+</div></section>
+
+<section class="fin"><div class="wrap">
+  <span class="ruta">Castelar, Buenos Aires · Envíos a todo el país</span>
+  <h2>Vení, probala<br>y decidí con información</h2>
+  <div class="acts">
+    <a class="btn" href="#">Reservar mi test ride</a>
+    <a class="btn btn--l" href="#">Escribir por WhatsApp</a>
+  </div>
+</div></section>
+
+<div class="nota">Propuesta 1 refinada &middot; editorial &middot; textos del copy vigente
+&middot; las escenas son de referencia y se reemplazan por producci&oacute;n propia
+en el campo bonaerense</div>
+<a class="sello" href="/propuestas/">Elegida &nbsp;·&nbsp; refinada</a>
+<a class="volver" href="/propuestas/p1.html">Ver la versi&oacute;n anterior</a>
+</body></html>
