@@ -133,9 +133,91 @@ h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:900;line-height:
 @media(max-width:1000px){.rec .g{grid-template-columns:repeat(3,1fr)}
   .r h3{min-height:0}}
 @media(max-width:860px){.cap .wrap,.terr .wrap{grid-template-columns:1fr}
+  .bajar{display:none}
   .cap--inv .wrap>div{order:0}.top nav,.vert{display:none}
   .franja .wrap{grid-template-columns:1fr 1fr;gap:26px}}
 @media(max-width:620px){.rec .g,.mod .g{grid-template-columns:1fr}}
+
+/* ═══════════════════════════════════════════════════════════════════
+   DETALLES DE MICRODISEÑO
+   La estrategia pide "revelado suave, linea de ruta y desplazamientos
+   minimos de 2-6px", y explicitamente nada de parallax ni efectos de
+   gaming. Todo lo de abajo se apaga con prefers-reduced-motion.
+   ═══════════════════════════════════════════════════════════════════ */
+
+/* barra de progreso de lectura */
+.prog{position:fixed;top:0;left:0;height:2px;background:#D9622B;width:0;z-index:200;
+  transition:width .1s linear}
+
+/* revelado: los bloques suben 6px al entrar en pantalla */
+.rv{opacity:0;transform:translateY(6px);transition:opacity .7s ease,transform .7s ease}
+.rv.on{opacity:1;transform:none}
+.rv.d1{transition-delay:.08s}.rv.d2{transition-delay:.16s}.rv.d3{transition-delay:.24s}
+
+/* la linea terracota crece al entrar, en vez de estar dibujada */
+.ruta::before{width:0;transition:width .8s cubic-bezier(.22,.61,.36,1) .1s}
+.ruta.on::before{width:clamp(28px,4vw,58px)}
+
+/* marcas de encuadre en las ventanas de imagen: el gesto fotografico */
+.marco::before,.marco::after{content:"";position:absolute;width:26px;height:26px;
+  border:2px solid #F5F3EF;opacity:0;transition:opacity .6s ease .25s,inset .6s cubic-bezier(.22,.61,.36,1) .25s;
+  pointer-events:none;z-index:2}
+.marco::before{top:22px;left:22px;border-right:0;border-bottom:0}
+.marco::after{bottom:22px;right:22px;border-left:0;border-top:0}
+.marco.on::before{opacity:.85;top:14px;left:14px}
+.marco.on::after{opacity:.85;bottom:14px;right:14px}
+.marco img{transition:transform 1.2s cubic-bezier(.22,.61,.36,1)}
+.marco.on img{transform:scale(1.0)}
+.marco img{transform:scale(1.05)}
+
+/* invitacion a bajar en el hero */
+.bajar{position:absolute;right:clamp(58px,7vw,96px);bottom:clamp(38px,6vw,80px);
+  display:flex;align-items:center;gap:11px;font-family:'Archivo';font-weight:600;
+  font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.6)}
+.bajar i{width:1px;height:34px;background:rgba(245,243,239,.4);position:relative;overflow:hidden}
+.bajar i::after{content:"";position:absolute;inset:0;background:#D9622B;
+  animation:corre 2.4s cubic-bezier(.6,0,.4,1) infinite}
+@keyframes corre{0%{transform:translateY(-100%)}55%,100%{transform:translateY(100%)}}
+
+/* tira con el tagline entre bloques */
+.tira{border-block:1px solid rgba(245,243,239,.15);overflow:hidden;padding-block:20px}
+.tira div{display:flex;gap:44px;width:max-content;animation:desliza 34s linear infinite}
+.tira span{font-family:'Archivo';font-weight:900;font-size:clamp(20px,2.6vw,32px);
+  text-transform:uppercase;letter-spacing:-.01em;color:rgba(245,243,239,.13);white-space:nowrap}
+.tira span:nth-child(even){color:#D9622B;opacity:.5}
+@keyframes desliza{to{transform:translateX(-50%)}}
+
+/* los recorridos se corren al pasar el mouse */
+.r{position:relative}
+.r::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;background:#D9622B;
+  transform:scaleX(0);transform-origin:left;transition:transform .4s cubic-bezier(.22,.61,.36,1)}
+.r:hover::after{transform:scaleX(1)}
+.r:hover h3{transform:translateX(3px)}
+.r h3{transition:transform .35s cubic-bezier(.22,.61,.36,1)}
+
+/* las fichas de modelo revelan una flecha */
+.m .t{transition:transform .45s cubic-bezier(.22,.61,.36,1)}
+.m:hover .t{transform:translateY(-4px)}
+.m .flecha{position:absolute;top:clamp(20px,2.6vw,32px);right:clamp(20px,2.6vw,32px);
+  width:38px;height:38px;border:1.5px solid rgba(245,243,239,.5);display:flex;
+  align-items:center;justify-content:center;opacity:0;transform:translate(-5px,5px);
+  transition:.45s cubic-bezier(.22,.61,.36,1)}
+.m:hover .flecha{opacity:1;transform:none;border-color:#D9622B;background:#D9622B;color:#14161A}
+.m .flecha svg{width:15px;height:15px}
+
+/* el boton empuja su flecha */
+.btn{display:inline-flex;align-items:center;gap:11px}
+.btn svg{width:14px;height:14px;transition:transform .35s cubic-bezier(.22,.61,.36,1)}
+.btn:hover svg{transform:translateX(4px)}
+
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;transition:none}
+  .ruta::before{width:clamp(28px,4vw,58px);transition:none}
+  .marco::before,.marco::after{opacity:.85;transition:none}
+  .marco img{transform:none;transition:none}
+  .tira div,.bajar i::after{animation:none}
+  .marco.on::before{top:14px;left:14px}.marco.on::after{bottom:14px;right:14px}
+}
 </style></head><body>
 
 <header class="top"><div class="wrap">
@@ -153,11 +235,14 @@ h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:900;line-height:
     <p>Fat e-bikes de alta potencia para moverte entre el campo, el pueblo
     y los lugares que sentís tuyos.</p>
     <div class="acts">
-      <a class="btn" href="#">Conocé los modelos</a>
+      <a class="btn" href="#">Conocé los modelos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn btn--l" href="#">Reservar test ride</a>
     </div>
   </div>
+  <span class="bajar"><i></i>Seguí bajando</span>
 </section>
+
+<div class="tira"><div><span>Tu mundo se mueve con vos</span><span>·</span><span>Tu mundo se mueve con vos</span><span>·</span><span>Tu mundo se mueve con vos</span><span>·</span><span>Tu mundo se mueve con vos</span><span>·</span><span>Tu mundo se mueve con vos</span><span>·</span><span>Tu mundo se mueve con vos</span><span>·</span><span>Tu mundo se mueve con vos</span><span>·</span><span>Tu mundo se mueve con vos</span><span>·</span></div></div>
 
 <section class="franja"><div class="wrap">
   <div><b class="dato">1000W</b><span>Potencia</span></div>
@@ -167,48 +252,48 @@ h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:900;line-height:
 </div></section>
 
 <section class="cap"><div class="wrap">
-  <div>
-    <span class="ruta">01 / 05 &nbsp;·&nbsp; Tu primer vehículo propio</span>
+  <div class="rv">
+    <span class="ruta rv">01 / 05 &nbsp;·&nbsp; Tu primer vehículo propio</span>
     <h2>Autonomía real<br>para seguir tu ritmo</h2>
     <p>La autonomía que necesitás para tu día a día, con hasta 110 kilómetros por carga
     completa. Un vehículo serio diseñado para seguir tu ritmo, optimizado para trayectos
     intensos en caminos exigentes y jornadas completas de actividad.</p>
   </div>
-  <figure class="marco">
+  <figure class="marco rv">
     <img src="/assets/escenas/camino-nube.webp" alt="Camino de tierra en el campo bonaerense" loading="lazy">
     <figcaption>Camino de tierra · provincia de Buenos Aires</figcaption>
   </figure>
 </div></section>
 
 <section class="rec"><div class="wrap">
-  <span class="ruta">02 / 05 &nbsp;·&nbsp; ¿Cuál me conviene?</span>
+  <span class="ruta rv">02 / 05 &nbsp;·&nbsp; ¿Cuál me conviene?</span>
   <h2>No empieces por la bicicleta. Empezá por tu recorrido.</h2>
   <p>Contanos cuántos kilómetros hacés, por qué camino y cuánto peso llevás.
   Te decimos cuál tiene sentido para vos, y también cuál no.</p>
   <div class="g">
-    <article class="r"><i>01</i><h3>Entre casa y pueblo</h3><span>Ir y venir del pueblo, la escuela, el club o los mandados</span></article>
-    <article class="r"><i>02</i><h3>Campo y caminos de tierra</h3><span>Terreno exigente y movimiento dentro de la propiedad</span></article>
-    <article class="r"><i>03</i><h3>Jornadas largas</h3><span>Salís temprano y volvés tarde, todo el día arriba</span></article>
-    <article class="r"><i>04</i><h3>Pendientes y carga</h3><span>Subidas exigentes o llevar peso encima</span></article>
-    <article class="r"><i>05</i><h3>Todavía no sé</h3><span>Prefiero que me asesoren y probarla antes de elegir</span></article>
+    <article class="r rv d0"><i>01</i><h3>Entre casa y pueblo</h3><span>Ir y venir del pueblo, la escuela, el club o los mandados</span></article>
+    <article class="r rv d1"><i>02</i><h3>Campo y caminos de tierra</h3><span>Terreno exigente y movimiento dentro de la propiedad</span></article>
+    <article class="r rv d2"><i>03</i><h3>Jornadas largas</h3><span>Salís temprano y volvés tarde, todo el día arriba</span></article>
+    <article class="r rv d3"><i>04</i><h3>Pendientes y carga</h3><span>Subidas exigentes o llevar peso encima</span></article>
+    <article class="r rv d3"><i>05</i><h3>Todavía no sé</h3><span>Prefiero que me asesoren y probarla antes de elegir</span></article>
   </div>
 </div></section>
 
 <section class="mod"><div class="wrap">
-  <span class="ruta">03 / 05 &nbsp;·&nbsp; Modelos</span>
+  <span class="ruta rv">03 / 05 &nbsp;·&nbsp; Modelos</span>
   <h2 style="font-size:clamp(34px,5.2vw,74px);text-transform:uppercase;margin-top:18px">
     Cuatro máquinas,<br>potencia y batería a tu medida</h2>
   <div class="g">
-    <a class="m" href="#"><img src="/assets/img/v20-negra.webp" alt="" loading="lazy"><div class="t"><span class="uso">Entre casa y pueblo</span><h3>SW V20 Pro</h3><div class="pr dato">$1.890.000</div></div></a>
-    <a class="m" href="#"><img src="/assets/img/v29-negra.webp" alt="" loading="lazy"><div class="t"><span class="uso">Jornadas largas</span><h3>SW V29 Pro</h3><div class="pr dato">$2.340.000</div></div></a>
-    <a class="m" href="#"><img src="/assets/img/v40-negra.webp" alt="" loading="lazy"><div class="t"><span class="uso">Campo y caminos de tierra</span><h3>SW V40</h3><div class="pr dato">$2.150.000</div></div></a>
-    <a class="m" href="#"><img src="/assets/img/s20-blanca.webp" alt="" loading="lazy"><div class="t"><span class="uso">Pendientes y carga</span><h3>SW S20 Pro</h3><div class="pr dato">$2.590.000</div></div></a>
+    <a class="m rv" href="#"><img src="/assets/img/v20-negra.webp" alt="" loading="lazy"><span class="flecha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="t"><span class="uso">Entre casa y pueblo</span><h3>SW V20 Pro</h3><div class="pr dato">$1.890.000</div></div></a>
+    <a class="m rv" href="#"><img src="/assets/img/v29-negra.webp" alt="" loading="lazy"><span class="flecha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="t"><span class="uso">Jornadas largas</span><h3>SW V29 Pro</h3><div class="pr dato">$2.340.000</div></div></a>
+    <a class="m rv" href="#"><img src="/assets/img/v40-negra.webp" alt="" loading="lazy"><span class="flecha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="t"><span class="uso">Campo y caminos de tierra</span><h3>SW V40</h3><div class="pr dato">$2.150.000</div></div></a>
+    <a class="m rv" href="#"><img src="/assets/img/s20-blanca.webp" alt="" loading="lazy"><span class="flecha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span><div class="t"><span class="uso">Pendientes y carga</span><h3>SW S20 Pro</h3><div class="pr dato">$2.590.000</div></div></a>
   </div>
 </div></section>
 
 <section class="terr"><div class="wrap">
   <div>
-    <span class="ruta">04 / 05 &nbsp;·&nbsp; Territorio</span>
+    <span class="ruta rv">04 / 05 &nbsp;·&nbsp; Territorio</span>
     <h2>El campo<br>no es un paisaje.<br>Es tu recorrido.</h2>
     <p>De la casa al galpón, del galpón al pueblo y del pueblo a casa. Tantas veces
     por día como haga falta. Por eso no vendemos la más potente: vendemos la que
@@ -218,7 +303,7 @@ h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:900;line-height:
       <img src="/assets/escenas/alambrado.webp" alt="Campo cosechado y alambrado al atardecer" loading="lazy">
     </div>
   </div>
-  <figure class="marco">
+  <figure class="marco rv">
     <img src="/assets/escenas/galpon.webp" alt="Galpón de ladrillo en Uribelarrea, provincia de Buenos Aires" loading="lazy">
     <figcaption>Uribelarrea · provincia de Buenos Aires</figcaption>
   </figure>
@@ -226,24 +311,24 @@ h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:900;line-height:
 
 <section class="cap cap--inv"><div class="wrap">
   <div>
-    <span class="ruta">05 / 05 &nbsp;·&nbsp; Test ride sin cargo</span>
+    <span class="ruta rv">05 / 05 &nbsp;·&nbsp; Test ride sin cargo</span>
     <h2>Vos mismo sentís la potencia, antes de decidir</h2>
     <p>Sumar movilidad propia es un paso importante para toda la familia. Por eso te
     invitamos a venir a nuestro local en Castelar, subirte y manejarla vos mismo antes
     de resolver nada. Y si estás lejos, coordinamos una demostración cuando estemos en
     tu zona.</p>
   </div>
-  <figure class="marco">
+  <figure class="marco rv">
     <img src="/assets/escenas/dos-chicos.webp" alt="Dos chicos con una bicicleta en un camino de campo" loading="lazy">
     <figcaption>Test ride · Castelar</figcaption>
   </figure>
 </div></section>
 
 <section class="fin"><div class="wrap">
-  <span class="ruta">Castelar, Buenos Aires · Envíos a todo el país</span>
+  <span class="ruta rv">Castelar, Buenos Aires · Envíos a todo el país</span>
   <h2>Vení, probala<br>y decidí con información</h2>
   <div class="acts">
-    <a class="btn" href="#">Reservar mi test ride</a>
+    <a class="btn" href="#">Reservar mi test ride <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     <a class="btn btn--l" href="#">Escribir por WhatsApp</a>
   </div>
 </div></section>
@@ -251,6 +336,52 @@ h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:900;line-height:
 <div class="nota">Propuesta 1 refinada &middot; editorial &middot; textos del copy vigente
 &middot; las escenas son de referencia y se reemplazan por producci&oacute;n propia
 en el campo bonaerense</div>
+
+<div class="prog"></div>
+<script>
+(function(){
+  var d = document, reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* revelado al entrar en pantalla */
+  var obs = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if (e.isIntersecting){ e.target.classList.add('on'); obs.unobserve(e.target); }
+    });
+  }, { rootMargin: '0px 0px -12% 0px', threshold: .08 });
+  d.querySelectorAll('.rv,.marco,.ruta').forEach(function(el){
+    if (reduce) el.classList.add('on'); else obs.observe(el);
+  });
+
+  /* barra de progreso de lectura */
+  var prog = d.querySelector('.prog');
+  addEventListener('scroll', function(){
+    var h = d.documentElement.scrollHeight - innerHeight;
+    prog.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + '%';
+  }, { passive: true });
+
+  /* los numeros de la franja cuentan una sola vez al aparecer */
+  function contar(el){
+    var txt = el.textContent, m = txt.match(/[0-9.]+/);
+    if (!m || reduce) return;
+    var fin = parseFloat(m[0].replace('.', '')), ini = performance.now(), dur = 900;
+    function paso(t){
+      var k = Math.min((t - ini) / dur, 1);
+      var v = Math.round(fin * (1 - Math.pow(1 - k, 3)));
+      el.textContent = txt.replace(m[0], v.toLocaleString('es-AR'));
+      if (k < 1) requestAnimationFrame(paso);
+    }
+    el.textContent = txt.replace(m[0], '0');
+    requestAnimationFrame(paso);
+  }
+  var oNum = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if (e.isIntersecting){ contar(e.target); oNum.unobserve(e.target); }
+    });
+  }, { threshold: .6 });
+  d.querySelectorAll('.franja b').forEach(function(el){ oNum.observe(el); });
+})();
+</script>
+
 <a class="sello" href="/propuestas/">Elegida &nbsp;·&nbsp; refinada</a>
 <a class="volver" href="/propuestas/p1.html">Ver la versi&oacute;n anterior</a>
 </body></html>
