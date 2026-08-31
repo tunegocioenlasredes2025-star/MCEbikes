@@ -23,9 +23,9 @@
 <link rel="preload" href="assets/fonts/Archivo-var.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/Inter-400.woff2" as="font" type="font/woff2" crossorigin>
 <link rel="preload" href="assets/fonts/BigShoulders-var.woff2" as="font" type="font/woff2" crossorigin>
-<link rel="preload" as="image" href="assets/img/v40-camo.webp" fetchpriority="high">
-<link rel="stylesheet" href="assets/css/fonts.css?v=mtey1hip">
-<link rel="stylesheet" href="assets/css/styles.css?v=mtey1hip">
+<link rel="preload" as="image" href="assets/escenas/ciclista-campo.webp" imagesrcset="assets/escenas/ciclista-campo-sm.webp 1000w, assets/escenas/ciclista-campo-md.webp 1280w, assets/escenas/ciclista-campo.webp 1600w" imagesizes="100vw" fetchpriority="high">
+<link rel="stylesheet" href="assets/css/fonts.css?v=mthvfe1m">
+<link rel="stylesheet" href="assets/css/styles.css?v=mthvfe1m">
 <script type="application/ld+json">
 {
  "@context": "https://schema.org",
@@ -114,7 +114,7 @@
 <header class="hdr">
   <div class="hdr__in">
     <a href="index.html" class="brand" aria-label="MC Ebikes — Inicio">
-      <img src="assets/img/logo-horizontal.webp?v=mtey1hip" alt="MC E-Bikes" height="48" width="144" style="height:48px;width:auto;display:block">
+      <img class="lg-color" src="assets/img/logo-horizontal.webp?v=mthvfe1m" alt="MC E-Bikes" height="48" width="144" style="height:48px;width:auto"><img class="lg-blanco" src="assets/img/MC-E-Bikes-horizontal-blanco.svg?v=mthvfe1m" alt="" aria-hidden="true" height="48" width="144" style="height:48px;width:auto">
     </a>
     <nav class="nav" aria-label="Principal">
       <a href="index.html" class="on">Inicio</a>
@@ -149,148 +149,123 @@
 </div>
 <main>
 <section class="hero">
-  <div class="hero__bg"><img src="assets/img/v40-camo.webp" alt="Fat e-bike MC Ebikes" fetchpriority="high" width="1200" height="700"></div>
+  <div class="hero__bg"><img src="assets/escenas/ciclista-campo.webp"
+    srcset="assets/escenas/ciclista-campo-sm.webp 1000w, assets/escenas/ciclista-campo-md.webp 1280w, assets/escenas/ciclista-campo.webp 1600w" sizes="100vw"
+    alt="Sombra de un ciclista sobre un camino de tierra del campo bonaerense al atardecer" fetchpriority="high" width="1600" height="1067"></div>
+  <span class="vert">Campo · Pueblo · Periferia bonaerense</span>
   <div class="wrap">
-    <span class="kick">Campo, pueblo y periferia bonaerense</span>
-    <h1 class="h1" style="margin-top:16px">TU MUNDO<br>SE MUEVE<br><em>CON VOS.</em></h1>
-    <p class="hero__sub">Fat e-bikes de 1000W con hasta 110 km de autonomía. Vení, probala y decidí con la potencia real abajo tuyo.</p>
+    <span class="kick">Provincia de Buenos Aires</span>
+    <h1 class="h1" style="margin-top:16px">Tu mundo se mueve con vos</h1>
+    <p class="hero__sub">Fat e-bikes de 1000W con hasta 110 km de autonomía, para moverte entre el campo, el pueblo y los lugares que sentís tuyos.</p>
     <div class="hero__cta">
       <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi prueba <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
       <a class="btn btn--g btn--lg" href="productos.html">Ver modelos</a>
     </div>
-    <div class="hero__specs">
-      <div><b>1000W</b><span>Potencia</span></div>
-      <div><b>110 km</b><span>Hasta, de autonomía</span></div>
-      <div><b>32 km/h</b><span>De velocidad</span></div>
-      <div><b>12</b><span>Cuotas sin interés</span></div>
-    </div>
   </div>
+  <span class="bajar"><i></i>Seguí bajando</span>
 </section>
 
-<section class="sec">
+<div class="tira" aria-hidden="true"><div><span>Tu mundo se mueve con vos</span><span>·</span><span>Tu mundo se mueve con vos</span><span>·</span><span>Tu mundo se mueve con vos</span><span>·</span><span>Tu mundo se mueve con vos</span><span>·</span><span>Tu mundo se mueve con vos</span><span>·</span><span>Tu mundo se mueve con vos</span><span>·</span><span>Tu mundo se mueve con vos</span><span>·</span><span>Tu mundo se mueve con vos</span><span>·</span></div></div>
+
+<section class="franja"><div class="wrap">
+  <div><b data-num>1000W</b><span>Potencia</span></div>
+  <div><b data-num>110 km</b><span>Hasta, de autonomía</span></div>
+  <div><b data-num>32 km/h</b><span>De velocidad</span></div>
+  <div><b data-num>12</b><span>Cuotas sin interés</span></div>
+</div></section>
+
+<section class="sec cap">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kick">Tu primer vehículo propio</span>
-      <h2 class="h2">Autonomía real<br>para seguir <em>tu ritmo</em></h2>
+    <div class="rv">
+      <span class="kick"><i>01 / 06</i>&nbsp;&nbsp;·&nbsp;&nbsp;Tu primer vehículo propio</span>
+      <h2 class="h2">Autonomía real<br>para seguir tu ritmo</h2>
       <p>La autonomía que necesitás para tu día a día, con hasta 110 kilómetros por carga completa. Un vehículo serio diseñado para seguir tu ritmo, optimizado para trayectos intensos en caminos exigentes y jornadas completas de actividad.</p>
+      <a class="btn btn--g" href="productos.html">Ver los 4 modelos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
     </div>
-    <div class="feat">
-      <article class="rv"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2 4 14h6l-1 8 9-12h-6z"/></svg></div><h3>1000W de potencia real</h3><p>Arranca fuerte en subida y con carga, sin que tengas que pedalear un metro. Motor con torque real, hecho para trabajar y para explorar.</p></article>
-      <article class="rv d1"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="7" width="17" height="10" rx="1"/><path d="M22 10v4M6 10v4M10 10v4"/></svg></div><h3>Hasta 110 km de autonomía</h3><p>Batería de litio extraíble que cargás en un enchufe común, en tu casa o en el galpón, por menos de $200 la carga completa.</p></article>
-      <article class="rv d2"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/><path d="m9 12 2 2 4-4"/></svg></div><h3>Salís a andar hoy mismo</h3><p>Te la llevás y arrancás a recorrer tu propio territorio en el momento. Es legalmente una bicicleta eléctrica: tenés total libertad para moverte desde el primer día.</p></article>
-      <article class="rv d3"><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 5a5 5 0 0 1-6.5 6.4L6 19l-2-2 7.6-7.5A5 5 0 0 1 18 3z"/></svg></div><h3>Service con cara visible</h3><p>Si tu MC necesita algo, la resolvemos nosotros mismos, con taller propio y stock de los repuestos que más se usan. Sabés quién te vendió y dónde encontrarlo.</p></article>
+    <figure class="marco rv">
+      <img src="assets/escenas/camino-nube.webp" alt="Camino de tierra en el campo bonaerense" loading="lazy" width="1200" height="930">
+      <figcaption>Camino de tierra · provincia de Buenos Aires</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0;padding-bottom:clamp(18px,2.4vw,30px)">
+  <div class="wrap">
+    <span class="kick rv" style="display:inline-flex;margin-bottom:clamp(22px,3vw,34px)"><i>02 / 06</i>&nbsp;&nbsp;·&nbsp;&nbsp;Por qué una MC</span>
+    <div class="razones">
+    <article class="rv"><i>01</i><h3>1000W de potencia real</h3><p>Arranca fuerte en subida y con carga, sin que tengas que pedalear un metro. Motor con torque real, hecho para trabajar y para explorar.</p></article>
+    <article class="rv d1"><i>02</i><h3>Hasta 110 km de autonomía</h3><p>Batería de litio extraíble que cargás en un enchufe común, en tu casa o en el galpón, por menos de $200 la carga completa.</p></article>
+    <article class="rv d2"><i>03</i><h3>Salís a andar hoy mismo</h3><p>Es legalmente una bicicleta eléctrica: sin licencia, sin patente y sin seguro obligatorio. Te la llevás y arrancás a recorrer tu territorio en el momento.</p></article>
+    <article class="rv d3"><i>04</i><h3>Service con cara visible</h3><p>Si tu MC necesita algo, la resolvemos nosotros, con taller propio en Castelar y stock de los repuestos que más se usan. Sabés quién te vendió y dónde encontrarlo.</p></article>
     </div>
   </div>
 </section>
 
-<section class="sec" style="padding-top:0">
+<section class="sec mods" style="padding-top:clamp(56px,8vw,104px)">
+  <div class="wrap">
+    <span class="kick rv"><i>03 / 06</i>&nbsp;&nbsp;·&nbsp;&nbsp;Modelos</span>
+    <h2 class="h2 rv">Cuatro máquinas,<br>potencia y batería a tu medida</h2>
+    <p class="rv" style="margin-top:16px;max-width:62ch">Misma base robusta en toda la línea: cubiertas fat, motor desde 1000W en adelante, frenos a disco y arranque por NFC. Te fijás cuántos kilómetros querés recorrer por salida y te llevás el modelo justo para eso.</p>
+    <div class="g">
+
+    <a class="m rv" href="v20-pro.html">
+      <img src="assets/img/v20-negra-sm.webp" alt="MC Ebikes SW V20 Pro" loading="lazy" width="640" height="480">
+      <span class="tag tag--a">Más elegida</span>
+      <span class="flecha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <div class="t">
+        <span class="uso">Entre casa y pueblo</span>
+        <h3>SW V20 Pro</h3>
+        <div class="pr">$1.890.000</div>
+        <div class="cuo">12 cuotas sin interés de $157.500</div>
+      </div>
+    </a>
+
+    <a class="m rv" href="v29-pro.html">
+      <img src="assets/img/v29-negra-sm.webp" alt="MC Ebikes SW V29 Pro" loading="lazy" width="640" height="480">
+      <span class="tag tag--a">Doble batería</span>
+      <span class="flecha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <div class="t">
+        <span class="uso">Jornadas largas</span>
+        <h3>SW V29 Pro</h3>
+        <div class="pr">$2.340.000</div>
+        <div class="cuo">12 cuotas sin interés de $195.000</div>
+      </div>
+    </a>
+
+    <a class="m rv" href="v40.html">
+      <img src="assets/img/v40-negra-sm.webp" alt="MC Ebikes SW V40" loading="lazy" width="640" height="480">
+      
+      <span class="flecha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <div class="t">
+        <span class="uso">Campo y caminos de tierra</span>
+        <h3>SW V40</h3>
+        <div class="pr">$2.150.000</div>
+        <div class="cuo">12 cuotas sin interés de $179.167</div>
+      </div>
+    </a>
+
+    <a class="m rv" href="s20-pro.html">
+      <img src="assets/img/s20-blanca-sm.webp" alt="MC Ebikes SW S20 Pro" loading="lazy" width="640" height="480">
+      <span class="tag tag--a">Más potente</span>
+      <span class="flecha"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></span>
+      <div class="t">
+        <span class="uso">Pendientes y carga</span>
+        <h3>SW S20 Pro</h3>
+        <div class="pr">$2.590.000</div>
+        <div class="cuo">12 cuotas sin interés de $215.833</div>
+      </div>
+    </a>
+    </div>
+    <div style="margin-top:26px" class="rv"><a class="btn btn--g" href="productos.html">Comparar los 4 modelos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
+  </div>
+</section>
+
+<section class="sec sec--claro">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kick">Modelos</span>
-      <h2 class="h2">Cuatro máquinas,<br>potencia y batería <em>a tu medida</em>.</h2>
-      <p>Misma base robusta en toda la línea: cubiertas fat, motor desde 1000W en adelante, frenos a disco y arranque por NFC. Te fijás cuántos kilómetros querés recorrer por salida y te llevás el modelo justo para eso.</p>
-    </div>
-    <div class="grid-p">
-      
-<article class="pc rv" data-cat="urbana destacada" data-price="1890000" data-aut="65" data-ord="1">
-  <a href="v20-pro.html" class="pc__im">
-    <span class="tag tag--a">Más elegida</span>
-    <img src="assets/img/v20-negra-sm.webp" alt="SW V20 Pro" loading="lazy" width="640" height="480">
-  </a>
-  <div class="pc__b">
-    <span class="pc__cat">FAT E-BIKE</span>
-    <h3><a href="v20-pro.html">SW V20 Pro</a></h3>
-    <div class="pc__sp">
-      <div>POTENCIA<b>1000W</b></div>
-      <div>AUTONOMÍA<b>65 km</b></div>
-      <div>VEL. MÁX<b>32 km/h</b></div>
-    </div>
-    <div class="pc__pr">
-      <div class="price">$1.890.000</div>
-      <div class="cuotas">12 cuotas sin interés de $157.500</div>
-      <div class="stock"><i></i>Disponible para probar</div>
-      <div class="pc__act">
-        <a class="btn btn--p" href="v20-pro.html">Ver ficha</a>
-        <a class="btn btn--g" href="test-ride.html?m=v20-pro">Probarla</a>
-      </div>
-    </div>
-  </div>
-</article>
-
-<article class="pc rv" data-cat="larga-distancia destacada" data-price="2340000" data-aut="110" data-ord="2">
-  <a href="v29-pro.html" class="pc__im">
-    <span class="tag tag--a">Doble batería</span>
-    <img src="assets/img/v29-negra-sm.webp" alt="SW V29 Pro" loading="lazy" width="640" height="480">
-  </a>
-  <div class="pc__b">
-    <span class="pc__cat">FAT E-BIKE</span>
-    <h3><a href="v29-pro.html">SW V29 Pro</a></h3>
-    <div class="pc__sp">
-      <div>POTENCIA<b>1000W</b></div>
-      <div>AUTONOMÍA<b>110 km</b></div>
-      <div>VEL. MÁX<b>32 km/h</b></div>
-    </div>
-    <div class="pc__pr">
-      <div class="price">$2.340.000</div>
-      <div class="cuotas">12 cuotas sin interés de $195.000</div>
-      <div class="stock"><i></i>Disponible para probar</div>
-      <div class="pc__act">
-        <a class="btn btn--p" href="v29-pro.html">Ver ficha</a>
-        <a class="btn btn--g" href="test-ride.html?m=v29-pro">Probarla</a>
-      </div>
-    </div>
-  </div>
-</article>
-
-<article class="pc rv" data-cat="potencia" data-price="2590000" data-aut="75" data-ord="4">
-  <a href="s20-pro.html" class="pc__im">
-    <span class="tag tag--a">Más potente</span>
-    <img src="assets/img/s20-blanca-sm.webp" alt="SW S20 Pro" loading="lazy" width="640" height="480">
-  </a>
-  <div class="pc__b">
-    <span class="pc__cat">FAT E-BIKE</span>
-    <h3><a href="s20-pro.html">SW S20 Pro</a></h3>
-    <div class="pc__sp">
-      <div>POTENCIA<b>1800W</b></div>
-      <div>AUTONOMÍA<b>75 km</b></div>
-      <div>VEL. MÁX<b>32 km/h</b></div>
-    </div>
-    <div class="pc__pr">
-      <div class="price">$2.590.000</div>
-      <div class="cuotas">12 cuotas sin interés de $215.833</div>
-      <div class="stock"><i></i>Disponible para probar</div>
-      <div class="pc__act">
-        <a class="btn btn--p" href="s20-pro.html">Ver ficha</a>
-        <a class="btn btn--g" href="test-ride.html?m=s20-pro">Probarla</a>
-      </div>
-    </div>
-  </div>
-</article>
-    </div>
-    <div style="margin-top:26px" class="rv"><a class="btn btn--g" href="productos.html">Ver los 4 modelos <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a></div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="band rv">
-      <img src="assets/img/v20-lateral.webp" alt="" loading="lazy">
-      <div>
-        <span class="kick">Test ride sin cargo</span>
-        <h2 class="h2" style="margin-top:14px">Vos mismo sentís la potencia,<br>antes de <em>decidir</em></h2>
-        <p>Sumar movilidad propia es un paso importante para toda la familia. Por eso te invitamos a venir a nuestro local en Castelar, subirte y manejarla vos mismo antes de resolver nada. Y si estás lejos, coordinamos una demostración cuando estemos en tu zona, o te acompañamos igual con envío a todo el país y garantía real por escrito.</p>
-        <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi test ride</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head sec-head--c rv">
-      <span class="kick kick--plain">¿Cuál me conviene?</span>
+      <span class="kick"><i>04 / 06</i>&nbsp;&nbsp;·&nbsp;&nbsp;¿Cuál me conviene?</span>
       <h2 class="h2">No empieces por la bicicleta.<br>Empezá por tu <em>recorrido</em>.</h2>
-      <p>En 5 segundos te decimos qué modelo tiene sentido para vos.</p>
+      <p>Contanos cuántos kilómetros hacés, por qué camino y cuánto peso llevás. Te decimos cuál tiene sentido para vos, y también cuál no.</p>
     </div>
     <div class="quiz rv">
       <button data-rec="SW V20 Pro" data-why="Para recorridos cotidianos de ida y vuelta, la V20 Pro es la más equilibrada de la línea: 1000W y 50 a 65 km de autonomía publicada. Antes de decidir conviene medir tu recorrido real y dejar un margen." data-url="v20-pro.html">
@@ -310,6 +285,24 @@
       </button>
     </div>
     <div class="quiz-res"></div>
+  </div>
+</section>
+
+<section class="sec sec--rural terr">
+  <div class="wrap">
+    <div>
+      <span class="kick rv"><i>05 / 06</i>&nbsp;&nbsp;·&nbsp;&nbsp;Territorio</span>
+      <h2 class="h2">El campo<br>no es un paisaje.<br>Es tu recorrido.</h2>
+      <p>De la casa al galpón, del galpón al pueblo y del pueblo a casa. Tantas veces por día como haga falta. Por eso no vendemos la más potente: vendemos la que llega y vuelve.</p>
+      <div class="mini rv">
+        <img src="assets/escenas/molino.webp" alt="Molino de campo" loading="lazy" width="600" height="444">
+        <img src="assets/escenas/alambrado.webp" alt="Campo cosechado y alambrado al atardecer" loading="lazy" width="600" height="444">
+      </div>
+    </div>
+    <figure class="marco rv">
+      <img src="assets/escenas/galpon.webp" alt="Galpón de ladrillo en el campo bonaerense" loading="lazy" width="1200" height="930">
+      <figcaption>Uribelarrea · provincia de Buenos Aires</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -333,10 +326,28 @@
             <div><b id="o-anual">$0</b><span>Ganás por año</span></div>
           </div>
         </div>
-        <p style="font-size:13px;margin-top:12px;color:var(--cemento-2)">Estimación sobre 22 días hábiles, comparada con el costo de combustible de un vehículo de referencia. Valores estimados, pueden variar.</p>
+        <p style="font-size:13px;margin-top:12px;color:rgba(245,243,239,.62)">Estimación sobre 22 días hábiles, comparada con el costo de combustible de un vehículo de referencia. Valores estimados, pueden variar.</p>
       </div>
-      <div class="split__m rv d1"><img src="assets/img/v29-lateral.webp" alt="MC Ebikes en la calle" loading="lazy" width="1200" height="800"></div>
+      <figure class="marco rv d1">
+        <img src="assets/escenas/camino-recto.webp" alt="Camino recto entre campos, provincia de Buenos Aires" loading="lazy" width="1200" height="930">
+        <figcaption>El recorrido de todos los días</figcaption>
+      </figure>
     </div>
+  </div>
+</section>
+
+<section class="sec cap cap--inv">
+  <div class="wrap">
+    <div class="rv">
+      <span class="kick"><i>06 / 06</i>&nbsp;&nbsp;·&nbsp;&nbsp;Test ride sin cargo</span>
+      <h2 class="h2">Vos mismo sentís la potencia, antes de decidir</h2>
+      <p>Sumar movilidad propia es un paso importante para toda la familia. Por eso te invitamos a venir a nuestro local en Castelar, subirte y manejarla vos mismo antes de resolver nada. Y si estás lejos, coordinamos una demostración cuando estemos en tu zona, o te acompañamos igual con envío a todo el país y garantía real por escrito.</p>
+      <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi test ride <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+    </div>
+    <figure class="marco rv">
+      <img src="assets/escenas/dos-chicos.webp" alt="Dos chicos con una bicicleta en un camino de campo" loading="lazy" width="1200" height="930">
+      <figcaption>Test ride · Castelar</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -366,17 +377,13 @@
   </div>
 </section>
 
-<section class="sec sec--tight">
+<section class="fin">
   <div class="wrap">
-    <div class="cta rv">
-      <div>
-        <h2 class="h2">Vení, probala y decidí con información</h2>
-        <p>Te esperamos en Castelar para que la manejes vos mismo y hagas todas las preguntas antes de resolver nada.</p>
-      </div>
-      <div class="acts">
-        <a class="btn btn--l btn--lg" href="test-ride.html">Reservar test ride</a>
-        <a class="btn btn--lg" style="border:1.5px solid rgba(20,20,20,.3);color:#141414" href="https://wa.me/5491112345678?text=Hola%20MC%20Ebikes%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">Escribir por WhatsApp</a>
-      </div>
+    <span class="kick rv">Castelar, Buenos Aires · Envíos a todo el país</span>
+    <h2 class="h2 rv">Vení, probala<br>y decidí con información</h2>
+    <div class="acts rv">
+      <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi test ride <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg></a>
+      <a class="btn btn--g btn--lg" href="https://wa.me/5491112345678?text=Hola%20MC%20Ebikes%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener">Escribir por WhatsApp</a>
     </div>
   </div>
 </section></main>
@@ -384,7 +391,7 @@
   <div class="wrap">
     <div class="ftr__t">
       <div class="ftr__b">
-        <a href="index.html" class="brand" style="color:var(--tiza)"><img src="assets/img/logo-horizontal.webp?v=mtey1hip" alt="MC E-Bikes" height="54" width="162" style="height:54px;width:auto;display:block"></a>
+        <a href="index.html" class="brand" style="color:var(--tiza)"><img class="lg-color" src="assets/img/logo-horizontal.webp?v=mthvfe1m" alt="MC E-Bikes" height="54" width="162" style="height:54px;width:auto"><img class="lg-blanco" src="assets/img/MC-E-Bikes-horizontal-blanco.svg?v=mthvfe1m" alt="" aria-hidden="true" height="54" width="162" style="height:54px;width:auto"></a>
         <p>Independencia real para la nueva generación del campo argentino. Fat e-bikes de 1000W para que actives tu movilidad, con potencia real y autonomía real.</p>
         <div class="soc">
           <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
@@ -427,6 +434,7 @@
   </div>
 </footer>
 <a class="fab" href="https://wa.me/5491112345678?text=Hola%20MC%20Ebikes%2C%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener" aria-label="WhatsApp"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.01zm-7.01 15.24h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.24 8.24c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.98-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg></a>
-<script src="assets/js/app.js?v=mtey1hip" defer></script>
+<div class="prog" aria-hidden="true"></div>
+<script src="assets/js/app.js?v=mthvfe1m" defer></script>
 </body>
 </html>

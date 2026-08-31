@@ -598,3 +598,253 @@ p,li,.lead,.prose{line-height:1.6}
 .ftr__legal a{color:var(--piedra);transition:.2s}
 .ftr__legal a:hover{color:var(--hueso)}
 @media (max-width:700px){.ftr__bot{flex-direction:column;gap:12px;align-items:flex-start}}
+
+/* =====================================================================
+   DIRECCION EDITORIAL — propuesta 1, elegida por el cliente
+   La estrategia (cap. 15, paso 3) pide traducir la direccion elegida a un
+   sistema consistente, no dejarla como una maqueta suelta. Todo lo de
+   abajo es esa traduccion: la linea de ruta, las ventanas de imagen con
+   epigrafe, la franja de datos y el ritmo por capitulos numerados.
+   Referencia viva: /propuestas/elegida.html
+   ===================================================================== */
+
+/* ---------- Barra de progreso de lectura ---------- */
+.prog{position:fixed;top:0;left:0;height:2px;background:var(--naranja);width:0;z-index:200;
+  transition:width .1s linear;pointer-events:none}
+
+/* ---------- Linea de ruta ----------
+   El kicker ya existia con una linea fija delante. En la direccion elegida
+   esa linea es el gesto de marca: crece al entrar en pantalla, como un
+   camino que se abre. Se aplica al .kick que ya usan las catorce paginas,
+   asi que el gesto aparece en todo el sitio sin reescribir el markup. */
+.kick{letter-spacing:.22em}
+.kick::before{width:0;transition:width .8s var(--ease) .1s}
+.kick.in::before,html:not(.js) .kick::before{width:clamp(24px,3.4vw,52px)}
+.kick i{font-style:normal;letter-spacing:.18em}
+@media (prefers-reduced-motion:reduce){.kick::before{width:clamp(24px,3.4vw,52px)}}
+
+/* ---------- Titulares editoriales ----------
+   Archivo Black en caja alta, interlineado cerrado y ancho maximo corto:
+   el titular tiene que leerse como portada, no como parrafo grande. */
+.h1,.phero h1,.cap h2,.mods h2,.terr h2,.fin h2,.band h2{
+  text-transform:uppercase;line-height:.96;letter-spacing:-.025em}
+.hero .h1{font-size:clamp(46px,8.4vw,116px);max-width:11ch}
+.phero h1{font-size:clamp(36px,5.6vw,72px);max-width:14ch}
+
+/* ---------- HERO editorial ----------
+   La decision central de la estrategia: primero el momento y el territorio,
+   despues la maquina. El hero deja de ser una foto de producto. */
+.hero__bg img{object-position:center 58%}
+.hero .vert{position:absolute;top:50%;right:clamp(16px,3vw,38px);
+  transform:translateY(-50%) rotate(90deg);transform-origin:right center;
+  font-family:var(--c);font-weight:600;font-size:10.5px;letter-spacing:.42em;
+  text-transform:uppercase;color:rgba(245,243,239,.46);white-space:nowrap}
+.hero .kick{color:var(--hueso)}
+.hero .kick::before{background:var(--hueso)}
+.hero .kick,.hero__sub,.hero .vert{text-shadow:0 2px 16px rgba(20,22,26,.85)}
+.bajar{position:absolute;right:clamp(52px,6.4vw,92px);bottom:clamp(34px,5vw,64px);
+  display:flex;align-items:center;gap:11px;font-family:var(--c);font-weight:600;
+  font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:rgba(245,243,239,.6)}
+.bajar i{width:1px;height:34px;background:rgba(245,243,239,.4);position:relative;overflow:hidden}
+.bajar i::after{content:"";position:absolute;inset:0;background:var(--naranja);
+  animation:corre 2.4s cubic-bezier(.6,0,.4,1) infinite}
+@keyframes corre{0%{transform:translateY(-100%)}55%,100%{transform:translateY(100%)}}
+@media (max-width:860px){.hero .vert,.bajar{display:none}}
+
+/* ---------- Tira del tagline ----------
+   El tagline oficial recorre la pagina en vez de quedar decorado en un
+   recuadro. Es texto real, duplicado para que el loop no corte. */
+.tira{border-block:1px solid var(--linea);overflow:hidden;padding-block:20px;background:var(--asfalto)}
+.tira div{display:flex;gap:44px;width:max-content;animation:desliza 34s linear infinite}
+.tira span{font-family:var(--d);font-weight:900;font-size:clamp(19px,2.4vw,30px);
+  text-transform:uppercase;letter-spacing:-.01em;color:rgba(245,243,239,.13);white-space:nowrap}
+.tira span:nth-child(even){color:var(--naranja);opacity:.5}
+@keyframes desliza{to{transform:translateX(-50%)}}
+@media (prefers-reduced-motion:reduce){.tira div,.bajar i::after{animation:none}}
+
+/* ---------- Franja de datos ----------
+   Los cuatro numeros que sostienen la promesa, en la condensada tecnica.
+   Cuentan una sola vez al aparecer (app.js). */
+.franja{border-bottom:1px solid var(--linea)}
+.franja .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;padding-block:clamp(26px,3.4vw,38px)}
+.franja b{display:block;font-family:var(--n);font-weight:700;line-height:1;
+  font-size:clamp(30px,4.2vw,56px);color:var(--naranja)}
+.franja span{font-family:var(--c);font-weight:600;font-size:10.5px;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--piedra);margin-top:6px;display:block}
+@media (max-width:720px){.franja .wrap{grid-template-columns:1fr 1fr;gap:24px}}
+
+/* ---------- Capitulos ----------
+   Texto a un lado, ventana de imagen al otro, alternando. Es el ritmo de
+   reportaje que pedia la propuesta elegida. */
+.cap .wrap{display:grid;grid-template-columns:1fr 1fr;gap:clamp(28px,5vw,84px);align-items:center}
+.cap h2{font-size:clamp(32px,5vw,72px);margin-top:16px}
+.cap p{font-size:17px;margin-top:18px}
+.cap .btn{margin-top:26px}
+.cap--inv .wrap>div:first-child{order:2}
+@media (max-width:860px){.cap .wrap{grid-template-columns:1fr}.cap--inv .wrap>div:first-child{order:0}}
+
+/* ---------- Ventana de imagen con epigrafe ----------
+   El epigrafe es la evidencia que pide la arquitectura de confianza:
+   dice donde se tomo la foto, no adorna. */
+.marco{position:relative;overflow:hidden}
+.marco img{width:100%;aspect-ratio:4/3.1;object-fit:cover;transform:scale(1.05);
+  transition:transform 1.2s var(--ease)}
+.marco.in img{transform:scale(1)}
+.marco figcaption{position:absolute;left:0;bottom:0;background:var(--carbon);color:var(--piedra);
+  font-family:var(--c);font-weight:600;font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;padding:9px 15px;z-index:3}
+/* marcas de encuadre: el gesto fotografico de la direccion elegida */
+.marco::before,.marco::after{content:"";position:absolute;width:26px;height:26px;
+  border:2px solid var(--hueso);opacity:0;pointer-events:none;z-index:2;
+  transition:opacity .6s ease .25s,inset .6s var(--ease) .25s}
+.marco::before{top:22px;left:22px;border-right:0;border-bottom:0}
+.marco::after{bottom:22px;right:22px;border-left:0;border-top:0}
+.marco.in::before{opacity:.85;top:14px;left:14px}
+.marco.in::after{opacity:.85;bottom:14px;right:14px}
+@media (prefers-reduced-motion:reduce){
+  .marco img{transform:none}
+  .marco::before{opacity:.85;top:14px;left:14px}
+  .marco::after{opacity:.85;bottom:14px;right:14px}
+}
+
+/* ---------- Linea de modelos fotografica ----------
+   Reemplaza las tarjetas con borde: en la direccion elegida el modelo se
+   muestra, y el dato comercial (recorrido y precio) va encima de la foto. */
+.mods h2{font-size:clamp(32px,5vw,72px);margin-top:16px}
+.mods .g{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:clamp(28px,4vw,44px)}
+.m{position:relative;aspect-ratio:1/.78;overflow:hidden;background:var(--grafito);display:block}
+.m img{width:100%;height:100%;object-fit:cover;opacity:.6;transition:.55s var(--ease)}
+.m:hover img{opacity:.86;transform:scale(1.035)}
+.m .t{position:absolute;left:clamp(18px,2.6vw,32px);right:clamp(18px,2.6vw,32px);
+  bottom:clamp(18px,2.4vw,28px);z-index:2;transition:transform .45s var(--ease)}
+.m:hover .t{transform:translateY(-4px)}
+.m .uso{font-family:var(--c);font-weight:600;font-size:11.5px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--naranja)}
+.m h3{font-size:clamp(23px,2.7vw,36px);text-transform:uppercase;margin-top:4px}
+.m .pr{font-family:var(--n);font-weight:700;font-size:clamp(21px,2.2vw,28px);margin-top:6px}
+.m .cuo{font-family:var(--c);font-weight:600;font-size:12.5px;color:rgba(245,243,239,.72);margin-top:2px}
+.m .flecha{position:absolute;top:clamp(18px,2.6vw,30px);right:clamp(18px,2.6vw,30px);z-index:2;
+  width:38px;height:38px;border:1.5px solid rgba(245,243,239,.5);display:grid;place-items:center;
+  opacity:0;transform:translate(-5px,5px);transition:.45s var(--ease)}
+.m:hover .flecha{opacity:1;transform:none;border-color:var(--naranja);background:var(--naranja);color:var(--carbon)}
+.m .flecha svg{width:15px;height:15px}
+.m .tag{z-index:3}
+@media (max-width:620px){.mods .g{grid-template-columns:1fr}}
+
+/* ---------- Recorridos en Hueso ----------
+   El selector deja de ser una grilla de tarjetas y pasa a ser una tabla de
+   decision: cinco columnas separadas por una linea, sin cajas. */
+.sec--claro .quiz{gap:1px;background:rgba(20,22,26,.14);margin-top:clamp(26px,3.4vw,40px)}
+.sec--claro .quiz button{background:var(--hueso);border:0;border-radius:0;padding:26px 20px 30px;
+  position:relative;transform:none}
+.sec--claro .quiz button:hover{background:#fff;transform:none}
+.sec--claro .quiz button::after{content:"";position:absolute;left:0;right:0;bottom:0;height:2px;
+  background:var(--naranja);transform:scaleX(0);transform-origin:left;transition:transform .4s var(--ease)}
+.sec--claro .quiz button:hover::after{transform:scaleX(1)}
+.sec--claro .quiz button b{color:var(--carbon);font-size:20px;transition:transform .35s var(--ease)}
+.sec--claro .quiz button:hover b{transform:translateX(3px)}
+.sec--claro .quiz span{color:#4A4844}
+.sec--claro .quiz svg{color:var(--naranja-lo)}
+.sec--claro .quiz-res{background:#fff;border-color:var(--naranja-lo)}
+.sec--claro .quiz-res b{color:var(--naranja-lo)}
+.sec--claro .quiz-res p{color:#4A4844}
+
+/* ---------- Razones, sin cajas ----------
+   Cuatro razones numeradas separadas por linea. El dato ya lo dio la
+   franja: aca va el argumento. */
+.razones{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--linea);
+  border-block:1px solid var(--linea)}
+.razones article{background:var(--asfalto);padding:clamp(24px,3vw,34px) clamp(18px,2vw,26px)}
+.razones i{font-style:normal;font-family:var(--d);font-weight:900;font-size:11px;
+  letter-spacing:.18em;color:var(--naranja)}
+.razones h3{font-size:clamp(20px,2.1vw,25px);margin:14px 0 10px;text-transform:uppercase;line-height:1.02}
+.razones p{font-size:14.5px}
+@media (max-width:900px){.razones{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){.razones{grid-template-columns:1fr}}
+
+/* ---------- Territorio ---------- */
+.terr .wrap{display:grid;grid-template-columns:1.08fr 1fr;gap:clamp(28px,5vw,74px);align-items:center}
+.terr h2{font-size:clamp(30px,4.4vw,62px);margin-top:16px}
+.terr .mini{display:grid;grid-template-columns:1fr 1fr;gap:2px;margin-top:24px}
+.terr .mini img{aspect-ratio:1/.74;object-fit:cover;width:100%}
+/* la ventana acompana el alto de la columna de texto en vez de flotar
+   centrada dejando un hueco verde debajo */
+.terr .wrap>.marco{position:relative;min-height:clamp(320px,34vw,480px)}
+.terr .wrap>.marco img{position:absolute;inset:0;width:100%;height:100%;aspect-ratio:auto}
+@media (max-width:860px){.terr .wrap{grid-template-columns:1fr}}
+
+/* ---------- Cierre editorial ----------
+   Reemplaza el bloque naranja de cierre en la home. El naranja se reserva
+   para el CTA y el dato, que es lo que pide el manual. */
+.fin{padding-block:clamp(64px,8vw,120px);text-align:center;border-top:1px solid var(--linea)}
+.fin .kick{justify-content:center;margin-bottom:20px}
+.fin h2{font-size:clamp(32px,5.4vw,82px)}
+.fin .acts{display:flex;gap:12px;justify-content:center;margin-top:28px;flex-wrap:wrap}
+
+/* ---------- Barra superior sobre el hero ----------
+   En el home la barra flota sobre la foto con el logo en blanco, como en la
+   propuesta elegida, y recien al scrollear se vuelve la barra clara con el
+   logo del cliente en su color original. */
+.brand .lg-blanco{display:none}
+body[data-pagina="index"] .hdr:not(.solid){background:transparent;border-bottom-color:transparent}
+body[data-pagina="index"] .hdr:not(.solid) .lg-color{display:none}
+body[data-pagina="index"] .hdr:not(.solid) .lg-blanco{display:block}
+body[data-pagina="index"] .hdr:not(.solid) .nav a{color:var(--hueso)}
+body[data-pagina="index"] .hdr:not(.solid) .nav a:hover{background:rgba(245,243,239,.1)}
+body[data-pagina="index"] .hdr:not(.solid) .nav a.on{color:var(--naranja)}
+body[data-pagina="index"] .hdr:not(.solid) .burger i{background:var(--hueso)}
+body[data-pagina="index"] .hdr:not(.solid) .btn--p{background:transparent;color:var(--hueso);
+  border-color:rgba(245,243,239,.5)}
+body[data-pagina="index"] .hdr:not(.solid) .btn--p:hover{background:var(--hueso);color:var(--carbon);
+  border-color:var(--hueso)}
+
+/* El boton secundario del hero va sobre la foto: el borde gris del sistema
+   desaparece contra el pasto. Sobre imagen va en Hueso. */
+.hero .btn--g{border-color:rgba(245,243,239,.45);color:var(--hueso)}
+.hero .btn--g:hover{background:var(--hueso);color:var(--carbon);border-color:var(--hueso)}
+.fin .btn--g{border-color:rgba(245,243,239,.4)}
+
+/* La flecha de los botones empuja hacia adelante al pasar el mouse: el
+   micro-desplazamiento de 4px que pide la estrategia. */
+.btn svg{transition:transform .35s var(--ease)}
+.btn:hover svg{transform:translateX(4px)}
+@media (prefers-reduced-motion:reduce){.btn:hover svg{transform:none}}
+
+/* La franja cuenta sus numeros: sin esto el ancho salta de "0" a "1000W"
+   y empuja las columnas vecinas mientras dura la animacion. */
+.franja div{min-width:0}
+.franja b{font-variant-numeric:tabular-nums}
+
+/* En Verde Monte la ventana de imagen invierte sus marcas de encuadre para
+   no perderse contra el verde. */
+.sec--rural .marco::before,.sec--rural .marco::after{border-color:var(--hueso)}
+
+/* img{display:block} global ya lo cubre; el .lg-color no lleva display inline
+   para que el CSS pueda ocultarlo sobre el hero. */
+.brand img{display:block}
+
+/* La ficha de modelo apoya el nombre y el precio sobre la foto: sin un velo
+   al pie, el recorrido en naranja se pierde contra la rueda. El velo va en
+   el propio bloque de texto para no oscurecer la maquina entera. */
+.m::after{content:"";position:absolute;left:0;right:0;bottom:0;height:58%;z-index:1;
+  background:linear-gradient(180deg,rgba(20,22,26,0) 0%,rgba(20,22,26,.55) 46%,rgba(20,22,26,.92) 100%);
+  pointer-events:none}
+
+/* Las razones se alinean con el borde izquierdo de la pagina: la primera y
+   la ultima celda no llevan padding exterior, para que el titular arranque
+   en la misma vertical que la linea de ruta de arriba. */
+@media (min-width:901px){
+  .razones article:first-child{padding-left:0}
+  .razones article:last-child{padding-right:0}
+}
+@media (min-width:521px) and (max-width:900px){
+  .razones article:nth-child(odd){padding-left:0}
+  .razones article:nth-child(even){padding-right:0}
+}
+@media (max-width:520px){.razones article{padding-inline:0}}
+
+/* El numero de capitulo no se parte: en mobile "01 / 06" quedaba cortado
+   en dos lineas y el separador huerfano al final de la primera. */
+.kick{flex-wrap:wrap}
+.kick i{white-space:nowrap}
+@media (max-width:600px){.kick{font-size:11px;letter-spacing:.18em}}

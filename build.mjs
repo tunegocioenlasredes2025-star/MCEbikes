@@ -57,7 +57,11 @@ const waIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
 /* Logo oficial del cliente, tal cual el archivo (LOGO MC EBIKES 3.png).
    Esta en gris carbon #2B3035, que solo se lee sobre fondo claro: por eso
    la barra superior va en Blanco Hueso y no en Negro Carbon. */
-const LOGO = (h = 48) => `<img src="assets/img/logo-horizontal.webp?v=${V}" alt="MC E-Bikes" height="${h}" width="${Math.round(h * 3)}" style="height:${h}px;width:auto;display:block">`;
+/* Van los dos archivos en el DOM y decide el CSS cual se ve: sobre la foto
+   del hero la barra es transparente y entra el trazado en blanco (el mismo
+   que aprobo el cliente en la propuesta elegida); apenas se scrollea vuelve
+   la barra clara con el logo en su color original. */
+const LOGO = (h = 48) => `<img class="lg-color" src="assets/img/logo-horizontal.webp?v=${V}" alt="MC E-Bikes" height="${h}" width="${Math.round(h * 3)}" style="height:${h}px;width:auto"><img class="lg-blanco" src="assets/img/MC-E-Bikes-horizontal-blanco.svg?v=${V}" alt="" aria-hidden="true" height="${h}" width="${Math.round(h * 3)}" style="height:${h}px;width:auto">`;
 
 /* Tagline oficial (anexo del Manual de Marca v1.0) */
 const TAGLINE = "Tu mundo se mueve con vos";
@@ -76,7 +80,7 @@ const P = [
     motor: "1000W", bat: "48V / 15,6Ah", aut: "50 a 65 km", vel: "32 km/h",
     autNum: 65, carga: "150 kg", recarga: "4 a 6 horas", peso: "40 kg aprox.",
     img: "v20-negra", gal: ["v20-negra", "v20-azul", "v20-rosa", "v20-perfil"],
-    uso: "Recorridos cortos, ir y venir del pueblo o del casco, hasta 25 km por día",
+    uso: "Recorridos cortos, ir y venir del pueblo o del casco, hasta 25 km por día", rec: "Entre casa y pueblo",
     destacado: true,
     extras: ["Panel digital a color", "Arranque por NFC", "Alarma integrada", "Frenos a disco adelante y atrás", "Llantas fat Kenda 20\"", "Amortiguación delantera"],
   },
@@ -89,7 +93,7 @@ const P = [
     motor: "1000W", bat: "48V / 15,6Ah ×2", aut: "hasta 110 km", vel: "32 km/h",
     autNum: 110, carga: "150 kg", recarga: "4 a 6 horas", peso: "45 kg aprox.",
     img: "v29-negra", gal: ["v29-negra", "v29-lateral", "v29-detalle"],
-    uso: "Recorrer el campo de punta a punta, todo el día",
+    uso: "Recorrer el campo de punta a punta, todo el día", rec: "Jornadas largas",
     destacado: true,
     extras: ["Dos baterías intercambiables", "Panel digital", "Arranque por NFC", "Portaequipaje reforzado", "Frenos a disco", "Amortiguación delantera"],
   },
@@ -102,7 +106,7 @@ const P = [
     motor: "1000W", bat: "48V / 18,2Ah", aut: "hasta 75 km", vel: "32 km/h",
     autNum: 75, carga: "150 kg", recarga: "5 a 6 horas", peso: "47,7 kg",
     img: "v40-negra", gal: ["v40-negra", "v40-camo", "v8-negra", "v8-frente"],
-    uso: "Uso mixto entre el pueblo y el campo",
+    uso: "Uso mixto entre el pueblo y el campo", rec: "Campo y caminos de tierra",
     destacado: false,
     extras: ["Batería de 18,2Ah", "Señalización LED completa", "Panel digital", "Arranque por NFC", "Frenos a disco", "Llantas fat Kenda"],
   },
@@ -115,7 +119,7 @@ const P = [
     motor: "1800W", bat: "48V / 16,2Ah", aut: "hasta 75 km", vel: "32 km/h",
     autNum: 75, carga: "138 kg", recarga: "5 a 6 horas", peso: "45 kg aprox.",
     img: "s20-blanca", gal: ["s20-blanca", "v8-bordo", "v20-lateral", "v8-negra"],
-    uso: "Máxima potencia, subidas y carga",
+    uso: "Máxima potencia, subidas y carga", rec: "Pendientes y carga",
     destacado: true,
     extras: ["Motor de 1800W", "Panel digital", "Arranque por NFC", "Frenos a disco", "Suspensión reforzada", "Llantas fat Kenda"],
   },
@@ -245,6 +249,7 @@ function footer() {
   </div>
 </footer>
 <a class="fab" href="${WA_TXT("Hola MC Ebikes, quiero hacer una consulta.")}" target="_blank" rel="noopener" aria-label="WhatsApp">${waIcon}</a>
+<div class="prog" aria-hidden="true"></div>
 <script src="assets/js/app.js?v=${V}" defer></script>
 </body>
 </html>`;
@@ -377,76 +382,98 @@ const homeLD = JSON.stringify({
   "@graph": [negocioLD, { "@type": "WebSite", name: "MC Ebikes", url: SITE + "/", inLanguage: "es-AR" }],
 }, null, 1);
 
+/* Ficha de modelo fotografica: la direccion elegida muestra la maquina en
+   vez de encajonarla. El dato comercial (recorrido, precio y cuota) va
+   encima de la foto, que es lo que el visitante necesita para decidir. */
+const mtile = (p) => `
+    <a class="m rv" href="${p.slug}.html">
+      <img src="assets/img/${p.img}-sm.webp" alt="MC Ebikes ${p.name}" loading="lazy" width="640" height="480">
+      ${p.badge ? `<span class="tag tag--a">${p.badge}</span>` : ""}
+      <span class="flecha">${ico(I.arrow, 2.2)}</span>
+      <div class="t">
+        <span class="uso">${p.rec}</span>
+        <h3>${p.name}</h3>
+        <div class="pr">${money(p.price)}</div>
+        <div class="cuo">12 cuotas sin interés de ${money(Math.round(p.price / 12))}</div>
+      </div>
+    </a>`;
+
+/* Capitulo numerado: la lectura de la home avanza como un reportaje, y el
+   numero le dice al visitante cuanto falta. */
+const cap = (n) => `<i>${n} / 06</i>&nbsp;&nbsp;·&nbsp;&nbsp;`;
+
 const home = `
 <section class="hero">
-  <div class="hero__bg"><img src="assets/img/v40-camo.webp" alt="Fat e-bike MC Ebikes" fetchpriority="high" width="1200" height="700"></div>
+  <div class="hero__bg"><img src="assets/escenas/ciclista-campo.webp"
+    srcset="assets/escenas/ciclista-campo-sm.webp 1000w, assets/escenas/ciclista-campo-md.webp 1280w, assets/escenas/ciclista-campo.webp 1600w" sizes="100vw"
+    alt="Sombra de un ciclista sobre un camino de tierra del campo bonaerense al atardecer" fetchpriority="high" width="1600" height="1067"></div>
+  <span class="vert">Campo · Pueblo · Periferia bonaerense</span>
   <div class="wrap">
-    <span class="kick">Campo, pueblo y periferia bonaerense</span>
-    <h1 class="h1" style="margin-top:16px">TU MUNDO<br>SE MUEVE<br><em>CON VOS.</em></h1>
-    <p class="hero__sub">Fat e-bikes de 1000W con hasta 110 km de autonomía. Vení, probala y decidí con la potencia real abajo tuyo.</p>
+    <span class="kick">Provincia de Buenos Aires</span>
+    <h1 class="h1" style="margin-top:16px">Tu mundo se mueve con vos</h1>
+    <p class="hero__sub">Fat e-bikes de 1000W con hasta 110 km de autonomía, para moverte entre el campo, el pueblo y los lugares que sentís tuyos.</p>
     <div class="hero__cta">
       <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi prueba ${ico(I.arrow, 2.2)}</a>
       <a class="btn btn--g btn--lg" href="productos.html">Ver modelos</a>
     </div>
-    <div class="hero__specs">
-      <div><b>1000W</b><span>Potencia</span></div>
-      <div><b>110 km</b><span>Hasta, de autonomía</span></div>
-      <div><b>32 km/h</b><span>De velocidad</span></div>
-      <div><b>12</b><span>Cuotas sin interés</span></div>
-    </div>
   </div>
+  <span class="bajar"><i></i>Seguí bajando</span>
 </section>
 
-<section class="sec">
+<div class="tira" aria-hidden="true"><div>${Array.from({ length: 8 }, () => `<span>${TAGLINE}</span><span>·</span>`).join("")}</div></div>
+
+<section class="franja"><div class="wrap">
+  <div><b data-num>1000W</b><span>Potencia</span></div>
+  <div><b data-num>110 km</b><span>Hasta, de autonomía</span></div>
+  <div><b data-num>32 km/h</b><span>De velocidad</span></div>
+  <div><b data-num>12</b><span>Cuotas sin interés</span></div>
+</div></section>
+
+<section class="sec cap">
   <div class="wrap">
-    <div class="sec-head rv">
-      <span class="kick">Tu primer vehículo propio</span>
-      <h2 class="h2">Autonomía real<br>para seguir <em>tu ritmo</em></h2>
+    <div class="rv">
+      <span class="kick">${cap("01")}Tu primer vehículo propio</span>
+      <h2 class="h2">Autonomía real<br>para seguir tu ritmo</h2>
       <p>La autonomía que necesitás para tu día a día, con hasta 110 kilómetros por carga completa. Un vehículo serio diseñado para seguir tu ritmo, optimizado para trayectos intensos en caminos exigentes y jornadas completas de actividad.</p>
+      <a class="btn btn--g" href="productos.html">Ver los ${P.length} modelos ${ico(I.arrow, 2.2)}</a>
     </div>
-    <div class="feat">
-      <article class="rv"><div class="ic">${ico(I.bolt)}</div><h3>1000W de potencia real</h3><p>Arranca fuerte en subida y con carga, sin que tengas que pedalear un metro. Motor con torque real, hecho para trabajar y para explorar.</p></article>
-      <article class="rv d1"><div class="ic">${ico(I.bat)}</div><h3>Hasta 110 km de autonomía</h3><p>Batería de litio extraíble que cargás en un enchufe común, en tu casa o en el galpón, por menos de $200 la carga completa.</p></article>
-      <article class="rv d2"><div class="ic">${ico(I.shield)}</div><h3>Salís a andar hoy mismo</h3><p>Te la llevás y arrancás a recorrer tu propio territorio en el momento. Es legalmente una bicicleta eléctrica: tenés total libertad para moverte desde el primer día.</p></article>
-      <article class="rv d3"><div class="ic">${ico(I.wrench)}</div><h3>Service con cara visible</h3><p>Si tu MC necesita algo, la resolvemos nosotros mismos, con taller propio y stock de los repuestos que más se usan. Sabés quién te vendió y dónde encontrarlo.</p></article>
+    <figure class="marco rv">
+      <img src="assets/escenas/camino-nube.webp" alt="Camino de tierra en el campo bonaerense" loading="lazy" width="1200" height="930">
+      <figcaption>Camino de tierra · provincia de Buenos Aires</figcaption>
+    </figure>
+  </div>
+</section>
+
+<section class="sec" style="padding-top:0;padding-bottom:clamp(18px,2.4vw,30px)">
+  <div class="wrap">
+    <span class="kick rv" style="display:inline-flex;margin-bottom:clamp(22px,3vw,34px)">${cap("02")}Por qué una MC</span>
+    <div class="razones">
+    <article class="rv"><i>01</i><h3>1000W de potencia real</h3><p>Arranca fuerte en subida y con carga, sin que tengas que pedalear un metro. Motor con torque real, hecho para trabajar y para explorar.</p></article>
+    <article class="rv d1"><i>02</i><h3>Hasta 110 km de autonomía</h3><p>Batería de litio extraíble que cargás en un enchufe común, en tu casa o en el galpón, por menos de $200 la carga completa.</p></article>
+    <article class="rv d2"><i>03</i><h3>Salís a andar hoy mismo</h3><p>Es legalmente una bicicleta eléctrica: sin licencia, sin patente y sin seguro obligatorio. Te la llevás y arrancás a recorrer tu territorio en el momento.</p></article>
+    <article class="rv d3"><i>04</i><h3>Service con cara visible</h3><p>Si tu MC necesita algo, la resolvemos nosotros, con taller propio en Castelar y stock de los repuestos que más se usan. Sabés quién te vendió y dónde encontrarlo.</p></article>
     </div>
   </div>
 </section>
 
-<section class="sec" style="padding-top:0">
+<section class="sec mods" style="padding-top:clamp(56px,8vw,104px)">
+  <div class="wrap">
+    <span class="kick rv">${cap("03")}Modelos</span>
+    <h2 class="h2 rv">Cuatro máquinas,<br>potencia y batería a tu medida</h2>
+    <p class="rv" style="margin-top:16px;max-width:62ch">Misma base robusta en toda la línea: cubiertas fat, motor desde 1000W en adelante, frenos a disco y arranque por NFC. Te fijás cuántos kilómetros querés recorrer por salida y te llevás el modelo justo para eso.</p>
+    <div class="g">
+${P.map(mtile).join("\n")}
+    </div>
+    <div style="margin-top:26px" class="rv"><a class="btn btn--g" href="productos.html">Comparar los ${P.length} modelos ${ico(I.arrow, 2.2)}</a></div>
+  </div>
+</section>
+
+<section class="sec sec--claro">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kick">Modelos</span>
-      <h2 class="h2">Cuatro máquinas,<br>potencia y batería <em>a tu medida</em>.</h2>
-      <p>Misma base robusta en toda la línea: cubiertas fat, motor desde 1000W en adelante, frenos a disco y arranque por NFC. Te fijás cuántos kilómetros querés recorrer por salida y te llevás el modelo justo para eso.</p>
-    </div>
-    <div class="grid-p">
-      ${destacados.map(pcard).join("\n")}
-    </div>
-    <div style="margin-top:26px" class="rv"><a class="btn btn--g" href="productos.html">Ver los ${P.length} modelos ${ico(I.arrow, 2.2)}</a></div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="band rv">
-      <img src="assets/img/v20-lateral.webp" alt="" loading="lazy">
-      <div>
-        <span class="kick">Test ride sin cargo</span>
-        <h2 class="h2" style="margin-top:14px">Vos mismo sentís la potencia,<br>antes de <em>decidir</em></h2>
-        <p>Sumar movilidad propia es un paso importante para toda la familia. Por eso te invitamos a venir a nuestro local en Castelar, subirte y manejarla vos mismo antes de resolver nada. Y si estás lejos, coordinamos una demostración cuando estemos en tu zona, o te acompañamos igual con envío a todo el país y garantía real por escrito.</p>
-        <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi test ride</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="sec" style="padding-top:0">
-  <div class="wrap">
-    <div class="sec-head sec-head--c rv">
-      <span class="kick kick--plain">¿Cuál me conviene?</span>
+      <span class="kick">${cap("04")}¿Cuál me conviene?</span>
       <h2 class="h2">No empieces por la bicicleta.<br>Empezá por tu <em>recorrido</em>.</h2>
-      <p>En 5 segundos te decimos qué modelo tiene sentido para vos.</p>
+      <p>Contanos cuántos kilómetros hacés, por qué camino y cuánto peso llevás. Te decimos cuál tiene sentido para vos, y también cuál no.</p>
     </div>
     <div class="quiz rv">
       <button data-rec="SW V20 Pro" data-why="Para recorridos cotidianos de ida y vuelta, la V20 Pro es la más equilibrada de la línea: 1000W y 50 a 65 km de autonomía publicada. Antes de decidir conviene medir tu recorrido real y dejar un margen." data-url="v20-pro.html">
@@ -466,6 +493,24 @@ const home = `
       </button>
     </div>
     <div class="quiz-res"></div>
+  </div>
+</section>
+
+<section class="sec sec--rural terr">
+  <div class="wrap">
+    <div>
+      <span class="kick rv">${cap("05")}Territorio</span>
+      <h2 class="h2">El campo<br>no es un paisaje.<br>Es tu recorrido.</h2>
+      <p>De la casa al galpón, del galpón al pueblo y del pueblo a casa. Tantas veces por día como haga falta. Por eso no vendemos la más potente: vendemos la que llega y vuelve.</p>
+      <div class="mini rv">
+        <img src="assets/escenas/molino.webp" alt="Molino de campo" loading="lazy" width="600" height="444">
+        <img src="assets/escenas/alambrado.webp" alt="Campo cosechado y alambrado al atardecer" loading="lazy" width="600" height="444">
+      </div>
+    </div>
+    <figure class="marco rv">
+      <img src="assets/escenas/galpon.webp" alt="Galpón de ladrillo en el campo bonaerense" loading="lazy" width="1200" height="930">
+      <figcaption>Uribelarrea · provincia de Buenos Aires</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -489,10 +534,28 @@ const home = `
             <div><b id="o-anual">$0</b><span>Ganás por año</span></div>
           </div>
         </div>
-        <p style="font-size:13px;margin-top:12px;color:var(--cemento-2)">Estimación sobre 22 días hábiles, comparada con el costo de combustible de un vehículo de referencia. Valores estimados, pueden variar.</p>
+        <p style="font-size:13px;margin-top:12px;color:rgba(245,243,239,.62)">Estimación sobre 22 días hábiles, comparada con el costo de combustible de un vehículo de referencia. Valores estimados, pueden variar.</p>
       </div>
-      <div class="split__m rv d1"><img src="assets/img/v29-lateral.webp" alt="MC Ebikes en la calle" loading="lazy" width="1200" height="800"></div>
+      <figure class="marco rv d1">
+        <img src="assets/escenas/camino-recto.webp" alt="Camino recto entre campos, provincia de Buenos Aires" loading="lazy" width="1200" height="930">
+        <figcaption>El recorrido de todos los días</figcaption>
+      </figure>
     </div>
+  </div>
+</section>
+
+<section class="sec cap cap--inv">
+  <div class="wrap">
+    <div class="rv">
+      <span class="kick">${cap("06")}Test ride sin cargo</span>
+      <h2 class="h2">Vos mismo sentís la potencia, antes de decidir</h2>
+      <p>Sumar movilidad propia es un paso importante para toda la familia. Por eso te invitamos a venir a nuestro local en Castelar, subirte y manejarla vos mismo antes de resolver nada. Y si estás lejos, coordinamos una demostración cuando estemos en tu zona, o te acompañamos igual con envío a todo el país y garantía real por escrito.</p>
+      <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi test ride ${ico(I.arrow, 2.2)}</a>
+    </div>
+    <figure class="marco rv">
+      <img src="assets/escenas/dos-chicos.webp" alt="Dos chicos con una bicicleta en un camino de campo" loading="lazy" width="1200" height="930">
+      <figcaption>Test ride · Castelar</figcaption>
+    </figure>
   </div>
 </section>
 
@@ -505,14 +568,26 @@ const home = `
     <div style="margin-top:24px" class="rv"><a class="btn btn--g" href="faq.html">Ver todas las preguntas</a></div>
   </div>
 </section>
-${ctaBlock()}`;
+
+<section class="fin">
+  <div class="wrap">
+    <span class="kick rv">Castelar, Buenos Aires · Envíos a todo el país</span>
+    <h2 class="h2 rv">Vení, probala<br>y decidí con información</h2>
+    <div class="acts rv">
+      <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi test ride ${ico(I.arrow, 2.2)}</a>
+      <a class="btn btn--g btn--lg" href="${WA_TXT("Hola MC Ebikes, quiero hacer una consulta.")}" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+    </div>
+  </div>
+</section>`;
 
 writeFileSync(new URL("./index.html", import.meta.url), page({
   slug: "index", active: "index",
   title: "MC Ebikes | Fat E-Bikes 1000W para el Campo Argentino",
   desc: "Fat e-bikes de 1000W con hasta 110 km de autonomía. Tu primer vehículo propio, sin patente ni límite de edad. Test ride sin cargo y envío a todo el país.",
   ld: homeLD,
-  preload: `\n<link rel="preload" as="image" href="assets/img/v40-camo.webp" fetchpriority="high">`,
+  /* El preload declara el mismo srcset que el <img>: sin imagesrcset el
+     navegador se baja tambien la version de 1600 px en un telefono. */
+  preload: `\n<link rel="preload" as="image" href="assets/escenas/ciclista-campo.webp" imagesrcset="assets/escenas/ciclista-campo-sm.webp 1000w, assets/escenas/ciclista-campo-md.webp 1280w, assets/escenas/ciclista-campo.webp 1600w" imagesizes="100vw" fetchpriority="high">`,
   main: home,
 }));
 console.log("✓ index.html");

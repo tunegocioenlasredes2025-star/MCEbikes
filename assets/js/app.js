@@ -71,8 +71,12 @@
     });
   }
 
-  /* Reveal */
-  var rv = doc.querySelectorAll(".rv");
+  /* Reveal
+     Ademas de los bloques .rv entran la linea de ruta del kicker y las
+     marcas de encuadre de las ventanas de imagen: son los tres gestos de
+     la direccion elegida y comparten el mismo observador. La estrategia
+     pide revelado suave y desplazamientos minimos, nada de parallax. */
+  var rv = doc.querySelectorAll(".rv,.kick,.marco");
   if (rv.length) {
     if (reduced || !("IntersectionObserver" in window)) {
       rv.forEach(function (e) { e.classList.add("in"); });
@@ -82,6 +86,46 @@
       }, { threshold: .1, rootMargin: "0px 0px -6% 0px" });
       rv.forEach(function (e) { io.observe(e); });
     }
+  }
+
+  /* Barra de progreso de lectura */
+  var prog = doc.querySelector(".prog");
+  if (prog) {
+    addEventListener("scroll", function () {
+      var h = doc.documentElement.scrollHeight - innerHeight;
+      prog.style.width = (h > 0 ? (scrollY / h) * 100 : 0) + "%";
+    }, { passive: true });
+  }
+
+  /* Franja de datos: los numeros cuentan una sola vez al aparecer.
+     Se conserva el texto original y solo se reemplaza la cifra, para que
+     "110 km" o "32 km/h" no pierdan la unidad durante la animacion. */
+  var nums = doc.querySelectorAll("[data-num]");
+  if (nums.length && !reduced && "IntersectionObserver" in window) {
+    var contar = function (el) {
+      var txt = el.textContent, m = txt.match(/[0-9.]+/);
+      if (!m) return;
+      var fin = parseFloat(m[0].replace(".", "")), ini = performance.now(), dur = 900;
+      var paso = function (t) {
+        var k = Math.min((t - ini) / dur, 1);
+        if (k >= 1) {
+          /* al terminar se restituye el texto original: la cifra escrita
+             es un dato tecnico ("1000W", no "1.000W") y el separador de
+             miles del formato local lo estaba alterando. */
+          el.textContent = txt;
+          return;
+        }
+        var v = Math.round(fin * (1 - Math.pow(1 - k, 3)));
+        el.textContent = txt.replace(m[0], v.toLocaleString("es-AR"));
+        requestAnimationFrame(paso);
+      };
+      el.textContent = txt.replace(m[0], "0");
+      requestAnimationFrame(paso);
+    };
+    var ioN = new IntersectionObserver(function (es) {
+      es.forEach(function (e) { if (e.isIntersecting) { contar(e.target); ioN.unobserve(e.target); } });
+    }, { threshold: .6 });
+    nums.forEach(function (e) { ioN.observe(e); });
   }
 
   /* Galería de producto */
