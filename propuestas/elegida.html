@@ -40,7 +40,10 @@ h1,h2,h3{font-family:'Archivo',system-ui,sans-serif;font-weight:900;line-height:
 /* ── hero ── */
 .hero{position:relative;min-height:100svh;display:flex;align-items:flex-end;
   padding-bottom:clamp(38px,6vw,80px);overflow:hidden}
-.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2}
+.hero>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;
+  object-position:center}
+/* en pantallas angostas el recorte se come la bici, que esta a la derecha */
+@media(max-width:900px){.hero>img{object-position:72% center}}
 .hero::after{content:"";position:absolute;inset:0;z-index:-1;background:
   linear-gradient(180deg,rgba(20,22,26,.66) 0%,rgba(20,22,26,.12) 34%,
   rgba(20,22,26,.74) 66%,rgba(20,22,26,.97) 100%)}
