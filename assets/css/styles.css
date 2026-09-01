@@ -848,3 +848,7 @@ body[data-pagina="index"] .hdr:not(.solid) .btn--p:hover{background:var(--hueso)
 .kick{flex-wrap:wrap}
 .kick i{white-space:nowrap}
 @media (max-width:600px){.kick{font-size:11px;letter-spacing:.18em}}
+
+/* La escena del hero tiene la bici a la derecha: en pantallas angostas el
+   recorte se la come, asi que el encuadre se corre hacia ese lado. */
+@media (max-width:900px){.hero__bg img{object-position:72% 58%}}
