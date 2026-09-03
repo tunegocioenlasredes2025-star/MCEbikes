@@ -393,8 +393,10 @@ const mtile = (p) => `
       <div class="t">
         <span class="uso">${p.rec}</span>
         <h3>${p.name}</h3>
+        <div class="sp">${p.motor} · ${p.aut} · ${p.vel}</div>
         <div class="pr">${money(p.price)}</div>
         <div class="cuo">12 cuotas sin interés de ${money(Math.round(p.price / 12))}</div>
+        <div class="stock"><i></i>Disponible para probar</div>
       </div>
     </a>`;
 
@@ -407,11 +409,11 @@ const home = `
   <div class="hero__bg"><img src="assets/escenas/ciclista-campo.webp"
     srcset="assets/escenas/ciclista-campo-sm.webp 1000w, assets/escenas/ciclista-campo-md.webp 1280w, assets/escenas/ciclista-campo.webp 1600w" sizes="100vw"
     alt="Sombra de un ciclista sobre un camino de tierra del campo bonaerense al atardecer" fetchpriority="high" width="1600" height="1067"></div>
-  <span class="vert">Campo · Pueblo · Periferia bonaerense</span>
+  <span class="vert">Provincia de Buenos Aires</span>
   <div class="wrap">
-    <span class="kick">Provincia de Buenos Aires</span>
+    <span class="kick">Campo, pueblo y periferia bonaerense</span>
     <h1 class="h1" style="margin-top:16px">Tu mundo se mueve con vos</h1>
-    <p class="hero__sub">Fat e-bikes de 1000W con hasta 110 km de autonomía, para moverte entre el campo, el pueblo y los lugares que sentís tuyos.</p>
+    <p class="hero__sub">Fat e-bikes de 1000W con hasta 110 km de autonomía. Vení, probala y decidí con la potencia real abajo tuyo.</p>
     <div class="hero__cta">
       <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi prueba ${ico(I.arrow, 2.2)}</a>
       <a class="btn btn--g btn--lg" href="productos.html">Ver modelos</a>
@@ -450,8 +452,8 @@ const home = `
     <div class="razones">
     <article class="rv"><i>01</i><h3>1000W de potencia real</h3><p>Arranca fuerte en subida y con carga, sin que tengas que pedalear un metro. Motor con torque real, hecho para trabajar y para explorar.</p></article>
     <article class="rv d1"><i>02</i><h3>Hasta 110 km de autonomía</h3><p>Batería de litio extraíble que cargás en un enchufe común, en tu casa o en el galpón, por menos de $200 la carga completa.</p></article>
-    <article class="rv d2"><i>03</i><h3>Salís a andar hoy mismo</h3><p>Es legalmente una bicicleta eléctrica: sin licencia, sin patente y sin seguro obligatorio. Te la llevás y arrancás a recorrer tu territorio en el momento.</p></article>
-    <article class="rv d3"><i>04</i><h3>Service con cara visible</h3><p>Si tu MC necesita algo, la resolvemos nosotros, con taller propio en Castelar y stock de los repuestos que más se usan. Sabés quién te vendió y dónde encontrarlo.</p></article>
+    <article class="rv d2"><i>03</i><h3>Salís a andar hoy mismo</h3><p>Te la llevás y arrancás a recorrer tu propio territorio en el momento. Es legalmente una bicicleta eléctrica: tenés total libertad para moverte desde el primer día.</p></article>
+    <article class="rv d3"><i>04</i><h3>Service con cara visible</h3><p>Si tu MC necesita algo, la resolvemos nosotros mismos, con taller propio y stock de los repuestos que más se usan. Sabés quién te vendió y dónde encontrarlo.</p></article>
     </div>
   </div>
 </section>
@@ -473,7 +475,7 @@ ${P.map(mtile).join("\n")}
     <div class="sec-head rv">
       <span class="kick">${cap("04")}¿Cuál me conviene?</span>
       <h2 class="h2">No empieces por la bicicleta.<br>Empezá por tu <em>recorrido</em>.</h2>
-      <p>Contanos cuántos kilómetros hacés, por qué camino y cuánto peso llevás. Te decimos cuál tiene sentido para vos, y también cuál no.</p>
+      <p>En 5 segundos te decimos qué modelo tiene sentido para vos. Contanos cuántos kilómetros hacés, por qué camino y cuánto peso llevás: te decimos cuál sirve para vos, y también cuál no.</p>
     </div>
     <div class="quiz rv">
       <button data-rec="SW V20 Pro" data-why="Para recorridos cotidianos de ida y vuelta, la V20 Pro es la más equilibrada de la línea: 1000W y 50 a 65 km de autonomía publicada. Antes de decidir conviene medir tu recorrido real y dejar un margen." data-url="v20-pro.html">
@@ -573,6 +575,7 @@ ${P.map(mtile).join("\n")}
   <div class="wrap">
     <span class="kick rv">Castelar, Buenos Aires · Envíos a todo el país</span>
     <h2 class="h2 rv">Vení, probala<br>y decidí con información</h2>
+    <p class="rv" style="margin:18px auto 0;max-width:52ch">Te esperamos en Castelar para que la manejes vos mismo y hagas todas las preguntas antes de resolver nada.</p>
     <div class="acts rv">
       <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi test ride ${ico(I.arrow, 2.2)}</a>
       <a class="btn btn--g btn--lg" href="${WA_TXT("Hola MC Ebikes, quiero hacer una consulta.")}" target="_blank" rel="noopener">Escribir por WhatsApp</a>

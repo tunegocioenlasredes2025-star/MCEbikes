@@ -852,3 +852,15 @@ body[data-pagina="index"] .hdr:not(.solid) .btn--p:hover{background:var(--hueso)
 /* La escena del hero tiene la bici a la derecha: en pantallas angostas el
    recorte se la come, asi que el encuadre se corre hacia ese lado. */
 @media (max-width:900px){.hero__bg img{object-position:72% 58%}}
+/* Los tres datos tecnicos que la tarjeta anterior mostraba en la home y que
+   la ficha fotografica se habia comido. Van entre el nombre y el precio, en
+   la condensada de datos y sin competir con el titular. */
+.m .sp{font-family:var(--c);font-weight:600;font-size:12px;letter-spacing:.09em;
+  text-transform:uppercase;color:rgba(245,243,239,.74);margin-top:7px}
+@media (max-width:460px){.m .sp{font-size:11px;letter-spacing:.05em}}
+
+/* "Disponible para probar" es la senal de stock que tenia cada tarjeta y que
+   sostiene el test ride. Sobre la foto va mas chica y en verde claro, que
+   contrasta con el velo oscuro del pie de la ficha. */
+.m .stock{color:#7FBF6A;margin-top:9px;font-size:11.5px;letter-spacing:.12em}
+.m .stock i{width:6px;height:6px}
