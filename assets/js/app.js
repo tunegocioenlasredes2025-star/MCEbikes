@@ -40,6 +40,41 @@
     track("whatsapp", { origen: origen, modelo: fichaModelo || "" });
   });
 
+  /* Eleccion de un modelo desde cualquier listado */
+  doc.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest("a[href$='-pro.html'], a[href$='v40.html']");
+    if (!a || a.closest(".hdr") || a.closest(".ftr")) return;
+    var slug = a.getAttribute("href").replace(".html", "");
+    track("select_product", {
+      modelo: slug,
+      origen: a.closest(".m") ? "linea de modelos"
+        : a.closest(".pc") ? "tarjeta de catalogo"
+        : a.closest("#calc-rec") ? "recomendador"
+        : "enlace de texto",
+    });
+  });
+
+  /* Telefono y mapa: intencion de visita al local */
+  doc.addEventListener("click", function (e) {
+    var t = e.target.closest && e.target.closest("a[href^='tel:']");
+    if (t) { track("phone_click", { pagina: doc.body.dataset.pagina }); return; }
+    var m = e.target.closest && e.target.closest("a[href*='maps.'], a[href*='/maps'], a[href*='goo.gl/maps']");
+    if (m) track("map_click", { pagina: doc.body.dataset.pagina });
+  });
+
+  /* Posventa: una consulta que sale de la pagina de service */
+  doc.addEventListener("click", function (e) {
+    var a = e.target.closest && e.target.closest('a[href*="wa.me"]');
+    if (!a || doc.body.dataset.pagina !== "servicio") return;
+    track("service_request", { tipo: "consulta por WhatsApp", modelo: fichaModelo || "" });
+  });
+
+  /* qualified_lead NO se dispara desde el sitio.
+     El plan de medicion es explicito: un clic de WhatsApp no se cuenta como
+     oportunidad real. El evento lo activa quien califica el contacto, desde
+     el CRM o a mano, llamando a esta funcion con los criterios cumplidos. */
+  win.mcLeadCalificado = function (datos) { track("qualified_lead", datos || {}); };
+
   /* Comparador y filtros del catalogo */
   doc.querySelectorAll(".chip[data-f]").forEach(function (c) {
     c.addEventListener("click", function () { track("filtrar_catalogo", { filtro: c.dataset.f }); });
@@ -197,33 +232,113 @@
     });
   });
 
-  /* Calculadora de ahorro */
+  /* =====================================================================
+     RECOMENDADOR Y CALCULADORA
+     El hallazgo 13 del panel pedia "una herramienta para llevar uso, peso y
+     recorrido a una recomendacion". La cuenta parte de la autonomia que
+     publica el proveedor, la ajusta por terreno y carga, y exige un margen
+     del 30% para no recomendar un modelo que llegue justo. Los numeros se
+     presentan como estimacion, nunca como promesa: la regla de seguridad
+     comercial de la estrategia pide que un dato sin fuente vigente no
+     aparezca como promesa principal.
+     ===================================================================== */
   var calc = doc.querySelector("#calc");
   if (calc) {
     var km = calc.querySelector("#km");
-    var oAhorro = calc.querySelector("#o-ahorro"), oCargas = calc.querySelector("#o-cargas"), oAnual = calc.querySelector("#o-anual");
-    // costo de combustible por km de un vehiculo de referencia (AR$).
-    // Antes se elegia entre auto, colectivo y moto; el selector se saco para
-    // que la marca deje de compararse con una moto.
-    var COSTO_REF = 75;
-    var COSTO_CARGA = 180;   // AR$ por carga completa
-    var KM_CARGA = 60;       // km por carga
+    var terreno = calc.querySelector("#terreno");
+    var carga = calc.querySelector("#carga");
+    var salida = doc.querySelector("#calc-rec");
+    var oAhorro = calc.querySelector("#o-ahorro");
+    var oCargas = calc.querySelector("#o-cargas");
+    var oAnual = calc.querySelector("#o-anual");
+
+    /* Los modelos los publica la pagina; la fuente sigue siendo build.mjs */
+    var MOD = [];
+    try {
+      var crudo = doc.querySelector("#modelos");
+      if (crudo) MOD = JSON.parse(crudo.textContent);
+    } catch (e) { MOD = []; }
+    MOD.sort(function (a, b) { return a.aut - b.aut; });
+
+    var COSTO_REF = 75;      // AR$ por km de un vehiculo de referencia
+    var COSTO_CARGA = 180;   // AR$ una carga completa
+    var KM_CARGA = 60;       // km que rinde una carga
+    var MARGEN = 1.3;        // no se recomienda un modelo que llegue justo
+
+    var pesos = function (n) { return "$" + Math.round(n).toLocaleString("es-AR"); };
+
+    function recomendar(diarios, fT, fC) {
+      var elegido = null;
+      for (var i = 0; i < MOD.length; i++) {
+        var real = Math.round(MOD[i].aut * fT * fC);
+        if (real >= diarios * MARGEN) { elegido = MOD[i]; elegido._real = real; break; }
+      }
+      if (!elegido && MOD.length) {
+        /* Ninguno llega con margen: se muestra el de mayor autonomia y se
+           dice que conviene consultarlo, en vez de forzar una venta. */
+        elegido = MOD[MOD.length - 1];
+        elegido._real = Math.round(elegido.aut * fT * fC);
+        elegido._corto = true;
+      }
+      return elegido;
+    }
+
     function run() {
       var d = Math.max(0, +km.value || 0);
-      var mes = d * 22;                       // días hábiles
-      var gasto = mes * COSTO_REF;
+      var fT = parseFloat(terreno.value) || 1;
+      var fC = parseFloat(carga.value) || 1;
+
+      /* --- ahorro --- */
+      var mes = d * 22;
       var cargas = mes / KM_CARGA;
-      var costoLuz = cargas * COSTO_CARGA;
-      var ahorro = Math.max(0, gasto - costoLuz);
-      oAhorro.textContent = "$" + Math.round(ahorro).toLocaleString("es-AR");
+      var ahorro = Math.max(0, mes * COSTO_REF - cargas * COSTO_CARGA);
+      oAhorro.textContent = pesos(ahorro);
       oCargas.textContent = Math.round(cargas);
-      oAnual.textContent = "$" + Math.round(ahorro * 12).toLocaleString("es-AR");
+      oAnual.textContent = pesos(ahorro * 12);
+
+      /* --- recomendacion --- */
+      if (!salida) return;
+      if (!d || !MOD.length) { salida.innerHTML = ""; salida.classList.remove("on"); return; }
+      var m = recomendar(d, fT, fC);
+      if (!m) { salida.innerHTML = ""; salida.classList.remove("on"); return; }
+
+      var detalle = m._corto
+        ? "Con ese recorrido y esas condiciones ningún modelo te deja el margen que nos gusta dejar. Es la que más autonomía tiene de la línea: escribinos y lo vemos juntos antes de que decidas."
+        : "Con ese recorrido te quedan unos " + Math.max(0, m._real - d) + " km de margen por carga, que es lo que buscamos para que no vuelvas justo.";
+      var aviso = m.revision
+        ? '<span class="calc__aviso">La ficha técnica de este modelo está en confirmación con el fabricante.</span>'
+        : "";
+
+      salida.innerHTML =
+        '<span class="calc__k">Para tu recorrido</span>' +
+        '<b>' + m.name + '</b>' +
+        '<span class="calc__uso">' + m.rec + '</span>' +
+        '<p>Estimamos unos <b>' + m._real + ' km por carga</b> en tu terreno y con tu carga, sobre los ' +
+        m.aut + ' km publicados. ' + detalle + '</p>' + aviso +
+        '<a class="btn btn--p btn--sm" href="' + m.slug + '.html">Ver la ficha de la ' + m.name + '</a>' +
+        '<a class="btn btn--g btn--sm" href="test-ride.html?m=' + m.slug + '">Probarla</a>';
+      salida.classList.add("on");
+      return m;
     }
-    var calcUsada = false;
-    [km].forEach(function (el) { if (el) {
-      el.addEventListener("input", function () { run(); if (!calcUsada) { calcUsada = true; track("usar_calculadora"); } });
-      el.addEventListener("change", run);
-    } });
+
+    var usada = false;
+    [km, terreno, carga].forEach(function (el) {
+      if (!el) return;
+      var handler = function () {
+        var m = run();
+        if (!usada) {
+          usada = true;
+          track("use_savings_calculator", {
+            km_por_dia: +km.value || 0,
+            terreno: terreno.options[terreno.selectedIndex].text,
+            carga: carga.options[carga.selectedIndex].text,
+            recomendado: m ? m.name : "",
+          });
+        }
+      };
+      el.addEventListener("input", handler);
+      el.addEventListener("change", handler);
+    });
     run();
   }
 
@@ -232,10 +347,28 @@
     q.addEventListener("click", function () {
       var i = q.closest(".faq__i"), a = i.querySelector(".faq__a");
       var open = i.classList.toggle("on");
+      /* Solo la pregunta, nunca la respuesta completa: la respuesta puede
+         traer datos que no hacen falta en la analitica. */
+      if (open) track("faq_expand", { pregunta: (q.textContent || "").trim().slice(0, 90) });
       q.setAttribute("aria-expanded", open ? "true" : "false");
       a.style.maxHeight = open ? a.scrollHeight + "px" : "0px";
     });
   });
+
+  /* Inicio de un test ride: la primera vez que la persona toca el formulario */
+  var fTest = doc.querySelector("#f-test");
+  if (fTest) {
+    var arranco = false;
+    fTest.addEventListener("input", function () {
+      if (arranco) return;
+      arranco = true;
+      var m = fTest.elements["modelo"];
+      track("test_ride_start", {
+        modelo: m ? m.value : "",
+        pagina: doc.body.dataset.pagina,
+      });
+    }, true);
+  }
 
   /* Formularios → WhatsApp */
   function wire(sel, build) {
@@ -246,18 +379,67 @@
       if (!f.checkValidity()) { f.reportValidity(); return; }
       var g = function (n) { var el = f.elements[n]; return el ? el.value.trim() : ""; };
       track("formulario_enviado", { formulario: sel.replace("#f-", ""), modelo: g("modelo") || fichaModelo || "" });
-      var url = "https://wa.me/" + WA + "?text=" + encodeURIComponent(build(g, f));
-      open(url, "_blank");
-      var ok = f.querySelector(".ok"); if (ok) ok.classList.add("on");
+      var texto = build(g, f);
+      open("https://wa.me/" + WA + "?text=" + encodeURIComponent(texto), "_blank");
+      var ok = f.querySelector(".ok");
+      if (ok) {
+        ok.classList.add("on");
+        /* T-29: si WhatsApp no abre (escritorio sin la app, bloqueador, o
+           el navegador de una red social) la persona tiene que poder mandar
+           el mismo mensaje igual. La alternativa aparece siempre, asi no
+           depende de detectar algo que el navegador no informa. */
+        var alt = f.querySelector(".ok__alt");
+        if (!alt) {
+          alt = doc.createElement("div");
+          alt.className = "ok__alt";
+          alt.innerHTML =
+            "¿No se abrió WhatsApp? Mandanos el mismo mensaje por mail " +
+            '<a href="mailto:' + (doc.documentElement.dataset.mail || "") +
+            "?subject=" + encodeURIComponent("Consulta desde la web") +
+            "&body=" + encodeURIComponent(texto) + '">o copialo y pegalo donde quieras</a>.' +
+            ' <button type="button" class="ok__copiar">Copiar el mensaje</button>';
+          ok.appendChild(alt);
+          alt.querySelector(".ok__copiar").addEventListener("click", function () {
+            var b = this;
+            var listo = function () { b.textContent = "Copiado"; };
+            if (navigator.clipboard) navigator.clipboard.writeText(texto).then(listo, listo);
+            else listo();
+            track("copiar_mensaje", { formulario: sel.replace("#f-", "") });
+          });
+        }
+      }
     });
   }
+  /* El mensaje llega con el recorrido ya cargado: es el protocolo de
+     calificacion del manual de WhatsApp, para que la conversacion no
+     empiece de cero y el operador sepa que mostrar. */
   wire("#f-test", function (g) {
     return ["Hola MC Ebikes, quiero reservar un test ride.", "",
       "Nombre: " + g("nombre"),
       "Modelo que quiero probar: " + g("modelo"),
       g("dia") ? "Día preferido: " + g("dia") : "",
-      g("mensaje") ? "Comentario: " + g("mensaje") : ""].filter(Boolean).join("\n");
+      g("localidad") ? "Localidad: " + g("localidad") : "",
+      "", "Mi recorrido:",
+      g("km") ? "· " + g("km") + " km por día, ida y vuelta" : "",
+      g("terreno") ? "· Por dónde: " + g("terreno") : "",
+      g("carga") ? "· Peso que llevo: " + g("carga") : "",
+      g("guardado") ? "· Carga y guardado: " + g("guardado") : "",
+      "",
+      g("conductor") ? "Quién maneja: " + g("conductor") : "",
+      g("adulto") ? "Adulto responsable: " + g("adulto") : "",
+      g("mensaje") ? "" : "", g("mensaje") ? "Comentario: " + g("mensaje") : ""].filter(Boolean).join("\n");
   });
+
+  /* El campo del adulto responsable aparece solo cuando hace falta */
+  var quien = doc.querySelector("#t-q"), wrapAdulto = doc.querySelector("#t-adulto-wrap");
+  if (quien && wrapAdulto) {
+    quien.addEventListener("change", function () {
+      var menor = quien.value.indexOf("menor") > -1;
+      wrapAdulto.hidden = !menor;
+      var inp = wrapAdulto.querySelector("input");
+      if (inp) inp.required = menor;
+    });
+  }
   wire("#f-contacto", function (g) {
     return ["Hola MC Ebikes,", "",
       "Nombre: " + g("nombre"),

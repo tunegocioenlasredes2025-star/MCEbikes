@@ -134,7 +134,7 @@ const byslug = (s) => P.find((x) => x.slug === s);
 function head({ title, desc, slug, ld = "", preload = "" }) {
   const url = slug === "index" ? `${SITE}/` : `${SITE}/${slug}.html`;
   return `<!DOCTYPE html>
-<html lang="es-AR" data-wa="${WA}">
+<html lang="es-AR" data-wa="${WA}" data-mail="${MAIL}">
 <head>
 <script>document.documentElement.className+=' js'</script>
 <meta charset="UTF-8">
@@ -172,7 +172,8 @@ function header(active, modelo) {
   const on = (k) => (active === k ? ' class="on"' : "");
   const links = [["index", "Inicio", "index.html"], ["productos", "Modelos", "productos.html"],
   ["servicio", "Service", "servicio.html"], ["nosotros", "Nosotros", "nosotros.html"],
-  ["faq", "Preguntas", "faq.html"], ["contacto", "Contacto", "contacto.html"]];
+  ["faq", "Preguntas", "faq.html"], ["guias", "Guías", "guias.html"],
+  ["contacto", "Contacto", "contacto.html"]];
   return `<body data-pagina="${active || "otra"}"${modelo ? ` data-modelo="${modelo}"` : ""}>
 <header class="hdr">
   <div class="hdr__in">
@@ -229,6 +230,7 @@ function footer() {
           <li><a href="servicio.html">Service y garantía</a></li>
           <li><a href="nosotros.html">Nosotros</a></li>
           <li><a href="faq.html">Preguntas frecuentes</a></li>
+          <li><a href="guias.html">Guías y respuestas</a></li>
           <li><a href="contacto.html">Contacto</a></li>
         </ul>
       </div>
@@ -254,6 +256,10 @@ function footer() {
 </footer>
 <a class="fab" href="${WA_TXT("Hola MC Ebikes, quiero hacer una consulta.")}" target="_blank" rel="noopener" aria-label="WhatsApp">${waIcon}</a>
 <div class="prog" aria-hidden="true"></div>
+<script type="application/json" id="modelos">${JSON.stringify(P.map((p) => ({
+  slug: p.slug, name: p.name, aut: p.autNum, rec: p.rec, motor: p.motor,
+  revision: !!p.revision,
+})))}</script>
 <script src="assets/js/app.js?v=${V}" defer></script>
 </body>
 </html>`;
@@ -534,17 +540,35 @@ ${P.map(mtile).join("\n")}
         <div class="calc" id="calc">
           <div class="calc__in">
             <div class="field">
-              <label for="km">Kilómetros por día</label>
+              <label for="km">Kilómetros por día, ida y vuelta</label>
               <input type="number" id="km" value="14" min="0" max="200" inputmode="numeric">
             </div>
+            <div class="field">
+              <label for="terreno">Por dónde andás la mayor parte</label>
+              <select id="terreno">
+                <option value="1">Asfalto y calle de pueblo</option>
+                <option value="0.85" selected>Tierra y ripio</option>
+                <option value="0.72">Barro, arena o pasto</option>
+                <option value="0.75">Con pendientes seguido</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="carga">Cuánto peso llevás encima</label>
+              <select id="carga">
+                <option value="1" selected>Solo yo</option>
+                <option value="0.92">Con mochila o herramienta</option>
+                <option value="0.8">Con carga pesada</option>
+              </select>
+            </div>
           </div>
+          <div class="calc__rec" id="calc-rec"></div>
           <div class="calc__out">
             <div><b id="o-ahorro">$0</b><span>Ganás por mes</span></div>
             <div><b id="o-cargas">0</b><span>Cargas por mes</span></div>
             <div><b id="o-anual">$0</b><span>Ganás por año</span></div>
           </div>
         </div>
-        <p style="font-size:13px;margin-top:12px;color:rgba(245,243,239,.62)">Estimación sobre 22 días hábiles, comparada con el costo de combustible de un vehículo de referencia. Valores estimados, pueden variar.</p>
+        <p style="font-size:13px;margin-top:12px;color:rgba(245,243,239,.62)">La autonomía que ves acá es una estimación sobre la cifra publicada por el proveedor, ajustada por terreno y carga, y con un margen del 30 % para que no vuelvas justo. No reemplaza la prueba: el número real lo vas a ver el día que la manejes vos. El ahorro compara 22 días hábiles contra el costo de combustible de un vehículo de referencia.</p>
       </div>
       <figure class="marco rv d1">
         <img src="assets/escenas/camino-recto.webp" alt="Camino recto entre campos sembrados" loading="lazy" width="1200" height="930">
@@ -830,7 +854,64 @@ const testride = `
             </div>
             <div class="field"><label for="t-d">Día que te queda cómodo</label><input id="t-d" name="dia" placeholder="Ej: sábado a la mañana"></div>
             <div class="field"><label for="t-t">Teléfono</label><input id="t-t" name="telefono" type="tel" placeholder="Tu número"></div>
-            <div class="field full"><label for="t-c">Algo que quieras aclarar</label><textarea id="t-c" name="mensaje" placeholder="Contanos cómo la vas a usar y te asesoramos mejor"></textarea></div>
+          </div>
+
+          <fieldset class="form__set">
+            <legend>Tu recorrido</legend>
+            <p class="form__ayuda">Con esto llegás y ya sabemos qué mostrarte. Si no estás
+            seguro de alguna, dejala como está y lo vemos juntos.</p>
+            <div class="form__g">
+              <div class="field"><label for="t-km">Kilómetros por día, ida y vuelta</label>
+                <input id="t-km" name="km" type="number" min="0" max="300" inputmode="numeric" placeholder="Ej: 24"></div>
+              <div class="field"><label for="t-loc">Localidad</label>
+                <input id="t-loc" name="localidad" placeholder="Para saber si te queda cerca"></div>
+              <div class="field"><label for="t-ter">Por dónde andás</label>
+                <select id="t-ter" name="terreno" class="sel">
+                  <option value="">Elegí una</option>
+                  <option>Asfalto y calle de pueblo</option>
+                  <option>Tierra y ripio</option>
+                  <option>Barro, arena o pasto</option>
+                  <option>Con pendientes seguido</option>
+                </select></div>
+              <div class="field"><label for="t-car">Peso que llevás</label>
+                <select id="t-car" name="carga" class="sel">
+                  <option value="">Elegí una</option>
+                  <option>Solo yo</option>
+                  <option>Con mochila o herramienta</option>
+                  <option>Con carga pesada</option>
+                </select></div>
+              <div class="field full"><label for="t-g">Dónde la vas a cargar y guardar</label>
+                <select id="t-g" name="guardado" class="sel">
+                  <option value="">Elegí una</option>
+                  <option>Tengo enchufe donde la guardo</option>
+                  <option>Saco la batería y la cargo adentro</option>
+                  <option>Todavía no sé, quiero que me orienten</option>
+                </select></div>
+            </div>
+          </fieldset>
+
+          <fieldset class="form__set">
+            <legend>Quién va a manejar</legend>
+            <p class="form__ayuda">Si el que va a manejar es menor de edad, la prueba la
+            coordinamos con la madre, el padre o quien sea responsable. No hace falta que
+            venga toda la familia, pero sí que estén al tanto.</p>
+            <div class="form__g">
+              <div class="field full"><label for="t-q">¿Quién la va a manejar? *</label>
+                <select id="t-q" name="conductor" class="sel" required>
+                  <option value="">Elegí una</option>
+                  <option>La manejo yo, soy mayor de edad</option>
+                  <option>La va a manejar un menor y soy el adulto responsable</option>
+                  <option>La voy a manejar yo y soy menor de edad</option>
+                </select></div>
+              <div class="field full" id="t-adulto-wrap" hidden>
+                <label for="t-adulto">Nombre del adulto responsable</label>
+                <input id="t-adulto" name="adulto" placeholder="Quién nos va a acompañar o autorizar">
+              </div>
+            </div>
+          </fieldset>
+
+          <div class="form__g">
+            <div class="field full"><label for="t-c">Algo que quieras aclarar</label><textarea id="t-c" name="mensaje" placeholder="Lo que quieras sumar"></textarea></div>
           </div>
           <button class="btn btn--p btn--lg btn--block" style="margin-top:18px" type="submit">${waIcon} Reservar por WhatsApp</button>
           <div class="ok">Listo, abrimos WhatsApp con tu reserva. Si no se abrió, escribinos directo.</div>
@@ -1180,6 +1261,214 @@ writeFileSync(new URL("./404.html", import.meta.url), page({
 }));
 console.log("✓ 404.html");
 
+
+/* =====================================================================
+   GUIAS Y RESPUESTAS — T-33, T-38, T-40, T-41
+   El hub que pide la arquitectura: ordena las guias y dirige a producto,
+   soporte y test ride. La plantilla admite titulo, meta, H1, introduccion,
+   indice con anclajes, cuerpo, fuentes, fecha, revisor, enlaces y CTA.
+   Regla de contenido: una guia explica como decidir. No inventa una cifra
+   ni convierte un dato del proveedor en una promesa propia.
+   ===================================================================== */
+const REVISOR = "Equipo de MC Ebikes, Castelar";
+const ACTUALIZADO = "2026-09-07";
+const fecha_es = (iso) => {
+  const M = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
+    "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
+  const [a, m, d] = iso.split("-");
+  return `${+d} de ${M[+m - 1]} de ${a}`;
+};
+
+const GUIAS = [
+  {
+    slug: "guias-como-elegir",
+    kicker: "Cómo elegir",
+    h1: "Cómo elegir tu e-bike según el recorrido que hacés",
+    title: "Cómo elegir una e-bike para el campo según tu recorrido | MC Ebikes",
+    desc: "El método para elegir modelo: medí el recorrido real, mirá el terreno, contá el peso y dejá margen. Con los cuatro modelos MC y qué recorrido cubre cada uno.",
+    lead: "La pregunta no es cuántos watts tiene. Es cuánto recorrés, por dónde y con cuánto peso encima. Si respondés esas tres cosas, el modelo se elige casi solo.",
+    ind: [
+      ["medi", "Medí tu recorrido real"],
+      ["terreno", "Mirá por dónde andás"],
+      ["peso", "Contá el peso que llevás"],
+      ["margen", "Dejá margen, no vayas justo"],
+      ["cargar", "Dónde la vas a cargar y guardar"],
+      ["modelos", "Qué recorrido cubre cada modelo"],
+      ["probar", "Lo que no te podemos decir por internet"],
+    ],
+    cuerpo: `
+<h2 id="medi">Medí tu recorrido real</h2>
+<p>No el que te imaginás: el que hacés. Contá la ida y la vuelta, y multiplicá por
+las veces que lo hacés en el día. De casa al pueblo y de vuelta son dos tramos.
+Si al mediodía volvés a casa y después salís otra vez, son cuatro.</p>
+<p>La mayoría se sorprende con el número. Un recorrido que parece corto, repetido
+tres veces por día, se convierte en un uso que necesita otra batería.</p>
+
+<h2 id="terreno">Mirá por dónde andás</h2>
+<p>La autonomía que publica cualquier fabricante se mide en condiciones favorables:
+asfalto parejo, sin viento, con una persona de peso promedio y sin carga. Eso casi
+nunca es tu día.</p>
+<p>La tierra suelta, el ripio, el pasto, la arena y el barro obligan al motor a
+trabajar más para avanzar lo mismo. Lo mismo pasa con las pendientes, aunque las
+bajes después: la subida ya te consumió. Como referencia de trabajo, sobre tierra
+y ripio conviene calcular alrededor de un 15 % menos que la cifra publicada, y en
+barro, arena o pasto alto la diferencia puede acercarse al 30 %.</p>
+<p>Son estimaciones nuestras para ayudarte a decidir, no una medición certificada.
+El número que vale para tu terreno lo vas a ver el día que la manejes vos.</p>
+
+<h2 id="peso">Contá el peso que llevás</h2>
+<p>El peso total es el tuyo más el de lo que cargás: mochila, herramienta, bolso,
+compras, lo que sea. Cada kilo se paga en autonomía y en desgaste de frenos y
+cubiertas. Si todos los días llevás peso, el cálculo tiene que hacerse con ese
+peso, no con vos solo.</p>
+
+<h2 id="margen">Dejá margen, no vayas justo</h2>
+<p>Esta es la parte que más se saltea. Si tu recorrido es de 50 km y la e-bike
+rinde 55 km en tus condiciones, no alcanza. Un día hay viento en contra, otro día
+tenés que hacer una vuelta de más, y la batería envejece: a los dos o tres años
+rinde menos que el primer día.</p>
+<p>Nosotros trabajamos con un margen del 30 %. Si tu recorrido diario es de 50 km,
+buscamos un modelo que rinda 65 km o más en tus condiciones reales. Por eso a veces
+te vamos a recomendar un modelo más chico del que venías a buscar, y a veces uno
+más grande.</p>
+<p>Podés hacer esta cuenta vos mismo en el
+<a href="index.html#calc">recomendador de la home</a>: cargás kilómetros, terreno
+y peso, y te dice qué modelo te deja margen.</p>
+
+<h2 id="cargar">Dónde la vas a cargar y guardar</h2>
+<p>Es una pregunta práctica que decide más de lo que parece. La batería se carga en
+un enchufe común, así que necesitás un lugar con corriente donde la e-bike pase la
+noche, o poder sacar la batería y llevarla adentro.</p>
+<p>Si el lugar donde la guardás está lejos del enchufe, una batería extraíble te
+cambia el día. Y si el galpón es húmedo o queda a la intemperie, conviene guardar
+la batería adentro aunque la e-bike duerma afuera.</p>
+
+<h2 id="modelos">Qué recorrido cubre cada modelo</h2>
+<p>Las cifras de abajo son las que publica el proveedor, en sus condiciones de
+medición. Sirven para comparar los modelos entre sí; para saber qué te da a vos,
+aplicá lo del terreno y el peso, o probala.</p>
+${P.map((p) => `
+<h3>${p.name} — ${p.rec}</h3>
+<p>${p.lead} Autonomía publicada: ${p.aut}. Batería ${p.bat}.${p.revision ? " La ficha técnica de este modelo está en confirmación con el fabricante." : ""}
+<a href="${p.slug}.html">Ver la ficha completa de la ${p.name}</a>.</p>`).join("")}
+
+<h2 id="probar">Lo que no te podemos decir por internet</h2>
+<p>Cuánto te va a rendir a vos, en tu camino, con tu peso y tu forma de manejar.
+Podemos estimarlo y lo estimamos, pero el número real sale de andar.</p>
+<p>Por eso el test ride es sin cargo y sin compromiso: venís, la manejás, y te
+llevás una idea propia en vez de la nuestra. Si vivís lejos, coordinamos una
+demostración cuando estemos en tu zona.</p>
+<p>Y una vez que la tengas, el que te la vendió es el que te la arregla:
+<a href="servicio.html">acá está cómo funciona el service y la garantía</a>.</p>`,
+    fuentes: [
+      ["Fichas técnicas del proveedor", "Las cifras de potencia, batería, autonomía y carga que se citan en esta guía salen de las fichas que nos entrega el proveedor de cada modelo."],
+      ["Nuestra experiencia de entrega y service en Castelar", "Los rangos de ajuste por terreno y peso, y el margen del 30 %, son criterios de trabajo propios. No son una medición certificada."],
+    ],
+  },
+];
+
+const guiaPage = (g) => `
+<section class="phero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Ruta">
+      <a href="index.html">Inicio</a> / <a href="guias.html">Guías</a> /
+      <span aria-current="page">${g.kicker}</span>
+    </nav>
+    <span class="kick">Guías y respuestas</span>
+    <h1>${g.h1}</h1>
+    <p>${g.lead}</p>
+    <p class="guia__meta">Actualizada el ${fecha_es(ACTUALIZADO)} · Revisada por ${REVISOR}</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap guia">
+    <nav class="guia__ind" aria-label="Contenido de la guía">
+      <b>En esta guía</b>
+      <ol>${g.ind.map(([id, t]) => `<li><a href="#${id}">${t}</a></li>`).join("")}</ol>
+    </nav>
+    <div class="prose guia__cuerpo">
+      ${g.cuerpo}
+
+      <h2 id="fuentes">De dónde sale lo que dice esta guía</h2>
+      <dl class="guia__fuentes">
+        ${g.fuentes.map(([t, d]) => `<dt>${t}</dt><dd>${d}</dd>`).join("")}
+      </dl>
+      <p class="guia__meta">Si algún dato cambia o encontrás algo que no coincide con
+      lo que te dijimos en el local, escribinos y lo corregimos.</p>
+
+      <div class="guia__cta">
+        <h3>¿Seguimos por acá?</h3>
+        <div class="acts">
+          <a class="btn btn--p" href="test-ride.html">Reservar un test ride sin cargo</a>
+          <a class="btn btn--g" href="productos.html">Comparar los ${P.length} modelos</a>
+          <a class="btn btn--wa" href="${WA_TXT("Hola MC Ebikes, leí la guía de cómo elegir y quiero hacer una consulta.")}" target="_blank" rel="noopener">${waIcon} Consultar</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>`;
+
+/* El hub */
+const guiasHub = `
+<section class="phero">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Ruta">
+      <a href="index.html">Inicio</a> / <span aria-current="page">Guías</span>
+    </nav>
+    <span class="kick">Guías y respuestas</span>
+    <h1>Cómo decidir, explicado</h1>
+    <p>Lo que preguntan todos antes de comprar, contestado sin apuro y sin vender.
+    Cada guía dice de dónde sale lo que afirma y qué parte todavía hay que probar.</p>
+  </div>
+</section>
+
+<section class="sec">
+  <div class="wrap">
+    <div class="guias-lista">
+      ${GUIAS.map((g) => `
+      <a class="guia-card rv" href="${g.slug}.html">
+        <span class="kick">${g.kicker}</span>
+        <h2 class="h3">${g.h1}</h2>
+        <p>${g.lead}</p>
+        <span class="guia-card__pie">Actualizada el ${fecha_es(ACTUALIZADO)} ${ico(I.arrow, 2.2)}</span>
+      </a>`).join("")}
+      <div class="guia-card guia-card--proxima">
+        <span class="kick kick--plain">En preparación</span>
+        <h2 class="h3">Autonomía real: qué cambia los kilómetros</h2>
+        <p>Cómo medimos, qué variables mueven el número y qué podés esperar en tu
+        terreno. Sale cuando tengamos las pruebas propias fechadas, no antes.</p>
+      </div>
+      <div class="guia-card guia-card--proxima">
+        <span class="kick kick--plain">En preparación</span>
+        <h2 class="h3">Cómo cuidar la batería</h2>
+        <p>Carga, guardado, invierno y vida útil. Lo estamos escribiendo con la
+        documentación del fabricante a la vista.</p>
+      </div>
+    </div>
+  </div>
+</section>
+${ctaBlock("¿Tenés una pregunta que no está acá?", "Escribinos y te la contestamos. Si le sirve a alguien más, la sumamos como guía.")}`;
+
+writeFileSync(new URL("./guias.html", import.meta.url), page({
+  slug: "guias", active: "guias",
+  title: "Guías y respuestas | MC Ebikes",
+  desc: "Cómo elegir una e-bike para el campo, qué cambia la autonomía real y cómo se cuida la batería. Guías escritas por MC Ebikes, con las fuentes a la vista.",
+  ld: crumbLD("Guías", "guias"),
+  main: guiasHub,
+}));
+console.log("✓ guias.html");
+
+GUIAS.forEach((g) => {
+  writeFileSync(new URL(`./${g.slug}.html`, import.meta.url), page({
+    slug: g.slug, active: "guias",
+    title: g.title, desc: g.desc,
+    ld: crumbLD(g.kicker, g.slug),
+    main: guiaPage(g),
+  }));
+  console.log("✓ " + g.slug + ".html");
+});
+
 /* ---------- Manifest, sitemap, robots ---------- */
 writeFileSync(new URL("./site.webmanifest", import.meta.url), JSON.stringify({
   name: "MC Ebikes", short_name: "MC Ebikes",
@@ -1192,6 +1481,7 @@ writeFileSync(new URL("./site.webmanifest", import.meta.url), JSON.stringify({
 const urls = [["", "1.0"], ["productos.html", "0.9"], ["test-ride.html", "0.9"], ["servicio.html", "0.8"],
 ["nosotros.html", "0.7"], ["faq.html", "0.7"], ["contacto.html", "0.8"],
 ["privacidad.html", "0.3"], ["terminos.html", "0.3"], ["envios.html", "0.5"],
+["guias.html", "0.8"], ...GUIAS.map((g) => [`${g.slug}.html`, "0.7"]),
 ...P.map((p) => [`${p.slug}.html`, "0.9"])];
 const today = new Date().toISOString().slice(0, 10);
 writeFileSync(new URL("./sitemap.xml", import.meta.url),

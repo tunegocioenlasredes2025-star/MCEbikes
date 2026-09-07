@@ -4,16 +4,16 @@
 <script>document.documentElement.className+=' js'</script>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Reservá tu Test Ride Gratis | MC Ebikes</title>
-<meta name="description" content="Probá tu fat e-bike antes de decidir. Test ride sin cargo y sin compromiso en nuestro local de Castelar. Reservá tu turno en minutos.">
+<title>Cómo elegir una e-bike para el campo según tu recorrido | MC Ebikes</title>
+<meta name="description" content="El método para elegir modelo: medí el recorrido real, mirá el terreno, contá el peso y dejá margen. Con los cuatro modelos MC y qué recorrido cubre cada uno.">
 <meta name="theme-color" content="#14161A">
-<link rel="canonical" href="https://mc-ebikes.vercel.app/test-ride.html">
+<link rel="canonical" href="https://mc-ebikes.vercel.app/guias-como-elegir.html">
 <meta name="robots" content="index,follow,max-image-preview:large">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="MC Ebikes">
-<meta property="og:title" content="Reservá tu Test Ride Gratis | MC Ebikes">
-<meta property="og:description" content="Probá tu fat e-bike antes de decidir. Test ride sin cargo y sin compromiso en nuestro local de Castelar. Reservá tu turno en minutos.">
-<meta property="og:url" content="https://mc-ebikes.vercel.app/test-ride.html">
+<meta property="og:title" content="Cómo elegir una e-bike para el campo según tu recorrido | MC Ebikes">
+<meta property="og:description" content="El método para elegir modelo: medí el recorrido real, mirá el terreno, contá el peso y dejá margen. Con los cuatro modelos MC y qué recorrido cubre cada uno.">
+<meta property="og:url" content="https://mc-ebikes.vercel.app/guias-como-elegir.html">
 <meta property="og:locale" content="es_AR">
 <meta property="og:image" content="https://mc-ebikes.vercel.app/assets/img/og.jpg">
 <meta name="twitter:card" content="summary_large_image">
@@ -26,9 +26,9 @@
 <link rel="stylesheet" href="assets/css/fonts.css?v=mtrufxy6">
 <link rel="stylesheet" href="assets/css/styles.css?v=mtrufxy6">
 <script type="application/ld+json">
-{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://mc-ebikes.vercel.app/"},{"@type":"ListItem","position":2,"name":"Test ride","item":"https://mc-ebikes.vercel.app/test-ride.html"}]}
+{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Inicio","item":"https://mc-ebikes.vercel.app/"},{"@type":"ListItem","position":2,"name":"Cómo elegir","item":"https://mc-ebikes.vercel.app/guias-como-elegir.html"}]}
 </script>
-</head><body data-pagina="otra">
+</head><body data-pagina="guias">
 <header class="hdr">
   <div class="hdr__in">
     <a href="index.html" class="brand" aria-label="MC Ebikes — Inicio">
@@ -40,7 +40,7 @@
       <a href="servicio.html">Service</a>
       <a href="nosotros.html">Nosotros</a>
       <a href="faq.html">Preguntas</a>
-      <a href="guias.html">Guías</a>
+      <a href="guias.html" class="on">Guías</a>
       <a href="contacto.html">Contacto</a>
     </nav>
     <div class="hdr__act">
@@ -70,107 +70,111 @@
 <main>
 <section class="phero">
   <div class="wrap">
-    <nav class="crumbs"><a href="index.html">Inicio</a> / <span aria-current="page">Test ride</span></nav>
-    <span class="kick">Sin cargo · Sin compromiso</span>
-    <h1 class="h1" style="font-size:clamp(38px,7vw,66px);margin-top:14px">Subite <em>antes</em><br>de decidir</h1>
-    <p>Es una decisión importante para toda la familia. Por eso te invitamos a venir a Castelar, subirte a la MC que más te interesa y manejarla vos mismo antes de resolver nada. Sin costo y sin ningún compromiso. Y si vivís lejos, coordinamos una demo cuando estemos en tu zona o te acompañamos con envío a todo el país.</p>
+    <nav class="crumbs" aria-label="Ruta">
+      <a href="index.html">Inicio</a> / <a href="guias.html">Guías</a> /
+      <span aria-current="page">Cómo elegir</span>
+    </nav>
+    <span class="kick">Guías y respuestas</span>
+    <h1>Cómo elegir tu e-bike según el recorrido que hacés</h1>
+    <p>La pregunta no es cuántos watts tiene. Es cuánto recorrés, por dónde y con cuánto peso encima. Si respondés esas tres cosas, el modelo se elige casi solo.</p>
+    <p class="guia__meta">Actualizada el 7 de septiembre de 2026 · Revisada por Equipo de MC Ebikes, Castelar</p>
   </div>
 </section>
 
-<section class="sec sec--rural">
-  <div class="wrap">
-    <div class="split" style="align-items:start">
-      <div class="rv">
-        <form class="form" id="f-test" novalidate>
-          <h2 class="h3" style="margin-bottom:6px">Reservá mi test ride</h2>
-          <p style="font-size:14px;margin-bottom:20px">Completás, y se abre WhatsApp con el mensaje listo para enviar.</p>
-          <div class="form__g">
-            <div class="field full"><label for="t-n">Tu nombre *</label><input id="t-n" name="nombre" required placeholder="Nombre y apellido"></div>
-            <div class="field full"><label for="t-m">¿Cuál querés probar? *</label>
-              <select id="t-m" name="modelo" class="sel" required>
-                <option value="SW V20 Pro">SW V20 Pro</option>
-                <option value="SW V29 Pro">SW V29 Pro</option>
-                <option value="SW V40">SW V40</option>
-                <option value="SW S20 Pro">SW S20 Pro</option>
-                <option value="No sé, quiero asesoramiento">No sé, quiero que me asesoren</option>
-              </select>
-            </div>
-            <div class="field"><label for="t-d">Día que te queda cómodo</label><input id="t-d" name="dia" placeholder="Ej: sábado a la mañana"></div>
-            <div class="field"><label for="t-t">Teléfono</label><input id="t-t" name="telefono" type="tel" placeholder="Tu número"></div>
-          </div>
+<section class="sec">
+  <div class="wrap guia">
+    <nav class="guia__ind" aria-label="Contenido de la guía">
+      <b>En esta guía</b>
+      <ol><li><a href="#medi">Medí tu recorrido real</a></li><li><a href="#terreno">Mirá por dónde andás</a></li><li><a href="#peso">Contá el peso que llevás</a></li><li><a href="#margen">Dejá margen, no vayas justo</a></li><li><a href="#cargar">Dónde la vas a cargar y guardar</a></li><li><a href="#modelos">Qué recorrido cubre cada modelo</a></li><li><a href="#probar">Lo que no te podemos decir por internet</a></li></ol>
+    </nav>
+    <div class="prose guia__cuerpo">
+      
+<h2 id="medi">Medí tu recorrido real</h2>
+<p>No el que te imaginás: el que hacés. Contá la ida y la vuelta, y multiplicá por
+las veces que lo hacés en el día. De casa al pueblo y de vuelta son dos tramos.
+Si al mediodía volvés a casa y después salís otra vez, son cuatro.</p>
+<p>La mayoría se sorprende con el número. Un recorrido que parece corto, repetido
+tres veces por día, se convierte en un uso que necesita otra batería.</p>
 
-          <fieldset class="form__set">
-            <legend>Tu recorrido</legend>
-            <p class="form__ayuda">Con esto llegás y ya sabemos qué mostrarte. Si no estás
-            seguro de alguna, dejala como está y lo vemos juntos.</p>
-            <div class="form__g">
-              <div class="field"><label for="t-km">Kilómetros por día, ida y vuelta</label>
-                <input id="t-km" name="km" type="number" min="0" max="300" inputmode="numeric" placeholder="Ej: 24"></div>
-              <div class="field"><label for="t-loc">Localidad</label>
-                <input id="t-loc" name="localidad" placeholder="Para saber si te queda cerca"></div>
-              <div class="field"><label for="t-ter">Por dónde andás</label>
-                <select id="t-ter" name="terreno" class="sel">
-                  <option value="">Elegí una</option>
-                  <option>Asfalto y calle de pueblo</option>
-                  <option>Tierra y ripio</option>
-                  <option>Barro, arena o pasto</option>
-                  <option>Con pendientes seguido</option>
-                </select></div>
-              <div class="field"><label for="t-car">Peso que llevás</label>
-                <select id="t-car" name="carga" class="sel">
-                  <option value="">Elegí una</option>
-                  <option>Solo yo</option>
-                  <option>Con mochila o herramienta</option>
-                  <option>Con carga pesada</option>
-                </select></div>
-              <div class="field full"><label for="t-g">Dónde la vas a cargar y guardar</label>
-                <select id="t-g" name="guardado" class="sel">
-                  <option value="">Elegí una</option>
-                  <option>Tengo enchufe donde la guardo</option>
-                  <option>Saco la batería y la cargo adentro</option>
-                  <option>Todavía no sé, quiero que me orienten</option>
-                </select></div>
-            </div>
-          </fieldset>
+<h2 id="terreno">Mirá por dónde andás</h2>
+<p>La autonomía que publica cualquier fabricante se mide en condiciones favorables:
+asfalto parejo, sin viento, con una persona de peso promedio y sin carga. Eso casi
+nunca es tu día.</p>
+<p>La tierra suelta, el ripio, el pasto, la arena y el barro obligan al motor a
+trabajar más para avanzar lo mismo. Lo mismo pasa con las pendientes, aunque las
+bajes después: la subida ya te consumió. Como referencia de trabajo, sobre tierra
+y ripio conviene calcular alrededor de un 15 % menos que la cifra publicada, y en
+barro, arena o pasto alto la diferencia puede acercarse al 30 %.</p>
+<p>Son estimaciones nuestras para ayudarte a decidir, no una medición certificada.
+El número que vale para tu terreno lo vas a ver el día que la manejes vos.</p>
 
-          <fieldset class="form__set">
-            <legend>Quién va a manejar</legend>
-            <p class="form__ayuda">Si el que va a manejar es menor de edad, la prueba la
-            coordinamos con la madre, el padre o quien sea responsable. No hace falta que
-            venga toda la familia, pero sí que estén al tanto.</p>
-            <div class="form__g">
-              <div class="field full"><label for="t-q">¿Quién la va a manejar? *</label>
-                <select id="t-q" name="conductor" class="sel" required>
-                  <option value="">Elegí una</option>
-                  <option>La manejo yo, soy mayor de edad</option>
-                  <option>La va a manejar un menor y soy el adulto responsable</option>
-                  <option>La voy a manejar yo y soy menor de edad</option>
-                </select></div>
-              <div class="field full" id="t-adulto-wrap" hidden>
-                <label for="t-adulto">Nombre del adulto responsable</label>
-                <input id="t-adulto" name="adulto" placeholder="Quién nos va a acompañar o autorizar">
-              </div>
-            </div>
-          </fieldset>
+<h2 id="peso">Contá el peso que llevás</h2>
+<p>El peso total es el tuyo más el de lo que cargás: mochila, herramienta, bolso,
+compras, lo que sea. Cada kilo se paga en autonomía y en desgaste de frenos y
+cubiertas. Si todos los días llevás peso, el cálculo tiene que hacerse con ese
+peso, no con vos solo.</p>
 
-          <div class="form__g">
-            <div class="field full"><label for="t-c">Algo que quieras aclarar</label><textarea id="t-c" name="mensaje" placeholder="Lo que quieras sumar"></textarea></div>
-          </div>
-          <button class="btn btn--p btn--lg btn--block" style="margin-top:18px" type="submit"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.01zm-7.01 15.24h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.24 8.24c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.98-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg> Reservar por WhatsApp</button>
-          <div class="ok">Listo, abrimos WhatsApp con tu reserva. Si no se abrió, escribinos directo.</div>
-        </form>
-      </div>
-      <div class="rv d1">
-        <span class="kick">Cómo funciona</span>
-        <h2 class="h2" style="margin:14px 0 22px">Así de simple</h2>
-        <div class="feat" style="grid-template-columns:1fr">
-          <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="4"/><path d="M4 21a8 8 0 0 1 16 0"/></svg></div><h3>1 · Elegís el modelo</h3><p>Nos decís qué MC querés probar y por qué la estás mirando.</p></article>
-          <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="6" cy="17" r="4"/><circle cx="18" cy="17" r="4"/><path d="M6 17 10 8h6l2 9M9 8h6"/></svg></div><h3>2 · Reservás día y horario</h3><p>Coordinamos por WhatsApp el día y la hora que te queden más cómodos.</p></article>
-          <article><div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div><h3>3 · Venís, te subís y la manejás</h3><p>Te la damos con casco y la probás sin apuro. Recién ahí decidís, con la MC abajo tuyo y con calma.</p></article>
-        </div>
-        <div class="info-cards" style="margin-top:20px">
-          <div class="info-c"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M21 10c0 6-9 12-9 12s-9-6-9-12a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg></span><span><span class="k">Dónde</span><span class="v sm">Castelar, Buenos Aires</span></span></div>
-          <div class="info-c"><span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span><span><span class="k">Cuándo</span><span class="v sm">Lun a Vie 10 a 19 h · Sáb 10 a 14 h</span></span></div>
+<h2 id="margen">Dejá margen, no vayas justo</h2>
+<p>Esta es la parte que más se saltea. Si tu recorrido es de 50 km y la e-bike
+rinde 55 km en tus condiciones, no alcanza. Un día hay viento en contra, otro día
+tenés que hacer una vuelta de más, y la batería envejece: a los dos o tres años
+rinde menos que el primer día.</p>
+<p>Nosotros trabajamos con un margen del 30 %. Si tu recorrido diario es de 50 km,
+buscamos un modelo que rinda 65 km o más en tus condiciones reales. Por eso a veces
+te vamos a recomendar un modelo más chico del que venías a buscar, y a veces uno
+más grande.</p>
+<p>Podés hacer esta cuenta vos mismo en el
+<a href="index.html#calc">recomendador de la home</a>: cargás kilómetros, terreno
+y peso, y te dice qué modelo te deja margen.</p>
+
+<h2 id="cargar">Dónde la vas a cargar y guardar</h2>
+<p>Es una pregunta práctica que decide más de lo que parece. La batería se carga en
+un enchufe común, así que necesitás un lugar con corriente donde la e-bike pase la
+noche, o poder sacar la batería y llevarla adentro.</p>
+<p>Si el lugar donde la guardás está lejos del enchufe, una batería extraíble te
+cambia el día. Y si el galpón es húmedo o queda a la intemperie, conviene guardar
+la batería adentro aunque la e-bike duerma afuera.</p>
+
+<h2 id="modelos">Qué recorrido cubre cada modelo</h2>
+<p>Las cifras de abajo son las que publica el proveedor, en sus condiciones de
+medición. Sirven para comparar los modelos entre sí; para saber qué te da a vos,
+aplicá lo del terreno y el peso, o probala.</p>
+
+<h3>SW V20 Pro — Entre casa y pueblo</h3>
+<p>Tu punto de partida perfecto: potencia real para moverte todos los días, con la autonomía justa para recorrer tu territorio sin pensar en la batería. Autonomía publicada: 50 a 65 km. Batería 48V / 15,6Ah.
+<a href="v20-pro.html">Ver la ficha completa de la SW V20 Pro</a>.</p>
+<h3>SW V29 Pro — Jornadas largas</h3>
+<p>Cuando un solo tanque se te queda corto. Con doble batería y hasta 110 km de autonomía, tu MC te acompaña en las jornadas más largas, sin volver a cargar en el camino. Autonomía publicada: hasta 110 km. Batería 48V / 15,6Ah ×2.
+<a href="v29-pro.html">Ver la ficha completa de la SW V29 Pro</a>.</p>
+<h3>SW V40 — Campo y caminos de tierra</h3>
+<p>Para el que se mueve todos los días entre el pueblo y el campo, y necesita una MC que rinda parejo en los dos terrenos. Autonomía publicada: hasta 75 km. Batería 48V / 18,2Ah.
+<a href="v40.html">Ver la ficha completa de la SW V40</a>.</p>
+<h3>SW S20 Pro — Pendientes y carga</h3>
+<p>Para el que necesita fuerza en subida y llevando peso. La potencia exacta de esta unidad la estamos confirmando con el fabricante: cuando vengas te mostramos la ficha y la probás vos mismo antes de decidir. Autonomía publicada: hasta 75 km. Batería 48V / 16,2Ah. La ficha técnica de este modelo está en confirmación con el fabricante.
+<a href="s20-pro.html">Ver la ficha completa de la SW S20 Pro</a>.</p>
+
+<h2 id="probar">Lo que no te podemos decir por internet</h2>
+<p>Cuánto te va a rendir a vos, en tu camino, con tu peso y tu forma de manejar.
+Podemos estimarlo y lo estimamos, pero el número real sale de andar.</p>
+<p>Por eso el test ride es sin cargo y sin compromiso: venís, la manejás, y te
+llevás una idea propia en vez de la nuestra. Si vivís lejos, coordinamos una
+demostración cuando estemos en tu zona.</p>
+<p>Y una vez que la tengas, el que te la vendió es el que te la arregla:
+<a href="servicio.html">acá está cómo funciona el service y la garantía</a>.</p>
+
+      <h2 id="fuentes">De dónde sale lo que dice esta guía</h2>
+      <dl class="guia__fuentes">
+        <dt>Fichas técnicas del proveedor</dt><dd>Las cifras de potencia, batería, autonomía y carga que se citan en esta guía salen de las fichas que nos entrega el proveedor de cada modelo.</dd><dt>Nuestra experiencia de entrega y service en Castelar</dt><dd>Los rangos de ajuste por terreno y peso, y el margen del 30 %, son criterios de trabajo propios. No son una medición certificada.</dd>
+      </dl>
+      <p class="guia__meta">Si algún dato cambia o encontrás algo que no coincide con
+      lo que te dijimos en el local, escribinos y lo corregimos.</p>
+
+      <div class="guia__cta">
+        <h3>¿Seguimos por acá?</h3>
+        <div class="acts">
+          <a class="btn btn--p" href="test-ride.html">Reservar un test ride sin cargo</a>
+          <a class="btn btn--g" href="productos.html">Comparar los 4 modelos</a>
+          <a class="btn btn--wa" href="https://wa.me/5491112345678?text=Hola%20MC%20Ebikes%2C%20le%C3%AD%20la%20gu%C3%ADa%20de%20c%C3%B3mo%20elegir%20y%20quiero%20hacer%20una%20consulta." target="_blank" rel="noopener"><svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19.05 4.91A9.82 9.82 0 0 0 12.04 2c-5.46 0-9.91 4.45-9.91 9.91 0 1.75.46 3.45 1.32 4.95L2.05 22l5.25-1.38a9.87 9.87 0 0 0 4.74 1.21h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.91-7.01zm-7.01 15.24h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.19 8.19 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23a8.2 8.2 0 0 1 8.24 8.24c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.12-.16.25-.64.81-.79.98-.14.16-.29.18-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.02-.38.11-.5.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.4-.42-.56-.43h-.48c-.16 0-.43.06-.66.31-.23.25-.86.85-.86 2.07 0 1.22.89 2.4 1.01 2.56.12.16 1.75 2.67 4.23 3.74.59.26 1.05.41 1.41.52.59.19 1.13.16 1.56.1.48-.07 1.47-.6 1.67-1.18.21-.58.21-1.07.14-1.18-.06-.11-.22-.17-.47-.29z"/></svg> Consultar</a>
         </div>
       </div>
     </div>

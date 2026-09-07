@@ -1045,3 +1045,107 @@ select.sel{background:var(--sup);border-color:var(--borde-2);color:var(--texto)}
    la placa clara que necesitaba el logo gris del cliente. */
 .ftr .brand .lg-color{display:none}
 .ftr .brand .lg-blanco{display:block}
+
+/* =====================================================================
+   RECOMENDADOR Y ALTERNATIVA DE CONTACTO
+   ===================================================================== */
+
+/* La recomendacion aparece entre los datos que la persona carga y el
+   ahorro: es la respuesta, asi que va antes que la cuenta. */
+.calc__rec{display:none;margin:22px 0 0;padding:20px;border-radius:var(--r);
+  background:rgba(217,98,43,.10);border-left:3px solid var(--naranja)}
+.calc__rec.on{display:block}
+.calc__k{font-family:var(--c);font-weight:700;font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--naranja);display:block}
+.calc__rec b{display:block;font-family:var(--d);font-weight:900;font-size:clamp(24px,3vw,32px);
+  line-height:1.05;margin-top:6px;color:var(--texto)}
+.calc__uso{font-family:var(--c);font-weight:600;font-size:12px;letter-spacing:.13em;
+  text-transform:uppercase;color:var(--texto-2);display:block;margin-top:4px}
+.calc__rec p{font-size:14.5px;margin-top:12px;color:var(--texto-2)}
+.calc__rec p b{display:inline;font-family:inherit;font-size:inherit;font-weight:600;color:var(--texto)}
+.calc__aviso{display:block;font-size:13px;margin-top:10px;color:var(--naranja)}
+.calc__rec .btn{margin:14px 8px 0 0}
+
+/* T-29: la salida alternativa cuando WhatsApp no abre */
+.ok__alt{margin-top:10px;padding-top:10px;border-top:1px solid currentColor;
+  font-size:13.5px;line-height:1.5;opacity:.9}
+.ok__alt a{text-decoration:underline;text-underline-offset:3px}
+.ok__copiar{font-family:var(--c);font-weight:600;font-size:12px;letter-spacing:.06em;
+  text-transform:uppercase;border:1px solid currentColor;border-radius:var(--r);
+  padding:5px 11px;margin-top:8px;display:inline-block;cursor:pointer}
+
+/* Los campos de formulario son siempre una superficie clara, incluso dentro
+   del bloque en Verde Monte. Si el color del texto siguiera la variable de
+   la seccion quedaria hueso sobre blanco: van fijos. */
+.field input,.field select,.field textarea,select.sel{
+  background:#FFFFFF;color:var(--carbon);border-color:rgba(20,22,26,.22);
+}
+.field input::placeholder,.field textarea::placeholder{color:#8A8680}
+/* La regla vieja de .sec--rural gana por especificidad, asi que los select
+   se quedaban oscuros al lado de inputs blancos. Van todos parejos. */
+.sec--rural .field input,.sec--rural .field select,.sec--rural .field textarea,
+.sec--rural select.sel{
+  background:#FFFFFF;color:var(--carbon);border-color:rgba(20,22,26,.18);
+}
+
+/* =====================================================================
+   GUIAS Y RESPUESTAS
+   El hub y la plantilla de guia. La lectura manda: columna angosta,
+   indice pegajoso al costado y las fuentes al pie de cada pieza.
+   ===================================================================== */
+.guias-lista{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));
+  gap:clamp(14px,2vw,20px)}
+.guia-card{background:var(--sup);border:1px solid var(--borde);border-radius:var(--r-lg);
+  padding:clamp(22px,3vw,30px);display:flex;flex-direction:column;transition:.25s var(--ease)}
+a.guia-card:hover{border-color:var(--naranja);transform:translateY(-3px)}
+.guia-card h2{margin:12px 0 10px}
+.guia-card p{font-size:14.5px;flex:1}
+.guia-card__pie{display:inline-flex;align-items:center;gap:9px;margin-top:18px;
+  font-family:var(--c);font-weight:600;font-size:12px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--naranja)}
+.guia-card__pie svg{width:14px;height:14px}
+.guia-card--proxima{border-style:dashed;background:transparent}
+.guia-card--proxima .kick{color:var(--texto-2)}
+.guia-card--proxima .kick::before{background:var(--texto-2)}
+
+.guia{display:grid;grid-template-columns:230px 1fr;gap:clamp(28px,5vw,64px);align-items:start}
+.guia__ind{position:sticky;top:calc(var(--nav-h) + 24px)}
+.guia__ind b{display:block;font-family:var(--c);font-weight:700;font-size:11px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--texto-2);margin-bottom:14px}
+.guia__ind ol{list-style:none;counter-reset:g;display:flex;flex-direction:column;gap:10px}
+.guia__ind li{counter-increment:g;font-size:14px;line-height:1.35}
+.guia__ind li::before{content:counter(g,decimal-leading-zero);font-family:var(--n);
+  font-weight:700;color:var(--naranja);margin-right:9px;font-size:13px}
+.guia__ind a{color:var(--texto-2);transition:.2s}
+.guia__ind a:hover{color:var(--naranja)}
+
+.guia__cuerpo{max-width:68ch}
+.guia__cuerpo h2{font-size:clamp(24px,3.2vw,32px);margin:38px 0 14px;text-transform:none;
+  line-height:1.08}
+.guia__cuerpo h2:first-child{margin-top:0}
+.guia__cuerpo h3{font-size:20px;margin:26px 0 8px}
+.guia__cuerpo a{color:var(--naranja-lo);text-decoration:underline;text-underline-offset:3px}
+.guia__meta{font-family:var(--c);font-size:13px;color:var(--texto-2);letter-spacing:.02em}
+.phero .guia__meta{margin-top:14px}
+
+.guia__fuentes{margin:14px 0 6px;font-size:14.5px}
+.guia__fuentes dt{font-weight:600;color:var(--texto);margin-top:12px}
+.guia__fuentes dd{margin:4px 0 0;color:var(--texto-2)}
+
+.guia__cta{margin-top:44px;padding-top:28px;border-top:2px solid var(--texto)}
+.guia__cta h3{margin-bottom:16px}
+.guia__cta .acts{display:flex;gap:10px;flex-wrap:wrap}
+
+@media (max-width:860px){
+  .guia{grid-template-columns:1fr}
+  .guia__ind{position:static;background:var(--sup);border:1px solid var(--borde);
+    border-radius:var(--r-lg);padding:20px}
+}
+
+/* Los dos bloques que suma el formulario de test ride: el recorrido y
+   quien maneja. Se separan del resto para que el formulario no parezca
+   un interrogatorio de una sola tirada. */
+.form__set{border:0;border-top:1px solid var(--borde);margin-top:22px;padding:20px 0 0}
+.form__set legend{font-family:var(--c);font-weight:700;font-size:11px;letter-spacing:.18em;
+  text-transform:uppercase;color:var(--naranja);padding:0}
+.form__ayuda{font-size:13.5px;color:var(--texto-2);margin:8px 0 16px;max-width:56ch}
