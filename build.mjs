@@ -132,7 +132,7 @@ const byslug = (s) => P.find((x) => x.slug === s);
 
 /* ---------- HEAD ---------- */
 function head({ title, desc, slug, ld = "", preload = "" }) {
-  const url = slug === "index" ? `${SITE}/` : `${SITE}/${slug}.html`;
+  const url = slug === "index" ? `${SITE}/` : `${SITE}/${slug}`;
   return `<!DOCTYPE html>
 <html lang="es-AR" data-wa="${WA}" data-mail="${MAIL}">
 <head>
@@ -170,21 +170,21 @@ ${ld ? `<script type="application/ld+json">\n${ld}\n</script>` : ""}
 /* ---------- HEADER ---------- */
 function header(active, modelo) {
   const on = (k) => (active === k ? ' class="on"' : "");
-  const links = [["index", "Inicio", "index.html"], ["productos", "Modelos", "productos.html"],
-  ["servicio", "Service", "servicio.html"], ["nosotros", "Nosotros", "nosotros.html"],
-  ["faq", "Preguntas", "faq.html"], ["guias", "Guías", "guias.html"],
-  ["contacto", "Contacto", "contacto.html"]];
+  const links = [["index", "Inicio", "/"], ["productos", "Modelos", "/productos"],
+  ["servicio", "Service", "/servicio"], ["nosotros", "Nosotros", "/nosotros"],
+  ["faq", "Preguntas", "/faq"], ["guias", "Guías", "/guias"],
+  ["contacto", "Contacto", "/contacto"]];
   return `<body data-pagina="${active || "otra"}"${modelo ? ` data-modelo="${modelo}"` : ""}>
 <header class="hdr">
   <div class="hdr__in">
-    <a href="index.html" class="brand" aria-label="MC Ebikes — Inicio">
+    <a href="/" class="brand" aria-label="MC Ebikes — Inicio">
       ${LOGO(48)}
     </a>
     <nav class="nav" aria-label="Principal">
       ${links.map(([k, t, h]) => `<a href="${h}"${on(k)}>${t}</a>`).join("\n      ")}
     </nav>
     <div class="hdr__act">
-      <a class="btn btn--p btn--sm" href="test-ride.html">Reservar test ride</a>
+      <a class="btn btn--p btn--sm" href="/test-ride">Reservar test ride</a>
       <button class="burger" aria-label="Abrir menú" aria-expanded="false"><i></i><i></i><i></i></button>
     </div>
   </div>
@@ -193,7 +193,7 @@ function header(active, modelo) {
 <div class="mnav">
   ${links.map(([, t, h]) => `<a href="${h}">${t}</a>`).join("\n  ")}
   <div class="acts">
-    <a class="btn btn--p btn--block" href="test-ride.html">Reservar test ride</a>
+    <a class="btn btn--p btn--block" href="/test-ride">Reservar test ride</a>
     <a class="btn btn--wa btn--block" href="${WA_TXT("Hola MC Ebikes, quiero hacer una consulta.")}" target="_blank" rel="noopener">${waIcon} WhatsApp</a>
   </div>
   <div class="info">
@@ -211,7 +211,7 @@ function footer() {
   <div class="wrap">
     <div class="ftr__t">
       <div class="ftr__b">
-        <a href="index.html" class="brand" style="color:var(--tiza)">${LOGO(54)}</a>
+        <a href="/" class="brand" style="color:var(--tiza)">${LOGO(54)}</a>
         <p>Independencia real para la nueva generación del campo argentino. Fat e-bikes de 1000W para que actives tu movilidad, con potencia real y autonomía real.</p>
         <div class="soc">
           <a href="https://instagram.com/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1.1" fill="currentColor" stroke="none"/></svg></a>
@@ -220,18 +220,18 @@ function footer() {
       </div>
       <div>
         <h4>Modelos</h4>
-        <ul>${P.map((p) => `<li><a href="${p.slug}.html">${p.name}</a></li>`).join("")}
-        <li><a href="productos.html">Ver todos</a></li></ul>
+        <ul>${P.map((p) => `<li><a href="/${p.slug}">${p.name}</a></li>`).join("")}
+        <li><a href="/productos">Ver todos</a></li></ul>
       </div>
       <div>
         <h4>Info</h4>
         <ul>
-          <li><a href="test-ride.html">Test ride</a></li>
-          <li><a href="servicio.html">Service y garantía</a></li>
-          <li><a href="nosotros.html">Nosotros</a></li>
-          <li><a href="faq.html">Preguntas frecuentes</a></li>
-          <li><a href="guias.html">Guías y respuestas</a></li>
-          <li><a href="contacto.html">Contacto</a></li>
+          <li><a href="/test-ride">Test ride</a></li>
+          <li><a href="/servicio">Service y garantía</a></li>
+          <li><a href="/nosotros">Nosotros</a></li>
+          <li><a href="/faq">Preguntas frecuentes</a></li>
+          <li><a href="/guias">Guías y respuestas</a></li>
+          <li><a href="/contacto">Contacto</a></li>
         </ul>
       </div>
       <div>
@@ -246,9 +246,9 @@ function footer() {
     <div class="ftr__bot">
       <span>© <span data-year>2026</span> MC EBIKES</span>
       <nav class="ftr__legal" aria-label="Políticas">
-        <a href="privacidad.html">Privacidad</a>
-        <a href="terminos.html">Términos</a>
-        <a href="envios.html">Envíos y devoluciones</a>
+        <a href="/privacidad">Privacidad</a>
+        <a href="/terminos">Términos</a>
+        <a href="/envios">Envíos y devoluciones</a>
       </nav>
       <span>Precios y disponibilidad sujetos a cambio sin previo aviso.</span>
     </div>
@@ -271,13 +271,13 @@ const page = ({ slug, title, desc, active, ld, preload, main, modelo }) =>
 /* ---------- Bloques ---------- */
 const pcard = (p) => `
 <article class="pc rv" data-cat="${p.cat}" data-price="${p.price}" data-aut="${p.autNum}" data-ord="${p.ord}">
-  <a href="${p.slug}.html" class="pc__im">
+  <a href="/${p.slug}" class="pc__im">
     ${p.badge ? `<span class="tag tag--a">${p.badge}</span>` : ""}
     <img src="assets/img/${p.img}-sm.webp" alt="${p.name}" loading="lazy" width="640" height="480">
   </a>
   <div class="pc__b">
     <span class="pc__cat">FAT E-BIKE</span>
-    <h3><a href="${p.slug}.html">${p.name}</a></h3>
+    <h3><a href="/${p.slug}">${p.name}</a></h3>
     <div class="pc__sp">
       <div>POTENCIA<b>${p.motor}</b></div>
       <div>AUTONOMÍA<b>${p.autNum} km</b></div>
@@ -289,8 +289,8 @@ const pcard = (p) => `
       <div class="cuotas">12 cuotas sin interés de ${money(Math.round(p.price / 12))}</div>
       <div class="stock"><i></i>Disponible para probar</div>
       <div class="pc__act">
-        <a class="btn btn--p" href="${p.slug}.html">Ver ficha</a>
-        <a class="btn btn--g" href="test-ride.html?m=${p.slug}">Probarla</a>
+        <a class="btn btn--p" href="/${p.slug}">Ver ficha</a>
+        <a class="btn btn--g" href="/test-ride?m=${p.slug}">Probarla</a>
       </div>
     </div>
   </div>
@@ -305,7 +305,7 @@ const ctaBlock = (t = "Vení, probala y decidí con información", s = "Te esper
         <p>${s}</p>
       </div>
       <div class="acts">
-        <a class="btn btn--l btn--lg" href="test-ride.html">Reservar test ride</a>
+        <a class="btn btn--l btn--lg" href="/test-ride">Reservar test ride</a>
         <a class="btn btn--lg" style="border:1.5px solid rgba(20,20,20,.3);color:#141414" href="${WA_TXT("Hola MC Ebikes, quiero hacer una consulta.")}" target="_blank" rel="noopener">Escribir por WhatsApp</a>
       </div>
     </div>
@@ -360,13 +360,13 @@ const crumbLD = (name, slug) => JSON.stringify({
   "@context": "https://schema.org", "@type": "BreadcrumbList",
   itemListElement: [
     { "@type": "ListItem", position: 1, name: "Inicio", item: SITE + "/" },
-    { "@type": "ListItem", position: 2, name, item: `${SITE}/${slug}.html` },
+    { "@type": "ListItem", position: 2, name, item: `${SITE}/${slug}` },
   ],
 });
 
 /* Un Product por modelo, con la ficha tecnica y la oferta */
 const productoLD = (p) => ({
-  "@type": "Product", "@id": `${SITE}/${p.slug}.html#producto`,
+  "@type": "Product", "@id": `${SITE}/${p.slug}#producto`,
   name: `MC Ebikes ${p.name}`, brand: { "@type": "Brand", name: "MC Ebikes" },
   description: p.revision
     ? `${p.tagline}. Fat e-bike con autonomía de ${p.aut} y velocidad máxima de ${p.vel}. Ficha de potencia en confirmación con el fabricante.`
@@ -384,7 +384,7 @@ const productoLD = (p) => ({
     { "@type": "PropertyValue", name: "Tiempo de recarga", value: p.recarga },
   ],
   offers: {
-    "@type": "Offer", url: `${SITE}/${p.slug}.html`, priceCurrency: "ARS",
+    "@type": "Offer", url: `${SITE}/${p.slug}`, priceCurrency: "ARS",
     price: String(p.price), availability: "https://schema.org/InStock",
     itemCondition: "https://schema.org/NewCondition",
     seller: { "@id": SITE + "/#negocio" },
@@ -401,7 +401,7 @@ const homeLD = JSON.stringify({
    vez de encajonarla. El dato comercial (recorrido, precio y cuota) va
    encima de la foto, que es lo que el visitante necesita para decidir. */
 const mtile = (p) => `
-    <a class="m rv" href="${p.slug}.html">
+    <a class="m rv" href="/${p.slug}">
       <img src="assets/img/${p.img}-sm.webp" alt="MC Ebikes ${p.name}" loading="lazy" width="640" height="480">
       ${p.badge ? `<span class="tag tag--a">${p.badge}</span>` : ""}
       <span class="flecha">${ico(I.arrow, 2.2)}</span>
@@ -429,8 +429,8 @@ const home = `
     <h1 class="h1">Tu mundo se mueve con vos</h1>
     <p class="hero__sub">El recorrido empieza a ser tuyo.</p>
     <div class="hero__cta">
-      <a class="btn btn--p btn--lg" href="productos.html">Conocé los modelos ${ico(I.arrow, 2.2)}</a>
-      <a class="btn btn--g btn--lg" href="test-ride.html">Probala antes de decidir</a>
+      <a class="btn btn--p btn--lg" href="/productos">Conocé los modelos ${ico(I.arrow, 2.2)}</a>
+      <a class="btn btn--g btn--lg" href="/test-ride">Probala antes de decidir</a>
     </div>
   </div>
   <span class="bajar"><i></i>Seguí bajando</span>
@@ -451,7 +451,7 @@ const home = `
       <span class="kick">${cap("01")}Tu primer vehículo propio</span>
       <h2 class="h2">Autonomía real<br>para seguir tu ritmo</h2>
       <p>La autonomía que necesitás para tu día a día, con hasta 110 kilómetros por carga completa. Un vehículo serio diseñado para seguir tu ritmo, optimizado para trayectos intensos en caminos exigentes y jornadas completas de actividad.</p>
-      <a class="btn btn--g" href="productos.html">Ver los ${P.length} modelos ${ico(I.arrow, 2.2)}</a>
+      <a class="btn btn--g" href="/productos">Ver los ${P.length} modelos ${ico(I.arrow, 2.2)}</a>
     </div>
     <figure class="marco rv">
       <img src="assets/escenas/camino-nube.webp" alt="Camino de tierra en el campo argentino" loading="lazy" width="1200" height="930">
@@ -480,7 +480,7 @@ const home = `
     <div class="g">
 ${P.map(mtile).join("\n")}
     </div>
-    <div style="margin-top:26px" class="rv"><a class="btn btn--g" href="productos.html">Comparar los ${P.length} modelos ${ico(I.arrow, 2.2)}</a></div>
+    <div style="margin-top:26px" class="rv"><a class="btn btn--g" href="/productos">Comparar los ${P.length} modelos ${ico(I.arrow, 2.2)}</a></div>
   </div>
 </section>
 
@@ -584,7 +584,7 @@ ${P.map(mtile).join("\n")}
       <span class="kick">${cap("06")}Test ride sin cargo</span>
       <h2 class="h2">Vos mismo sentís la potencia, antes de decidir</h2>
       <p>Sumar movilidad propia es un paso importante para toda la familia. Por eso te invitamos a venir a nuestro local en Castelar, subirte y manejarla vos mismo antes de resolver nada. Y si estás lejos, coordinamos una demostración cuando estemos en tu zona, o te acompañamos igual con envío a todo el país y garantía real por escrito.</p>
-      <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi test ride ${ico(I.arrow, 2.2)}</a>
+      <a class="btn btn--p btn--lg" href="/test-ride">Reservar mi test ride ${ico(I.arrow, 2.2)}</a>
     </div>
     <figure class="marco rv">
       <img src="assets/escenas/dos-chicos.webp" alt="Dos chicos con una bicicleta en un camino de campo" loading="lazy" width="1200" height="930">
@@ -599,7 +599,7 @@ ${P.map(mtile).join("\n")}
     <div class="faq rv">
       ${FAQS.slice(0, 4).map(([q, a]) => faqItem(q, a)).join("")}
     </div>
-    <div style="margin-top:24px" class="rv"><a class="btn btn--g" href="faq.html">Ver todas las preguntas</a></div>
+    <div style="margin-top:24px" class="rv"><a class="btn btn--g" href="/faq">Ver todas las preguntas</a></div>
   </div>
 </section>
 
@@ -609,7 +609,7 @@ ${P.map(mtile).join("\n")}
     <h2 class="h2 rv">Vení, probala<br>y decidí con información</h2>
     <p class="rv" style="margin:18px auto 0;max-width:52ch">Te esperamos en Castelar para que la manejes vos mismo y hagas todas las preguntas antes de resolver nada.</p>
     <div class="acts rv">
-      <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi test ride ${ico(I.arrow, 2.2)}</a>
+      <a class="btn btn--p btn--lg" href="/test-ride">Reservar mi test ride ${ico(I.arrow, 2.2)}</a>
       <a class="btn btn--g btn--lg" href="${WA_TXT("Hola MC Ebikes, quiero hacer una consulta.")}" target="_blank" rel="noopener">Escribir por WhatsApp</a>
     </div>
   </div>
@@ -633,7 +633,7 @@ console.log("✓ index.html");
 const catalogo = `
 <section class="phero">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Ruta"><a href="index.html">Inicio</a> / <span aria-current="page">Modelos</span></nav>
+    <nav class="crumbs" aria-label="Ruta"><a href="/">Inicio</a> / <span aria-current="page">Modelos</span></nav>
     <span class="kick">${P.length} modelos disponibles</span>
     <h1 class="h1" style="font-size:clamp(38px,7vw,68px);margin-top:14px">Elegí tu <em>territorio</em></h1>
     <p>Cuatro fat e-bikes, todas con frenos a disco y arranque por NFC. Elegí por autonomía, potencia o precio.</p>
@@ -679,7 +679,7 @@ const catalogo = `
           <tr><td>Recarga</td>${P.map((p) => `<td>${p.recarga}</td>`).join("")}</tr>
           <tr><td>Ideal para</td>${P.map((p) => `<td style="font-family:var(--t);font-weight:400;font-size:14px;color:var(--cemento)">${p.uso}</td>`).join("")}</tr>
           <tr><td>Precio</td>${P.map((p) => `<td class="hl">${money(p.price)}</td>`).join("")}</tr>
-          <tr><td></td>${P.map((p) => `<td><a class="btn btn--p btn--sm" href="${p.slug}.html">Ver</a></td>`).join("")}</tr>
+          <tr><td></td>${P.map((p) => `<td><a class="btn btn--p btn--sm" href="/${p.slug}">Ver</a></td>`).join("")}</tr>
         </tbody>
       </table>
     </div>
@@ -691,7 +691,7 @@ const catalogoLD = JSON.stringify({
   "@context": "https://schema.org",
   "@graph": [
     JSON.parse(crumbLD("Modelos", "productos")),
-    { "@type": "ItemList", itemListElement: P.map((p, i) => ({ "@type": "ListItem", position: i + 1, item: { "@id": `${SITE}/${p.slug}.html#producto` } })) },
+    { "@type": "ItemList", itemListElement: P.map((p, i) => ({ "@type": "ListItem", position: i + 1, item: { "@id": `${SITE}/${p.slug}#producto` } })) },
     ...P.map(productoLD),
   ],
 }, null, 1);
@@ -717,7 +717,7 @@ for (const p of P) {
   const main = `
 <section class="sec" style="padding-top:calc(var(--nav-h) + 32px)">
   <div class="wrap">
-    <nav class="crumbs" aria-label="Ruta"><a href="index.html">Inicio</a> / <a href="productos.html">Modelos</a> / <span aria-current="page">${p.name}</span></nav>
+    <nav class="crumbs" aria-label="Ruta"><a href="/">Inicio</a> / <a href="/productos">Modelos</a> / <span aria-current="page">${p.name}</span></nav>
     <div class="pd">
       <div>
         <div class="gal__main"><img src="assets/img/${p.gal[0]}.webp" alt="${p.name}" fetchpriority="high" width="1200" height="900"></div>
@@ -748,7 +748,7 @@ ${p.revision ? `
         </div>
 
         <div class="pd__acts">
-          <a class="btn btn--p btn--lg btn--block" href="test-ride.html?m=${p.slug}">Reservar test ride sin cargo</a>
+          <a class="btn btn--p btn--lg btn--block" href="/test-ride?m=${p.slug}">Reservar test ride sin cargo</a>
           <div class="row">
             <a class="btn btn--wa" href="${WA_TXT(`Hola MC Ebikes, quiero consultar por la ${p.name}.`)}" target="_blank" rel="noopener">${waIcon} Consultar</a>
             <a class="btn btn--g" href="#specs">Ficha técnica</a>
@@ -830,7 +830,7 @@ ${ctaBlock(`¿Te quedaste con la ${p.name}?`, "Vení a Castelar, subite y maneja
 const testride = `
 <section class="phero">
   <div class="wrap">
-    <nav class="crumbs"><a href="index.html">Inicio</a> / <span aria-current="page">Test ride</span></nav>
+    <nav class="crumbs"><a href="/">Inicio</a> / <span aria-current="page">Test ride</span></nav>
     <span class="kick">Sin cargo · Sin compromiso</span>
     <h1 class="h1" style="font-size:clamp(38px,7vw,66px);margin-top:14px">Subite <em>antes</em><br>de decidir</h1>
     <p>Es una decisión importante para toda la familia. Por eso te invitamos a venir a Castelar, subirte a la MC que más te interesa y manejarla vos mismo antes de resolver nada. Sin costo y sin ningún compromiso. Y si vivís lejos, coordinamos una demo cuando estemos en tu zona o te acompañamos con envío a todo el país.</p>
@@ -947,7 +947,7 @@ console.log("✓ test-ride.html");
 const servicio = `
 <section class="phero">
   <div class="wrap">
-    <nav class="crumbs"><a href="index.html">Inicio</a> / <span aria-current="page">Service</span></nav>
+    <nav class="crumbs"><a href="/">Inicio</a> / <span aria-current="page">Service</span></nav>
     <span class="kick">Postventa</span>
     <h1 class="h1" style="font-size:clamp(38px,7vw,66px);margin-top:14px">Te respondemos<br><em>después</em> de venderte</h1>
     <p>La diferencia entre comprarnos a nosotros y comprar por internet no se nota el día que la comprás. Se nota el día que algo necesita ajuste, y ahí es donde estamos.</p>
@@ -1008,7 +1008,7 @@ console.log("✓ servicio.html");
 const nosotros = `
 <section class="phero">
   <div class="wrap">
-    <nav class="crumbs"><a href="index.html">Inicio</a> / <span aria-current="page">Nosotros</span></nav>
+    <nav class="crumbs"><a href="/">Inicio</a> / <span aria-current="page">Nosotros</span></nav>
     <span class="kick">Quiénes somos</span>
     <h1 class="h1" style="font-size:clamp(38px,7vw,66px);margin-top:14px">Movilidad eléctrica<br>con <em>cara visible</em></h1>
     <p>Elegimos pocos modelos, los probamos y los bancamos. MC Ebikes nace para darle a cada chico y chica del campo argentino su primer vehículo propio: la autonomía de recorrer todo el terreno por sus propios medios, con la potencia necesaria para el ritmo diario.</p>
@@ -1050,7 +1050,7 @@ const nosotros = `
         <span class="kick">Dónde estamos</span>
         <h2 class="h2" style="margin-top:14px">Estamos en <em>Castelar</em></h2>
         <p>Atendemos con local propio en Castelar, Morón, Ituzaingó, Haedo, Ramos Mejía y alrededores, con entrega sin cargo en la zona. Y coordinamos envío a todo el país para que tu MC llegue hasta el campo, con la misma garantía real y el mismo respaldo.</p>
-        <a class="btn btn--p btn--lg" href="contacto.html">Cómo llegar</a>
+        <a class="btn btn--p btn--lg" href="/contacto">Cómo llegar</a>
       </div>
     </div>
   </div>
@@ -1077,7 +1077,7 @@ const faqLD = JSON.stringify({
 const faqPage = `
 <section class="phero">
   <div class="wrap">
-    <nav class="crumbs"><a href="index.html">Inicio</a> / <span aria-current="page">Preguntas</span></nav>
+    <nav class="crumbs"><a href="/">Inicio</a> / <span aria-current="page">Preguntas</span></nav>
     <span class="kick">Preguntas frecuentes</span>
     <h1 class="h1" style="font-size:clamp(38px,7vw,66px);margin-top:14px">Todo lo que<br>querés <em>saber</em></h1>
     <p>Las dudas reales que nos llegan todos los días. Si te queda alguna, escribinos.</p>
@@ -1103,7 +1103,7 @@ console.log("✓ faq.html");
 const contacto = `
 <section class="phero">
   <div class="wrap">
-    <nav class="crumbs"><a href="index.html">Inicio</a> / <span aria-current="page">Contacto</span></nav>
+    <nav class="crumbs"><a href="/">Inicio</a> / <span aria-current="page">Contacto</span></nav>
     <span class="kick">Hablemos</span>
     <h1 class="h1" style="font-size:clamp(38px,7vw,66px);margin-top:14px">Estamos <em>acá</em></h1>
     <p>Escribinos, llamanos o vení al local. Lo que te quede más cómodo.</p>
@@ -1162,7 +1162,7 @@ console.log("✓ contacto.html");
 const legalPage = (kick, h1, cuerpo) => `
 <section class="phero">
   <div class="wrap">
-    <nav class="crumbs"><a href="index.html">Inicio</a> / <span aria-current="page">${kick}</span></nav>
+    <nav class="crumbs"><a href="/">Inicio</a> / <span aria-current="page">${kick}</span></nav>
     <span class="kick">${kick}</span>
     <h1 class="h1" style="font-size:clamp(32px,5.2vw,52px);margin-top:14px">${h1}</h1>
   </div>
@@ -1253,8 +1253,8 @@ writeFileSync(new URL("./404.html", import.meta.url), page({
     <h1 class="h1" style="margin:16px 0">Esta página<br><em style="font-style:normal;color:var(--ambar)">se fue andando</em></h1>
     <p style="margin-inline:auto;max-width:44ch">No encontramos lo que buscabas. Volvé al inicio o mirá los modelos.</p>
     <div style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-top:26px">
-      <a class="btn btn--p btn--lg" href="index.html">Ir al inicio</a>
-      <a class="btn btn--g btn--lg" href="productos.html">Ver modelos</a>
+      <a class="btn btn--p btn--lg" href="/">Ir al inicio</a>
+      <a class="btn btn--g btn--lg" href="/productos">Ver modelos</a>
     </div>
   </div>
 </section>`,
@@ -1332,7 +1332,7 @@ buscamos un modelo que rinda 65 km o más en tus condiciones reales. Por eso a v
 te vamos a recomendar un modelo más chico del que venías a buscar, y a veces uno
 más grande.</p>
 <p>Podés hacer esta cuenta vos mismo en el
-<a href="index.html#calc">recomendador de la home</a>: cargás kilómetros, terreno
+<a href="/#calc">recomendador de la home</a>: cargás kilómetros, terreno
 y peso, y te dice qué modelo te deja margen.</p>
 
 <h2 id="cargar">Dónde la vas a cargar y guardar</h2>
@@ -1350,7 +1350,7 @@ aplicá lo del terreno y el peso, o probala.</p>
 ${P.map((p) => `
 <h3>${p.name} — ${p.rec}</h3>
 <p>${p.lead} Autonomía publicada: ${p.aut}. Batería ${p.bat}.${p.revision ? " La ficha técnica de este modelo está en confirmación con el fabricante." : ""}
-<a href="${p.slug}.html">Ver la ficha completa de la ${p.name}</a>.</p>`).join("")}
+<a href="/${p.slug}">Ver la ficha completa de la ${p.name}</a>.</p>`).join("")}
 
 <h2 id="probar">Lo que no te podemos decir por internet</h2>
 <p>Cuánto te va a rendir a vos, en tu camino, con tu peso y tu forma de manejar.
@@ -1359,7 +1359,7 @@ Podemos estimarlo y lo estimamos, pero el número real sale de andar.</p>
 llevás una idea propia en vez de la nuestra. Si vivís lejos, coordinamos una
 demostración cuando estemos en tu zona.</p>
 <p>Y una vez que la tengas, el que te la vendió es el que te la arregla:
-<a href="servicio.html">acá está cómo funciona el service y la garantía</a>.</p>`,
+<a href="/servicio">acá está cómo funciona el service y la garantía</a>.</p>`,
     fuentes: [
       ["Fichas técnicas del proveedor", "Las cifras de potencia, batería, autonomía y carga que se citan en esta guía salen de las fichas que nos entrega el proveedor de cada modelo."],
       ["Nuestra experiencia de entrega y service en Castelar", "Los rangos de ajuste por terreno y peso, y el margen del 30 %, son criterios de trabajo propios. No son una medición certificada."],
@@ -1371,7 +1371,7 @@ const guiaPage = (g) => `
 <section class="phero">
   <div class="wrap">
     <nav class="crumbs" aria-label="Ruta">
-      <a href="index.html">Inicio</a> / <a href="guias.html">Guías</a> /
+      <a href="/">Inicio</a> / <a href="/guias">Guías</a> /
       <span aria-current="page">${g.kicker}</span>
     </nav>
     <span class="kick">Guías y respuestas</span>
@@ -1400,8 +1400,8 @@ const guiaPage = (g) => `
       <div class="guia__cta">
         <h3>¿Seguimos por acá?</h3>
         <div class="acts">
-          <a class="btn btn--p" href="test-ride.html">Reservar un test ride sin cargo</a>
-          <a class="btn btn--g" href="productos.html">Comparar los ${P.length} modelos</a>
+          <a class="btn btn--p" href="/test-ride">Reservar un test ride sin cargo</a>
+          <a class="btn btn--g" href="/productos">Comparar los ${P.length} modelos</a>
           <a class="btn btn--wa" href="${WA_TXT("Hola MC Ebikes, leí la guía de cómo elegir y quiero hacer una consulta.")}" target="_blank" rel="noopener">${waIcon} Consultar</a>
         </div>
       </div>
@@ -1414,7 +1414,7 @@ const guiasHub = `
 <section class="phero">
   <div class="wrap">
     <nav class="crumbs" aria-label="Ruta">
-      <a href="index.html">Inicio</a> / <span aria-current="page">Guías</span>
+      <a href="/">Inicio</a> / <span aria-current="page">Guías</span>
     </nav>
     <span class="kick">Guías y respuestas</span>
     <h1>Cómo decidir, explicado</h1>
@@ -1427,7 +1427,7 @@ const guiasHub = `
   <div class="wrap">
     <div class="guias-lista">
       ${GUIAS.map((g) => `
-      <a class="guia-card rv" href="${g.slug}.html">
+      <a class="guia-card rv" href="/${g.slug}">
         <span class="kick">${g.kicker}</span>
         <h2 class="h3">${g.h1}</h2>
         <p>${g.lead}</p>
@@ -1478,11 +1478,11 @@ writeFileSync(new URL("./site.webmanifest", import.meta.url), JSON.stringify({
   { src: "assets/img/icon-512.png", sizes: "512x512", type: "image/png" }],
 }, null, 2));
 
-const urls = [["", "1.0"], ["productos.html", "0.9"], ["test-ride.html", "0.9"], ["servicio.html", "0.8"],
-["nosotros.html", "0.7"], ["faq.html", "0.7"], ["contacto.html", "0.8"],
-["privacidad.html", "0.3"], ["terminos.html", "0.3"], ["envios.html", "0.5"],
-["guias.html", "0.8"], ...GUIAS.map((g) => [`${g.slug}.html`, "0.7"]),
-...P.map((p) => [`${p.slug}.html`, "0.9"])];
+const urls = [["", "1.0"], ["productos", "0.9"], ["test-ride", "0.9"], ["servicio", "0.8"],
+["nosotros", "0.7"], ["faq", "0.7"], ["contacto", "0.8"],
+["privacidad", "0.3"], ["terminos", "0.3"], ["envios", "0.5"],
+["guias", "0.8"], ...GUIAS.map((g) => [g.slug, "0.7"]),
+...P.map((p) => [p.slug, "0.9"])];
 const today = new Date().toISOString().slice(0, 10);
 writeFileSync(new URL("./sitemap.xml", import.meta.url),
   `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n` +

@@ -42,9 +42,9 @@
 
   /* Eleccion de un modelo desde cualquier listado */
   doc.addEventListener("click", function (e) {
-    var a = e.target.closest && e.target.closest("a[href$='-pro.html'], a[href$='v40.html']");
+    var a = e.target.closest && e.target.closest("a[href$='-pro'], a[href$='/v40']");
     if (!a || a.closest(".hdr") || a.closest(".ftr")) return;
-    var slug = a.getAttribute("href").replace(".html", "");
+    var slug = a.getAttribute("href").replace(/^\//, "");
     track("select_product", {
       modelo: slug,
       origen: a.closest(".m") ? "linea de modelos"
@@ -315,8 +315,8 @@
         '<span class="calc__uso">' + m.rec + '</span>' +
         '<p>Estimamos unos <b>' + m._real + ' km por carga</b> en tu terreno y con tu carga, sobre los ' +
         m.aut + ' km publicados. ' + detalle + '</p>' + aviso +
-        '<a class="btn btn--p btn--sm" href="' + m.slug + '.html">Ver la ficha de la ' + m.name + '</a>' +
-        '<a class="btn btn--g btn--sm" href="test-ride.html?m=' + m.slug + '">Probarla</a>';
+        '<a class="btn btn--p btn--sm" href="/' + m.slug + '">Ver la ficha de la ' + m.name + '</a>' +
+        '<a class="btn btn--g btn--sm" href="/test-ride?m=' + m.slug + '">Probarla</a>';
       salida.classList.add("on");
       return m;
     }
