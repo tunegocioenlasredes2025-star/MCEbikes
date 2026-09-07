@@ -113,15 +113,19 @@ const P = [
   {
     slug: "s20-pro", name: "SW S20 Pro", ord: 4,
     cat: "potencia",
-    tagline: "La más potente",
-    lead: "Para el que quiere sentir toda la fuerza: 1800W de potencia para subidas exigentes y cargas pesadas, sin perder un km/h de rendimiento.",
-    price: 2590000, old: null, badge: "Más potente",
-    motor: "1800W", bat: "48V / 16,2Ah", aut: "hasta 75 km", vel: "32 km/h",
+    tagline: "Pendientes y carga",
+    lead: "Para el que necesita fuerza en subida y llevando peso. La potencia exacta de esta unidad la estamos confirmando con el fabricante: cuando vengas te mostramos la ficha y la probás vos mismo antes de decidir.",
+    price: 2590000, old: null, badge: null,
+    /* Ficha en revision: el dato del proveedor no coincide con el que
+       comunica el importador. Hasta que llegue la documentacion, la
+       potencia no se publica como cifra firme. */
+    revision: "Estamos confirmando la ficha técnica de este modelo con el fabricante. Consultanos antes de decidir y te pasamos los datos verificados.",
+    motor: "A confirmar", bat: "48V / 16,2Ah", aut: "hasta 75 km", vel: "32 km/h",
     autNum: 75, carga: "138 kg", recarga: "5 a 6 horas", peso: "45 kg aprox.",
     img: "s20-blanca", gal: ["s20-blanca", "v8-bordo", "v20-lateral", "v8-negra"],
-    uso: "Máxima potencia, subidas y carga", rec: "Pendientes y carga",
+    uso: "Subidas exigentes y carga", rec: "Pendientes y carga",
     destacado: true,
-    extras: ["Motor de 1800W", "Panel digital", "Arranque por NFC", "Frenos a disco", "Suspensión reforzada", "Llantas fat Kenda"],
+    extras: ["Panel digital", "Arranque por NFC", "Frenos a disco", "Suspensión reforzada", "Llantas fat Kenda"],
   },
 ];
 const byslug = (s) => P.find((x) => x.slug === s);
@@ -274,6 +278,7 @@ const pcard = (p) => `
       <div>VEL. MÁX<b>32 km/h</b></div>
     </div>
     <div class="pc__pr">
+      ${p.revision ? `<div class="revision revision--sm">Ficha técnica en confirmación</div>` : ""}
       <div class="price">${money(p.price)}</div>
       <div class="cuotas">12 cuotas sin interés de ${money(Math.round(p.price / 12))}</div>
       <div class="stock"><i></i>Disponible para probar</div>
@@ -308,7 +313,7 @@ const faqItem = (q, a) => `
   </div>`;
 
 const FAQS = [
-  ["¿Qué necesito para manejarla?", "Es legalmente una bicicleta eléctrica: al no superar los 32 km/h y tener pedales asistidos, tenés total libertad para moverte, sin licencia, sin patentamiento y sin seguro obligatorio. Sí te recomendamos usar casco y circular por la derecha."],
+  ["¿Qué necesito para manejarla?", "Depende de cómo se clasifique la unidad y de dónde circules. Las bicicletas con pedaleo asistido tienen un tratamiento distinto al de otros vehículos eléctricos, y cada provincia y municipio puede sumar sus propias reglas. Antes de entregarte la tuya te decimos en qué categoría entra el modelo que elegiste y qué te pide tu jurisdicción, con la documentación del fabricante a la vista. Lo que sí recomendamos siempre: casco, luces y circular por la derecha."],
   ["¿Cuánto dura la batería?", "Una carga te rinde entre 50 y 110 km según el modelo, tu peso, el viento y cuánto uses el acelerador. La batería de litio soporta entre 800 y 1000 ciclos de carga completos: entre 3 y 5 años de uso diario con toda su capacidad."],
   ["¿Cuánto sale cargarla?", "Muy poco: una carga completa consume alrededor de 0,8 kWh, unos $180 según la tarifa actual. Recorrer 60 km te sale menos que un viaje corto en remis."],
   ["¿Qué garantía tiene?", "12 meses de garantía en cuadro y motor, y 6 meses en batería, el estándar del mercado. Con factura y sin letra chica: el service lo hacemos nosotros, acá en Castelar."],
@@ -331,7 +336,7 @@ const FAQS = [
 const negocioLD = {
   "@type": "SportingGoodsStore", "@id": SITE + "/#negocio", name: "MC Ebikes",
   alternateName: "MC Ebikes Castelar",
-  description: "Fat e-bikes de 1000W a 1800W con hasta 110 km de autonomía. Venta, test ride sin cargo, garantía real y service con taller propio en Castelar, Buenos Aires.",
+  description: "Fat e-bikes de 1000W con hasta 110 km de autonomía. Venta, test ride sin cargo, garantía real y service con taller propio en Castelar, Buenos Aires.",
   url: SITE + "/", image: SITE + "/assets/img/og.jpg",
   telephone: "+" + WA, email: MAIL, priceRange: "$$",
   address: { "@type": "PostalAddress", addressLocality: "Castelar", addressRegion: "Buenos Aires", addressCountry: "AR" },
@@ -357,11 +362,15 @@ const crumbLD = (name, slug) => JSON.stringify({
 const productoLD = (p) => ({
   "@type": "Product", "@id": `${SITE}/${p.slug}.html#producto`,
   name: `MC Ebikes ${p.name}`, brand: { "@type": "Brand", name: "MC Ebikes" },
-  description: `${p.tagline}. Fat e-bike de ${p.motor} con autonomía de ${p.aut} y velocidad máxima de ${p.vel}.`,
+  description: p.revision
+    ? `${p.tagline}. Fat e-bike con autonomía de ${p.aut} y velocidad máxima de ${p.vel}. Ficha de potencia en confirmación con el fabricante.`
+    : `${p.tagline}. Fat e-bike de ${p.motor} con autonomía de ${p.aut} y velocidad máxima de ${p.vel}.`,
   image: `${SITE}/assets/img/${p.img}.webp`,
   sku: "MC-" + p.slug.toUpperCase().replace(/-/g, ""),
   additionalProperty: [
-    { "@type": "PropertyValue", name: "Potencia del motor", value: p.motor },
+    /* Una propiedad sin dato confirmado no se declara: el marcado tiene que
+       describir lo que la pagina puede sostener. */
+    ...(p.revision ? [] : [{ "@type": "PropertyValue", name: "Potencia del motor", value: p.motor }]),
     { "@type": "PropertyValue", name: "Batería", value: p.bat },
     { "@type": "PropertyValue", name: "Autonomía", value: p.aut },
     { "@type": "PropertyValue", name: "Velocidad máxima", value: p.vel },
@@ -408,15 +417,14 @@ const home = `
 <section class="hero">
   <div class="hero__bg"><img src="assets/escenas/ciclista-campo.webp"
     srcset="assets/escenas/ciclista-campo-sm.webp 1000w, assets/escenas/ciclista-campo-md.webp 1280w, assets/escenas/ciclista-campo.webp 1600w" sizes="100vw"
-    alt="Sombra de un ciclista sobre un camino de tierra del campo bonaerense al atardecer" fetchpriority="high" width="1600" height="1067"></div>
-  <span class="vert">Provincia de Buenos Aires</span>
+    alt="Chico de espaldas andando una fat e-bike MC por un camino de tierra al atardecer" fetchpriority="high" width="1600" height="1067"></div>
+  <span class="vert">Tu mundo se mueve con vos</span>
   <div class="wrap">
-    <span class="kick">Campo, pueblo y periferia bonaerense</span>
-    <h1 class="h1" style="margin-top:16px">Tu mundo se mueve con vos</h1>
-    <p class="hero__sub">Fat e-bikes de 1000W con hasta 110 km de autonomía. Vení, probala y decidí con la potencia real abajo tuyo.</p>
+    <h1 class="h1">Tu mundo se mueve con vos</h1>
+    <p class="hero__sub">El recorrido empieza a ser tuyo.</p>
     <div class="hero__cta">
-      <a class="btn btn--p btn--lg" href="test-ride.html">Reservar mi prueba ${ico(I.arrow, 2.2)}</a>
-      <a class="btn btn--g btn--lg" href="productos.html">Ver modelos</a>
+      <a class="btn btn--p btn--lg" href="productos.html">Conocé los modelos ${ico(I.arrow, 2.2)}</a>
+      <a class="btn btn--g btn--lg" href="test-ride.html">Probala antes de decidir</a>
     </div>
   </div>
   <span class="bajar"><i></i>Seguí bajando</span>
@@ -440,8 +448,8 @@ const home = `
       <a class="btn btn--g" href="productos.html">Ver los ${P.length} modelos ${ico(I.arrow, 2.2)}</a>
     </div>
     <figure class="marco rv">
-      <img src="assets/escenas/camino-nube.webp" alt="Camino de tierra en el campo bonaerense" loading="lazy" width="1200" height="930">
-      <figcaption>Camino de tierra · provincia de Buenos Aires</figcaption>
+      <img src="assets/escenas/camino-nube.webp" alt="Camino de tierra en el campo argentino" loading="lazy" width="1200" height="930">
+      <figcaption>Camino de tierra</figcaption>
     </figure>
   </div>
 </section>
@@ -487,7 +495,7 @@ ${P.map(mtile).join("\n")}
       <button data-rec="SW V29 Pro" data-why="Para jornadas largas, la V29 Pro suma doble batería y la mayor autonomía publicada de la línea. Es la que más margen te deja por salida, pero también la más pesada: mirá dónde la vas a guardar y cargar." data-url="v29-pro.html">
         ${ico(I.box)}<b>Jornadas largas</b><span>Salís temprano y volvés tarde, todo el día arriba</span>
       </button>
-      <button data-rec="SW S20 Pro" data-why="Es la de mayor potencia publicada de la línea, pensada para subidas y carga. La potencia y la carga máxima están en revisión con el fabricante, así que conviene consultarnos antes de decidir por este modelo." data-url="s20-pro.html">
+      <button data-rec="SW S20 Pro" data-why="Está pensada para subidas exigentes y para llevar peso. La potencia y la carga máxima están en revisión con el fabricante, así que conviene consultarnos y probarla antes de decidir por este modelo." data-url="s20-pro.html">
         ${ico(I.bolt)}<b>Pendientes y carga</b><span>Subidas exigentes o llevar peso encima</span>
       </button>
       <button data-rec="Te ayudamos a elegir" data-why="No hace falta que sepas el modelo. Contanos cuántos kilómetros hacés, por qué camino, cuánto peso llevás y dónde la vas a cargar, y te decimos cuál tiene sentido para vos y cuál no. Lo mejor es venir a Castelar y probarla." data-url="test-ride.html">
@@ -510,8 +518,8 @@ ${P.map(mtile).join("\n")}
       </div>
     </div>
     <figure class="marco rv">
-      <img src="assets/escenas/galpon.webp" alt="Galpón de ladrillo en el campo bonaerense" loading="lazy" width="1200" height="930">
-      <figcaption>Uribelarrea · provincia de Buenos Aires</figcaption>
+      <img src="assets/escenas/galpon.webp" alt="Galpón de ladrillo junto a un molino de campo" loading="lazy" width="1200" height="930">
+      <figcaption>El galpón, el molino y el camino</figcaption>
     </figure>
   </div>
 </section>
@@ -539,7 +547,7 @@ ${P.map(mtile).join("\n")}
         <p style="font-size:13px;margin-top:12px;color:rgba(245,243,239,.62)">Estimación sobre 22 días hábiles, comparada con el costo de combustible de un vehículo de referencia. Valores estimados, pueden variar.</p>
       </div>
       <figure class="marco rv d1">
-        <img src="assets/escenas/camino-recto.webp" alt="Camino recto entre campos, provincia de Buenos Aires" loading="lazy" width="1200" height="930">
+        <img src="assets/escenas/camino-recto.webp" alt="Camino recto entre campos sembrados" loading="lazy" width="1200" height="930">
         <figcaption>El recorrido de todos los días</figcaption>
       </figure>
     </div>
@@ -556,7 +564,7 @@ ${P.map(mtile).join("\n")}
     </div>
     <figure class="marco rv">
       <img src="assets/escenas/dos-chicos.webp" alt="Dos chicos con una bicicleta en un camino de campo" loading="lazy" width="1200" height="930">
-      <figcaption>Test ride · Castelar</figcaption>
+      <figcaption>Probala antes de decidir</figcaption>
     </figure>
   </div>
 </section>
@@ -613,9 +621,9 @@ const catalogo = `
     <div class="filters">
       <span class="filters__lbl">Filtrar</span>
       <button class="chip on" data-f="todos">Todos</button>
-      <button class="chip" data-f="urbana">Ciudad</button>
-      <button class="chip" data-f="larga-distancia">Larga distancia</button>
-      <button class="chip" data-f="potencia">Máxima potencia</button>
+      <button class="chip" data-f="urbana">Recorridos cortos</button>
+      <button class="chip" data-f="larga-distancia">Jornadas largas</button>
+      <button class="chip" data-f="potencia">Pendientes y carga</button>
       <div class="filters__r">
         <span class="count" data-count>${P.length} modelos</span>
         <select class="sel" data-sort aria-label="Ordenar">
@@ -639,7 +647,7 @@ const catalogo = `
       <table>
         <thead><tr><th>Modelo</th>${P.map((p) => `<th>${p.name}</th>`).join("")}</tr></thead>
         <tbody>
-          <tr><td>Motor</td>${P.map((p) => `<td class="${p.motor === "1800W" ? "hl" : ""}">${p.motor}</td>`).join("")}</tr>
+          <tr><td>Motor</td>${P.map((p) => `<td>${p.motor}</td>`).join("")}</tr>
           <tr><td>Batería</td>${P.map((p) => `<td>${p.bat}</td>`).join("")}</tr>
           <tr><td>Autonomía</td>${P.map((p) => `<td class="${p.autNum === 110 ? "hl" : ""}">${p.aut}</td>`).join("")}</tr>
           <tr><td>Velocidad máx.</td>${P.map((p) => `<td>${p.vel}</td>`).join("")}</tr>
@@ -667,7 +675,7 @@ const catalogoLD = JSON.stringify({
 writeFileSync(new URL("./productos.html", import.meta.url), page({
   slug: "productos", active: "productos", ld: catalogoLD,
   title: "Modelos de Fat E-Bikes 1000W | MC Ebikes",
-  desc: "Comparación de las 4 fat e-bikes MC: SW V20 Pro, V29 Pro, V40 y S20 Pro. Potencia de hasta 1800W y autonomía de hasta 110 km. Precios y cuotas sin interés.",
+  desc: "Comparación de las 4 fat e-bikes MC: SW V20 Pro, V29 Pro, V40 y S20 Pro. Motor desde 1000W y autonomía de hasta 110 km. Precios y cuotas sin interés.",
   main: catalogo,
 }));
 console.log("✓ productos.html");
@@ -698,6 +706,8 @@ for (const p of P) {
         <span class="pd__cat">Fat e-bike · ${p.tagline}</span>
         <h1>${p.name}</h1>
         <p class="pd__lead">${p.lead}</p>
+${p.revision ? `
+        <p class="revision">${ico(I.shield)}<span>${p.revision}</span></p>` : ""}
 
         <div class="keyspecs">
           <div>${ico(I.bolt)}<b>${p.motor}</b><span>Motor</span></div>
@@ -779,8 +789,10 @@ ${ctaBlock(`¿Te quedaste con la ${p.name}?`, "Vení a Castelar, subite y maneja
 
   writeFileSync(new URL(`./${p.slug}.html`, import.meta.url), page({
     slug: p.slug, active: "productos", modelo: p.name,
-    title: `${p.name} — Fat E-Bike ${p.motor} | MC Ebikes`,
-    desc: `${p.name}: motor ${p.motor}, batería ${p.bat}, ${p.aut} de autonomía y 12 cuotas sin interés. Test ride sin cargo en Castelar.`,
+    title: p.revision ? `${p.name} — Fat E-Bike | MC Ebikes` : `${p.name} — Fat E-Bike ${p.motor} | MC Ebikes`,
+    desc: p.revision
+      ? `${p.name}: batería ${p.bat}, ${p.aut} de autonomía y 12 cuotas sin interés. Test ride sin cargo en Castelar.`
+      : `${p.name}: motor ${p.motor}, batería ${p.bat}, ${p.aut} de autonomía y 12 cuotas sin interés. Test ride sin cargo en Castelar.`,
     ld,
     preload: `\n<link rel="preload" as="image" href="assets/img/${p.gal[0]}.webp" fetchpriority="high">`,
     main,

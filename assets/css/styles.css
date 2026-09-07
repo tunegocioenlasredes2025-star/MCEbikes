@@ -864,3 +864,184 @@ body[data-pagina="index"] .hdr:not(.solid) .btn--p:hover{background:var(--hueso)
    contrasta con el velo oscuro del pie de la ficha. */
 .m .stock{color:#7FBF6A;margin-top:9px;font-size:11.5px;letter-spacing:.12em}
 .m .stock i{width:6px;height:6px}
+
+/* =====================================================================
+   FICHA EN REVISION
+   Cuando el dato del proveedor no coincide con el del importador, el
+   numero no se publica como firme y el visitante ve por que. Es la regla
+   de seguridad comercial de la estrategia: si un dato tecnico no tiene
+   fuente vigente, no aparece como promesa principal.
+   ===================================================================== */
+.revision{
+  display:flex;gap:10px;align-items:flex-start;margin:0 0 20px;
+  background:rgba(217,98,43,.10);border-left:3px solid var(--naranja);
+  padding:13px 15px;font-size:14px;line-height:1.45;color:var(--tiza);
+}
+.revision svg{width:18px;height:18px;color:var(--naranja);flex:none;margin-top:2px;stroke-width:1.7}
+.revision--sm{
+  display:block;margin:0 0 8px;padding:5px 9px;border-left-width:2px;
+  font-family:var(--c);font-weight:600;font-size:11px;letter-spacing:.1em;
+  text-transform:uppercase;color:var(--naranja);
+}
+.sec--claro .revision{color:var(--carbon)}
+
+/* =====================================================================
+   PROPORCION DE COLOR — Informe de Identidad, cap. 5.3
+   "50% crema/hueso, 25% grafito, 15% verde monte y 10% naranja tierra...
+   sirve para evitar que la marca vuelva a parecer una superficie negra
+   con naranja de oferta."
+   La home medida antes de este cambio daba 66% grafito y 16% hueso: la
+   relacion estaba invertida. Aca se da vuelta.
+
+   Como funciona: las superficies dejan de estar escritas a mano en cada
+   componente y pasan a leerse de cuatro variables. La pagina las define
+   en claro; los pocos bloques que siguen en oscuro las redefinen dentro
+   de .sec--oscuro y todo lo de adentro se adapta solo.
+   ===================================================================== */
+:root{
+  --sup:#FFFFFF;                    /* tarjeta sobre el hueso */
+  --sup-2:#FAF6EF;                  /* superficie apenas levantada */
+  --texto:var(--carbon);
+  --texto-2:#55534E;                /* gris con sesgo calido, no neutro */
+  --borde:rgba(20,22,26,.13);
+  --borde-2:rgba(20,22,26,.24);
+}
+.sec--oscuro,.ftr,.hero{
+  --sup:var(--grafito);
+  --sup-2:var(--grafito-2);
+  --texto:var(--hueso);
+  --texto-2:var(--piedra);
+  --borde:var(--linea);
+  --borde-2:var(--linea-2);
+}
+
+body{background:var(--hueso);color:var(--texto)}
+h1,h2,h3,h4{color:var(--texto)}
+p,li{color:var(--texto-2)}
+strong{color:var(--texto)}
+.sec--oscuro{background:var(--carbon);color:var(--texto)}
+
+/* el hueso ya es el fondo de la pagina: la clase queda como no-op para
+   no romper las paginas que todavia la usan */
+.sec--claro{background:transparent;color:var(--texto)}
+.sec--claro h2,.sec--claro h3,.sec--claro h4,.sec--claro strong,
+.sec--claro .faq__q{color:var(--texto)}
+.sec--claro p,.sec--claro li,.sec--claro .faq__a{color:var(--texto-2)}
+.sec--claro article,.sec--claro .faq__i,.sec--claro .cmp{background:var(--sup);border-color:var(--borde)}
+
+/* ---------- componentes, ahora en variables ---------- */
+.pc{background:var(--sup);border-color:var(--borde)}
+.pc:hover{border-color:var(--naranja)}
+.pc__im{background:var(--sup-2)}
+.pc h3 a,.price{color:var(--texto)}
+.pc__cat,.pc__sp div{color:var(--texto-2)}
+.pc__sp{border-bottom-color:var(--borde)}
+.pc__sp b{color:var(--texto)}
+
+.feat article{background:var(--sup);border-color:var(--borde)}
+.feat article:hover{border-color:var(--borde-2)}
+
+.razones{background:var(--borde);border-block-color:var(--borde)}
+.razones article{background:var(--hueso)}
+
+.quiz button{background:var(--sup);border-color:var(--borde)}
+.quiz button:hover{border-color:var(--naranja)}
+.quiz b{color:var(--texto)}
+.quiz span{color:var(--texto-2)}
+.quiz-res{background:var(--sup);border-color:var(--naranja-lo)}
+.quiz-res b{color:var(--naranja-lo)}
+.quiz-res p{color:var(--texto-2)}
+
+.calc{background:var(--sup);border-color:var(--borde)}
+.calc__out{border-top-color:var(--borde)}
+.calc__out div span{color:var(--texto-2)}
+.field label{color:var(--texto-2)}
+.field input,.field select,.field textarea{background:var(--hueso);border-color:var(--borde-2);color:var(--texto)}
+select.sel{background:var(--sup);border-color:var(--borde-2);color:var(--texto)}
+.count,.filters__lbl{color:var(--texto-2)}
+.filters{border-bottom-color:var(--borde)}
+.chip{border-color:var(--borde-2);color:var(--texto-2)}
+.chip:hover{color:var(--texto);border-color:var(--texto-2)}
+
+.faq__i{border-bottom-color:var(--borde)}
+.faq__q{color:var(--texto)}
+.faq__q .pm{border-color:var(--borde-2)}
+.faq__a p{color:var(--texto-2)}
+
+.form{background:var(--sup);border-color:var(--borde)}
+.info-c{background:var(--sup);border-color:var(--borde)}
+.info-c:hover{border-color:var(--borde-2)}
+.info-c .k{color:var(--texto-2)}
+.info-c .v{color:var(--texto)}
+
+.keyspecs{background:var(--borde);border-color:var(--borde)}
+.keyspecs div{background:var(--sup)}
+.keyspecs b{color:var(--texto)}
+.keyspecs span{color:var(--texto-2)}
+.trust div{background:var(--sup);border-color:var(--borde)}
+.trust b{color:var(--texto)}
+.trust span{color:var(--texto-2)}
+.gal__main{background:var(--sup-2);border-color:var(--borde)}
+.gal__thumbs button{background:var(--sup-2);border-color:var(--borde)}
+.pd__price{border-block-color:var(--borde)}
+.pd__price .note{color:var(--texto-2)}
+.spec-table tr{border-bottom-color:var(--borde)}
+.spec-table td:first-child{color:var(--texto-2)}
+.spec-table td:last-child{color:var(--texto)}
+.cmp{border-color:var(--borde)}
+.cmp th,.cmp td{border-bottom-color:var(--borde)}
+.cmp thead th{background:var(--carbon);color:var(--hueso)}
+.cmp thead th:first-child{color:var(--piedra)}
+.cmp td{color:var(--texto)}
+.cmp td:first-child{color:var(--texto-2)}
+.cmp .hl{color:var(--naranja-lo)}
+
+.phero{border-bottom-color:var(--borde)}
+.crumbs{color:var(--texto-2)}
+.sec-head p,.prose p,.ticks li{color:var(--texto-2)}
+.btn--g{border-color:var(--borde-2);color:var(--texto)}
+.btn--g:hover{background:rgba(20,22,26,.06);border-color:var(--texto-2)}
+.revision{color:var(--texto)}
+
+/* Verde Monte: sigue siendo un bloque propio y ya traia sus reglas.
+   Solo se reencuadran las variables para que lo de adentro las herede. */
+.sec--rural{
+  --sup:rgba(20,22,26,.24);
+  --sup-2:rgba(20,22,26,.30);
+  --texto:var(--hueso);
+  --texto-2:rgba(245,243,239,.76);
+  --borde:rgba(245,243,239,.16);
+  --borde-2:rgba(245,243,239,.26);
+}
+
+/* ---------- bloques que siguen en grafito ----------
+   El hero y su franja de datos son una sola pieza oscura arriba de todo,
+   y el pie cierra. Entre medio la pagina respira en hueso. */
+.tira{background:var(--carbon);border-block-color:var(--linea)}
+.franja{background:var(--carbon);border-bottom:0}
+.franja span{color:var(--piedra)}
+
+/* la linea de modelos apoya sobre las fotos, que ya son oscuras */
+.mods .g{background:var(--borde)}
+
+/* ---------- barra superior ----------
+   Sobre el hueso la barra ya no necesita ser una placa aparte. */
+.hdr{background:transparent;border-bottom-color:transparent}
+.hdr.solid{background:rgba(244,240,232,.94);backdrop-filter:blur(12px);
+  border-bottom-color:var(--borde)}
+.nav a{color:var(--carbon)}
+.ftr .brand{background:transparent;padding:0;margin-bottom:18px}
+
+/* ---------- cierre ----------
+   El cierre editorial pasa a hueso y el naranja queda solo en el boton,
+   que es el 10% que pide el informe. */
+.fin{border-top-color:var(--borde)}
+.fin .btn--g{border-color:var(--borde-2)}
+
+/* La barra de progreso sobre fondo claro necesita su propia pista */
+.prog{background:var(--naranja)}
+
+/* El pie sigue en grafito, asi que ahi va el trazado en blanco en vez de
+   la placa clara que necesitaba el logo gris del cliente. */
+.ftr .brand .lg-color{display:none}
+.ftr .brand .lg-blanco{display:block}
