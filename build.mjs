@@ -81,6 +81,7 @@ const P = [
     autNum: 65, carga: "150 kg", recarga: "4 a 6 horas", peso: "40 kg aprox.",
     img: "v20-negra", gal: ["v20-negra", "v20-azul", "v20-rosa", "v20-perfil"],
     uso: "Recorridos cortos, ir y venir del pueblo o del casco, hasta 25 km por día", rec: "Entre casa y pueblo",
+    limites: "Es la de menor autonomía de la línea. Si hacés más de 25 km por día, o andás casi siempre por tierra y con peso, conviene mirar la V40 o la V29 Pro: esta te va a dejar sin margen.",
     destacado: true,
     extras: ["Panel digital a color", "Arranque por NFC", "Alarma integrada", "Frenos a disco adelante y atrás", "Llantas fat Kenda 20\"", "Amortiguación delantera"],
   },
@@ -94,6 +95,7 @@ const P = [
     autNum: 110, carga: "150 kg", recarga: "4 a 6 horas", peso: "45 kg aprox.",
     img: "v29-negra", gal: ["v29-negra", "v29-lateral", "v29-detalle"],
     uso: "Recorrer el campo de punta a punta, todo el día", rec: "Jornadas largas",
+    limites: "La doble batería suma autonomía y también peso: son unos 45 kg. Si la vas a levantar, subirla a una camioneta o guardarla en un lugar chico, vení a verla en persona antes de decidir. Y cargar las dos baterías lleva más tiempo que cargar una.",
     destacado: true,
     extras: ["Dos baterías intercambiables", "Panel digital", "Arranque por NFC", "Portaequipaje reforzado", "Frenos a disco", "Amortiguación delantera"],
   },
@@ -107,6 +109,7 @@ const P = [
     autNum: 75, carga: "150 kg", recarga: "5 a 6 horas", peso: "47,7 kg",
     img: "v40-negra", gal: ["v40-negra", "v40-camo", "v8-negra", "v8-frente"],
     uso: "Uso mixto entre el pueblo y el campo", rec: "Campo y caminos de tierra",
+    limites: "Es la más pesada de las cuatro: 47,7 kg declarados. Está pensada para rendir parejo en los dos terrenos, así que no es ni la de más autonomía ni la de más potencia. Si tu uso se inclina claramente para un lado, hay un modelo mejor.",
     destacado: false,
     extras: ["Batería de 18,2Ah", "Señalización LED completa", "Panel digital", "Arranque por NFC", "Frenos a disco", "Llantas fat Kenda"],
   },
@@ -124,6 +127,7 @@ const P = [
     autNum: 75, carga: "138 kg", recarga: "5 a 6 horas", peso: "45 kg aprox.",
     img: "s20-blanca", gal: ["s20-blanca", "v8-bordo", "v20-lateral", "v8-negra"],
     uso: "Subidas exigentes y carga", rec: "Pendientes y carga",
+    limites: "Dos cosas para tener en cuenta. La ficha técnica está en confirmación con el fabricante, así que todavía no podemos darte la potencia como dato firme. Y la carga máxima declarada es de 138 kg, menor que los 150 kg de los otros tres modelos: si el peso total es tu prioridad, conviene revisarlo con nosotros.",
     destacado: true,
     extras: ["Panel digital", "Arranque por NFC", "Frenos a disco", "Suspensión reforzada", "Llantas fat Kenda"],
   },
@@ -747,6 +751,13 @@ ${p.revision ? `
           <div class="stock" style="margin-top:10px"><i></i>Disponible para probar en el local</div>
         </div>
 
+        <p class="politicas">
+          Antes de decidir:
+          <a href="/servicio">garantía y service</a> ·
+          <a href="/envios">envíos y devoluciones</a> ·
+          <a href="/guias-como-elegir">cómo elegir según tu recorrido</a>
+        </p>
+
         <div class="pd__acts">
           <a class="btn btn--p btn--lg btn--block" href="/test-ride?m=${p.slug}">Reservar test ride sin cargo</a>
           <div class="row">
@@ -784,8 +795,21 @@ ${p.revision ? `
           <tr><td>Llantas</td><td>Fat 20" Kenda</td></tr>
           <tr><td>Arranque</td><td>NFC</td></tr>
         </table>
+        <p class="cond">
+          ${ico(I.shield)}
+          <span><b>Cómo leer la autonomía.</b> Los ${p.aut} los publica el proveedor y se miden
+          en condiciones favorables: asfalto parejo, sin viento, con una persona de peso promedio
+          y sin carga extra. En tierra, con peso o en pendiente rinde menos.
+          <a href="/guias-como-elegir#terreno">Acá explicamos cuánto menos y por qué</a>, y en
+          el <a href="/#calc">recomendador</a> podés hacer la cuenta con tu recorrido.</span>
+        </p>
       </div>
       <div class="rv d1">
+        <span class="kick">Para qué no es</span>
+        <h2 class="h2" style="margin:14px 0 16px">Dónde esta MC no es la mejor opción</h2>
+        <p style="margin-bottom:14px">${p.limites}</p>
+        <p style="margin-bottom:28px"><a class="btn btn--g btn--sm" href="/productos">Comparar contra los otros ${P.length - 1} modelos</a></p>
+
         <span class="kick">Equipamiento</span>
         <h2 class="h2" style="margin:14px 0 20px">Viene con todo</h2>
         <ul class="ticks">
