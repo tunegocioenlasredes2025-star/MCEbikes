@@ -712,7 +712,11 @@ p,li,.lead,.prose{line-height:1.6}
    muestra, y el dato comercial (recorrido y precio) va encima de la foto. */
 .mods h2{font-size:clamp(32px,5vw,72px);margin-top:16px}
 .mods .g{display:grid;grid-template-columns:repeat(2,1fr);gap:2px;margin-top:clamp(28px,4vw,44px)}
-.m{position:relative;aspect-ratio:1/.78;overflow:hidden;background:var(--grafito);display:block}
+/* El alto va al ratio exacto de las fotos del proveedor, 4:3. Con 1/.78 la
+   caja quedaba mas alta que la imagen y object-fit recortaba los costados:
+   en un packshot donde la bici ocupa casi todo el cuadro, eso se comia la
+   punta del manubrio. */
+.m{position:relative;aspect-ratio:4/3;overflow:hidden;background:var(--grafito);display:block}
 .m img{width:100%;height:100%;object-fit:cover;opacity:.6;transition:.55s var(--ease)}
 .m:hover img{opacity:.86;transform:scale(1.035)}
 .m .t{position:absolute;left:clamp(18px,2.6vw,32px);right:clamp(18px,2.6vw,32px);
@@ -1131,7 +1135,15 @@ a.guia-card:hover{border-color:var(--naranja);transform:translateY(-3px)}
   line-height:1.08}
 .guia__cuerpo h2:first-child{margin-top:0}
 .guia__cuerpo h3{font-size:20px;margin:26px 0 8px}
-.guia__cuerpo a{color:var(--naranja-lo);text-decoration:underline;text-underline-offset:3px}
+/* Los enlaces del cuerpo de la guia van subrayados y en terracota, pero la
+   regla alcanzaba tambien a los botones del cierre: el texto del boton salia
+   naranja oscuro subrayado sobre el naranja del fondo, ilegible. Se acota a
+   los enlaces de texto. */
+.guia__cuerpo a:not(.btn){color:var(--naranja-lo);text-decoration:underline;text-underline-offset:3px}
+.guia__cuerpo .btn{text-decoration:none}
+.guia__cuerpo .btn--p{color:#141414}
+.guia__cuerpo .btn--g{color:var(--texto)}
+.guia__cuerpo .btn--wa{color:#06280f}
 .guia__meta{font-family:var(--c);font-size:13px;color:var(--texto-2);letter-spacing:.02em}
 .phero .guia__meta{margin-top:14px}
 
