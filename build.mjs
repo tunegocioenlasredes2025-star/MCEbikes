@@ -425,9 +425,9 @@ const cap = (n) => `<i>${n} / 06</i>&nbsp;&nbsp;·&nbsp;&nbsp;`;
 
 const home = `
 <section class="hero">
-  <div class="hero__bg"><img src="assets/escenas/ciclista-campo.webp"
-    srcset="assets/escenas/ciclista-campo-sm.webp 1000w, assets/escenas/ciclista-campo-md.webp 1280w, assets/escenas/ciclista-campo.webp 1600w" sizes="100vw"
-    alt="Chico de espaldas andando una fat e-bike MC por un camino de tierra al atardecer" fetchpriority="high" width="1600" height="1067"></div>
+  <div class="hero__bg"><img src="assets/escenas/llegada.webp"
+    srcset="assets/escenas/llegada-sm.webp 900w, assets/escenas/llegada-md.webp 1200w, assets/escenas/llegada.webp 1448w" sizes="100vw"
+    alt="Persona con casco llegando en una fat e-bike por un camino de tierra a la entrada de una casa de campo" fetchpriority="high" width="1448" height="1086"></div>
   <span class="vert">Tu mundo se mueve con vos</span>
   <div class="wrap">
     <h1 class="h1">Tu mundo se mueve con vos</h1>
@@ -458,8 +458,8 @@ const home = `
       <a class="btn btn--g" href="/productos">Ver los ${P.length} modelos ${ico(I.arrow, 2.2)}</a>
     </div>
     <figure class="marco rv">
-      <img src="assets/escenas/camino-nube.webp" alt="Camino de tierra en el campo argentino" loading="lazy" width="1200" height="930">
-      <figcaption>Camino de tierra</figcaption>
+      <img src="assets/escenas/calle-pueblo.webp" alt="Adolescente con casco andando una fat e-bike por una calle arbolada de pueblo" loading="lazy" width="1200" height="900">
+      <figcaption>Entre casa y pueblo, todos los días</figcaption>
     </figure>
   </div>
 </section>
@@ -523,13 +523,13 @@ ${P.map(mtile).join("\n")}
       <h2 class="h2">El campo<br>no es un paisaje.<br>Es tu recorrido.</h2>
       <p>De la casa al galpón, del galpón al pueblo y del pueblo a casa. Tantas veces por día como haga falta. Por eso no vendemos la más potente: vendemos la que llega y vuelve.</p>
       <div class="mini rv">
-        <img src="assets/escenas/molino.webp" alt="Molino de campo" loading="lazy" width="600" height="444">
-        <img src="assets/escenas/alambrado.webp" alt="Campo cosechado y alambrado al atardecer" loading="lazy" width="600" height="444">
+        <img src="assets/escenas/cubierta.webp" alt="Detalle de la cubierta fat con polvo del camino" loading="lazy" width="900" height="675">
+        <img src="assets/escenas/portaequipaje.webp" alt="Portaequipaje trasero con un bolso de lona atado" loading="lazy" width="900" height="675">
       </div>
     </div>
     <figure class="marco rv">
-      <img src="assets/escenas/galpon.webp" alt="Galpón de ladrillo junto a un molino de campo" loading="lazy" width="1200" height="930">
-      <figcaption>El galpón, el molino y el camino</figcaption>
+      <img src="assets/escenas/galpon-tarde.webp" alt="Fat e-bike MC apoyada contra un galpón al atardecer, con la campera y el mate al lado" loading="lazy" width="1200" height="900">
+      <figcaption>Donde termina el día</figcaption>
     </figure>
   </div>
 </section>
@@ -575,8 +575,8 @@ ${P.map(mtile).join("\n")}
         <p style="font-size:13px;margin-top:12px;color:rgba(245,243,239,.62)">La autonomía que ves acá es una estimación sobre la cifra publicada por el proveedor, ajustada por terreno y carga, y con un margen del 30 % para que no vuelvas justo. No reemplaza la prueba: el número real lo vas a ver el día que la manejes vos. El ahorro compara 22 días hábiles contra el costo de combustible de un vehículo de referencia.</p>
       </div>
       <figure class="marco rv d1">
-        <img src="assets/escenas/camino-recto.webp" alt="Camino recto entre campos sembrados" loading="lazy" width="1200" height="930">
-        <figcaption>El recorrido de todos los días</figcaption>
+        <img src="assets/escenas/freno.webp" alt="Detalle del freno a disco delantero, con polvo del camino" loading="lazy" width="900" height="675">
+        <figcaption>Lo que se revisa antes de salir</figcaption>
       </figure>
     </div>
   </div>
@@ -591,8 +591,8 @@ ${P.map(mtile).join("\n")}
       <a class="btn btn--p btn--lg" href="/test-ride">Reservar mi test ride ${ico(I.arrow, 2.2)}</a>
     </div>
     <figure class="marco rv">
-      <img src="assets/escenas/dos-chicos.webp" alt="Dos chicos con una bicicleta en un camino de campo" loading="lazy" width="1200" height="930">
-      <figcaption>Probala antes de decidir</figcaption>
+      <img src="assets/escenas/eligiendo.webp" alt="Un adulto y un joven mirando juntos dos fat e-bikes en el patio de una casa de campo" loading="lazy" width="1200" height="900">
+      <figcaption>La decisión se toma entre los dos</figcaption>
     </figure>
   </div>
 </section>
@@ -626,7 +626,7 @@ writeFileSync(new URL("./index.html", import.meta.url), page({
   ld: homeLD,
   /* El preload declara el mismo srcset que el <img>: sin imagesrcset el
      navegador se baja tambien la version de 1600 px en un telefono. */
-  preload: `\n<link rel="preload" as="image" href="assets/escenas/ciclista-campo.webp" imagesrcset="assets/escenas/ciclista-campo-sm.webp 1000w, assets/escenas/ciclista-campo-md.webp 1280w, assets/escenas/ciclista-campo.webp 1600w" imagesizes="100vw" fetchpriority="high">`,
+  preload: `\n<link rel="preload" as="image" href="assets/escenas/llegada.webp" imagesrcset="assets/escenas/llegada-sm.webp 900w, assets/escenas/llegada-md.webp 1200w, assets/escenas/llegada.webp 1448w" imagesizes="100vw" fetchpriority="high">`,
   main: home,
 }));
 console.log("✓ index.html");

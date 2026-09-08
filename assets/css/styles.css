@@ -906,14 +906,21 @@ body[data-pagina="index"] .hdr:not(.solid) .btn--p:hover{background:var(--hueso)
   --borde:rgba(20,22,26,.13);
   --borde-2:rgba(20,22,26,.24);
 }
-.sec--oscuro,.ftr,.hero{
+/* Todo bloque que apoya texto sobre una foto oscura necesita el juego de
+   variables en oscuro, aunque la pagina alrededor sea clara: el hero, las
+   fichas fotograficas de la linea de modelos, la franja con foto de fondo
+   y el pie. Sin esto el nombre y el precio de cada modelo salen en carbon
+   sobre la foto en carbon. */
+.sec--oscuro,.ftr,.hero,.m,.band{
   --sup:var(--grafito);
   --sup-2:var(--grafito-2);
   --texto:var(--hueso);
-  --texto-2:var(--piedra);
+  --texto-2:rgba(245,243,239,.78);
   --borde:var(--linea);
   --borde-2:var(--linea-2);
 }
+.m .t,.m h3,.m .pr,.band h2,.band p{color:var(--texto)}
+.band p{color:var(--texto-2)}
 
 body{background:var(--hueso);color:var(--texto)}
 h1,h2,h3,h4{color:var(--texto)}
