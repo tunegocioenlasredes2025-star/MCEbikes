@@ -72,52 +72,79 @@ const TAGLINE = "Tu mundo se mueve con vos";
    ===================================================================== */
 const P = [
   {
-    slug: "v20-pro", name: "SW V20 Pro", ord: 1,
+    slug: "v20-pro",
+    tituloSeo: "Fat e-bike para recorridos cortos",
+    etiqueta: "Fat e-bike · Recorridos cotidianos",
+    subtitulo: "Para ir, volver y seguir con tu día",
+    aeo: "Es un modelo para evaluar cuando la persona necesita hacer recorridos cotidianos y relativamente cortos entre casa, pueblo, casco u otros puntos cercanos. La elección final depende de distancia, terreno, carga, autonomía disponible y condiciones de uso.",
+    paraQuien: "Tiene sentido compararla si el recorrido habitual es corto, si existe un lugar seguro para guardarla y cargarla, y si la carga, la posición y el tamaño resultan adecuados para quien la va a usar.",
+    faqs: [["¿La SW V20 Pro sirve para ir y volver del pueblo?", "Es el primer modelo a evaluar para recorridos cortos entre casa y pueblo. La distancia debe calcularse de ida y vuelta, dejando margen para terreno, viento, carga y cambios de recorrido."], ["¿Cuántos kilómetros hace?", "Publicamos una autonomía de 50 a 65 km según la tabla del modelo. El resultado real depende de las condiciones de uso: en tierra, con peso o en pendiente rinde menos."], ["¿Qué carga soporta?", "La carga máxima publicada es de 150 kg. Ese valor incluye a quien la maneja más lo que lleve encima."], ["¿Puedo probarla?", "Sí, con test ride sin cargo en Castelar, sujeto a disponibilidad. Si la va a usar un menor, la reserva y las reglas se coordinan con un adulto responsable."]], name: "SW V20 Pro", ord: 1,
     cat: "urbana destacada",
     tagline: "La más elegida",
-    lead: "Tu punto de partida perfecto: potencia real para moverte todos los días, con la autonomía justa para recorrer tu territorio sin pensar en la batería.",
+    lead: "La SW V20 Pro es el primer modelo a evaluar cuando el recorrido principal conecta casa, pueblo, casco, escuela, club u otros puntos cercanos. Compará la distancia real, el terreno y la carga antes de decidir.",
     price: 1890000, old: null, badge: "Más elegida",
     motor: "1000W", bat: "48V / 15,6Ah", aut: "50 a 65 km", vel: "32 km/h",
     autNum: 65, carga: "150 kg", recarga: "4 a 6 horas", peso: "40 kg aprox.",
     img: "v20-negra", gal: ["v20-negra", "v20-azul", "v20-rosa", "v20-perfil"],
-    uso: "Recorridos cortos, ir y venir del pueblo o del casco, hasta 25 km por día", rec: "Entre casa y pueblo",
-    limites: "Es la de menor autonomía de la línea. Si hacés más de 25 km por día, o andás casi siempre por tierra y con peso, conviene mirar la V40 o la V29 Pro: esta te va a dejar sin margen.",
+    uso: "Recorridos cortos, ir y venir del pueblo o del casco, hasta 25 km por día", rec: "Entre casa, pueblo y casco",
+    datos: "1000W · hasta 65 km · 32 km/h",
+    limites: "Revisá la distancia de ida y vuelta, la reserva que necesitás, el viento, las pendientes, el estado del camino, el peso, la carga, el lugar de guardado y el acceso a recarga. Para un adolescente, la compra y las condiciones de uso deben evaluarse con los adultos responsables.",
     destacado: true,
     extras: ["Panel digital a color", "Arranque por NFC", "Alarma integrada", "Frenos a disco adelante y atrás", "Llantas fat Kenda 20\"", "Amortiguación delantera"],
   },
   {
-    slug: "v29-pro", name: "SW V29 Pro", ord: 2,
+    slug: "v29-pro",
+    tituloSeo: "Fat e-bike de doble batería",
+    etiqueta: "Fat e-bike · Doble batería, doble territorio",
+    subtitulo: "Cuando un solo tanque se te queda corto",
+    aeo: "Es un modelo para evaluar cuando se necesitan jornadas largas o recorridos extensos de campo y la doble batería puede aportar más margen entre cargas. La autonomía real depende del peso, el terreno, el viento, la asistencia, el acelerador, la carga y el estado de las baterías.",
+    paraQuien: "Tiene sentido compararla si el recorrido es largo, si se necesita planificar una jornada con más margen y si la familia puede guardar, cargar y mantener correctamente las baterías.",
+    faqs: [["¿Cuánto rinde de verdad la doble batería?", "La autonomía publicada es de hasta 110 km sumando las dos baterías, medida en condiciones favorables. En tierra, con peso o con viento en contra rinde menos: por eso conviene calcular el recorrido con margen."], ["¿Se pueden cargar las dos juntas?", "Consultanos antes de comprar: el tiempo total de recarga y el procedimiento dependen del cargador que viene con la unidad."], ["¿Qué pasa si una batería pierde autonomía?", "Escribinos y lo diagnosticamos en el taller. El reemplazo y lo que cubre la garantía dependen del documento vigente, que te mostramos antes de la compra."], ["¿Es muy pesada?", "El peso aproximado publicado es de 45 kg. Es la más pesada de la línea junto con la V40, así que conviene probarla y ver dónde la vas a guardar."]], name: "SW V29 Pro", ord: 2,
     cat: "larga-distancia destacada",
     tagline: "Doble batería, doble territorio",
-    lead: "Cuando un solo tanque se te queda corto. Con doble batería y hasta 110 km de autonomía, tu MC te acompaña en las jornadas más largas, sin volver a cargar en el camino.",
+    lead: "Con doble batería y hasta 110 km de autonomía publicada, la SW V29 Pro está pensada para evaluar cuando el recorrido de campo es largo y la posibilidad de volver a cargar durante el día es limitada. El resultado depende de las condiciones reales.",
     price: 2340000, old: null, badge: "Doble batería",
     motor: "1000W", bat: "48V / 15,6Ah ×2", aut: "hasta 110 km", vel: "32 km/h",
     autNum: 110, carga: "150 kg", recarga: "4 a 6 horas", peso: "45 kg aprox.",
     img: "v29-negra", gal: ["v29-negra", "v29-lateral", "v29-detalle"],
-    uso: "Recorrer el campo de punta a punta, todo el día", rec: "Jornadas largas",
-    limites: "La doble batería suma autonomía y también peso: son unos 45 kg. Si la vas a levantar, subirla a una camioneta o guardarla en un lugar chico, vení a verla en persona antes de decidir. Y cargar las dos baterías lleva más tiempo que cargar una.",
+    uso: "Recorrer el campo de punta a punta, todo el día", rec: "Campo y pueblo durante el día",
+    datos: "1000W · hasta 110 km · doble batería",
+    limites: "La doble batería puede aumentar el peso, el precio y la complejidad de la decisión. Consultá cómo se cargan, cómo se guardan, qué ocurre si una batería pierde autonomía, qué cubre la garantía y cómo se consigue un reemplazo. Son unos 45 kg: si la vas a levantar o guardar en un lugar chico, vení a verla antes.",
     destacado: true,
     extras: ["Dos baterías intercambiables", "Panel digital", "Arranque por NFC", "Portaequipaje reforzado", "Frenos a disco", "Amortiguación delantera"],
   },
   {
-    slug: "v40", name: "SW V40", ord: 3,
+    slug: "v40",
+    tituloSeo: "Fat e-bike para campo y pueblo",
+    etiqueta: "Fat e-bike · Uso mixto",
+    subtitulo: "Un recorrido que combina pueblo y campo",
+    aeo: "Es un modelo para evaluar cuando el uso combina pueblo y campo. La elección final depende de kilómetros diarios, terreno, viento, carga, recarga, guardado y service.",
+    paraQuien: "Tiene sentido compararla si la persona necesita una bicicleta para un uso mixto y quiere equilibrar autonomía, batería, precio y recorrido.",
+    faqs: [["¿Sirve igual en asfalto y en tierra?", "Está pensada para eso. La batería de 18,2Ah y la señalización LED completa la hacen cómoda en los dos, pero en tierra o barro la autonomía baja respecto de la cifra publicada."], ["¿Cuántos kilómetros hace?", "La autonomía publicada es de hasta 75 km en condiciones favorables. En uso mixto real conviene calcular con margen."], ["¿Es muy pesada para el uso diario?", "Son 47,7 kg declarados, la más pesada de la línea. Para andar no se siente, pero sí importa dónde la guardás y si tenés que levantarla."], ["¿Puedo probarla antes de decidir?", "Sí, con test ride sin cargo en Castelar. Es el modelo que más conviene probar, justamente porque es el del medio."]], name: "SW V40", ord: 3,
     cat: "urbana",
     tagline: "Uso mixto",
-    lead: "Para el que se mueve todos los días entre el pueblo y el campo, y necesita una MC que rinda parejo en los dos terrenos.",
+    lead: "La SW V40 es el modelo para evaluar cuando el día mezcla caminos del pueblo, calles, recorridos rurales y trayectos de distancia intermedia. Compará el recorrido real y consultá si el modelo tiene el margen que necesitás.",
     price: 2150000, old: null, badge: null,
     motor: "1000W", bat: "48V / 18,2Ah", aut: "hasta 75 km", vel: "32 km/h",
     autNum: 75, carga: "150 kg", recarga: "5 a 6 horas", peso: "47,7 kg",
     img: "v40-negra", gal: ["v40-negra", "v40-camo", "v8-negra", "v8-frente"],
-    uso: "Uso mixto entre el pueblo y el campo", rec: "Campo y caminos de tierra",
+    uso: "Uso mixto entre el pueblo y el campo", rec: "Uso mixto",
+    datos: "1000W · hasta 75 km · 32 km/h",
     limites: "Es la más pesada de las cuatro: 47,7 kg declarados. Está pensada para rendir parejo en los dos terrenos, así que no es ni la de más autonomía ni la de más potencia. Si tu uso se inclina claramente para un lado, hay un modelo mejor.",
     destacado: false,
     extras: ["Batería de 18,2Ah", "Señalización LED completa", "Panel digital", "Arranque por NFC", "Frenos a disco", "Llantas fat Kenda"],
   },
   {
-    slug: "s20-pro", name: "SW S20 Pro", ord: 4,
+    slug: "s20-pro",
+    tituloSeo: "Fat e-bike para pendientes y carga",
+    etiqueta: "Fat e-bike · Pendientes y carga",
+    subtitulo: "Potencia para evaluar pendientes y carga",
+    aeo: "Es un modelo para evaluar cuando la prioridad es la potencia y el recorrido incluye pendientes o carga. Hay que respetar la carga máxima, las condiciones del terreno, la autonomía disponible y las recomendaciones técnicas.",
+    paraQuien: "Tiene sentido compararla si hay pendientes, carga o una necesidad específica de potencia. No debe elegirse solamente porque tiene más watts: hay que comprobar si la carga, la autonomía, el tamaño y el uso son adecuados.",
+    faqs: [["¿Por qué la potencia dice «a confirmar»?", "Porque la ficha que nos pasó el proveedor y la que publica el importador no coinciden. Hasta que llegue la documentación del fabricante preferimos no darte una cifra que después cambie. Consultanos y te pasamos lo que esté verificado."], ["¿Cuánto peso aguanta?", "La carga máxima publicada es de 138 kg, menor que los 150 kg de los otros tres modelos. Si el peso total es tu prioridad, conviene revisarlo con nosotros antes."], ["¿Sirve para subidas fuertes?", "Está pensada para eso, pero la pendiente que puede con carga depende del peso total y del estado del camino. Lo mejor es probarla en condiciones parecidas a las tuyas."], ["¿Conviene esperar a que se confirme la ficha?", "Depende de tu apuro. Podés probarla igual y decidir después: el test ride es sin cargo y no te compromete a nada."]], name: "SW S20 Pro", ord: 4,
     cat: "potencia",
     tagline: "Pendientes y carga",
-    lead: "Para el que necesita fuerza en subida y llevando peso. La potencia exacta de esta unidad la estamos confirmando con el fabricante: cuando vengas te mostramos la ficha y la probás vos mismo antes de decidir.",
+    lead: "La SW S20 Pro es el modelo para considerar cuando la prioridad es la potencia y el recorrido incluye pendientes o carga. Antes de elegir, revisá su límite de carga, autonomía, terreno y condiciones de uso. La potencia exacta de esta unidad la estamos confirmando con el fabricante.",
     price: 2590000, old: null, badge: null,
     /* Ficha en revision: el dato del proveedor no coincide con el que
        comunica el importador. Hasta que llegue la documentacion, la
@@ -127,7 +154,8 @@ const P = [
     autNum: 75, carga: "138 kg", recarga: "5 a 6 horas", peso: "45 kg aprox.",
     img: "s20-blanca", gal: ["s20-blanca", "v8-bordo", "v20-lateral", "v8-negra"],
     uso: "Subidas exigentes y carga", rec: "Pendientes y carga",
-    limites: "Dos cosas para tener en cuenta. La ficha técnica está en confirmación con el fabricante, así que todavía no podemos darte la potencia como dato firme. Y la carga máxima declarada es de 138 kg, menor que los 150 kg de los otros tres modelos: si el peso total es tu prioridad, conviene revisarlo con nosotros.",
+    datos: "Potencia a confirmar · hasta 75 km · 32 km/h",
+    limites: "La ficha pública informa una carga máxima de 138 kg, menor que la de los otros tres modelos del catálogo. Revisá el peso total, la carga, el tipo de camino, la autonomía necesaria y el lugar de guardado. Y tené en cuenta que la ficha técnica está en confirmación con el fabricante: consultanos antes de decidir. Para menores, las reglas de uso deben definirse con los adultos responsables.",
     destacado: true,
     extras: ["Panel digital", "Arranque por NFC", "Frenos a disco", "Suspensión reforzada", "Llantas fat Kenda"],
   },
@@ -401,9 +429,8 @@ const homeLD = JSON.stringify({
   "@graph": [negocioLD, { "@type": "WebSite", name: "MC Ebikes", url: SITE + "/", inLanguage: "es-AR" }],
 }, null, 1);
 
-/* Ficha de modelo fotografica: la direccion elegida muestra la maquina en
-   vez de encajonarla. El dato comercial (recorrido, precio y cuota) va
-   encima de la foto, que es lo que el visitante necesita para decidir. */
+/* Ficha de modelo fotografica. El dato comercial va encima de la foto, que es
+   lo que el visitante necesita para decidir. */
 const mtile = (p) => `
     <a class="m rv" href="/${p.slug}">
       <img src="assets/img/${p.img}-sm.webp" alt="MC Ebikes ${p.name}" loading="lazy" width="640" height="480">
@@ -412,29 +439,32 @@ const mtile = (p) => `
       <div class="t">
         <span class="uso">${p.rec}</span>
         <h3>${p.name}</h3>
-        <div class="sp">${p.motor} · ${p.aut} · ${p.vel}</div>
+        <div class="sp">${p.datos}</div>
         <div class="pr">${money(p.price)}</div>
         <div class="cuo">12 cuotas sin interés de ${money(Math.round(p.price / 12))}</div>
         <div class="stock"><i></i>Disponible para probar</div>
       </div>
     </a>`;
 
-/* Capitulo numerado: la lectura de la home avanza como un reportaje, y el
-   numero le dice al visitante cuanto falta. */
-const cap = (n) => `<i>${n} / 06</i>&nbsp;&nbsp;·&nbsp;&nbsp;`;
+/* Capitulo numerado: la lectura de la home avanza como un reportaje. */
+const cap = (n) => `<i>${n} / 08</i>&nbsp;&nbsp;·&nbsp;&nbsp;`;
 
 const home = `
 <section class="hero">
   <div class="hero__bg"><img src="assets/escenas/llegada.webp"
     srcset="assets/escenas/llegada-sm.webp 900w, assets/escenas/llegada-md.webp 1200w, assets/escenas/llegada.webp 1448w" sizes="100vw"
-    alt="Persona con casco llegando en una fat e-bike por un camino de tierra a la entrada de una casa de campo" fetchpriority="high" width="1448" height="1086"></div>
+    alt="Familia probando una fat e-bike MC Ebikes en un camino entre el campo y el pueblo" fetchpriority="high" width="1448" height="1086"></div>
   <span class="vert">Tu mundo se mueve con vos</span>
   <div class="wrap">
-    <h1 class="h1">Tu mundo se mueve con vos</h1>
-    <p class="hero__sub">El recorrido empieza a ser tuyo.</p>
+    <span class="kick">Para el campo argentino</span>
+    <h1 class="h1" style="margin-top:16px">Tu mundo se mueve con vos</h1>
+    <p class="hero__sub"><b>Fat e-bikes para ir, volver y seguir recorriendo.</b><br>
+    Tu casa, el pueblo, la escuela, el club, la chacra o el casco. MC Ebikes te acompaña con
+    potencia, autonomía y respaldo local para que elijas con tu familia la bicicleta que
+    realmente tiene sentido para tu territorio.</p>
     <div class="hero__cta">
-      <a class="btn btn--p btn--lg" href="/productos">Conocé los modelos ${ico(I.arrow, 2.2)}</a>
-      <a class="btn btn--g btn--lg" href="/test-ride">Probala antes de decidir</a>
+      <a class="btn btn--p btn--lg" href="/productos">Comparar modelos ${ico(I.arrow, 2.2)}</a>
+      <a class="btn btn--g btn--lg" href="/test-ride">Reservar test ride en Castelar</a>
     </div>
   </div>
   <span class="bajar"><i></i>Seguí bajando</span>
@@ -443,23 +473,26 @@ const home = `
 <div class="tira" aria-hidden="true"><div>${Array.from({ length: 8 }, () => `<span>${TAGLINE}</span><span>·</span>`).join("")}</div></div>
 
 <section class="franja"><div class="wrap">
-  <div><b data-num>1000W</b><span>Potencia</span></div>
-  <div><b data-num>110 km</b><span>Hasta, de autonomía</span></div>
-  <div><b data-num>32 km/h</b><span>De velocidad</span></div>
+  <div><b data-num>1000W</b><span>De potencia, según modelo</span></div>
+  <div><b data-num>110 km</b><span>Hasta, de autonomía publicada</span></div>
+  <div><b data-num>32 km/h</b><span>De velocidad máxima publicada</span></div>
   <div><b data-num>12</b><span>Cuotas sin interés</span></div>
 </div></section>
 
 <section class="sec cap">
   <div class="wrap">
     <div class="rv">
-      <span class="kick">${cap("01")}Tu primer vehículo propio</span>
-      <h2 class="h2">Autonomía real<br>para seguir tu ritmo</h2>
-      <p>La autonomía que necesitás para tu día a día, con hasta 110 kilómetros por carga completa. Un vehículo serio diseñado para seguir tu ritmo, optimizado para trayectos intensos en caminos exigentes y jornadas completas de actividad.</p>
-      <a class="btn btn--g" href="/productos">Ver los ${P.length} modelos ${ico(I.arrow, 2.2)}</a>
+      <span class="kick">${cap("01")}Para las familias</span>
+      <h2 class="h2">Una decisión importante se prueba, no se adivina</h2>
+      <p>La bicicleta la puede usar tu hijo o hija, pero la decisión se toma en familia. Antes de
+      comprar, revisen juntos la distancia habitual, el tipo de camino, el peso que debe soportar,
+      dónde se va a cargar, cómo se va a guardar y quién se va a ocupar del mantenimiento.</p>
+      <p>Vení a probarla, compará los modelos y consultá todo lo que necesites antes de decidir.</p>
+      <a class="btn btn--g" href="/test-ride">Ver cómo funciona el test ride ${ico(I.arrow, 2.2)}</a>
     </div>
     <figure class="marco rv">
-      <img src="assets/escenas/calle-pueblo.webp" alt="Adolescente con casco andando una fat e-bike por una calle arbolada de pueblo" loading="lazy" width="1200" height="900">
-      <figcaption>Entre casa y pueblo, todos los días</figcaption>
+      <img src="assets/escenas/eligiendo.webp" alt="Un adulto y un joven mirando juntos dos fat e-bikes en el patio de una casa de campo" loading="lazy" width="1200" height="900">
+      <figcaption>La decisión se toma entre los dos</figcaption>
     </figure>
   </div>
 </section>
@@ -468,51 +501,51 @@ const home = `
   <div class="wrap">
     <span class="kick rv" style="display:inline-flex;margin-bottom:clamp(22px,3vw,34px)">${cap("02")}Por qué una MC</span>
     <div class="razones">
-    <article class="rv"><i>01</i><h3>1000W de potencia real</h3><p>Arranca fuerte en subida y con carga, sin que tengas que pedalear un metro. Motor con torque real, hecho para trabajar y para explorar.</p></article>
-    <article class="rv d1"><i>02</i><h3>Hasta 110 km de autonomía</h3><p>Batería de litio extraíble que cargás en un enchufe común, en tu casa o en el galpón, por menos de $200 la carga completa.</p></article>
-    <article class="rv d2"><i>03</i><h3>Salís a andar hoy mismo</h3><p>Te la llevás y arrancás a recorrer tu propio territorio en el momento. Es legalmente una bicicleta eléctrica: tenés total libertad para moverte desde el primer día.</p></article>
-    <article class="rv d3"><i>04</i><h3>Service con cara visible</h3><p>Si tu MC necesita algo, la resolvemos nosotros mismos, con taller propio y stock de los repuestos que más se usan. Sabés quién te vendió y dónde encontrarlo.</p></article>
+      <article class="rv"><i>01</i><h3>Potencia para el territorio real</h3><p>La potencia no se elige solamente por el número. También importa el terreno, la pendiente, el viento, la carga, el tamaño de quien la usa y la distancia diaria. Te ayudamos a comparar el modelo con el recorrido real.</p></article>
+      <article class="rv d1"><i>02</i><h3>Autonomía para organizar el día</h3><p>La autonomía cambia según el modelo, el peso, el terreno, el viento, la presión de las cubiertas, la temperatura, la asistencia, el acelerador y la carga. Por eso no te mostramos solamente un número: te ayudamos a entender qué margen necesitás.</p></article>
+      <article class="rv d2"><i>03</i><h3>Prueba para decidir en familia</h3><p>El adolescente puede probar cómo se siente la bicicleta. Los padres pueden preguntar por autonomía, carga, guardado, mantenimiento, garantía, service y condiciones de uso. La compra se decide con toda la información.</p></article>
+      <article class="rv d3"><i>04</i><h3>Service con alguien visible</h3><p>Si la bicicleta necesita un ajuste, un repuesto o un diagnóstico, tenés un lugar donde consultar. El service lo hacemos nosotros, en Castelar, y sabés a quién recurrir.</p></article>
     </div>
-  </div>
-</section>
-
-<section class="sec mods" style="padding-top:clamp(56px,8vw,104px)">
-  <div class="wrap">
-    <span class="kick rv">${cap("03")}Modelos</span>
-    <h2 class="h2 rv">Cuatro máquinas,<br>potencia y batería a tu medida</h2>
-    <p class="rv" style="margin-top:16px;max-width:62ch">Misma base robusta en toda la línea: cubiertas fat, motor desde 1000W en adelante, frenos a disco y arranque por NFC. Te fijás cuántos kilómetros querés recorrer por salida y te llevás el modelo justo para eso.</p>
-    <div class="g">
-${P.map(mtile).join("\n")}
-    </div>
-    <div style="margin-top:26px" class="rv"><a class="btn btn--g" href="/productos">Comparar los ${P.length} modelos ${ico(I.arrow, 2.2)}</a></div>
   </div>
 </section>
 
 <section class="sec sec--claro">
   <div class="wrap">
     <div class="sec-head rv">
-      <span class="kick">${cap("04")}¿Cuál me conviene?</span>
-      <h2 class="h2">No empieces por la bicicleta.<br>Empezá por tu <em>recorrido</em>.</h2>
-      <p>En 5 segundos te decimos qué modelo tiene sentido para vos. Contanos cuántos kilómetros hacés, por qué camino y cuánto peso llevás: te decimos cuál sirve para vos, y también cuál no.</p>
+      <span class="kick">${cap("03")}Selección por recorrido</span>
+      <h2 class="h2">¿Cómo se va a mover tu familia?</h2>
+      <p>Elegí el recorrido principal y después compará el modelo recomendado con sus límites y condiciones.</p>
     </div>
     <div class="quiz rv">
-      <button data-rec="SW V20 Pro" data-why="Para recorridos cotidianos de ida y vuelta, la V20 Pro es la más equilibrada de la línea: 1000W y 50 a 65 km de autonomía publicada. Antes de decidir conviene medir tu recorrido real y dejar un margen." data-url="v20-pro.html">
-        ${ico(I.city)}<b>Entre casa y pueblo</b><span>Ir y venir del pueblo, la escuela, el club o los mandados</span>
+      <button data-rec="SW V20 Pro" data-why="Para recorridos cotidianos y distancias cortas, la V20 Pro es el primer modelo a evaluar: 1000W y de 50 a 65 km de autonomía publicada. La elección final depende de la distancia, el terreno, el peso y la carga que necesites." data-url="/v20-pro">
+        ${ico(I.city)}<b>Entre casa, pueblo y casco</b><span>Para recorridos cotidianos y distancias cortas</span>
       </button>
-      <button data-rec="SW V40" data-why="Para terreno exigente y movimiento dentro del campo, la V40 tiene batería de 18,2Ah y señalización LED completa. En tierra, barro o arena la autonomía real baja: conviene probarla en tu terreno antes de decidir." data-url="v40.html">
-        ${ico(I.bike)}<b>Campo y caminos de tierra</b><span>Terreno exigente y movimiento dentro de la propiedad</span>
+      <button data-rec="SW V29 Pro" data-why="Para quienes necesitan más autonomía por salida, la V29 Pro suma doble batería y hasta 110 km publicados. El resultado real depende de las condiciones de uso: no es una distancia garantizada para todos los recorridos." data-url="/v29-pro">
+        ${ico(I.box)}<b>Campo y pueblo durante el día</b><span>Para quienes necesitan más autonomía por salida</span>
       </button>
-      <button data-rec="SW V29 Pro" data-why="Para jornadas largas, la V29 Pro suma doble batería y la mayor autonomía publicada de la línea. Es la que más margen te deja por salida, pero también la más pesada: mirá dónde la vas a guardar y cargar." data-url="v29-pro.html">
-        ${ico(I.box)}<b>Jornadas largas</b><span>Salís temprano y volvés tarde, todo el día arriba</span>
+      <button data-rec="SW V40" data-why="Para combinar caminos del pueblo y recorridos rurales, la V40 tiene batería de 18,2Ah y señalización LED completa. En tierra, barro o arena la autonomía real baja: conviene probarla en tu terreno antes de decidir." data-url="/v40">
+        ${ico(I.bike)}<b>Uso mixto</b><span>Para combinar caminos del pueblo y recorridos rurales</span>
       </button>
-      <button data-rec="SW S20 Pro" data-why="Está pensada para subidas exigentes y para llevar peso. La potencia y la carga máxima están en revisión con el fabricante, así que conviene consultarnos y probarla antes de decidir por este modelo." data-url="s20-pro.html">
-        ${ico(I.bolt)}<b>Pendientes y carga</b><span>Subidas exigentes o llevar peso encima</span>
+      <button data-rec="SW S20 Pro" data-why="Para priorizar potencia dentro de los límites aprobados. La ficha técnica de este modelo está en confirmación con el fabricante y la carga máxima publicada es menor que la de los otros tres, así que conviene consultarnos y probarla antes de decidir." data-url="/s20-pro">
+        ${ico(I.bolt)}<b>Pendientes y carga</b><span>Para priorizar potencia dentro de los límites aprobados</span>
       </button>
-      <button data-rec="Te ayudamos a elegir" data-why="No hace falta que sepas el modelo. Contanos cuántos kilómetros hacés, por qué camino, cuánto peso llevás y dónde la vas a cargar, y te decimos cuál tiene sentido para vos y cuál no. Lo mejor es venir a Castelar y probarla." data-url="test-ride.html">
-        ${ico(I.user)}<b>Todavía no sé</b><span>Prefiero que me asesoren y probarla antes de elegir</span>
+      <button data-rec="Te ayudamos a comparar" data-why="No hace falta que sepas el modelo. Te hacemos preguntas sobre cuántos kilómetros hacés, por qué camino, cuánto peso llevás y dónde la vas a cargar, y comparamos con vos cuál tiene sentido y cuál no. Lo mejor es venir a Castelar y probarla." data-url="/test-ride">
+        ${ico(I.user)}<b>No sé cuál elegir</b><span>Te hacemos preguntas y te ayudamos a comparar</span>
       </button>
     </div>
     <div class="quiz-res"></div>
+  </div>
+</section>
+
+<section class="sec mods">
+  <div class="wrap">
+    <span class="kick rv">${cap("04")}Los cuatro modelos</span>
+    <h2 class="h2 rv">Cuatro modelos.<br>Un modelo para cada recorrido.</h2>
+    <p class="rv" style="margin-top:16px;max-width:62ch">Misma base robusta en toda la línea: cubiertas fat, frenos a disco y arranque por NFC. Elegí según el recorrido que hacés, no según el número más alto.</p>
+    <div class="g">
+${P.map(mtile).join("\n")}
+    </div>
+    <div style="margin-top:26px" class="rv"><a class="btn btn--g" href="/productos">Comparar los ${P.length} modelos ${ico(I.arrow, 2.2)}</a></div>
   </div>
 </section>
 
@@ -538,13 +571,13 @@ ${P.map(mtile).join("\n")}
   <div class="wrap">
     <div class="split">
       <div class="rv">
-        <span class="kick">Cuentas claras</span>
-        <h2 class="h2" style="margin:14px 0 14px">Descubrí cuánto <em>ganás</em><br>cada mes</h2>
-        <p style="margin-bottom:20px">Poné cuántos kilómetros recorrés por día. La cuenta incluye lo que gastás en luz para cargar tu MC.</p>
+        <span class="kick">${cap("06")}Ahorro y calculadora</span>
+        <h2 class="h2" style="margin:14px 0 14px">Calculá tu recorrido</h2>
+        <p style="margin-bottom:20px">Poné cuántos kilómetros necesitás recorrer por día y te mostramos una estimación para conversar. El resultado depende del precio de la energía, el vehículo de comparación, los días de uso, el mantenimiento y las condiciones reales.</p>
         <div class="calc" id="calc">
           <div class="calc__in">
             <div class="field">
-              <label for="km">Kilómetros por día, ida y vuelta</label>
+              <label for="km">Kilómetros aproximados por día</label>
               <input type="number" id="km" value="14" min="0" max="200" inputmode="numeric">
             </div>
             <div class="field">
@@ -567,12 +600,12 @@ ${P.map(mtile).join("\n")}
           </div>
           <div class="calc__rec" id="calc-rec"></div>
           <div class="calc__out">
-            <div><b id="o-ahorro">$0</b><span>Ganás por mes</span></div>
+            <div><b id="o-ahorro">$0</b><span>Estimación por mes</span></div>
             <div><b id="o-cargas">0</b><span>Cargas por mes</span></div>
-            <div><b id="o-anual">$0</b><span>Ganás por año</span></div>
+            <div><b id="o-anual">$0</b><span>Estimación por año</span></div>
           </div>
         </div>
-        <p style="font-size:13px;margin-top:12px;color:rgba(245,243,239,.62)">La autonomía que ves acá es una estimación sobre la cifra publicada por el proveedor, ajustada por terreno y carga, y con un margen del 30 % para que no vuelvas justo. No reemplaza la prueba: el número real lo vas a ver el día que la manejes vos. El ahorro compara 22 días hábiles contra el costo de combustible de un vehículo de referencia.</p>
+        <p style="font-size:13px;margin-top:12px;color:rgba(245,243,239,.62)"><b>Esta calculadora es orientativa.</b> No representa una promesa de ahorro, ganancia ni recuperación de la inversión. La autonomía que ves es una estimación sobre la cifra publicada por el proveedor, ajustada por terreno y carga, con un margen del 30 % para que no vuelvas justo. El ahorro compara 22 días hábiles contra el costo de combustible de un vehículo de referencia, a valores de septiembre de 2026.</p>
       </div>
       <figure class="marco rv d1">
         <img src="assets/escenas/freno.webp" alt="Detalle del freno a disco delantero, con polvo del camino" loading="lazy" width="900" height="675">
@@ -585,44 +618,52 @@ ${P.map(mtile).join("\n")}
 <section class="sec cap cap--inv">
   <div class="wrap">
     <div class="rv">
-      <span class="kick">${cap("06")}Test ride sin cargo</span>
-      <h2 class="h2">Vos mismo sentís la potencia, antes de decidir</h2>
-      <p>Sumar movilidad propia es un paso importante para toda la familia. Por eso te invitamos a venir a nuestro local en Castelar, subirte y manejarla vos mismo antes de resolver nada. Y si estás lejos, coordinamos una demostración cuando estemos en tu zona, o te acompañamos igual con envío a todo el país y garantía real por escrito.</p>
-      <a class="btn btn--p btn--lg" href="/test-ride">Reservar mi test ride ${ico(I.arrow, 2.2)}</a>
+      <span class="kick">${cap("07")}Test ride</span>
+      <h2 class="h2">Sentí la diferencia antes de decidir</h2>
+      <p>Vení a Castelar, subite y manejá el modelo que estás mirando. Si la va a usar un adolescente, vengan juntos: quien la usa puede conocerla y los padres pueden hacer preguntas sobre recorrido, batería, mantenimiento, garantía y service.</p>
+      <a class="btn btn--p btn--lg" href="/test-ride">Reservar test ride en familia ${ico(I.arrow, 2.2)}</a>
     </div>
     <figure class="marco rv">
-      <img src="assets/escenas/eligiendo.webp" alt="Un adulto y un joven mirando juntos dos fat e-bikes en el patio de una casa de campo" loading="lazy" width="1200" height="900">
-      <figcaption>La decisión se toma entre los dos</figcaption>
+      <img src="assets/escenas/calle-pueblo.webp" alt="Adolescente con casco andando una fat e-bike por una calle arbolada de pueblo" loading="lazy" width="1200" height="900">
+      <figcaption>Entre casa y pueblo, todos los días</figcaption>
     </figure>
   </div>
 </section>
 
 <section class="sec sec--claro" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head rv"><span class="kick">Preguntas frecuentes</span><h2 class="h2">Todo lo que querés saber,<br>antes de decidir</h2></div>
-    <div class="faq rv">
-      ${FAQS.slice(0, 4).map(([q, a]) => faqItem(q, a)).join("")}
+    <div class="sec-head rv">
+      <span class="kick">${cap("08")}Preguntas rápidas</span>
+      <h2 class="h2">Lo que se pregunta<br>antes de decidir</h2>
     </div>
-    <div style="margin-top:24px" class="rv"><a class="btn btn--g" href="/faq">Ver todas las preguntas</a></div>
+    <div class="faq rv">
+      ${[
+    ["¿Qué modelo conviene para ir y volver del pueblo?", "La SW V20 Pro es el primer modelo a evaluar para recorridos cortos y cotidianos. La elección final depende de la distancia, el terreno, el peso, la carga y la autonomía que se necesite."],
+    ["¿Qué modelo tiene más autonomía publicada?", "La SW V29 Pro aparece con hasta 110 km y doble batería. El resultado real depende de las condiciones de uso; no debe interpretarse como una distancia garantizada para todos los recorridos."],
+    ["¿Puedo probarla antes de comprar?", "Sí. Ofrecemos test ride sin cargo en Castelar, sujeto a disponibilidad. Si quien va a manejar es menor de edad, la prueba se coordina con la madre, el padre o quien sea responsable."],
+    ["¿Dónde se hace el service?", "El service lo hacemos nosotros, en Castelar, con taller propio y stock de los repuestos de mayor rotación. Escribinos y te decimos el proceso y los plazos para tu caso."],
+  ].map(([q, a]) => faqItem(q, a)).join("")}
+    </div>
+    <div style="margin-top:24px" class="rv"><a class="btn btn--g" href="/faq">Ver todas las preguntas frecuentes</a></div>
   </div>
 </section>
 
 <section class="fin">
   <div class="wrap">
     <span class="kick rv">Castelar, Buenos Aires · Envíos a todo el país</span>
-    <h2 class="h2 rv">Vení, probala<br>y decidí con información</h2>
-    <p class="rv" style="margin:18px auto 0;max-width:52ch">Te esperamos en Castelar para que la manejes vos mismo y hagas todas las preguntas antes de resolver nada.</p>
+    <h2 class="h2 rv">Elegí con información.<br>Movete con respaldo.</h2>
+    <p class="rv" style="margin:18px auto 0;max-width:56ch">Tu mundo se mueve con vos cuando la bicicleta acompaña el recorrido real. Compará modelos, consultá todo y probala antes de decidir.</p>
     <div class="acts rv">
-      <a class="btn btn--p btn--lg" href="/test-ride">Reservar mi test ride ${ico(I.arrow, 2.2)}</a>
-      <a class="btn btn--g btn--lg" href="${WA_TXT("Hola MC Ebikes, quiero hacer una consulta.")}" target="_blank" rel="noopener">Escribir por WhatsApp</a>
+      <a class="btn btn--p btn--lg" href="/productos">Comparar modelos ${ico(I.arrow, 2.2)}</a>
+      <a class="btn btn--g btn--lg" href="${WA_TXT("Hola MC Ebikes, quiero hacer una consulta.")}" target="_blank" rel="noopener">Hablar con MC Ebikes</a>
     </div>
   </div>
 </section>`;
 
 writeFileSync(new URL("./index.html", import.meta.url), page({
   slug: "index", active: "index",
-  title: "MC Ebikes | Fat E-Bikes 1000W para el Campo Argentino",
-  desc: "Fat e-bikes de 1000W con hasta 110 km de autonomía. Tu primer vehículo propio, sin patente ni límite de edad. Test ride sin cargo y envío a todo el país.",
+  title: "MC Ebikes | Fat e-bikes para familias del campo argentino",
+  desc: "Fat e-bikes para moverse entre el campo y el pueblo. Compará modelos, consultá autonomía y service, y probalos sin cargo en Castelar.",
   ld: homeLD,
   /* El preload declara el mismo srcset que el <img>: sin imagesrcset el
      navegador se baja tambien la version de 1600 px en un telefono. */
@@ -640,7 +681,13 @@ const catalogo = `
     <nav class="crumbs" aria-label="Ruta"><a href="/">Inicio</a> / <span aria-current="page">Modelos</span></nav>
     <span class="kick">${P.length} modelos disponibles</span>
     <h1 class="h1" style="font-size:clamp(38px,7vw,68px);margin-top:14px">Elegí tu <em>territorio</em></h1>
-    <p>Cuatro fat e-bikes, todas con frenos a disco y arranque por NFC. Elegí por autonomía, potencia o precio.</p>
+    <p>Cuatro fat e-bikes para distintos recorridos del campo, el pueblo y la vida cotidiana.
+    Compará potencia, autonomía, carga, tiempo de recarga y precio. Si no sabés cuál tiene más
+    sentido, contanos cómo se va a usar y te ayudamos a elegir.</p>
+    <p class="aviso-familias"><b>Importante para familias:</b> el modelo correcto no es
+    necesariamente el más potente ni el que anuncia más kilómetros. Depende de la distancia
+    diaria, el terreno, la carga, el lugar donde se va a guardar, la posibilidad de recargar y
+    la disponibilidad de service.</p>
   </div>
 </section>
 
@@ -648,9 +695,9 @@ const catalogo = `
   <div class="wrap">
     <div class="filters">
       <span class="filters__lbl">Filtrar</span>
-      <button class="chip on" data-f="todos">Todos</button>
-      <button class="chip" data-f="urbana">Recorridos cortos</button>
-      <button class="chip" data-f="larga-distancia">Jornadas largas</button>
+      <button class="chip on" data-f="todos">Todos los modelos</button>
+      <button class="chip" data-f="urbana">Pueblo y recorridos cortos</button>
+      <button class="chip" data-f="larga-distancia">Campo y largas jornadas</button>
       <button class="chip" data-f="potencia">Pendientes y carga</button>
       <div class="filters__r">
         <span class="count" data-count>${P.length} modelos</span>
@@ -665,23 +712,35 @@ const catalogo = `
     <div class="grid-p">
       ${P.map(pcard).join("\n")}
     </div>
+
+    <div class="orienta rv">
+      <div>
+        <h2 class="h3">¿No sabés cuál elegir?</h2>
+        <p>Decinos quién la va a usar, cuántos kilómetros recorre por día, qué caminos hace y si
+        necesita llevar carga. Te orientamos y, si estás cerca, podés probarla en Castelar.</p>
+      </div>
+      <a class="btn btn--p" href="${WA_TXT("Hola MC Ebikes, quiero contarles cómo la voy a usar para que me orienten.")}" target="_blank" rel="noopener">Contarnos cómo la vas a usar</a>
+    </div>
   </div>
 </section>
 
 <section class="sec sec--claro" style="padding-top:0">
   <div class="wrap">
-    <div class="sec-head rv"><span class="kick">Comparador</span><h2 class="h2">Todas, lado a lado</h2></div>
+    <div class="sec-head rv"><span class="kick">Comparación rápida</span>
+      <h2 class="h2">Todas, lado a lado</h2>
+      <p>Los valores son los que publica el proveedor. La autonomía se mide en condiciones
+      favorables y baja con el terreno, el peso y la pendiente.</p></div>
     <div class="cmp rv">
       <table>
         <thead><tr><th>Modelo</th>${P.map((p) => `<th>${p.name}</th>`).join("")}</tr></thead>
         <tbody>
-          <tr><td>Motor</td>${P.map((p) => `<td>${p.motor}</td>`).join("")}</tr>
-          <tr><td>Batería</td>${P.map((p) => `<td>${p.bat}</td>`).join("")}</tr>
-          <tr><td>Autonomía</td>${P.map((p) => `<td class="${p.autNum === 110 ? "hl" : ""}">${p.aut}</td>`).join("")}</tr>
-          <tr><td>Velocidad máx.</td>${P.map((p) => `<td>${p.vel}</td>`).join("")}</tr>
-          <tr><td>Carga máx.</td>${P.map((p) => `<td>${p.carga}</td>`).join("")}</tr>
-          <tr><td>Recarga</td>${P.map((p) => `<td>${p.recarga}</td>`).join("")}</tr>
-          <tr><td>Ideal para</td>${P.map((p) => `<td style="font-family:var(--t);font-weight:400;font-size:14px;color:var(--cemento)">${p.uso}</td>`).join("")}</tr>
+          <tr><td>Motor publicado</td>${P.map((p) => `<td>${p.motor}</td>`).join("")}</tr>
+          <tr><td>Batería publicada</td>${P.map((p) => `<td>${p.bat}</td>`).join("")}</tr>
+          <tr><td>Autonomía publicada</td>${P.map((p) => `<td class="${p.autNum === 110 ? "hl" : ""}">${p.aut}</td>`).join("")}</tr>
+          <tr><td>Velocidad máxima publicada</td>${P.map((p) => `<td>${p.vel}</td>`).join("")}</tr>
+          <tr><td>Carga máxima publicada</td>${P.map((p) => `<td>${p.carga}</td>`).join("")}</tr>
+          <tr><td>Recarga publicada</td>${P.map((p) => `<td>${p.recarga}</td>`).join("")}</tr>
+          <tr><td>Uso orientativo</td>${P.map((p) => `<td style="font-family:var(--t);font-weight:400;font-size:14px;color:var(--cemento)">${p.uso}</td>`).join("")}</tr>
           <tr><td>Precio</td>${P.map((p) => `<td class="hl">${money(p.price)}</td>`).join("")}</tr>
           <tr><td></td>${P.map((p) => `<td><a class="btn btn--p btn--sm" href="/${p.slug}">Ver</a></td>`).join("")}</tr>
         </tbody>
@@ -689,7 +748,20 @@ const catalogo = `
     </div>
   </div>
 </section>
-${ctaBlock()}`;
+
+<section class="fin">
+  <div class="wrap">
+    <span class="kick rv">Antes de decidir</span>
+    <h2 class="h2 rv">No elijas solo<br>por el número más alto</h2>
+    <p class="rv" style="margin:18px auto 0;max-width:60ch">La distancia diaria, el terreno, la
+    carga, la recarga, el guardado y el service importan tanto como la potencia o la autonomía.
+    Compará con tu familia y probá el modelo que estés considerando.</p>
+    <div class="acts rv">
+      <a class="btn btn--p btn--lg" href="/guias-como-elegir">Comparar los modelos en detalle ${ico(I.arrow, 2.2)}</a>
+      <a class="btn btn--g btn--lg" href="/test-ride">Reservar test ride en familia</a>
+    </div>
+  </div>
+</section>`;
 
 const catalogoLD = JSON.stringify({
   "@context": "https://schema.org",
@@ -702,8 +774,8 @@ const catalogoLD = JSON.stringify({
 
 writeFileSync(new URL("./productos.html", import.meta.url), page({
   slug: "productos", active: "productos", ld: catalogoLD,
-  title: "Modelos de Fat E-Bikes 1000W | MC Ebikes",
-  desc: "Comparación de las 4 fat e-bikes MC: SW V20 Pro, V29 Pro, V40 y S20 Pro. Motor desde 1000W y autonomía de hasta 110 km. Precios y cuotas sin interés.",
+  title: "Modelos de fat e-bikes 1000W en Argentina | MC Ebikes",
+  desc: "Compará cuatro fat e-bikes para campo y pueblo por autonomía, potencia, carga, tiempo de recarga, precio y uso recomendado.",
   main: catalogo,
 }));
 console.log("✓ productos.html");
@@ -731,8 +803,9 @@ for (const p of P) {
       </div>
 
       <div>
-        <span class="pd__cat">Fat e-bike · ${p.tagline}</span>
+        <span class="pd__cat">${p.etiqueta}</span>
         <h1>${p.name}</h1>
+        <p class="pd__sub">${p.subtitulo}</p>
         <p class="pd__lead">${p.lead}</p>
 ${p.revision ? `
         <p class="revision">${ico(I.shield)}<span>${p.revision}</span></p>` : ""}
@@ -805,8 +878,13 @@ ${p.revision ? `
         </p>
       </div>
       <div class="rv d1">
-        <span class="kick">Para qué no es</span>
-        <h2 class="h2" style="margin:14px 0 16px">Dónde esta MC no es la mejor opción</h2>
+        <span class="kick">Para quién es</span>
+        <h2 class="h2" style="margin:14px 0 16px">¿Para quién es la ${p.name}?</h2>
+        <p style="margin-bottom:14px">${p.aeo}</p>
+        <p style="margin-bottom:28px">${p.paraQuien}</p>
+
+        <span class="kick">Qué considerar</span>
+        <h2 class="h2" style="margin:14px 0 16px">Qué mirar antes de elegirla</h2>
         <p style="margin-bottom:14px">${p.limites}</p>
         <p style="margin-bottom:28px"><a class="btn btn--g btn--sm" href="/productos">Comparar contra los otros ${P.length - 1} modelos</a></p>
 
@@ -833,11 +911,23 @@ ${p.revision ? `
     <div class="grid-p">${otros.map(pcard).join("\n")}</div>
   </div>
 </section>
+
+<section class="sec sec--claro" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv"><span class="kick">Preguntas sobre la ${p.name}</span>
+      <h2 class="h2">Lo que se pregunta<br>de este modelo</h2></div>
+    <div class="faq rv">${p.faqs.map(([q, a]) => faqItem(q, a)).join("")}</div>
+    <div style="margin-top:24px" class="rv">
+      <a class="btn btn--g" href="/faq">Ver todas las preguntas frecuentes</a>
+      <a class="btn btn--g" href="/guias-como-elegir">Leer cómo elegir una e-bike para el campo</a>
+    </div>
+  </div>
+</section>
 ${ctaBlock(`¿Te quedaste con la ${p.name}?`, "Vení a Castelar, subite y manejala vos mismo antes de resolver nada. Sin costo y sin compromiso.")}`;
 
   writeFileSync(new URL(`./${p.slug}.html`, import.meta.url), page({
     slug: p.slug, active: "productos", modelo: p.name,
-    title: p.revision ? `${p.name} — Fat E-Bike | MC Ebikes` : `${p.name} — Fat E-Bike ${p.motor} | MC Ebikes`,
+    title: `${p.name} | ${p.tituloSeo} | MC Ebikes`,
     desc: p.revision
       ? `${p.name}: batería ${p.bat}, ${p.aut} de autonomía y 12 cuotas sin interés. Test ride sin cargo en Castelar.`
       : `${p.name}: motor ${p.motor}, batería ${p.bat}, ${p.aut} de autonomía y 12 cuotas sin interés. Test ride sin cargo en Castelar.`,
@@ -959,7 +1049,7 @@ const testride = `
 </section>`;
 writeFileSync(new URL("./test-ride.html", import.meta.url), page({
   slug: "test-ride", active: "", ld: crumbLD("Test ride", "test-ride"),
-  title: "Reservá tu Test Ride Gratis | MC Ebikes",
+  title: "Test ride de fat e-bikes en Castelar | MC Ebikes",
   desc: "Probá tu fat e-bike antes de decidir. Test ride sin cargo y sin compromiso en nuestro local de Castelar. Reservá tu turno en minutos.",
   main: testride,
 }));
@@ -1017,10 +1107,42 @@ const servicio = `
     </div>
   </div>
 </section>
+
+<section class="sec sec--claro" style="padding-top:0">
+  <div class="wrap">
+    <div class="sec-head rv">
+      <span class="kick">Mantenimiento básico</span>
+      <h2 class="h2">Lo que podés hacer vos,<br>y cuándo traerla</h2>
+      <p>Cuatro rutinas que alargan la vida de tu MC y evitan la mayoría de las visitas al taller.</p>
+    </div>
+    <div class="razones razones--claro">
+      <article class="rv"><i>01</i><h3>Antes de usarla</h3><p>Revisá frenos, presión de cubiertas, fijaciones, luces, carga de batería y condiciones del camino. No la uses si hay una falla visible que pueda comprometer el control.</p></article>
+      <article class="rv d1"><i>02</i><h3>Si no la vas a usar por varias semanas</h3><p>Dejá la batería aproximadamente a la mitad de carga y guardala en un lugar seco. No la dejes descargada del todo ni al sol.</p></article>
+      <article class="rv d2"><i>03</i><h3>Limpieza</h3><p>Limpiala con un trapo húmedo. Evitá la hidrolavadora y la manguera a presión: tiene protección contra salpicaduras, que no es lo mismo que ser sumergible.</p></article>
+      <article class="rv d3"><i>04</i><h3>Si baja la autonomía</h3><p>Revisá presión, viento, recorrido, peso, temperatura, asistencia, acelerador y carga. Si el cambio persiste, no desarmes la batería: escribinos con el modelo, la antigüedad y los síntomas.</p></article>
+    </div>
+
+    <div class="sec-head rv" style="margin-top:clamp(44px,6vw,72px)">
+      <span class="kick">Preguntas de service</span>
+      <h2 class="h2">Lo que nos preguntan<br>después de comprar</h2>
+    </div>
+    <div class="faq rv">
+      ${[
+    ["¿Qué repuestos se consiguen?", "Tenemos stock de los de mayor rotación: cubiertas, cámaras, pastillas, luces y cargadores. Lo que no está lo pedimos al proveedor. Antes de darte una fecha te confirmamos el stock real de la pieza que necesitás."],
+    ["¿Se puede usar bajo la lluvia?", "Tiene protección contra salpicaduras y podés andar con lluvia normal. Lo que hay que evitar es sumergirla, lavarla con hidrolavadora o dejarla permanentemente a la intemperie."],
+    ["¿Qué hago si necesito un diagnóstico?", "Escribinos con el modelo, la localidad, el problema, cuándo empezó y si la bicicleta tuvo golpes, agua, cambios de batería o modificaciones. Con eso ya te podemos orientar antes de que la traigas."],
+  ].map(([q, a]) => faqItem(q, a)).join("")}
+    </div>
+    <div style="margin-top:24px" class="rv">
+      <a class="btn btn--p" href="${WA_TXT("Hola MC Ebikes, quiero consultar por service y repuestos.")}" target="_blank" rel="noopener">Consultar por service y repuestos</a>
+      <a class="btn btn--g" href="/productos">Volver a los modelos</a>
+    </div>
+  </div>
+</section>
 ${ctaBlock("¿Necesitás service o un repuesto?", "Escribinos y te decimos si lo tenemos en stock y cuánto tarda.")}`;
 writeFileSync(new URL("./servicio.html", import.meta.url), page({
   slug: "servicio", active: "servicio", ld: crumbLD("Service y garantía", "servicio"),
-  title: "Service y Garantía | MC Ebikes Castelar",
+  title: "Service, repuestos y garantía de e-bikes en Castelar | MC Ebikes",
   desc: "12 meses de garantía en cuadro y motor, 6 meses en batería. Taller propio en Castelar, repuestos en stock y service con cara visible.",
   main: servicio,
 }));
@@ -1082,7 +1204,7 @@ const nosotros = `
 ${ctaBlock()}`;
 writeFileSync(new URL("./nosotros.html", import.meta.url), page({
   slug: "nosotros", active: "nosotros", ld: crumbLD("Nosotros", "nosotros"),
-  title: "Quiénes Somos | MC Ebikes",
+  title: "Quiénes somos | MC Ebikes, movilidad eléctrica en Castelar",
   desc: "MC Ebikes nace para darle a cada chico y chica del campo argentino su primer vehículo propio. Local en Castelar, cara visible y envío a todo el país.",
   main: nosotros,
 }));
@@ -1115,7 +1237,7 @@ const faqPage = `
 ${ctaBlock("¿Te quedó una duda?", "Escribinos por WhatsApp y te respondemos en el día.")}`;
 writeFileSync(new URL("./faq.html", import.meta.url), page({
   slug: "faq", active: "faq", ld: faqLD,
-  title: "Preguntas Frecuentes sobre Fat E-Bikes | MC Ebikes",
+  title: "Preguntas frecuentes sobre fat e-bikes | MC Ebikes",
   desc: "Todo sobre patente, batería, garantía, envíos y cuotas de las fat e-bikes MC. Respuestas directas a las dudas más comunes antes de comprar.",
   main: faqPage,
 }));
@@ -1171,7 +1293,7 @@ const contacto = `
 writeFileSync(new URL("./contacto.html", import.meta.url), page({
   slug: "contacto", active: "contacto",
   ld: JSON.stringify({ "@context": "https://schema.org", "@graph": [negocioLD, JSON.parse(crumbLD("Contacto", "contacto"))] }, null, 1),
-  title: "Contacto | MC Ebikes Castelar",
+  title: "Contacto | MC Ebikes Castelar, Buenos Aires",
   desc: "Escribinos por WhatsApp, mandanos un mail o vení al local en Castelar. Lunes a viernes de 10 a 19 h, sábados de 10 a 14 h.",
   main: contacto,
 }));
@@ -1295,7 +1417,7 @@ console.log("✓ 404.html");
    ni convierte un dato del proveedor en una promesa propia.
    ===================================================================== */
 const REVISOR = "Equipo de MC Ebikes, Castelar";
-const ACTUALIZADO = "2026-09-07";
+const ACTUALIZADO = "2026-09-08";
 const fecha_es = (iso) => {
   const M = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
     "agosto", "septiembre", "octubre", "noviembre", "diciembre"];
@@ -1304,6 +1426,290 @@ const fecha_es = (iso) => {
 };
 
 const GUIAS = [
+  {
+    slug: "guias-autonomia-real",
+    kicker: "Autonomía real",
+    h1: "Autonomía real de una bicicleta eléctrica: qué cambia los kilómetros",
+    title: "Autonomía real de una bicicleta eléctrica: qué cambia los kilómetros | MC Ebikes",
+    desc: "Entendé la autonomía de una e-bike: peso, terreno, viento, carga, asistencia, acelerador, batería y condiciones de prueba.",
+    lead: "Una e-bike no recorre siempre la misma cantidad de kilómetros por carga. El resultado cambia según el modelo, el peso, el terreno, el viento, la presión de las cubiertas, la temperatura, el nivel de asistencia, el uso del acelerador, la carga y la edad de la batería.",
+    ind: [
+      ["anunciada", "Anunciada contra observada"],
+      ["variables", "Qué cambia el resultado"],
+      ["modelos", "Cómo leer los modelos de MC"],
+      ["margen", "Cómo calcular tu margen"],
+      ["preguntar", "Qué preguntar antes de comprar"],
+      ["carga", "Cuánto cuesta cargarla"],
+    ],
+    cuerpo: `
+<p>Antes de elegir conviene entender qué significa el rango anunciado y qué información
+hay que pedir.</p>
+
+<h2 id="anunciada">La diferencia entre autonomía anunciada y autonomía observada</h2>
+<p>La autonomía anunciada es una referencia. La autonomía observada corresponde a una
+prueba realizada bajo condiciones concretas. Para que el dato sea útil hay que registrar quién
+manejó, cuánto pesaba, por qué terreno, con qué presión, temperatura, viento, asistencia y
+carga.</p>
+
+<h2 id="variables">Las variables que cambian el resultado</h2>
+<table class="spec-table">
+  <tr><td>Peso</td><td>Más esfuerzo del sistema y potencialmente mayor consumo</td></tr>
+  <tr><td>Terreno</td><td>Pendientes, barro, arena y superficie irregular pueden aumentar el consumo</td></tr>
+  <tr><td>Viento</td><td>El viento en contra puede exigir más asistencia</td></tr>
+  <tr><td>Presión</td><td>Una presión incorrecta puede afectar el rodamiento</td></tr>
+  <tr><td>Acelerador</td><td>Su uso puede modificar el consumo</td></tr>
+  <tr><td>Temperatura</td><td>Puede cambiar el comportamiento de la batería</td></tr>
+  <tr><td>Carga</td><td>Mochila, herramientas u otros objetos agregan peso</td></tr>
+  <tr><td>Edad de la batería</td><td>La capacidad puede cambiar con el tiempo y el uso</td></tr>
+</table>
+
+<h2 id="modelos">Cómo leer los modelos de MC</h2>
+<p>Estos son los valores de referencia que publica el proveedor:
+${P.map((p) => `<b>${p.name}</b> ${p.aut}`).join(", ")}. Se publican junto con sus condiciones
+de medición en cuanto las tengamos documentadas.</p>
+
+<h2 id="margen">Cómo calcular el margen que necesitás</h2>
+<ol class="pasos">
+  <li>Medí la distancia total de ida y vuelta.</li>
+  <li>Sumá desvíos y recorridos adicionales habituales.</li>
+  <li>Considerá viento, pendientes, barro, arena y carga.</li>
+  <li>Dejá una reserva: no planifiques usando el 100 % del rango publicado.</li>
+  <li>Preguntá qué pasa si la autonomía baja y dónde se revisa la batería.</li>
+</ol>
+<p>En el <a href="/#calc">recomendador de la home</a> podés hacer esta cuenta con tu
+recorrido, tu terreno y tu peso.</p>
+
+<h2 id="preguntar">Qué preguntar antes de comprar</h2>
+<ul class="ticks">
+  <li>${ico(I.check)}<span>¿Cuál fue el peso utilizado en la prueba?</span></li>
+  <li>${ico(I.check)}<span>¿Se usó acelerador, asistencia o ambos?</span></li>
+  <li>${ico(I.check)}<span>¿El camino tenía pendientes, arena, barro o viento?</span></li>
+  <li>${ico(I.check)}<span>¿Cuánta carga llevaba la bicicleta?</span></li>
+  <li>${ico(I.check)}<span>¿Qué presión tenían las cubiertas?</span></li>
+  <li>${ico(I.check)}<span>¿La batería era nueva?</span></li>
+  <li>${ico(I.check)}<span>¿Cuánto tarda en recargar?</span></li>
+  <li>${ico(I.check)}<span>¿Dónde se revisa o reemplaza la batería?</span></li>
+</ul>
+
+<h2 id="carga">Cuánto cuesta cargarla</h2>
+<p>El costo depende del consumo, la capacidad de la batería, la tarifa eléctrica y la fecha. La
+calculadora de la home muestra sus supuestos y aclara que es una estimación, no una promesa.</p>
+
+<h2>La pregunta correcta</h2>
+<p>No es solamente «¿cuántos kilómetros hace?». Es: <b>¿cuántos kilómetros necesito cubrir en
+mi recorrido real y qué reserva quiero tener?</b></p>`,
+    fuentes: [
+      ["Fichas técnicas del proveedor", "Las cifras de autonomía que se citan son las que publica el proveedor de cada modelo, en sus condiciones de medición."],
+      ["Pruebas propias", "Todavía no publicamos pruebas propias fechadas. Cuando las tengamos, van a figurar acá con peso, terreno, asistencia, temperatura, presión y carga."],
+    ],
+  },
+  {
+    slug: "guias-comparacion-modelos",
+    kicker: "Comparación",
+    h1: "SW V20 Pro vs V29 Pro vs V40 vs S20 Pro: cuál conviene",
+    title: "SW V20 Pro vs V29 Pro vs V40 vs S20 Pro: cuál conviene | MC Ebikes",
+    desc: "Compará las cuatro fat e-bikes de MC Ebikes por recorrido, potencia, batería, autonomía, carga, precio, recarga y límites.",
+    lead: "Las cuatro MC comparten una base de fat e-bike, pero no están pensadas exactamente para el mismo recorrido. Compará autonomía, batería, carga, potencia, precio y uso recomendado antes de elegir.",
+    ind: [
+      ["rapida", "Recomendación rápida"],
+      ["tabla", "Comparación de referencia"],
+      ["cada", "Qué aporta cada modelo"],
+      ["limites", "Los límites de cada una"],
+    ],
+    cuerpo: `
+<h2 id="rapida">Recomendación rápida</h2>
+<ul class="ticks">
+${P.map((p) => `  <li>${ico(I.check)}<span><b>${p.name}:</b> ${p.rec.toLowerCase()}.</span></li>`).join("\n")}
+</ul>
+
+<h2 id="tabla">Comparación de referencia</h2>
+<div class="cmp">
+  <table>
+    <thead><tr><th>Modelo</th>${P.map((p) => `<th>${p.name}</th>`).join("")}</tr></thead>
+    <tbody>
+      <tr><td>Motor publicado</td>${P.map((p) => `<td>${p.motor}</td>`).join("")}</tr>
+      <tr><td>Batería publicada</td>${P.map((p) => `<td>${p.bat}</td>`).join("")}</tr>
+      <tr><td>Autonomía publicada</td>${P.map((p) => `<td>${p.aut}</td>`).join("")}</tr>
+      <tr><td>Carga máxima publicada</td>${P.map((p) => `<td>${p.carga}</td>`).join("")}</tr>
+      <tr><td>Recarga publicada</td>${P.map((p) => `<td>${p.recarga}</td>`).join("")}</tr>
+      <tr><td>Precio publicado</td>${P.map((p) => `<td class="hl">${money(p.price)}</td>`).join("")}</tr>
+    </tbody>
+  </table>
+</div>
+<p class="guia__meta">Los precios y la disponibilidad pueden cambiar. La autonomía es la
+publicada por el proveedor y se mide en condiciones favorables.</p>
+
+<h2 id="cada">Qué aporta cada modelo</h2>
+${P.map((p) => `<h3>${p.name}</h3>\n<p>${p.paraQuien} <a href="/${p.slug}">Ver la ficha completa</a>.</p>`).join("\n")}
+
+<h2 id="limites">Los límites de cada una</h2>
+<p>Ningún modelo sirve para todo. Esto es lo que conviene mirar antes de decidirse por cada uno:</p>
+${P.map((p) => `<h3>${p.name}</h3>\n<p>${p.limites}</p>`).join("\n")}`,
+    fuentes: [
+      ["Fichas técnicas del proveedor", "Los valores de la tabla son los publicados por el proveedor de cada modelo."],
+      ["Comparación entre fichas", "Las observaciones sobre límites salen de comparar las fichas entre sí, no de una opinión: los pesos, las cargas máximas y las autonomías son las declaradas."],
+    ],
+  },
+  {
+    slug: "guias-cuidado-bateria",
+    kicker: "Cuidado de la batería",
+    h1: "Cómo cuidar la batería de una e-bike",
+    title: "Cómo cuidar la batería de una e-bike: carga, guardado y vida útil | MC Ebikes",
+    desc: "Aprendé a cuidar la batería de una bicicleta eléctrica: carga, guardado, limpieza, autonomía reducida y cuándo consultar al service.",
+    lead: "La batería es una de las partes más importantes de una bicicleta eléctrica. Para cuidarla hay que prestar atención a la carga, el guardado, la humedad, la limpieza, la temperatura y los síntomas de autonomía reducida.",
+    ind: [
+      ["carga", "Carga"],
+      ["guardado", "Guardado"],
+      ["agua", "Agua y limpieza"],
+      ["baja", "Cuando baja la autonomía"],
+      ["nousar", "Cuándo no usarla"],
+      ["checklist", "La lista de control"],
+    ],
+    cuerpo: `
+<h2 id="carga">Carga</h2>
+<p>Usá el cargador que vino con la bicicleta y seguí las indicaciones del fabricante. Evitá
+improvisar conexiones o usar accesorios no aprobados. Si perdiste el cargador o necesitás uno
+de repuesto, consultanos: no todos los cargadores del mismo voltaje son equivalentes.</p>
+
+<h2 id="guardado">Guardado</h2>
+<p>Si la bicicleta no se va a usar durante varias semanas, guardá la batería aproximadamente
+a la mitad de carga, en un lugar seco y seguro. No la dejes descargada del todo durante meses
+ni la guardes al sol o a la intemperie.</p>
+
+<h2 id="agua">Agua y limpieza</h2>
+<p>Tiene protección contra salpicaduras: podés andar con lluvia normal. Lo que hay que evitar
+es sumergirla, usar hidrolavadora o manguera a presión, y dejarla permanentemente a la
+intemperie. <b>No es lo mismo lluvia, salpicadura, lavado y sumersión.</b> Después de andar por
+tierra o barro, limpiala con un trapo húmedo.</p>
+
+<h2 id="baja">Cuando baja la autonomía</h2>
+<p>Primero revisá lo que no es la batería: presión de cubiertas, recorrido, viento, temperatura,
+carga que llevás y uso del acelerador. Casi siempre la explicación está ahí.</p>
+<p>Si el cambio persiste, <b>no desarmes la batería</b>. Escribinos con el modelo, la antigüedad,
+los síntomas y las condiciones de uso, y lo vemos en el taller.</p>
+
+<h2 id="nousar">Cuándo no usarla</h2>
+<p>No uses la bicicleta si hay fallas visibles en frenos, ruedas, batería, cableado, cargador o
+estructura. Si la batería está caliente, hinchada, con olor o tuvo un golpe fuerte, no la cargues
+ni la uses: consultanos antes de seguir.</p>
+
+<h2 id="checklist">La lista de control</h2>
+<p>Lo que conviene revisar cada tanto, sin herramientas y en dos minutos:</p>
+<ul class="ticks">
+  <li>${ico(I.check)}<span>Presión de las cubiertas</span></li>
+  <li>${ico(I.check)}<span>Frenos</span></li>
+  <li>${ico(I.check)}<span>Luces y fijaciones</span></li>
+  <li>${ico(I.check)}<span>Cargador y batería, sin daños visibles</span></li>
+  <li>${ico(I.check)}<span>Que quede guardada en lugar seco</span></li>
+  <li>${ico(I.check)}<span>Que no se haya lavado con agua a presión</span></li>
+  <li>${ico(I.check)}<span>El kilometraje, para saber cuándo toca el service</span></li>
+</ul>`,
+    fuentes: [
+      ["Documentación del fabricante", "Las indicaciones de carga y guardado siguen lo que informa el fabricante de la batería. Si tenés el manual de tu unidad, ese manda."],
+      ["Nuestro taller en Castelar", "Los síntomas y el orden en que conviene revisarlos salen de lo que vemos en el service."],
+    ],
+  },
+  {
+    slug: "guias-tierra-barro-arena",
+    kicker: "Tierra, barro y arena",
+    h1: "Fat bike eléctrica para tierra, barro y arena: qué mirar antes de comprar",
+    title: "Fat bike eléctrica para tierra, barro y arena: qué mirar | MC Ebikes",
+    desc: "Qué mirar en una fat bike eléctrica para caminos rurales: cubiertas, presión, frenos, batería, carga, limpieza y límites del terreno.",
+    lead: "Las cubiertas fat pueden aportar estabilidad y superficie de contacto en determinados terrenos, pero no convierten a una bicicleta en adecuada para cualquier condición.",
+    ind: [
+      ["cubiertas", "Qué aportan las cubiertas fat"],
+      ["tierra", "Tierra y caminos rurales"],
+      ["barro", "Barro y arena"],
+      ["frenos", "Frenos, carga y control"],
+      ["limpieza", "Limpieza y guardado"],
+      ["modelo", "Cómo elegir el modelo"],
+    ],
+    cuerpo: `
+<p>Para elegir bien hay que mirar cubiertas, presión, frenos, potencia, batería, carga, limpieza
+y límites de uso.</p>
+
+<h2 id="cubiertas">Qué aportan las cubiertas fat</h2>
+<p>Una cubierta ancha apoya más superficie contra el piso, y eso puede dar estabilidad donde
+una cubierta fina se hunde o patina. La presión importa tanto como el ancho: demasiada presión
+pierde agarre en tierra suelta, y demasiado poca aumenta el consumo y el riesgo de pinchadura
+por pellizco. Consultanos la presión recomendada para tu modelo y tu peso.</p>
+
+<h2 id="tierra">Tierra y caminos rurales</h2>
+<p>La experiencia depende del estado del camino, la velocidad, la carga, el clima y la habilidad
+de quien maneja. En caminos con pozos, piedras o barro, la prudencia y el control importan
+tanto como el motor.</p>
+
+<h2 id="barro">Barro y arena</h2>
+<p>La arena profunda y el barro aumentan el esfuerzo y reducen la autonomía. No decimos que
+un modelo esté recomendado para una condición específica sin haberlo probado nosotros en
+esa condición. Si tu recorrido tiene arena o barro seguido, contanos y lo vemos con vos.</p>
+
+<h2 id="frenos">Frenos, carga y control</h2>
+<p>Revisá frenos, presión, fijaciones y carga antes de salir. No superes el límite de carga del
+modelo. Si la va a usar un adolescente, las reglas de uso deben acordarse con los adultos
+responsables.</p>
+
+<h2 id="limpieza">Limpieza y guardado</h2>
+<p>Después de circular por tierra o barro, limpiala con un trapo húmedo y evitá el agua a
+presión. Guardala seca y protegida de la intemperie.
+<a href="/guias-cuidado-bateria">Acá está el detalle del cuidado de la batería</a>.</p>
+
+<h2 id="modelo">Cómo elegir el modelo</h2>
+<ul class="ticks">
+${P.map((p) => `  <li>${ico(I.check)}<span><b>${p.name}:</b> evaluar para ${p.rec.toLowerCase()}.</span></li>`).join("\n")}
+</ul>`,
+    fuentes: [
+      ["Fichas técnicas del proveedor", "Las medidas de cubierta y los límites de carga son los declarados por el proveedor de cada modelo."],
+      ["Pruebas de terreno", "Todavía no tenemos pruebas propias fechadas en barro y arena. Por eso esta guía explica qué mirar y no afirma que un modelo esté recomendado para esas condiciones."],
+    ],
+  },
+  {
+    slug: "guias-delivery-trabajo",
+    kicker: "Delivery y trabajo",
+    h1: "Bicicleta eléctrica para delivery y trabajo: autonomía, carga y service",
+    title: "Bicicleta eléctrica para delivery y trabajo: autonomía, carga y service | MC Ebikes",
+    desc: "Qué evaluar en una e-bike para delivery o trabajo: kilómetros, jornada, carga, recarga, autonomía, repuestos y service.",
+    lead: "Cuando una e-bike se usa muchas horas por día, la decisión cambia. No alcanza con mirar precio y potencia: hay que calcular distancia, reserva de autonomía, carga, tiempos de recarga, mantenimiento, repuestos y tiempo fuera de servicio.",
+    ind: [
+      ["jornada", "Definí la jornada"],
+      ["reserva", "Calculá la reserva"],
+      ["carga", "Carga y portaequipaje"],
+      ["service", "Service y repuestos"],
+      ["costo", "Costo operativo"],
+    ],
+    cuerpo: `
+<h2 id="jornada">Definí la jornada</h2>
+<p>Registrá kilómetros diarios, cantidad de horas, pausas, pendientes, tipo de terreno y
+posibilidad de recargar durante el día. La batería que necesitás depende del recorrido real y
+de esas condiciones, no del número más alto del catálogo.</p>
+
+<h2 id="reserva">Calculá la reserva</h2>
+<p>No planifiques la jornada usando el 100 % de la autonomía anunciada. Dejá margen para
+viento, carga, pendientes, temperatura y desvíos.
+<a href="/guias-autonomia-real">Acá explicamos cuánto cambia cada variable</a>.</p>
+
+<h2 id="carga">Carga y portaequipaje</h2>
+<p>Cada modelo tiene un límite de carga declarado y ese límite incluye a quien maneja. El
+portaequipaje sirve para lo que el fabricante documenta: no lo tomes como una promesa de
+capacidad si no está por escrito. Consultanos antes de montar cajas o soportes.</p>
+
+<h2 id="service">Service y repuestos</h2>
+<p>Para trabajo, el tiempo fuera de servicio tiene un costo. Antes de elegir, consultá qué
+repuestos se consiguen, cuánto demora el diagnóstico, qué incluye el primer service y cómo
+funciona la garantía. <a href="/servicio">Acá está cómo trabajamos el service</a>.</p>
+
+<h2 id="costo">Costo operativo</h2>
+<p>Para que una cuenta de costo sirva tiene que documentar kilómetros, días de uso, tarifa
+eléctrica, combustible de referencia, mantenimiento y precio de compra.
+<b>No prometemos ingresos ni recuperación de la inversión:</b> te damos los supuestos y hacés
+la cuenta con tus números.</p>
+<p>Esta guía está dirigida a trabajadores y repartidores, y no reemplaza la conversación sobre
+el uso cotidiano en el campo.</p>`,
+    fuentes: [
+      ["Fichas técnicas del proveedor", "Los límites de carga y las autonomías citadas son las declaradas por el proveedor."],
+      ["Nuestra operación de service", "Los tiempos y el stock de repuestos dependen de la pieza y del momento: por eso esta guía dice qué preguntar en vez de prometer un plazo."],
+    ],
+  },
   {
     slug: "guias-como-elegir",
     kicker: "Cómo elegir",
@@ -1459,15 +1865,17 @@ const guiasHub = `
       </a>`).join("")}
       <div class="guia-card guia-card--proxima">
         <span class="kick kick--plain">En preparación</span>
-        <h2 class="h3">Autonomía real: qué cambia los kilómetros</h2>
-        <p>Cómo medimos, qué variables mueven el número y qué podés esperar en tu
-        terreno. Sale cuando tengamos las pruebas propias fechadas, no antes.</p>
+        <h2 class="h3">Seguridad y condiciones de uso en Argentina</h2>
+        <p>Qué mirar antes de circular, y qué depende de la clasificación del vehículo y de
+        la jurisdicción. No la publicamos hasta tener la revisión legal hecha: preferimos no
+        contestar antes que contestar mal.</p>
       </div>
       <div class="guia-card guia-card--proxima">
         <span class="kick kick--plain">En preparación</span>
-        <h2 class="h3">Cómo cuidar la batería</h2>
-        <p>Carga, guardado, invierno y vida útil. Lo estamos escribiendo con la
-        documentación del fabricante a la vista.</p>
+        <h2 class="h3">Pruebas, clientes y taller</h2>
+        <p>Nuestras pruebas de autonomía con fecha y condiciones, y las historias de quienes
+        ya la están usando. Sale cuando tengamos los casos reales y su autorización: no
+        inventamos testimonios.</p>
       </div>
     </div>
   </div>
