@@ -362,6 +362,33 @@ const FAQS = [
   ["¿Hacen envíos?", "Sí: entregamos sin cargo en zona oeste y coordinamos envío a todo el país, incluido el interior productivo. De todas formas, si podés acercarte a probarla, siempre es mejor: vas a comprar con mucha más seguridad."],
 ];
 
+/* Las preguntas que se ven en la home. Viven aca y no adentro del
+   template para que el bloque visible y el FAQPage salgan del mismo
+   array: si alguien edita una respuesta, el dato estructurado la sigue. */
+const FAQ_HOME = [
+    ["¿Qué modelo conviene para ir y volver del pueblo?", "La SW V20 Pro es el primer modelo a evaluar para recorridos cortos y cotidianos. La elección final depende de la distancia, el terreno, el peso, la carga y la autonomía que se necesite."],
+    ["¿Qué modelo tiene más autonomía publicada?", "La SW V29 Pro aparece con hasta 110 km y doble batería. El resultado real depende de las condiciones de uso; no debe interpretarse como una distancia garantizada para todos los recorridos."],
+    ["¿Puedo probarla antes de comprar?", "Sí. Ofrecemos test ride sin cargo en Castelar, sujeto a disponibilidad. Si quien va a manejar es menor de edad, la prueba se coordina con la madre, el padre o quien sea responsable."],
+    ["¿Dónde se hace el service?", "El service lo hacemos nosotros, en Castelar, con taller propio y stock de los repuestos de mayor rotación. Escribinos y te decimos el proceso y los plazos para tu caso."],
+];
+
+/* Idem, las tres propias de la pagina de service. Las otras cuatro que
+   muestra esa pagina salen de FAQS. */
+const FAQ_SERVICE = [
+    ["¿Qué repuestos se consiguen?", "Tenemos stock de los de mayor rotación: cubiertas, cámaras, pastillas, luces y cargadores. Lo que no está lo pedimos al proveedor. Antes de darte una fecha te confirmamos el stock real de la pieza que necesitás."],
+    ["¿Se puede usar bajo la lluvia?", "Tiene protección contra salpicaduras y podés andar con lluvia normal. Lo que hay que evitar es sumergirla, lavarla con hidrolavadora o dejarla permanentemente a la intemperie."],
+    ["¿Qué hago si necesito un diagnóstico?", "Escribinos con el modelo, la localidad, el problema, cuándo empezó y si la bicicleta tuvo golpes, agua, cambios de batería o modificaciones. Con eso ya te podemos orientar antes de que la traigas."],
+];
+
+/* Un FAQPage a partir de cualquiera de esas listas. */
+const faqLDde = (pares) => ({
+  "@type": "FAQPage",
+  mainEntity: pares.map(([q, a]) => ({
+    "@type": "Question", name: q,
+    acceptedAnswer: { "@type": "Answer", text: a },
+  })),
+});
+
 /* =====================================================================
    HOME
    ===================================================================== */
@@ -426,7 +453,8 @@ const productoLD = (p) => ({
 const destacados = P.filter((p) => p.destacado);
 const homeLD = JSON.stringify({
   "@context": "https://schema.org",
-  "@graph": [negocioLD, { "@type": "WebSite", name: "MC Ebikes", url: SITE + "/", inLanguage: "es-AR" }],
+  "@graph": [negocioLD, { "@type": "WebSite", name: "MC Ebikes", url: SITE + "/", inLanguage: "es-AR" },
+    faqLDde(FAQ_HOME)],
 }, null, 1);
 
 /* Ficha de modelo fotografica. El dato comercial va encima de la foto, que es
@@ -637,12 +665,7 @@ ${P.map(mtile).join("\n")}
       <h2 class="h2">Lo que se pregunta<br>antes de decidir</h2>
     </div>
     <div class="faq rv">
-      ${[
-    ["¿Qué modelo conviene para ir y volver del pueblo?", "La SW V20 Pro es el primer modelo a evaluar para recorridos cortos y cotidianos. La elección final depende de la distancia, el terreno, el peso, la carga y la autonomía que se necesite."],
-    ["¿Qué modelo tiene más autonomía publicada?", "La SW V29 Pro aparece con hasta 110 km y doble batería. El resultado real depende de las condiciones de uso; no debe interpretarse como una distancia garantizada para todos los recorridos."],
-    ["¿Puedo probarla antes de comprar?", "Sí. Ofrecemos test ride sin cargo en Castelar, sujeto a disponibilidad. Si quien va a manejar es menor de edad, la prueba se coordina con la madre, el padre o quien sea responsable."],
-    ["¿Dónde se hace el service?", "El service lo hacemos nosotros, en Castelar, con taller propio y stock de los repuestos de mayor rotación. Escribinos y te decimos el proceso y los plazos para tu caso."],
-  ].map(([q, a]) => faqItem(q, a)).join("")}
+      ${FAQ_HOME.map(([q, a]) => faqItem(q, a)).join("")}
     </div>
     <div style="margin-top:24px" class="rv"><a class="btn btn--g" href="/faq">Ver todas las preguntas frecuentes</a></div>
   </div>
@@ -786,7 +809,7 @@ console.log("✓ productos.html");
 for (const p of P) {
   const ld = JSON.stringify({
     "@context": "https://schema.org",
-    "@graph": [JSON.parse(crumbLD(p.name, p.slug)), productoLD(p)],
+    "@graph": [JSON.parse(crumbLD(p.name, p.slug)), productoLD(p), faqLDde(p.faqs)],
   }, null, 1);
 
   const otros = P.filter((x) => x.slug !== p.slug).slice(0, 3);
@@ -1127,11 +1150,7 @@ const servicio = `
       <h2 class="h2">Lo que nos preguntan<br>después de comprar</h2>
     </div>
     <div class="faq rv">
-      ${[
-    ["¿Qué repuestos se consiguen?", "Tenemos stock de los de mayor rotación: cubiertas, cámaras, pastillas, luces y cargadores. Lo que no está lo pedimos al proveedor. Antes de darte una fecha te confirmamos el stock real de la pieza que necesitás."],
-    ["¿Se puede usar bajo la lluvia?", "Tiene protección contra salpicaduras y podés andar con lluvia normal. Lo que hay que evitar es sumergirla, lavarla con hidrolavadora o dejarla permanentemente a la intemperie."],
-    ["¿Qué hago si necesito un diagnóstico?", "Escribinos con el modelo, la localidad, el problema, cuándo empezó y si la bicicleta tuvo golpes, agua, cambios de batería o modificaciones. Con eso ya te podemos orientar antes de que la traigas."],
-  ].map(([q, a]) => faqItem(q, a)).join("")}
+      ${FAQ_SERVICE.map(([q, a]) => faqItem(q, a)).join("")}
     </div>
     <div style="margin-top:24px" class="rv">
       <a class="btn btn--p" href="${WA_TXT("Hola MC Ebikes, quiero consultar por service y repuestos.")}" target="_blank" rel="noopener">Consultar por service y repuestos</a>
@@ -1141,7 +1160,12 @@ const servicio = `
 </section>
 ${ctaBlock("¿Necesitás service o un repuesto?", "Escribinos y te decimos si lo tenemos en stock y cuánto tarda.")}`;
 writeFileSync(new URL("./servicio.html", import.meta.url), page({
-  slug: "servicio", active: "servicio", ld: crumbLD("Service y garantía", "servicio"),
+  slug: "servicio", active: "servicio",
+  ld: JSON.stringify({
+    "@context": "https://schema.org",
+    "@graph": [JSON.parse(crumbLD("Service y garantía", "servicio")),
+      faqLDde([FAQS[3], FAQS[5], FAQS[4], FAQS[1], ...FAQ_SERVICE])],
+  }, null, 1),
   title: "Service, repuestos y garantía de e-bikes en Castelar | MC Ebikes",
   desc: "12 meses de garantía en cuadro y motor, 6 meses en batería. Taller propio en Castelar, repuestos en stock y service con cara visible.",
   main: servicio,
@@ -1428,6 +1452,7 @@ const fecha_es = (iso) => {
 const GUIAS = [
   {
     slug: "guias-autonomia-real",
+    fecha: "2026-09-08",
     kicker: "Autonomía real",
     h1: "Autonomía real de una bicicleta eléctrica: qué cambia los kilómetros",
     title: "Autonomía real de una bicicleta eléctrica: qué cambia los kilómetros | MC Ebikes",
@@ -1505,6 +1530,7 @@ mi recorrido real y qué reserva quiero tener?</b></p>`,
   },
   {
     slug: "guias-comparacion-modelos",
+    fecha: "2026-09-08",
     kicker: "Comparación",
     h1: "SW V20 Pro vs V29 Pro vs V40 vs S20 Pro: cuál conviene",
     title: "SW V20 Pro vs V29 Pro vs V40 vs S20 Pro: cuál conviene | MC Ebikes",
@@ -1552,6 +1578,7 @@ ${P.map((p) => `<h3>${p.name}</h3>\n<p>${p.limites}</p>`).join("\n")}`,
   },
   {
     slug: "guias-cuidado-bateria",
+    fecha: "2026-09-08",
     kicker: "Cuidado de la batería",
     h1: "Cómo cuidar la batería de una e-bike",
     title: "Cómo cuidar la batería de una e-bike: carga, guardado y vida útil | MC Ebikes",
@@ -1611,6 +1638,7 @@ ni la uses: consultanos antes de seguir.</p>
   },
   {
     slug: "guias-tierra-barro-arena",
+    fecha: "2026-09-08",
     kicker: "Tierra, barro y arena",
     h1: "Fat bike eléctrica para tierra, barro y arena: qué mirar antes de comprar",
     title: "Fat bike eléctrica para tierra, barro y arena: qué mirar | MC Ebikes",
@@ -1665,6 +1693,7 @@ ${P.map((p) => `  <li>${ico(I.check)}<span><b>${p.name}:</b> evaluar para ${p.re
   },
   {
     slug: "guias-delivery-trabajo",
+    fecha: "2026-09-08",
     kicker: "Delivery y trabajo",
     h1: "Bicicleta eléctrica para delivery y trabajo: autonomía, carga y service",
     title: "Bicicleta eléctrica para delivery y trabajo: autonomía, carga y service | MC Ebikes",
@@ -1712,6 +1741,7 @@ el uso cotidiano en el campo.</p>`,
   },
   {
     slug: "guias-como-elegir",
+    fecha: "2026-09-07",
     kicker: "Cómo elegir",
     h1: "Cómo elegir tu e-bike según el recorrido que hacés",
     title: "Cómo elegir una e-bike para el campo según tu recorrido | MC Ebikes",
@@ -1895,7 +1925,20 @@ GUIAS.forEach((g) => {
   writeFileSync(new URL(`./${g.slug}.html`, import.meta.url), page({
     slug: g.slug, active: "guias",
     title: g.title, desc: g.desc,
-    ld: crumbLD(g.kicker, g.slug),
+    ld: JSON.stringify({
+      "@context": "https://schema.org",
+      "@graph": [JSON.parse(crumbLD(g.kicker, g.slug)), {
+        "@type": "Article",
+        headline: g.h1,
+        description: g.desc,
+        inLanguage: "es-AR",
+        datePublished: g.fecha,
+        dateModified: g.fecha,
+        mainEntityOfPage: { "@type": "WebPage", "@id": `${SITE}/${g.slug}` },
+        author: { "@type": "Organization", name: "MC Ebikes", url: SITE + "/" },
+        publisher: { "@type": "Organization", name: "MC Ebikes", url: SITE + "/" },
+      }],
+    }, null, 1),
     main: guiaPage(g),
   }));
   console.log("✓ " + g.slug + ".html");
