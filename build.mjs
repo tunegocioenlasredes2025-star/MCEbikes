@@ -519,7 +519,7 @@ const home = `
       <a class="btn btn--g" href="/test-ride">Ver cómo funciona el test ride ${ico(I.arrow, 2.2)}</a>
     </div>
     <figure class="marco rv">
-      <img src="assets/escenas/eligiendo.webp" alt="Un adulto y un joven mirando juntos dos fat e-bikes en el patio de una casa de campo" loading="lazy" width="1200" height="900">
+      <img src="assets/escenas/eligiendo.webp" alt="Un padre y su hijo de pie junto a dos fat e-bikes frente a una casa de campo al atardecer" loading="lazy" width="1200" height="900">
       <figcaption>La decisión se toma entre los dos</figcaption>
     </figure>
   </div>
