@@ -1389,10 +1389,11 @@ const POLITICAS = [
     <p class="lead">Acá explicamos cómo llega tu MC y qué derechos tenés si querés devolverla o si aparece una falla.</p>
     <h2>Entregas</h2>
     <p>Entregamos en el local de Castelar, donde también podés retirarla y hacer la revisión inicial con nosotros. Coordinamos envíos a otras localidades: el costo y el plazo dependen del destino, así que te los confirmamos antes de cerrar la operación.</p>
-    <p>Te recomendamos revisar la bicicleta al recibirla, delante de quien la entrega, y dejar asentado en el momento cualquier daño de transporte.</p>
+    <p>Las baterías de litio no pueden viajar en avión, así que los envíos al interior van por transporte terrestre.</p>
+    <p>Te recomendamos revisar la caja al recibirla, delante de quien la entrega. Si llega golpeada, mojada o abierta, anotalo en el remito antes de firmar; si el daño es grave, no la recibas y avisanos en el momento. Firmar sin observaciones hace más difícil reclamar después al transporte.</p>
     <h2>Derecho de arrepentimiento</h2>
     <p>Si la compra se hizo a distancia, es decir por WhatsApp, teléfono o correo y sin haber pasado por el local, la Ley 24.240 te da <strong>diez días corridos desde la entrega para arrepentirte</strong>, sin necesidad de explicar por qué. La bicicleta tiene que estar sin uso y en las mismas condiciones en que la recibiste, con su embalaje y sus accesorios. El costo de la devolución corre por nuestra cuenta.</p>
-    <p>Para ejercerlo, escribinos a <a href="mailto:${MAIL}">${MAIL}</a> o por WhatsApp dentro de ese plazo.</p>
+    <p>Para ejercerlo, escribinos a <a href="mailto:${MAIL}">${MAIL}</a> o por WhatsApp dentro de ese plazo. No despaches la bicicleta sin coordinar antes: te pedimos unas fotos de cómo está y te decimos cómo la retiramos. El reintegro se hace por el mismo medio de pago que usaste para comprar.</p>
     <h2>Si aparece una falla</h2>
     <p>Si la bicicleta tiene un defecto cubierto por la garantía, la reparamos en nuestro taller de Castelar. Escribinos contándonos qué pasa, con fotos o un video si se puede, y coordinamos la revisión. Si la reparación no resuelve el problema, la Ley 24.240 te habilita a pedir el cambio del producto, la devolución del dinero o una quita proporcional del precio.</p>
     <h2>Cambios por otro modelo</h2>
@@ -1825,6 +1826,105 @@ demostración cuando estemos en tu zona.</p>
       ["Nuestra experiencia de entrega y service en Castelar", "Los rangos de ajuste por terreno y peso, y el margen del 30 %, son criterios de trabajo propios. No son una medición certificada."],
     ],
   },
+  {
+    slug: "guias-mantenimiento",
+    fecha: "2026-09-14",
+    kicker: "Mantenimiento",
+    h1: "Mantenimiento básico de una fat e-bike: qué hacer vos y cuándo llevarla al taller",
+    title: "Mantenimiento básico de una fat e-bike: guía paso a paso | MC Ebikes",
+    desc: "Cómo mantener una bicicleta eléctrica fat: presión de cubiertas, limpieza, cadena, frenos, batería, ajustes, electrónica y service anual.",
+    lead: "Una fat e-bike bien cuidada dura muchos años. La mayor parte del mantenimiento lo podés hacer vos en diez minutos por mes; lo que no conviene tocar en casa, lo resolvemos en el taller.",
+    ind: [
+      ["cubiertas", "Presión de las cubiertas"],
+      ["limpieza", "Limpieza"],
+      ["cadena", "Cadena"],
+      ["frenos", "Frenos"],
+      ["bateria", "Batería"],
+      ["ajustes", "Cambios, rayos y tornillos"],
+      ["electronica", "Display, conectores y motor"],
+      ["taller", "El service anual"],
+      ["rutina", "La rutina de cada mes"],
+    ],
+    cuerpo: `
+<h2 id="cubiertas">Presión de las cubiertas</h2>
+<p>Es lo primero que conviene mirar y lo que más se olvida. Con poca presión la bici se
+siente pesada, el motor trabaja más y la batería rinde menos; con demasiada, pierde agarre
+y rebota en el camino.</p>
+<p>El rango correcto está grabado en el costado de cada cubierta: respetalo siempre. Dentro
+de ese rango, un poco menos de presión ayuda en tierra y arena, y un poco más rinde mejor en
+asfalto. Revisala antes de cada salida larga y más seguido cuando hace calor, porque la
+presión sube con la temperatura.</p>
+
+<h2 id="limpieza">Limpieza</h2>
+<p>Alcanza con agua, un poco de detergente suave y un paño; para la cadena, un cepillo de
+cerdas blandas. Lo que hay que evitar es la hidrolavadora y la manguera a presión: el agua a presión se mete por las
+juntas del motor, la batería y el display, y eso sí la daña.</p>
+<p>Después de andar por barro, limpiala ese mismo día, antes de que se seque. Y si la usás
+en zonas húmedas, secá bien los conectores antes de guardarla.</p>
+
+<h2 id="cadena">Cadena</h2>
+<p>La cadena es la pieza que más trabaja. Lubricala con lubricante específico para
+bicicleta cada 250 km aproximadamente, o antes si la escuchás seca o después de un día de
+barro. No uses aceite de motor ni desengrasante como lubricante: juntan tierra y la gastan
+más rápido.</p>
+<p>Poné una gota por eslabón, dejá que actúe unos minutos y sacá el sobrante con un trapo
+seco. Una cadena con exceso de lubricante también junta polvo.</p>
+
+<h2 id="frenos">Frenos</h2>
+<p>Una fat e-bike pesa más que una bicicleta común, así que los frenos trabajan más. Una vez
+por mes probá el tacto de las palancas y escuchá si aparece un ruido metálico al frenar: son
+las dos señales de que las pastillas están gastadas.</p>
+<p>Si notás que frena menos, no salgas: consultanos. Es el único punto donde no conviene
+esperar al próximo service.</p>
+
+<h2 id="bateria">Batería</h2>
+<p>Cargala con el cargador que vino con la bicicleta. Si no la vas a usar por varias semanas,
+guardala aproximadamente a la mitad de carga, en un lugar seco y lejos del sol, y no la
+dejes descargada del todo durante meses. El calor de un auto cerrado o de un galpón al sol
+la gasta más que el uso.</p>
+<p>Todo el detalle está en la <a href="/guias-cuidado-bateria">guía de cuidado de la
+batería</a>.</p>
+
+<h2 id="ajustes">Cambios, rayos y tornillos</h2>
+<p>El camino de tierra y el peso de la bici aflojan cosas con el tiempo. Cada 500 km
+aproximadamente conviene hacer una revisión rápida:</p>
+<ul class="ticks">
+  <li>${ico(I.check)}<span>Que los cambios entren suaves, sin saltar ni tardar</span></li>
+  <li>${ico(I.check)}<span>Pasar la mano por los rayos de las dos ruedas para notar si alguno está flojo</span></li>
+  <li>${ico(I.check)}<span>Manubrio, asiento, portaequipaje y guardabarros bien firmes</span></li>
+  <li>${ico(I.check)}<span>El cuadro, sobre todo en las soldaduras, sin fisuras ni deformaciones</span></li>
+</ul>
+<p>Si encontrás juego en el eje del motor o una marca en el cuadro, no lo ajustes vos:
+traela al taller.</p>
+
+<h2 id="electronica">Display, conectores y motor</h2>
+<p>Al display pasale un paño seco, o apenas humedecido, sin alcohol ni solventes. Después
+de andar con lluvia, mirá que los conectores no tengan humedad ni sulfato.</p>
+<p>El motor no necesita mantenimiento de tu parte. Si hace un ruido que antes no hacía,
+escribinos con el modelo y cuándo empezó, en vez de desarmarlo.</p>
+
+<h2 id="taller">El service anual</h2>
+<p>Aunque la cuides bien en casa, una vez por año conviene que la revise un taller que
+conozca fat e-bikes: cuánto se estiró la cadena, los rodamientos, los frenos, el
+cableado y la batería. En el <a href="/servicio">taller de Castelar</a> lo hacemos nosotros,
+con los repuestos de mayor rotación en stock.</p>
+
+<h2 id="rutina">La rutina de cada mes</h2>
+<p>Diez minutos, sin herramientas especiales:</p>
+<ul class="ticks">
+  <li>${ico(I.check)}<span>Presión de las cubiertas, dentro del rango del costado</span></li>
+  <li>${ico(I.check)}<span>Frenos: tacto de las palancas y sin ruido metálico</span></li>
+  <li>${ico(I.check)}<span>Cadena limpia y lubricada</span></li>
+  <li>${ico(I.check)}<span>Luces funcionando</span></li>
+  <li>${ico(I.check)}<span>Tornillos, portaequipaje y guardabarros firmes</span></li>
+  <li>${ico(I.check)}<span>Batería y cargador sin golpes ni daños visibles</span></li>
+  <li>${ico(I.check)}<span>El kilometraje anotado, para saber cuándo toca el service</span></li>
+</ul>`,
+    fuentes: [
+      ["Documentación del fabricante", "Los cuidados y los intervalos siguen las indicaciones generales de los fabricantes. Si el manual de tu unidad dice otra cosa, manda el manual."],
+      ["Nuestro taller en Castelar", "El orden de revisión y las fallas más comunes salen de lo que vemos en el service."],
+    ],
+  },
 ];
 
 const guiaPage = (g) => `
@@ -1837,7 +1937,7 @@ const guiaPage = (g) => `
     <span class="kick">Guías y respuestas</span>
     <h1>${g.h1}</h1>
     <p>${g.lead}</p>
-    <p class="guia__meta">Actualizada el ${fecha_es(ACTUALIZADO)} · Revisada por ${REVISOR}</p>
+    <p class="guia__meta">Actualizada el ${fecha_es(g.fecha || ACTUALIZADO)} · Revisada por ${REVISOR}</p>
   </div>
 </section>
 
@@ -1891,7 +1991,7 @@ const guiasHub = `
         <span class="kick">${g.kicker}</span>
         <h2 class="h3">${g.h1}</h2>
         <p>${g.lead}</p>
-        <span class="guia-card__pie">Actualizada el ${fecha_es(ACTUALIZADO)} ${ico(I.arrow, 2.2)}</span>
+        <span class="guia-card__pie">Actualizada el ${fecha_es(g.fecha || ACTUALIZADO)} ${ico(I.arrow, 2.2)}</span>
       </a>`).join("")}
       <div class="guia-card guia-card--proxima">
         <span class="kick kick--plain">En preparación</span>
