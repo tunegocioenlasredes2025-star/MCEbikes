@@ -61,7 +61,7 @@ const waIcon = `<svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
    del hero la barra es transparente y entra el trazado en blanco (el mismo
    que aprobo el cliente en la propuesta elegida); apenas se scrollea vuelve
    la barra clara con el logo en su color original. */
-const LOGO = (h = 48) => `<img class="lg-color" src="assets/img/logo-horizontal.webp?v=${V}" alt="MC E-Bikes" height="${h}" width="${Math.round(h * 3)}" style="height:${h}px;width:auto"><img class="lg-blanco" src="assets/img/MC-E-Bikes-horizontal-blanco.svg?v=${V}" alt="" aria-hidden="true" height="${h}" width="${Math.round(h * 3)}" style="height:${h}px;width:auto">`;
+const LOGO = (h = 48) => `<img class="lg" src="assets/img/MC-E-Bikes-horizontal-color.svg?v=${V}" alt="MC E-Bikes" height="${h}" width="${Math.round(h * 3)}" style="height:${h}px;width:auto">`;
 
 /* Tagline oficial (anexo del Manual de Marca v1.0) */
 const TAGLINE = "Tu mundo se mueve con vos";
@@ -263,6 +263,7 @@ function footer() {
           <li><a href="/nosotros">Nosotros</a></li>
           <li><a href="/faq">Preguntas frecuentes</a></li>
           <li><a href="/guias">Guías y respuestas</a></li>
+          <li><a href="/manuales">Manuales de usuario</a></li>
           <li><a href="/contacto">Contacto</a></li>
         </ul>
       </div>
@@ -1344,6 +1345,28 @@ const legalPage = (kick, h1, cuerpo) => `
 </section>`;
 
 const POLITICAS = [
+  ["manuales", "Manuales", "Manuales de usuario",
+   "Descargá el manual de usuario oficial de tu ENGWE: E26, EP-2 Pro, Engine Pro 2, L20 2.0, M20, T14, X26, N1 Air y M1.", `
+    <p class="lead">Acá están los manuales de usuario oficiales de ENGWE. Son los que publica el fabricante, así que siempre vas a estar leyendo la última versión. Si tu modelo no figura, escribinos y te lo pasamos.</p>
+    <h2>Descargar el manual</h2>
+    <ul>
+      ${[
+    ["E26", "2026/01/E26-ENGWE-BicicletaElectrica-Manual-de-Usuario.pdf"],
+    ["Engine Pro 2", "2026/01/Engine-Pro2-ENGWE-BicicletaElectrica-Manual-de-Usuario.pdf"],
+    ["EP-2 Pro", "2026/01/EP2-Pro-ENGWE-BicicletaElectrica-Manual-de-Usuario.pdf"],
+    ["L20 2.0", "2026/02/L20-2.0-manual-de-usuario.pdf"],
+    ["M1", "2026/07/M1Manual.pdf"],
+    ["M20", "2026/01/M20-ENGWE-BicicletaElectrica-Manual-de-Usuario.pdf"],
+    ["N1 Air", "2026/07/N1AirManual.pdf"],
+    ["T14", "2026/01/T14-ENGWE-BicicletaElectrica-Manual-de-Usuario.pdf"],
+    ["X26", "2026/07/X26Manual.pdf"],
+  ].map(([m, u]) => `<li><a href="https://www.engwe.com.ar/2026/wp-content/uploads/${u}" target="_blank" rel="noopener">Manual de usuario ${m}</a> (PDF)</li>`).join("")}
+    </ul>
+    <h2>Antes de la primera salida</h2>
+    <p>El manual trae el armado, la carga de la batería, los límites de uso y el mantenimiento que le corresponde a tu modelo. Vale la pena leer al menos la parte de carga y la de frenos antes de usarla.</p>
+    <p>Si algo del manual no coincide con lo que te dijimos en el local, decinos: manda el manual y lo corregimos.</p>
+    <h2>Dudas o service</h2>
+    <p>El mantenimiento del día a día está explicado en nuestra <a href="/guias-mantenimiento">guía de mantenimiento</a>. Si necesitás una revisión o un repuesto, <a href="/servicio">el service lo hacemos nosotros en Castelar</a>.</p>`],
   ["privacidad", "Privacidad", "Política de privacidad",
    "Qué datos recibimos cuando usás el sitio de MC Ebikes, para qué los usamos y cómo pedir que los borremos.", `
     <p class="lead">Esta página explica qué datos recibimos cuando usás el sitio de MC Ebikes, para qué los usamos y cómo pedir que los borremos. Está redactada siguiendo la Ley 25.326 de Protección de Datos Personales.</p>
@@ -2055,7 +2078,7 @@ writeFileSync(new URL("./site.webmanifest", import.meta.url), JSON.stringify({
 
 const urls = [["", "1.0"], ["productos", "0.9"], ["test-ride", "0.9"], ["servicio", "0.8"],
 ["nosotros", "0.7"], ["faq", "0.7"], ["contacto", "0.8"],
-["privacidad", "0.3"], ["terminos", "0.3"], ["envios", "0.5"],
+["privacidad", "0.3"], ["terminos", "0.3"], ["envios", "0.5"], ["manuales", "0.6"],
 ["guias", "0.8"], ...GUIAS.map((g) => [g.slug, "0.7"]),
 ...P.map((p) => [p.slug, "0.9"])];
 const today = new Date().toISOString().slice(0, 10);

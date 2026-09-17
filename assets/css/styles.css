@@ -796,10 +796,15 @@ p,li,.lead,.prose{line-height:1.6}
    En el home la barra flota sobre la foto con el logo en blanco, como en la
    propuesta elegida, y recien al scrollear se vuelve la barra clara con el
    logo del cliente en su color original. */
-.brand .lg-blanco{display:none}
+/* El logo va SIEMPRE en su color. Sobre fondo oscuro se apoya en una placa
+   hueso; sobre fondo claro la placa no se nota porque es el mismo color. */
+body[data-pagina="index"] .hdr:not(.solid) .brand,
+.ftr .brand{background:var(--hueso);padding:7px 13px;border-radius:12px}
+@media (max-width:600px){
+  body[data-pagina="index"] .hdr:not(.solid) .brand,
+  .ftr .brand{padding:5px 10px;border-radius:10px}
+}
 body[data-pagina="index"] .hdr:not(.solid){background:transparent;border-bottom-color:transparent}
-body[data-pagina="index"] .hdr:not(.solid) .lg-color{display:none}
-body[data-pagina="index"] .hdr:not(.solid) .lg-blanco{display:block}
 body[data-pagina="index"] .hdr:not(.solid) .nav a{color:var(--hueso)}
 body[data-pagina="index"] .hdr:not(.solid) .nav a:hover{background:rgba(245,243,239,.1)}
 body[data-pagina="index"] .hdr:not(.solid) .nav a.on{color:var(--naranja)}
@@ -1048,7 +1053,7 @@ select.sel{background:var(--sup);border-color:var(--borde-2);color:var(--texto)}
 .hdr.solid{background:rgba(244,240,232,.94);backdrop-filter:blur(12px);
   border-bottom-color:var(--borde)}
 .nav a{color:var(--carbon)}
-.ftr .brand{background:transparent;padding:0;margin-bottom:18px}
+.ftr .brand{margin-bottom:18px}
 
 /* ---------- cierre ----------
    El cierre editorial pasa a hueso y el naranja queda solo en el boton,
@@ -1061,8 +1066,6 @@ select.sel{background:var(--sup);border-color:var(--borde-2);color:var(--texto)}
 
 /* El pie sigue en grafito, asi que ahi va el trazado en blanco en vez de
    la placa clara que necesitaba el logo gris del cliente. */
-.ftr .brand .lg-color{display:none}
-.ftr .brand .lg-blanco{display:block}
 
 /* =====================================================================
    RECOMENDADOR Y ALTERNATIVA DE CONTACTO
