@@ -482,7 +482,7 @@ const home = `
 <section class="hero">
   <div class="hero__bg"><img src="assets/escenas/llegada.webp"
     srcset="assets/escenas/llegada-sm.webp 900w, assets/escenas/llegada-md.webp 1200w, assets/escenas/llegada.webp 1448w" sizes="100vw"
-    alt="Familia probando una fat e-bike MC Ebikes en un camino entre el campo y el pueblo" fetchpriority="high" width="1448" height="1086"></div>
+    alt="Hombre sonriendo mientras anda una fat e-bike MC por el camino de entrada de una casa de campo" fetchpriority="high" width="1448" height="1086"></div>
   <span class="vert">Tu mundo se mueve con vos</span>
   <div class="wrap">
     <span class="kick">Para el campo argentino</span>
@@ -653,7 +653,7 @@ ${P.map(mtile).join("\n")}
       <a class="btn btn--p btn--lg" href="/test-ride">Reservar test ride en familia ${ico(I.arrow, 2.2)}</a>
     </div>
     <figure class="marco rv">
-      <img src="assets/escenas/calle-pueblo.webp" alt="Adolescente con casco andando una fat e-bike por una calle arbolada de pueblo" loading="lazy" width="1200" height="900">
+      <img src="assets/escenas/calle-pueblo.webp" alt="Adolescente con casco y mochila sonriendo mientras anda una fat e-bike por una calle arbolada de pueblo" loading="lazy" width="1200" height="900">
       <figcaption>Entre casa y pueblo, todos los días</figcaption>
     </figure>
   </div>
