@@ -868,6 +868,20 @@ body[data-pagina="index"] .hdr:not(.solid) .btn--p:hover{background:var(--hueso)
 /* La escena del hero tiene la bici a la derecha: en pantallas angostas el
    recorte se la come, asi que el encuadre se corre hacia ese lado. */
 @media (max-width:900px){.hero__bg img{object-position:64% 38%}}
+
+/* En pantalla angosta la foto es horizontal y el hero es alto: por mucho velo
+   que se le ponga, el texto siempre cae encima de la bici. Asi que ahi se deja
+   de superponer: la foto va entera arriba, en su 4:3, y el texto abajo sobre
+   el fondo solido. */
+@media (max-width:760px){
+  .hero{min-height:0;display:block;padding-block:var(--nav-h) 0;background:var(--asfalto)}
+  .hero__bg{position:relative;inset:auto;z-index:0;width:100%;aspect-ratio:4/3}
+  .hero__bg img{object-position:58% 42%}
+  .hero__bg::after{background:linear-gradient(180deg,rgba(20,22,26,.6) 0%,
+    rgba(20,22,26,0) 26%,rgba(20,22,26,0) 72%,rgba(20,22,26,.5) 92%,var(--asfalto) 100%)}
+  .hero .wrap{padding-top:clamp(18px,4vw,28px);padding-bottom:clamp(30px,8vw,46px)}
+  .hero h1{max-width:none}
+}
 /* Los tres datos tecnicos que la tarjeta anterior mostraba en la home y que
    la ficha fotografica se habia comido. Van entre el nombre y el precio, en
    la condensada de datos y sin competir con el titular. */
