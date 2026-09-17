@@ -170,10 +170,10 @@ body.menu .mnav{transform:none;visibility:visible}
 .hero__bg{position:absolute;inset:0;z-index:-2}
 .hero__bg img{width:100%;height:100%;object-fit:cover;object-position:center 55%}
 .hero__bg::after{content:"";position:absolute;inset:0;
-  background:linear-gradient(180deg,rgba(20,22,26,.55) 0%,rgba(20,22,26,0) 24%,rgba(20,22,26,.08) 48%,rgba(20,22,26,.74) 84%,var(--asfalto) 100%)}
+  background:linear-gradient(180deg,rgba(20,22,26,.55) 0%,rgba(20,22,26,0) 20%,rgba(20,22,26,.18) 40%,rgba(20,22,26,.62) 56%,rgba(20,22,26,.88) 78%,var(--asfalto) 100%)}
 @media (min-width:901px){
   .hero__bg::after{background:
-    linear-gradient(90deg,rgba(20,22,26,.62) 0%,rgba(20,22,26,.32) 38%,rgba(20,22,26,0) 62%),
+    linear-gradient(90deg,rgba(20,22,26,.8) 0%,rgba(20,22,26,.58) 42%,rgba(20,22,26,0) 70%),
     linear-gradient(180deg,rgba(20,22,26,.55) 0%,rgba(20,22,26,0) 22%,rgba(20,22,26,0) 62%,rgba(20,22,26,.6) 90%,var(--asfalto) 100%)}
 }
 .hero h1{color:#fff;max-width:15ch}
@@ -639,7 +639,7 @@ p,li,.lead,.prose{line-height:1.6}
 /* ---------- HERO editorial ----------
    La decision central de la estrategia: primero el momento y el territorio,
    despues la maquina. El hero deja de ser una foto de producto. */
-.hero__bg img{object-position:center 58%}
+.hero__bg img{object-position:center 46%}
 .hero .vert{position:absolute;top:50%;right:clamp(16px,3vw,38px);
   transform:translateY(-50%) rotate(90deg);transform-origin:right center;
   font-family:var(--c);font-weight:600;font-size:10.5px;letter-spacing:.42em;
@@ -867,7 +867,7 @@ body[data-pagina="index"] .hdr:not(.solid) .btn--p:hover{background:var(--hueso)
 
 /* La escena del hero tiene la bici a la derecha: en pantallas angostas el
    recorte se la come, asi que el encuadre se corre hacia ese lado. */
-@media (max-width:900px){.hero__bg img{object-position:72% 58%}}
+@media (max-width:900px){.hero__bg img{object-position:64% 38%}}
 /* Los tres datos tecnicos que la tarjeta anterior mostraba en la home y que
    la ficha fotografica se habia comido. Van entre el nombre y el precio, en
    la condensada de datos y sin competir con el titular. */
