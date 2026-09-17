@@ -8,8 +8,8 @@
   /* ---- Paleta del Manual de Marca v1.0 (cap. 7) ---- */
   --carbon:#14161A;      /* base, fondo dominante         */
   --hueso:#F5F3EF;       /* base clara, texto principal    */
-  --naranja:#D9622B;     /* acento: CTA y datos clave      */
-  --monte:#2F3A2A;       /* secundario, contexto rural     */
+  --naranja:#DE6A2D;     /* acento: CTA y datos clave      */
+  --monte:#55693F;       /* verde oliva medio, contexto rural */
   --piedra:#8A8680;      /* texto secundario y divisorias  */
 
   /* Superficies derivadas del Negro Carbon */
@@ -18,8 +18,8 @@
   --carbon-3:#2C3138;
   --linea:#262A30;
   --linea-2:#343941;
-  --naranja-hi:#E8763F;
-  --naranja-lo:#B84E1E;
+  --naranja-hi:#EE7F46;
+  --naranja-lo:#C25520;
   --piedra-2:#5F5C57;
 
   /* ---- Alias del sistema anterior -> apuntan a la paleta nueva ----
